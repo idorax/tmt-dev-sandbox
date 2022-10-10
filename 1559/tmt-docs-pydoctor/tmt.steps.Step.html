@@ -1,0 +1,1941 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.steps.Step</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="tmt.steps.Step.html" class="internal-link" title="This class"><wbr></wbr>Step</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#usage" class="internal-link" title="tmt.steps.Step.usage">usage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="tmt.steps.Step.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#actions" class="internal-link" title="tmt.steps.Step.actions">actions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#data.setter" class="internal-link" title="tmt.steps.Step.data.setter">data<wbr></wbr>.setter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#go" class="internal-link" title="tmt.steps.Step.go">go</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#load" class="internal-link" title="tmt.steps.Step.load">load</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#phases" class="internal-link" title="tmt.steps.Step.phases">phases</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#save" class="internal-link" title="tmt.steps.Step.save">save</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#setup_actions" class="internal-link" title="tmt.steps.Step.setup_actions">setup<wbr></wbr>_actions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#status" class="internal-link" title="tmt.steps.Step.status">status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#wake" class="internal-link" title="tmt.steps.Step.wake">wake</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_normalize_data" class="internal-link" title="tmt.steps.Step._normalize_data">_normalize<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#__str__" class="internal-link" title="tmt.utils.Common.__str__">__str__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#debug" class="internal-link" title="tmt.utils.Common.debug">debug</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#fail" class="internal-link" title="tmt.utils.Common.fail">fail</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#info" class="internal-link" title="tmt.utils.Common.info">info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#opt" class="internal-link" title="tmt.utils.Common.opt">opt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#print" class="internal-link" title="tmt.utils.Common.print">print</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#read" class="internal-link" title="tmt.utils.Common.read">read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#run" class="internal-link" title="tmt.utils.Common.run">run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#verbose" class="internal-link" title="tmt.utils.Common.verbose">verbose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#warn" class="internal-link" title="tmt.utils.Common.warn">warn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#write" class="internal-link" title="tmt.utils.Common.write">write</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_opt" class="internal-link" title="tmt.utils.Common._opt">_opt</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_save_context" class="internal-link" title="tmt.utils.Common._save_context">_save<wbr></wbr>_context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_fmf_context" class="internal-link" title="tmt.utils.Common._fmf_context">_fmf<wbr></wbr>_context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_indent" class="internal-link" title="tmt.utils.Common._indent">_indent</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_level" class="internal-link" title="tmt.utils.Common._level">_level</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_log" class="internal-link" title="tmt.utils.Common._log">_log</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_run" class="internal-link" title="tmt.utils.Common._run">_run</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_save_context_to_instance" class="internal-link" title="tmt.utils.Common._save_context_to_instance">_save<wbr></wbr>_context<wbr></wbr>_to<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_cleanup" class="internal-link" title="tmt.utils.Common._workdir_cleanup">_workdir<wbr></wbr>_cleanup</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_init" class="internal-link" title="tmt.utils.Common._workdir_init">_workdir<wbr></wbr>_init</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_load" class="internal-link" title="tmt.utils.Common._workdir_load">_workdir<wbr></wbr>_load</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_name" class="internal-link" title="tmt.utils.Common._workdir_name">_workdir<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_HOW" class="internal-link" title="tmt.steps.Step.DEFAULT_HOW">DEFAULT<wbr></wbr>_HOW</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#data" class="internal-link" title="tmt.steps.Step.data">data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plan" class="internal-link" title="tmt.steps.Step.plan">plan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#enabled" class="internal-link" title="tmt.steps.Step.enabled">enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#plugins_in_standalone_mode" class="internal-link" title="tmt.steps.Step.plugins_in_standalone_mode">plugins<wbr></wbr>_in<wbr></wbr>_standalone<wbr></wbr>_mode</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_plugin_base_class" class="internal-link" title="tmt.steps.Step._plugin_base_class">_plugin<wbr></wbr>_base<wbr></wbr>_class</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_data" class="internal-link" title="tmt.steps.Step._data">_data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_phases" class="internal-link" title="tmt.steps.Step._phases">_phases</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_raw_data" class="internal-link" title="tmt.steps.Step._raw_data">_raw<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_status" class="internal-link" title="tmt.steps.Step._status">_status</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#ignore_class_options" class="internal-link" title="tmt.utils.Common.ignore_class_options">ignore<wbr></wbr>_class<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#name" class="internal-link" title="tmt.utils.Common.name">name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#parent" class="internal-link" title="tmt.utils.Common.parent">parent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#safe_name" class="internal-link" title="tmt.utils.Common.safe_name">safe<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#workdir" class="internal-link" title="tmt.utils.Common.workdir">workdir</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_context" class="internal-link" title="tmt.utils.Common._context">_context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_options" class="internal-link" title="tmt.utils.Common._options">_options</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_relative_indent" class="internal-link" title="tmt.utils.Common._relative_indent">_relative<wbr></wbr>_indent</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir" class="internal-link" title="tmt.utils.Common._workdir">_workdir</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="tmt.steps.html" class="internal-link" title="The parent of this class">steps</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.discover.html" class="internal-link" title="tmt.steps.discover">discover</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.execute.html" class="internal-link" title="tmt.steps.execute">execute</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.finish.html" class="internal-link" title="tmt.steps.finish">finish</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.prepare.html" class="internal-link" title="tmt.steps.prepare">prepare</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html" class="internal-link" title="tmt.steps.provision">provision</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.report.html" class="internal-link" title="tmt.steps.report">report</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Action.html" class="internal-link" title="tmt.steps.Action"><wbr></wbr>Action</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.BasePlugin.html" class="internal-link" title="tmt.steps.BasePlugin"><wbr></wbr>Base<wbr></wbr>Plugin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.GuestlessPlugin.html" class="internal-link" title="tmt.steps.GuestlessPlugin"><wbr></wbr>Guestless<wbr></wbr>Plugin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Login.html" class="internal-link" title="tmt.steps.Login"><wbr></wbr>Login</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Method.html" class="internal-link" title="tmt.steps.Method"><wbr></wbr>Method</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Phase.html" class="internal-link" title="tmt.steps.Phase"><wbr></wbr>Phase</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Plugin.html" class="internal-link" title="tmt.steps.Plugin"><wbr></wbr>Plugin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.PluginIndex.html" class="internal-link" title="tmt.steps.PluginIndex"><wbr></wbr>Plugin<wbr></wbr>Index</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Reboot.html" class="internal-link" title="tmt.steps.Reboot"><wbr></wbr>Reboot</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.Step.html" class="internal-link" title="tmt.steps.Step"><wbr></wbr>Step</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.StepData.html" class="internal-link" title="tmt.steps.StepData"><wbr></wbr>Step<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.WhereableStepData.html" class="internal-link" title="tmt.steps.WhereableStepData"><wbr></wbr>Whereable<wbr></wbr>Step<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#provides_method" class="internal-link" title="tmt.steps.provides_method">provides<wbr></wbr>_method</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#ACTIONS" class="internal-link" title="tmt.steps.ACTIONS">ACTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#DEFAULT_PLUGIN_METHOD_ORDER" class="internal-link" title="tmt.steps.DEFAULT_PLUGIN_METHOD_ORDER">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_METHOD<wbr></wbr>_ORDER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#PHASE_BASE" class="internal-link" title="tmt.steps.PHASE_BASE">PHASE<wbr></wbr>_BASE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#PHASE_END" class="internal-link" title="tmt.steps.PHASE_END">PHASE<wbr></wbr>_END</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#PHASE_START" class="internal-link" title="tmt.steps.PHASE_START">PHASE<wbr></wbr>_START</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#STEPS" class="internal-link" title="tmt.steps.STEPS">STEPS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#PhaseT" class="internal-link" title="tmt.steps.PhaseT"><wbr></wbr>Phase<wbr></wbr>T</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#T" class="internal-link" title="tmt.steps.T">T</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#RawStepDataArgument" class="internal-link" title="tmt.steps.RawStepDataArgument"><wbr></wbr>Raw<wbr></wbr>Step<wbr></wbr>Data<wbr></wbr>Argument</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html#_RawStepData" class="internal-link" title="tmt.steps._RawStepData">_<wbr></wbr>Raw<wbr></wbr>Step<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.steps.html" class="internal-link" title="tmt.steps">steps</a></code><wbr></wbr>.<code><a href="tmt.steps.Step.html" class="internal-link" title="tmt.steps.Step">Step</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">Step</span>(<a href="tmt.utils.Common.html" class="internal-link">tmt.utils.Common</a>):</code></p><p>Known subclasses: <code><a href="tmt.steps.discover.Discover.html" class="internal-link">tmt.steps.discover.Discover</a></code>, <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.finish.Finish.html" class="internal-link">tmt.steps.finish.Finish</a></code>, <code><a href="tmt.steps.prepare.Prepare.html" class="internal-link">tmt.steps.prepare.Prepare</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code>, <code><a href="tmt.steps.report.Report.html" class="internal-link">tmt.steps.report.Report</a></code></p>
+          <p><a href="classIndex.html#tmt.steps.Step">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Common parent of all test steps</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id395">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#usage" class="internal-link" title="tmt.steps.Step.usage">usage</a></code></td>
+    <td>Prepare general usage message for the step</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="tmt.steps.Step.__init__">__init__</a></code></td>
+    <td>Initialize and check the step data</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#actions" class="internal-link" title="tmt.steps.Step.actions">actions</a></code></td>
+    <td>Run all loaded Login or Reboot action instances of the step</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#data.setter" class="internal-link" title="tmt.steps.Step.data.setter">data<wbr></wbr>.setter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#go" class="internal-link" title="tmt.steps.Step.go">go</a></code></td>
+    <td>Execute the test step</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#load" class="internal-link" title="tmt.steps.Step.load">load</a></code></td>
+    <td>Load status and step data from the workdir</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#phases" class="internal-link" title="tmt.steps.Step.phases">phases</a></code></td>
+    <td>Iterate over phases by their order</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#save" class="internal-link" title="tmt.steps.Step.save">save</a></code></td>
+    <td>Save status and step data to the workdir</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#setup_actions" class="internal-link" title="tmt.steps.Step.setup_actions">setup<wbr></wbr>_actions</a></code></td>
+    <td>Insert login and reboot plugins if requested</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#status" class="internal-link" title="tmt.steps.Step.status">status</a></code></td>
+    <td>Get and set current step status</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#wake" class="internal-link" title="tmt.steps.Step.wake">wake</a></code></td>
+    <td>Wake up the step (process workdir and command line)</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_HOW" class="internal-link" title="tmt.steps.Step.DEFAULT_HOW">DEFAULT<wbr></wbr>_HOW</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#data" class="internal-link" title="tmt.steps.Step.data">data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#plan" class="internal-link" title="tmt.steps.Step.plan">plan</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#enabled" class="internal-link" title="tmt.steps.Step.enabled">enabled</a></code></td>
+    <td>True if the step is enabled</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#plugins_in_standalone_mode" class="internal-link" title="tmt.steps.Step.plugins_in_standalone_mode">plugins<wbr></wbr>_in<wbr></wbr>_standalone<wbr></wbr>_mode</a></code></td>
+    <td>The number of plugins in standalone mode.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_normalize_data" class="internal-link" title="tmt.steps.Step._normalize_data">_normalize<wbr></wbr>_data</a></code></td>
+    <td>Normalize step data entries.</td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_plugin_base_class" class="internal-link" title="tmt.steps.Step._plugin_base_class">_plugin<wbr></wbr>_base<wbr></wbr>_class</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_data" class="internal-link" title="tmt.steps.Step._data">_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_phases" class="internal-link" title="tmt.steps.Step._phases">_phases</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_raw_data" class="internal-link" title="tmt.steps.Step._raw_data">_raw<wbr></wbr>_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_status" class="internal-link" title="tmt.steps.Step._status">_status</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common">Common</a></code>:
+            </p>
+            <table class="children sortable" id="id396">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#__str__" class="internal-link" title="tmt.utils.Common.__str__">__str__</a></code></td>
+    <td>Name is the default string representation</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#debug" class="internal-link" title="tmt.utils.Common.debug">debug</a></code></td>
+    <td>Show message if in requested debug mode level</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#fail" class="internal-link" title="tmt.utils.Common.fail">fail</a></code></td>
+    <td>Show a red failure message on info level, send to stderr</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#info" class="internal-link" title="tmt.utils.Common.info">info</a></code></td>
+    <td>Show a message unless in quiet mode</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#opt" class="internal-link" title="tmt.utils.Common.opt">opt</a></code></td>
+    <td>Get an option from the command line options</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#print" class="internal-link" title="tmt.utils.Common.print">print</a></code></td>
+    <td>Print a message regardless the quiet mode</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#read" class="internal-link" title="tmt.utils.Common.read">read</a></code></td>
+    <td>Read a file from the workdir</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#run" class="internal-link" title="tmt.utils.Common.run">run</a></code></td>
+    <td>Run command, give message, handle errors</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#verbose" class="internal-link" title="tmt.utils.Common.verbose">verbose</a></code></td>
+    <td>Show message if in requested verbose mode level</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#warn" class="internal-link" title="tmt.utils.Common.warn">warn</a></code></td>
+    <td>Show a yellow warning message on info level, send to stderr</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#write" class="internal-link" title="tmt.utils.Common.write">write</a></code></td>
+    <td>Write a file to the workdir</td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.utils.Common.html#ignore_class_options" class="internal-link" title="tmt.utils.Common.ignore_class_options">ignore<wbr></wbr>_class<wbr></wbr>_options</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#name" class="internal-link" title="tmt.utils.Common.name">name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#parent" class="internal-link" title="tmt.utils.Common.parent">parent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#safe_name" class="internal-link" title="tmt.utils.Common.safe_name">safe<wbr></wbr>_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseproperty">
+    
+    <td>Property</td>
+    <td><code><a href="tmt.utils.Common.html#workdir" class="internal-link" title="tmt.utils.Common.workdir">workdir</a></code></td>
+    <td>Get the workdir, create if does not exist</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.Common.html#_opt" class="internal-link" title="tmt.utils.Common._opt">_opt</a></code></td>
+    <td>Get an option from the command line context (class version)</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.Common.html#_save_context" class="internal-link" title="tmt.utils.Common._save_context">_save<wbr></wbr>_context</a></code></td>
+    <td>Save provided command line context and options for future use</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_fmf_context" class="internal-link" title="tmt.utils.Common._fmf_context">_fmf<wbr></wbr>_context</a></code></td>
+    <td>Return the current fmf context</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_indent" class="internal-link" title="tmt.utils.Common._indent">_indent</a></code></td>
+    <td>Indent message according to the object hierarchy</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_level" class="internal-link" title="tmt.utils.Common._level">_level</a></code></td>
+    <td>Hierarchy level</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_log" class="internal-link" title="tmt.utils.Common._log">_log</a></code></td>
+    <td>Append provided message to the current log</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_run" class="internal-link" title="tmt.utils.Common._run">_run</a></code></td>
+    <td>Run command, capture the output</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_save_context_to_instance" class="internal-link" title="tmt.utils.Common._save_context_to_instance">_save<wbr></wbr>_context<wbr></wbr>_to<wbr></wbr>_instance</a></code></td>
+    <td>Save provided command line context and options to the instance</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_cleanup" class="internal-link" title="tmt.utils.Common._workdir_cleanup">_workdir<wbr></wbr>_cleanup</a></code></td>
+    <td>Clean up the work directory</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_init" class="internal-link" title="tmt.utils.Common._workdir_init">_workdir<wbr></wbr>_init</a></code></td>
+    <td>Initialize the work directory</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_load" class="internal-link" title="tmt.utils.Common._workdir_load">_workdir<wbr></wbr>_load</a></code></td>
+    <td>Create the given workdir if it is not None</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_name" class="internal-link" title="tmt.utils.Common._workdir_name">_workdir<wbr></wbr>_name</a></code></td>
+    <td>Construct work directory name from parent workdir</td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_context" class="internal-link" title="tmt.utils.Common._context">_context</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_options" class="internal-link" title="tmt.utils.Common._options">_options</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_relative_indent" class="internal-link" title="tmt.utils.Common._relative_indent">_relative<wbr></wbr>_indent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir" class="internal-link" title="tmt.utils.Common._workdir">_workdir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="tmt.steps.Step.usage">
+    
+  </a>
+  <a name="usage">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">usage</span>(cls, method_overview):
+    
+    <a class="headerLink" href="#usage" title="tmt.steps.Step.usage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare general usage message for the step</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">method<wbr></wbr>_overview:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, plan, data=None, name=None, workdir=None):
+    
+    <a class="headerLink" href="#__init__" title="tmt.steps.Step.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="tmt.utils.Common.html#__init__" class="internal-link">tmt.utils.Common.__init__</a></code></div><div class="interfaceinfo">overridden in <code><a href="tmt.steps.discover.Discover.html" class="internal-link">tmt.steps.discover.Discover</a></code>, <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.prepare.Prepare.html" class="internal-link">tmt.steps.prepare.Prepare</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code></div>
+    <div><p>Initialize and check the step data</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">plan:</span><code>Plan</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Optional[<wbr></wbr><a href="tmt.steps.html#RawStepDataArgument" class="internal-link" title="tmt.steps.RawStepDataArgument">RawStepDataArgument</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">workdir:</span><code><a href="tmt.utils.html#WorkdirArgumentType" class="internal-link">tmt.utils.WorkdirArgumentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.actions">
+    
+  </a>
+  <a name="actions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">actions</span>(self):
+    
+    <a class="headerLink" href="#actions" title="tmt.steps.Step.actions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run all loaded Login or Reboot action instances of the step</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.data.setter">
+    
+  </a>
+  <a name="data.setter">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#data.setter" class="internal-link" title="tmt.steps.Step.data.setter">data.setter</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">data</span>(self, data):
+    
+    <a class="headerLink" href="#data.setter" title="tmt.steps.Step.data.setter">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>List[<wbr></wbr><a href="tmt.steps.StepData.html" class="internal-link" title="tmt.steps.StepData">StepData</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.go">
+    
+  </a>
+  <a name="go">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">go</span>(self):
+    
+    <a class="headerLink" href="#go" title="tmt.steps.Step.go">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.discover.Discover.html" class="internal-link">tmt.steps.discover.Discover</a></code>, <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.finish.Finish.html" class="internal-link">tmt.steps.finish.Finish</a></code>, <code><a href="tmt.steps.prepare.Prepare.html" class="internal-link">tmt.steps.prepare.Prepare</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code>, <code><a href="tmt.steps.report.Report.html" class="internal-link">tmt.steps.report.Report</a></code></div>
+    <div><p>Execute the test step</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.load">
+    
+  </a>
+  <a name="load">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self):
+    
+    <a class="headerLink" href="#load" title="tmt.steps.Step.load">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.discover.Discover.html" class="internal-link">tmt.steps.discover.Discover</a></code>, <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code></div>
+    <div><p>Load status and step data from the workdir</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.phases">
+    
+  </a>
+  <a name="phases">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">phases</span>(self, classes=None):
+    
+    <a class="headerLink" href="#phases" title="tmt.steps.Step.phases">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Iterate over phases by their order</p>
+<p>By default iterates over all available phases. Optional filter 'classes' can be used to iterate only over instances of given class (single class or tuple of classes).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">classes:</span><code>Optional[<wbr></wbr>Union[<wbr></wbr>Type[<wbr></wbr><a href="tmt.steps.html#PhaseT" class="internal-link" title="tmt.steps.PhaseT">PhaseT</a>], <wbr></wbr>Tuple[<wbr></wbr>Type[<wbr></wbr><a href="tmt.steps.html#PhaseT" class="internal-link" title="tmt.steps.PhaseT">PhaseT</a>], <wbr></wbr><span class="rst-variable-ellipsis">...</span>]]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr><a href="tmt.steps.html#PhaseT" class="internal-link" title="tmt.steps.PhaseT">PhaseT</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.save">
+    
+  </a>
+  <a name="save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self):
+    
+    <a class="headerLink" href="#save" title="tmt.steps.Step.save">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.discover.Discover.html" class="internal-link">tmt.steps.discover.Discover</a></code>, <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code></div>
+    <div><p>Save status and step data to the workdir</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.setup_actions">
+    
+  </a>
+  <a name="setup_actions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">setup_actions</span>(self):
+    
+    <a class="headerLink" href="#setup_actions" title="tmt.steps.Step.setup_actions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Insert login and reboot plugins if requested</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.status">
+    
+  </a>
+  <a name="status">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">status</span>(self, status=None):
+    
+    <a class="headerLink" href="#status" title="tmt.steps.Step.status">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get and set current step status</p>
+<p>The meaning of the status is as follows: todo ... config, data and command line processed (we know what to do) done ... the final result of the step stored to workdir (we are done)</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">status:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.steps.Step.wake">
+    
+  </a>
+  <a name="wake">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">wake</span>(self):
+    
+    <a class="headerLink" href="#wake" title="tmt.steps.Step.wake">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.discover.Discover.html" class="internal-link">tmt.steps.discover.Discover</a></code>, <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.finish.Finish.html" class="internal-link">tmt.steps.finish.Finish</a></code>, <code><a href="tmt.steps.prepare.Prepare.html" class="internal-link">tmt.steps.prepare.Prepare</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code>, <code><a href="tmt.steps.report.Report.html" class="internal-link">tmt.steps.report.Report</a></code></div>
+    <div><p>Wake up the step (process workdir and command line)</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.Step.DEFAULT_HOW">
+    
+  </a>
+  <a name="DEFAULT_HOW">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_HOW</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DEFAULT_HOW" title="tmt.steps.Step.DEFAULT_HOW">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code>, <code><a href="tmt.steps.report.Report.html" class="internal-link">tmt.steps.report.Report</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">shell</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="tmt.steps.Step.data">
+    
+  </a>
+  <a name="data">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">data</span> =
+    
+    <a class="headerLink" href="#data" title="tmt.steps.Step.data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.finish.Finish.html" class="internal-link">tmt.steps.finish.Finish</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="tmt.steps.Step.plan">
+    
+  </a>
+  <a name="plan">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">plan</span>: <code>Plan</code> =
+    
+    <a class="headerLink" href="#plan" title="tmt.steps.Step.plan">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="tmt.steps.Step.enabled">
+    
+  </a>
+  <a name="enabled">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">enabled</span>: <code>Optional[<wbr></wbr>bool]</code> =
+    
+    <a class="headerLink" href="#enabled" title="tmt.steps.Step.enabled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>True if the step is enabled</p>
+</div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="tmt.steps.Step.plugins_in_standalone_mode">
+    
+  </a>
+  <a name="plugins_in_standalone_mode">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">plugins_in_standalone_mode</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#plugins_in_standalone_mode" title="tmt.steps.Step.plugins_in_standalone_mode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>The number of plugins in standalone mode.</p>
+<p>Stand-alone mode means that only this step should be run as a part of the run (and not any other even if requested using --all). This is useful as some step options may completely change its behaviour from the regular behaviour based on options (e.g. listing images inside provision).</p>
+</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.steps.Step._normalize_data">
+    
+  </a>
+  <a name="_normalize_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_normalize_data</span>(self, raw_data):
+    
+    <a class="headerLink" href="#_normalize_data" title="tmt.steps.Step._normalize_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="tmt.steps.execute.Execute.html" class="internal-link">tmt.steps.execute.Execute</a></code>, <code><a href="tmt.steps.provision.Provision.html" class="internal-link">tmt.steps.provision.Provision</a></code></div>
+    <div><p>Normalize step data entries.</p>
+<p>Every entry of ``raw_data`` is converted into an instance of :py:class:`StepData` or one of its subclasses. Particular class is derived from a plugin identified by raw data's ``how`` field and step's plugin registry.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">raw<wbr></wbr>_data:</span><code>List[<wbr></wbr><a href="tmt.steps.html#_RawStepData" class="internal-link" title="tmt.steps._RawStepData">_RawStepData</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr><a href="tmt.steps.StepData.html" class="internal-link" title="tmt.steps.StepData">StepData</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="tmt.steps.Step._plugin_base_class">
+    
+  </a>
+  <a name="_plugin_base_class">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_plugin_base_class</span>: <code>Type[<wbr></wbr><a href="tmt.steps.BasePlugin.html" class="internal-link" title="tmt.steps.BasePlugin">BasePlugin</a>]</code> =
+    
+    <a class="headerLink" href="#_plugin_base_class" title="tmt.steps.Step._plugin_base_class">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.steps.Step._data">
+    
+  </a>
+  <a name="_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_data</span> =
+    
+    <a class="headerLink" href="#_data" title="tmt.steps.Step._data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.steps.Step._phases">
+    
+  </a>
+  <a name="_phases">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_phases</span>: <code>List[<wbr></wbr><a href="tmt.steps.Phase.html" class="internal-link" title="tmt.steps.Phase">Phase</a>]</code> =
+    
+    <a class="headerLink" href="#_phases" title="tmt.steps.Step._phases">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.steps.Step._raw_data">
+    
+  </a>
+  <a name="_raw_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_raw_data</span> =
+    
+    <a class="headerLink" href="#_raw_data" title="tmt.steps.Step._raw_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.steps.Step._status">
+    
+  </a>
+  <a name="_status">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_status</span>: <code>Optional[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_status" title="tmt.steps.Step._status">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

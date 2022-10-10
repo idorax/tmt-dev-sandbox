@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.plugins</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code class="thisobject"><a href="tmt.plugins.html" class="internal-link" title="This package">plugins</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#discover" class="internal-link" title="tmt.plugins.discover">discover</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#explore" class="internal-link" title="tmt.plugins.explore">explore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#import_" class="internal-link" title="tmt.plugins.import_">import_</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#import_member" class="internal-link" title="tmt.plugins.import_member">import<wbr></wbr>_member</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ENTRY_POINT_NAME" class="internal-link" title="tmt.plugins.ENTRY_POINT_NAME">ENTRY<wbr></wbr>_POINT<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ENVIRONMENT_NAME" class="internal-link" title="tmt.plugins.ENVIRONMENT_NAME">ENVIRONMENT<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log" class="internal-link" title="tmt.plugins.log">log</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this package">tmt</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.plugins.html" class="internal-link" title="tmt.plugins">plugins</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html" class="internal-link" title="tmt.steps">steps</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html" class="internal-link" title="tmt.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.beakerlib.html" class="internal-link" title="tmt.beakerlib">beakerlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.cli.html" class="internal-link" title="tmt.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.convert.html" class="internal-link" title="tmt.convert">convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.export.html" class="internal-link" title="tmt.export">export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.identifier.html" class="internal-link" title="tmt.identifier">identifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.options.html" class="internal-link" title="tmt.options">options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.templates.html" class="internal-link" title="tmt.templates">templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html" class="internal-link" title="tmt.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.__main__.html" class="internal-link" title="tmt.__main__">__main__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Clean.html" class="internal-link" title="tmt.Clean"><wbr></wbr>Clean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Guest.html" class="internal-link" title="tmt.Guest"><wbr></wbr>Guest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.GuestSsh.html" class="internal-link" title="tmt.GuestSsh"><wbr></wbr>Guest<wbr></wbr>Ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Plan.html" class="internal-link" title="tmt.Plan"><wbr></wbr>Plan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Result.html" class="internal-link" title="tmt.Result"><wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Run.html" class="internal-link" title="tmt.Run"><wbr></wbr>Run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Status.html" class="internal-link" title="tmt.Status"><wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Story.html" class="internal-link" title="tmt.Story"><wbr></wbr>Story</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Test.html" class="internal-link" title="tmt.Test"><wbr></wbr>Test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Tree.html" class="internal-link" title="tmt.Tree"><wbr></wbr>Tree</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="tmt.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="package"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.plugins.html" class="internal-link" title="tmt.plugins">plugins</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          package documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Handle Plugins</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          
+          
+
+            <p class="fromInitPy">From <code>__init__.py</code>:</p><table class="children sortable" id="id27">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#discover" class="internal-link" title="tmt.plugins.discover">discover</a></code></td>
+    <td>Discover available plugins for given paths</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#explore" class="internal-link" title="tmt.plugins.explore">explore</a></code></td>
+    <td>Explore all available plugins</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#import_" class="internal-link" title="tmt.plugins.import_">import_</a></code></td>
+    <td>Attempt to import requested module</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#import_member" class="internal-link" title="tmt.plugins.import_member">import<wbr></wbr>_member</a></code></td>
+    <td>Import member from given module, handle errors nicely</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ENTRY_POINT_NAME" class="internal-link" title="tmt.plugins.ENTRY_POINT_NAME">ENTRY<wbr></wbr>_POINT<wbr></wbr>_NAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ENVIRONMENT_NAME" class="internal-link" title="tmt.plugins.ENVIRONMENT_NAME">ENVIRONMENT<wbr></wbr>_NAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#log" class="internal-link" title="tmt.plugins.log">log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        </div>
+
+        <div id="childList">
+          <div class="basevariable">
+  
+  
+  <a name="tmt.plugins.log">
+    
+  </a>
+  <a name="log">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">log</span> =
+    
+    <a class="headerLink" href="#log" title="tmt.plugins.log">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.plugins.ENTRY_POINT_NAME">
+    
+  </a>
+  <a name="ENTRY_POINT_NAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ENTRY_POINT_NAME</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#ENTRY_POINT_NAME" title="tmt.plugins.ENTRY_POINT_NAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">tmt.plugin</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.plugins.ENVIRONMENT_NAME">
+    
+  </a>
+  <a name="ENVIRONMENT_NAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ENVIRONMENT_NAME</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#ENVIRONMENT_NAME" title="tmt.plugins.ENVIRONMENT_NAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">TMT_PLUGINS</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.plugins.explore">
+    
+  </a>
+  <a name="explore">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">explore</span>():
+    
+    <a class="headerLink" href="#explore" title="tmt.plugins.explore">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Explore all available plugins</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.plugins.import_">
+    
+  </a>
+  <a name="import_">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">import_</span>(module, path=None):
+    
+    <a class="headerLink" href="#import_" title="tmt.plugins.import_">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Attempt to import requested module</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">module:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.plugins.import_member">
+    
+  </a>
+  <a name="import_member">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">import_member</span>(module_name, member_name):
+    
+    <a class="headerLink" href="#import_member" title="tmt.plugins.import_member">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Import member from given module, handle errors nicely</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">module<wbr></wbr>_name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">member<wbr></wbr>_name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.plugins.discover">
+    
+  </a>
+  <a name="discover">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">discover</span>(path):
+    
+    <a class="headerLink" href="#discover" title="tmt.plugins.discover">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Discover available plugins for given paths</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Generator[<wbr></wbr>str, <wbr></wbr>None, <wbr></wbr>None]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

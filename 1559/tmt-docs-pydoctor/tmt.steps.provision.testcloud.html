@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.steps.provision.testcloud</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="tmt.steps.provision.testcloud.html" class="internal-link" title="This module">testcloud</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.testcloud.GuestTestcloud.html" class="internal-link" title="tmt.steps.provision.testcloud.GuestTestcloud"><wbr></wbr>Guest<wbr></wbr>Testcloud</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.testcloud.ProvisionTestcloud.html" class="internal-link" title="tmt.steps.provision.testcloud.ProvisionTestcloud"><wbr></wbr>Provision<wbr></wbr>Testcloud</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.testcloud.ProvisionTestcloudData.html" class="internal-link" title="tmt.steps.provision.testcloud.ProvisionTestcloudData"><wbr></wbr>Provision<wbr></wbr>Testcloud<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.testcloud.TestcloudGuestData.html" class="internal-link" title="tmt.steps.provision.testcloud.TestcloudGuestData"><wbr></wbr>Testcloud<wbr></wbr>Guest<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#import_testcloud" class="internal-link" title="tmt.steps.provision.testcloud.import_testcloud">import<wbr></wbr>_testcloud</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#COREOS_DATA" class="internal-link" title="tmt.steps.provision.testcloud.COREOS_DATA">COREOS<wbr></wbr>_DATA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_ARCH" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_ARCH">DEFAULT<wbr></wbr>_ARCH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_BOOT_TIMEOUT" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_BOOT_TIMEOUT">DEFAULT<wbr></wbr>_BOOT<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_CONNECT_TIMEOUT" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_CONNECT_TIMEOUT">DEFAULT<wbr></wbr>_CONNECT<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_CONNECTION" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_CONNECTION">DEFAULT<wbr></wbr>_CONNECTION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_DISK" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_DISK">DEFAULT<wbr></wbr>_DISK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_IMAGE" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_IMAGE">DEFAULT<wbr></wbr>_IMAGE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_MEMORY" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_MEMORY">DEFAULT<wbr></wbr>_MEMORY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_USER" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_USER">DEFAULT<wbr></wbr>_USER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DOMAIN_TEMPLATE" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE">DOMAIN<wbr></wbr>_TEMPLATE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DOMAIN_TEMPLATE_FILE" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_FILE">DOMAIN<wbr></wbr>_TEMPLATE<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DOMAIN_TEMPLATE_NAME" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_NAME">DOMAIN<wbr></wbr>_TEMPLATE<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NON_KVM_ADDITIONAL_WAIT" class="internal-link" title="tmt.steps.provision.testcloud.NON_KVM_ADDITIONAL_WAIT">NON<wbr></wbr>_KVM<wbr></wbr>_ADDITIONAL<wbr></wbr>_WAIT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NON_KVM_TIMEOUT_COEF" class="internal-link" title="tmt.steps.provision.testcloud.NON_KVM_TIMEOUT_COEF">NON<wbr></wbr>_KVM<wbr></wbr>_TIMEOUT<wbr></wbr>_COEF</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SSH_KEYGEN_TYPE" class="internal-link" title="tmt.steps.provision.testcloud.SSH_KEYGEN_TYPE">SSH<wbr></wbr>_KEYGEN<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TESTCLOUD_DATA" class="internal-link" title="tmt.steps.provision.testcloud.TESTCLOUD_DATA">TESTCLOUD<wbr></wbr>_DATA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TESTCLOUD_IMAGES" class="internal-link" title="tmt.steps.provision.testcloud.TESTCLOUD_IMAGES">TESTCLOUD<wbr></wbr>_IMAGES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#USER_DATA" class="internal-link" title="tmt.steps.provision.testcloud.USER_DATA">USER<wbr></wbr>_DATA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#libvirt" class="internal-link" title="tmt.steps.provision.testcloud.libvirt">libvirt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#testcloud" class="internal-link" title="tmt.steps.provision.testcloud.testcloud">testcloud</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="tmt.steps.provision.html" class="internal-link" title="The parent of this module">provision</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.artemis.html" class="internal-link" title="tmt.steps.provision.artemis">artemis</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.connect.html" class="internal-link" title="tmt.steps.provision.connect">connect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.local.html" class="internal-link" title="tmt.steps.provision.local">local</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.podman.html" class="internal-link" title="tmt.steps.provision.podman">podman</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.testcloud.html" class="internal-link" title="tmt.steps.provision.testcloud">testcloud</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.CheckRsyncOutcome.html" class="internal-link" title="tmt.steps.provision.CheckRsyncOutcome"><wbr></wbr>Check<wbr></wbr>Rsync<wbr></wbr>Outcome</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.GuestData.html" class="internal-link" title="tmt.steps.provision.GuestData"><wbr></wbr>Guest<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.GuestSshData.html" class="internal-link" title="tmt.steps.provision.GuestSshData"><wbr></wbr>Guest<wbr></wbr>Ssh<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.Provision.html" class="internal-link" title="tmt.steps.provision.Provision"><wbr></wbr>Provision</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.ProvisionPlugin.html" class="internal-link" title="tmt.steps.provision.ProvisionPlugin"><wbr></wbr>Provision<wbr></wbr>Plugin</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html#CONNECTION_TIMEOUT" class="internal-link" title="tmt.steps.provision.CONNECTION_TIMEOUT">CONNECTION<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html#DEFAULT_RSYNC_OPTIONS" class="internal-link" title="tmt.steps.provision.DEFAULT_RSYNC_OPTIONS">DEFAULT<wbr></wbr>_RSYNC<wbr></wbr>_OPTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html#DEFAULT_RSYNC_PULL_OPTIONS" class="internal-link" title="tmt.steps.provision.DEFAULT_RSYNC_PULL_OPTIONS">DEFAULT<wbr></wbr>_RSYNC<wbr></wbr>_PULL<wbr></wbr>_OPTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html#DEFAULT_RSYNC_PUSH_OPTIONS" class="internal-link" title="tmt.steps.provision.DEFAULT_RSYNC_PUSH_OPTIONS">DEFAULT<wbr></wbr>_RSYNC<wbr></wbr>_PUSH<wbr></wbr>_OPTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html#RECONNECT_WAIT_TICK" class="internal-link" title="tmt.steps.provision.RECONNECT_WAIT_TICK">RECONNECT<wbr></wbr>_WAIT<wbr></wbr>_TICK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.provision.html#RECONNECT_WAIT_TICK_INCREASE" class="internal-link" title="tmt.steps.provision.RECONNECT_WAIT_TICK_INCREASE">RECONNECT<wbr></wbr>_WAIT<wbr></wbr>_TICK<wbr></wbr>_INCREASE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.steps.html" class="internal-link" title="tmt.steps">steps</a></code><wbr></wbr>.<code><a href="tmt.steps.provision.html" class="internal-link" title="tmt.steps.provision">provision</a></code><wbr></wbr>.<code><a href="tmt.steps.provision.testcloud.html" class="internal-link" title="tmt.steps.provision.testcloud">testcloud</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id301">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.steps.provision.testcloud.GuestTestcloud.html" class="internal-link" title="tmt.steps.provision.testcloud.GuestTestcloud"><wbr></wbr>Guest<wbr></wbr>Testcloud</a></code></td>
+    <td>Testcloud Instance</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.steps.provision.testcloud.ProvisionTestcloud.html" class="internal-link" title="tmt.steps.provision.testcloud.ProvisionTestcloud"><wbr></wbr>Provision<wbr></wbr>Testcloud</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.steps.provision.testcloud.ProvisionTestcloudData.html" class="internal-link" title="tmt.steps.provision.testcloud.ProvisionTestcloudData"><wbr></wbr>Provision<wbr></wbr>Testcloud<wbr></wbr>Data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.steps.provision.testcloud.TestcloudGuestData.html" class="internal-link" title="tmt.steps.provision.testcloud.TestcloudGuestData"><wbr></wbr>Testcloud<wbr></wbr>Guest<wbr></wbr>Data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#import_testcloud" class="internal-link" title="tmt.steps.provision.testcloud.import_testcloud">import<wbr></wbr>_testcloud</a></code></td>
+    <td>Import testcloud module only when needed</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#COREOS_DATA" class="internal-link" title="tmt.steps.provision.testcloud.COREOS_DATA">COREOS<wbr></wbr>_DATA</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_ARCH" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_ARCH">DEFAULT<wbr></wbr>_ARCH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_BOOT_TIMEOUT" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_BOOT_TIMEOUT">DEFAULT<wbr></wbr>_BOOT<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_CONNECT_TIMEOUT" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_CONNECT_TIMEOUT">DEFAULT<wbr></wbr>_CONNECT<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_CONNECTION" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_CONNECTION">DEFAULT<wbr></wbr>_CONNECTION</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_DISK" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_DISK">DEFAULT<wbr></wbr>_DISK</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_IMAGE" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_IMAGE">DEFAULT<wbr></wbr>_IMAGE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_MEMORY" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_MEMORY">DEFAULT<wbr></wbr>_MEMORY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_USER" class="internal-link" title="tmt.steps.provision.testcloud.DEFAULT_USER">DEFAULT<wbr></wbr>_USER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DOMAIN_TEMPLATE" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE">DOMAIN<wbr></wbr>_TEMPLATE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DOMAIN_TEMPLATE_FILE" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_FILE">DOMAIN<wbr></wbr>_TEMPLATE<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DOMAIN_TEMPLATE_NAME" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_NAME">DOMAIN<wbr></wbr>_TEMPLATE<wbr></wbr>_NAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NON_KVM_ADDITIONAL_WAIT" class="internal-link" title="tmt.steps.provision.testcloud.NON_KVM_ADDITIONAL_WAIT">NON<wbr></wbr>_KVM<wbr></wbr>_ADDITIONAL<wbr></wbr>_WAIT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NON_KVM_TIMEOUT_COEF" class="internal-link" title="tmt.steps.provision.testcloud.NON_KVM_TIMEOUT_COEF">NON<wbr></wbr>_KVM<wbr></wbr>_TIMEOUT<wbr></wbr>_COEF</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SSH_KEYGEN_TYPE" class="internal-link" title="tmt.steps.provision.testcloud.SSH_KEYGEN_TYPE">SSH<wbr></wbr>_KEYGEN<wbr></wbr>_TYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TESTCLOUD_DATA" class="internal-link" title="tmt.steps.provision.testcloud.TESTCLOUD_DATA">TESTCLOUD<wbr></wbr>_DATA</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TESTCLOUD_IMAGES" class="internal-link" title="tmt.steps.provision.testcloud.TESTCLOUD_IMAGES">TESTCLOUD<wbr></wbr>_IMAGES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#USER_DATA" class="internal-link" title="tmt.steps.provision.testcloud.USER_DATA">USER<wbr></wbr>_DATA</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#libvirt" class="internal-link" title="tmt.steps.provision.testcloud.libvirt">libvirt</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#testcloud" class="internal-link" title="tmt.steps.provision.testcloud.testcloud">testcloud</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="tmt.steps.provision.testcloud.import_testcloud">
+    
+  </a>
+  <a name="import_testcloud">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">import_testcloud</span>():
+    
+    <a class="headerLink" href="#import_testcloud" title="tmt.steps.provision.testcloud.import_testcloud">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Import testcloud module only when needed</p>
+<p>Until we have a separate package for each plugin.</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.COREOS_DATA">
+    
+  </a>
+  <a name="COREOS_DATA">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">COREOS_DATA</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#COREOS_DATA" title="tmt.steps.provision.testcloud.COREOS_DATA">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'''</span><span class="rst-variable-string">variant: fcos</span>
+<span class="rst-variable-string">version: 1.4.0</span>
+<span class="rst-variable-string">passwd:</span>
+<span class="rst-variable-string">  users:</span>
+<span class="rst-variable-string">    - name: {user_name}</span>
+<span class="rst-variable-string">      ssh_authorized_keys:</span>
+<span class="rst-variable-string">        - {public_key}</span>
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_ARCH">
+    
+  </a>
+  <a name="DEFAULT_ARCH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_ARCH</span> =
+    
+    <a class="headerLink" href="#DEFAULT_ARCH" title="tmt.steps.provision.testcloud.DEFAULT_ARCH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>platform.machine()</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_BOOT_TIMEOUT">
+    
+  </a>
+  <a name="DEFAULT_BOOT_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_BOOT_TIMEOUT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_BOOT_TIMEOUT" title="tmt.steps.provision.testcloud.DEFAULT_BOOT_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>60</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_CONNECT_TIMEOUT">
+    
+  </a>
+  <a name="DEFAULT_CONNECT_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_CONNECT_TIMEOUT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_CONNECT_TIMEOUT" title="tmt.steps.provision.testcloud.DEFAULT_CONNECT_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>60</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_CONNECTION">
+    
+  </a>
+  <a name="DEFAULT_CONNECTION">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_CONNECTION</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DEFAULT_CONNECTION" title="tmt.steps.provision.testcloud.DEFAULT_CONNECTION">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">session</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_DISK">
+    
+  </a>
+  <a name="DEFAULT_DISK">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_DISK</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_DISK" title="tmt.steps.provision.testcloud.DEFAULT_DISK">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_IMAGE">
+    
+  </a>
+  <a name="DEFAULT_IMAGE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_IMAGE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DEFAULT_IMAGE" title="tmt.steps.provision.testcloud.DEFAULT_IMAGE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">fedora</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_MEMORY">
+    
+  </a>
+  <a name="DEFAULT_MEMORY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_MEMORY</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_MEMORY" title="tmt.steps.provision.testcloud.DEFAULT_MEMORY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>2048</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DEFAULT_USER">
+    
+  </a>
+  <a name="DEFAULT_USER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_USER</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DEFAULT_USER" title="tmt.steps.provision.testcloud.DEFAULT_USER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">root</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE">
+    
+  </a>
+  <a name="DOMAIN_TEMPLATE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DOMAIN_TEMPLATE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DOMAIN_TEMPLATE" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'''</span><span class="rst-variable-string">&lt;domain type=\'{{ virt_type }}\' xmlns:qemu=\'http://libvirt.org/schemas/doma</span><span class="rst-variable-linewrap">↵</span>
+<span class="rst-variable-string">in/qemu/1.0\'&gt;</span>
+<span class="rst-variable-string">  &lt;name&gt;{{ domain_name }}&lt;/name&gt;</span>
+<span class="rst-variable-string">  &lt;uuid&gt;{{ uuid }}&lt;/uuid&gt;</span>
+<span class="rst-variable-string">  &lt;memory unit=\'KiB\'&gt;{{ memory }}&lt;/memory&gt;</span>
+<span class="rst-variable-string">  &lt;currentMemory unit=\'KiB\'&gt;{{ memory }}&lt;/currentMemory&gt;</span>
+<span class="rst-variable-string">  &lt;vcpu placement=\'static\'&gt;2&lt;/vcpu&gt;</span>
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_FILE">
+    
+  </a>
+  <a name="DOMAIN_TEMPLATE_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DOMAIN_TEMPLATE_FILE</span> =
+    
+    <a class="headerLink" href="#DOMAIN_TEMPLATE_FILE" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>os.path.join(<wbr></wbr><a href="#TESTCLOUD_DATA" class="internal-link" title="tmt.steps.provision.testcloud.TESTCLOUD_DATA">TESTCLOUD_DATA</a>, <wbr></wbr><a href="#DOMAIN_TEMPLATE_NAME" class="internal-link" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_NAME">DOMAIN_TEMPLATE_NAME</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_NAME">
+    
+  </a>
+  <a name="DOMAIN_TEMPLATE_NAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DOMAIN_TEMPLATE_NAME</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DOMAIN_TEMPLATE_NAME" title="tmt.steps.provision.testcloud.DOMAIN_TEMPLATE_NAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">domain-template.jinja</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.NON_KVM_ADDITIONAL_WAIT">
+    
+  </a>
+  <a name="NON_KVM_ADDITIONAL_WAIT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NON_KVM_ADDITIONAL_WAIT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#NON_KVM_ADDITIONAL_WAIT" title="tmt.steps.provision.testcloud.NON_KVM_ADDITIONAL_WAIT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.NON_KVM_TIMEOUT_COEF">
+    
+  </a>
+  <a name="NON_KVM_TIMEOUT_COEF">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NON_KVM_TIMEOUT_COEF</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#NON_KVM_TIMEOUT_COEF" title="tmt.steps.provision.testcloud.NON_KVM_TIMEOUT_COEF">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.SSH_KEYGEN_TYPE">
+    
+  </a>
+  <a name="SSH_KEYGEN_TYPE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SSH_KEYGEN_TYPE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#SSH_KEYGEN_TYPE" title="tmt.steps.provision.testcloud.SSH_KEYGEN_TYPE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">ecdsa</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.TESTCLOUD_DATA">
+    
+  </a>
+  <a name="TESTCLOUD_DATA">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TESTCLOUD_DATA</span> =
+    
+    <a class="headerLink" href="#TESTCLOUD_DATA" title="tmt.steps.provision.testcloud.TESTCLOUD_DATA">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>os.path.join(<wbr></wbr><a href="tmt.utils.html#WORKDIR_ROOT" class="internal-link" title="tmt.utils.WORKDIR_ROOT">WORKDIR_ROOT</a>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">testcloud</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.TESTCLOUD_IMAGES">
+    
+  </a>
+  <a name="TESTCLOUD_IMAGES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TESTCLOUD_IMAGES</span> =
+    
+    <a class="headerLink" href="#TESTCLOUD_IMAGES" title="tmt.steps.provision.testcloud.TESTCLOUD_IMAGES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>os.path.join(<wbr></wbr><a href="#TESTCLOUD_DATA" class="internal-link" title="tmt.steps.provision.testcloud.TESTCLOUD_DATA">TESTCLOUD_DATA</a>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">images</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.steps.provision.testcloud.USER_DATA">
+    
+  </a>
+  <a name="USER_DATA">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">USER_DATA</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#USER_DATA" title="tmt.steps.provision.testcloud.USER_DATA">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'''</span><span class="rst-variable-string">#cloud-config</span>
+<span class="rst-variable-string">chpasswd:</span>
+<span class="rst-variable-string">  list: |</span>
+<span class="rst-variable-string">    {user_name}:%s</span>
+<span class="rst-variable-string">  expire: false</span>
+<span class="rst-variable-string">users:</span>
+<span class="rst-variable-string">  - default</span>
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.steps.provision.testcloud.libvirt">
+    
+  </a>
+  <a name="libvirt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">libvirt</span>: <code>Optional[<wbr></wbr>types.ModuleType]</code> =
+    
+    <a class="headerLink" href="#libvirt" title="tmt.steps.provision.testcloud.libvirt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.steps.provision.testcloud.testcloud">
+    
+  </a>
+  <a name="testcloud">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">testcloud</span>: <code>Optional[<wbr></wbr>types.ModuleType]</code> =
+    
+    <a class="headerLink" href="#testcloud" title="tmt.steps.provision.testcloud.testcloud">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

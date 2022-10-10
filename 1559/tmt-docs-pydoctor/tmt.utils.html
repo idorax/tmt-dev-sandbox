@@ -1,0 +1,4397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.utils</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="tmt.utils.html" class="internal-link" title="This module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.BaseLoggerFnType.html" class="internal-link" title="tmt.utils.BaseLoggerFnType"><wbr></wbr>Base<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.CentOSDistGit.html" class="internal-link" title="tmt.utils.CentOSDistGit"><wbr></wbr>Cent<wbr></wbr>OSDist<wbr></wbr>Git</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.CommandOutput.html" class="internal-link" title="tmt.utils.CommandOutput"><wbr></wbr>Command<wbr></wbr>Output</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common"><wbr></wbr>Common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Config.html" class="internal-link" title="tmt.utils.Config"><wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html" class="internal-link" title="tmt.utils.DataContainer"><wbr></wbr>Data<wbr></wbr>Container</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DistGitHandler.html" class="internal-link" title="tmt.utils.DistGitHandler"><wbr></wbr>Dist<wbr></wbr>Git<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.FedoraDistGit.html" class="internal-link" title="tmt.utils.FedoraDistGit"><wbr></wbr>Fedora<wbr></wbr>Dist<wbr></wbr>Git</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.LevelessLoggerFnType.html" class="internal-link" title="tmt.utils.LevelessLoggerFnType"><wbr></wbr>Leveless<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link" title="tmt.utils.LoadFmfKeysMixin"><wbr></wbr>Load<wbr></wbr>Fmf<wbr></wbr>Keys<wbr></wbr>Mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html" class="internal-link" title="tmt.utils.NormalizeKeysMixin"><wbr></wbr>Normalize<wbr></wbr>Keys<wbr></wbr>Mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.retry_session.html" class="internal-link" title="tmt.utils.retry_session">retry<wbr></wbr>_session</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.RetryStrategy.html" class="internal-link" title="tmt.utils.RetryStrategy"><wbr></wbr>Retry<wbr></wbr>Strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SemanticLoggerFnType.html" class="internal-link" title="tmt.utils.SemanticLoggerFnType"><wbr></wbr>Semantic<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SerializableContainer.html" class="internal-link" title="tmt.utils.SerializableContainer"><wbr></wbr>Serializable<wbr></wbr>Container</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SpecBasedContainer.html" class="internal-link" title="tmt.utils.SpecBasedContainer"><wbr></wbr>Spec<wbr></wbr>Based<wbr></wbr>Container</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.StreamLogger.html" class="internal-link" title="tmt.utils.StreamLogger"><wbr></wbr>Stream<wbr></wbr>Logger</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.StructuredField.html" class="internal-link" title="tmt.utils.StructuredField"><wbr></wbr>Structured<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.TimeoutHTTPAdapter.html" class="internal-link" title="tmt.utils.TimeoutHTTPAdapter"><wbr></wbr>Timeout<wbr></wbr>HTTPAdapter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.updatable_message.html" class="internal-link" title="tmt.utils.updatable_message">updatable<wbr></wbr>_message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin"><wbr></wbr>Validate<wbr></wbr>Fmf<wbr></wbr>Mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ConvertError.html" class="internal-link" title="tmt.utils.ConvertError"><wbr></wbr>Convert<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DiscoverError.html" class="internal-link" title="tmt.utils.DiscoverError"><wbr></wbr>Discover<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ExecuteError.html" class="internal-link" title="tmt.utils.ExecuteError"><wbr></wbr>Execute<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.FileError.html" class="internal-link" title="tmt.utils.FileError"><wbr></wbr>File<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.FinishError.html" class="internal-link" title="tmt.utils.FinishError"><wbr></wbr>Finish<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.GeneralError.html" class="internal-link" title="tmt.utils.GeneralError"><wbr></wbr>General<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.GitUrlError.html" class="internal-link" title="tmt.utils.GitUrlError"><wbr></wbr>Git<wbr></wbr>Url<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.MetadataError.html" class="internal-link" title="tmt.utils.MetadataError"><wbr></wbr>Metadata<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.PrepareError.html" class="internal-link" title="tmt.utils.PrepareError"><wbr></wbr>Prepare<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ProvisionError.html" class="internal-link" title="tmt.utils.ProvisionError"><wbr></wbr>Provision<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.RebootTimeoutError.html" class="internal-link" title="tmt.utils.RebootTimeoutError"><wbr></wbr>Reboot<wbr></wbr>Timeout<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ReportError.html" class="internal-link" title="tmt.utils.ReportError"><wbr></wbr>Report<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.RunError.html" class="internal-link" title="tmt.utils.RunError"><wbr></wbr>Run<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SpecificationError.html" class="internal-link" title="tmt.utils.SpecificationError"><wbr></wbr>Specification<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.StructuredFieldError.html" class="internal-link" title="tmt.utils.StructuredFieldError"><wbr></wbr>Structured<wbr></wbr>Field<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.WaitingIncomplete.html" class="internal-link" title="tmt.utils.WaitingIncomplete"><wbr></wbr>Waiting<wbr></wbr>Incomplete</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.WaitingTimedOutError.html" class="internal-link" title="tmt.utils.WaitingTimedOutError"><wbr></wbr>Waiting<wbr></wbr>Timed<wbr></wbr>Out<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ascii" class="internal-link" title="tmt.utils.ascii">ascii</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_git_url" class="internal-link" title="tmt.utils.check_git_url">check<wbr></wbr>_git<wbr></wbr>_url</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#context_to_dict" class="internal-link" title="tmt.utils.context_to_dict">context<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#copytree" class="internal-link" title="tmt.utils.copytree">copytree</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_directory" class="internal-link" title="tmt.utils.create_directory">create<wbr></wbr>_directory</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_file" class="internal-link" title="tmt.utils.create_file">create<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#default_branch" class="internal-link" title="tmt.utils.default_branch">default<wbr></wbr>_branch</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dict_to_yaml" class="internal-link" title="tmt.utils.dict_to_yaml">dict<wbr></wbr>_to<wbr></wbr>_yaml</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#duration_to_seconds" class="internal-link" title="tmt.utils.duration_to_seconds">duration<wbr></wbr>_to<wbr></wbr>_seconds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#environment_file_to_dict" class="internal-link" title="tmt.utils.environment_file_to_dict">environment<wbr></wbr>_file<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#environment_files_to_dict" class="internal-link" title="tmt.utils.environment_files_to_dict">environment<wbr></wbr>_files<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#environment_to_dict" class="internal-link" title="tmt.utils.environment_to_dict">environment<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#find_fmf_root" class="internal-link" title="tmt.utils.find_fmf_root">find<wbr></wbr>_fmf<wbr></wbr>_root</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#format" class="internal-link" title="tmt.utils.format">format</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#generate_runs" class="internal-link" title="tmt.utils.generate_runs">generate<wbr></wbr>_runs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_distgit_handler" class="internal-link" title="tmt.utils.get_distgit_handler">get<wbr></wbr>_distgit<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_distgit_handler_names" class="internal-link" title="tmt.utils.get_distgit_handler_names">get<wbr></wbr>_distgit<wbr></wbr>_handler<wbr></wbr>_names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#git_clone" class="internal-link" title="tmt.utils.git_clone">git<wbr></wbr>_clone</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#indent" class="internal-link" title="tmt.utils.indent">indent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#key_to_option" class="internal-link" title="tmt.utils.key_to_option">key<wbr></wbr>_to<wbr></wbr>_option</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#listify" class="internal-link" title="tmt.utils.listify">listify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#load_run" class="internal-link" title="tmt.utils.load_run">load<wbr></wbr>_run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#load_schema" class="internal-link" title="tmt.utils.load_schema">load<wbr></wbr>_schema</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#load_schema_store" class="internal-link" title="tmt.utils.load_schema_store">load<wbr></wbr>_schema<wbr></wbr>_store</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#markdown_to_html" class="internal-link" title="tmt.utils.markdown_to_html">markdown<wbr></wbr>_to<wbr></wbr>_html</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#modify_environ" class="internal-link" title="tmt.utils.modify_environ">modify<wbr></wbr>_environ</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#option_to_key" class="internal-link" title="tmt.utils.option_to_key">option<wbr></wbr>_to<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parse_dotenv" class="internal-link" title="tmt.utils.parse_dotenv">parse<wbr></wbr>_dotenv</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parse_yaml" class="internal-link" title="tmt.utils.parse_yaml">parse<wbr></wbr>_yaml</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#public_git_url" class="internal-link" title="tmt.utils.public_git_url">public<wbr></wbr>_git<wbr></wbr>_url</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#quote" class="internal-link" title="tmt.utils.quote">quote</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#remove_color" class="internal-link" title="tmt.utils.remove_color">remove<wbr></wbr>_color</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#shell_to_dict" class="internal-link" title="tmt.utils.shell_to_dict">shell<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#shell_variables" class="internal-link" title="tmt.utils.shell_variables">shell<wbr></wbr>_variables</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#validate_fmf_node" class="internal-link" title="tmt.utils.validate_fmf_node">validate<wbr></wbr>_fmf<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#validate_git_status" class="internal-link" title="tmt.utils.validate_git_status">validate<wbr></wbr>_git<wbr></wbr>_status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#verdict" class="internal-link" title="tmt.utils.verdict">verdict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#wait" class="internal-link" title="tmt.utils.wait">wait</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#yaml_to_dict" class="internal-link" title="tmt.utils.yaml_to_dict">yaml<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#yaml_to_list" class="internal-link" title="tmt.utils.yaml_to_list">yaml<wbr></wbr>_to<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_add_file_vars" class="internal-link" title="tmt.utils._add_file_vars">_add<wbr></wbr>_file<wbr></wbr>_vars</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_add_simple_var" class="internal-link" title="tmt.utils._add_simple_var">_add<wbr></wbr>_simple<wbr></wbr>_var</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_load_schema" class="internal-link" title="tmt.utils._load_schema">_load<wbr></wbr>_schema</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_patch_plan_schema" class="internal-link" title="tmt.utils._patch_plan_schema">_patch<wbr></wbr>_plan<wbr></wbr>_schema</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_prenormalize_fmf_node" class="internal-link" title="tmt.utils._prenormalize_fmf_node">_prenormalize<wbr></wbr>_fmf<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CONFIG_PATH" class="internal-link" title="tmt.utils.CONFIG_PATH">CONFIG<wbr></wbr>_PATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_NAME" class="internal-link" title="tmt.utils.DEFAULT_NAME">DEFAULT<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_PLUGIN_ORDER" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_PLUGIN_ORDER_MULTIHOST" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_MULTIHOST">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_MULTIHOST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_PLUGIN_ORDER_RECOMMENDS" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_RECOMMENDS">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_RECOMMENDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_PLUGIN_ORDER_REQUIRES" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_REQUIRES">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_REQUIRES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_RETRY_SESSION_BACKOFF_FACTOR" class="internal-link" title="tmt.utils.DEFAULT_RETRY_SESSION_BACKOFF_FACTOR">DEFAULT<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_BACKOFF<wbr></wbr>_FACTOR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_RETRY_SESSION_RETRIES" class="internal-link" title="tmt.utils.DEFAULT_RETRY_SESSION_RETRIES">DEFAULT<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_RETRIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_SELECT_TIMEOUT" class="internal-link" title="tmt.utils.DEFAULT_SELECT_TIMEOUT">DEFAULT<wbr></wbr>_SELECT<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_SHELL" class="internal-link" title="tmt.utils.DEFAULT_SHELL">DEFAULT<wbr></wbr>_SHELL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_WAIT_TICK" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK">DEFAULT<wbr></wbr>_WAIT<wbr></wbr>_TICK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_WAIT_TICK_INCREASE" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK_INCREASE">DEFAULT<wbr></wbr>_WAIT<wbr></wbr>_TICK<wbr></wbr>_INCREASE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ENVFILE_RETRY_SESSION_BACKOFF_FACTOR" class="internal-link" title="tmt.utils.ENVFILE_RETRY_SESSION_BACKOFF_FACTOR">ENVFILE<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_BACKOFF<wbr></wbr>_FACTOR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ENVFILE_RETRY_SESSION_RETRIES" class="internal-link" title="tmt.utils.ENVFILE_RETRY_SESSION_RETRIES">ENVFILE<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_RETRIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INDENT" class="internal-link" title="tmt.utils.INDENT">INDENT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_FILENAME" class="internal-link" title="tmt.utils.LOG_FILENAME">LOG<wbr></wbr>_FILENAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#OUTPUT_LINES" class="internal-link" title="tmt.utils.OUTPUT_LINES">OUTPUT<wbr></wbr>_LINES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#OUTPUT_WIDTH" class="internal-link" title="tmt.utils.OUTPUT_WIDTH">OUTPUT<wbr></wbr>_WIDTH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PLAN_SKIP_WORKTREE_INIT" class="internal-link" title="tmt.utils.PLAN_SKIP_WORKTREE_INIT">PLAN<wbr></wbr>_SKIP<wbr></wbr>_WORKTREE<wbr></wbr>_INIT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PROCESS_TIMEOUT" class="internal-link" title="tmt.utils.PROCESS_TIMEOUT">PROCESS<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SHELL_OPTIONS" class="internal-link" title="tmt.utils.SHELL_OPTIONS">SHELL<wbr></wbr>_OPTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WORKDIR_MAX" class="internal-link" title="tmt.utils.WORKDIR_MAX">WORKDIR<wbr></wbr>_MAX</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WORKDIR_ROOT" class="internal-link" title="tmt.utils.WORKDIR_ROOT">WORKDIR<wbr></wbr>_ROOT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CommonDerivedType" class="internal-link" title="tmt.utils.CommonDerivedType"><wbr></wbr>Common<wbr></wbr>Derived<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SerializableContainerDerivedType" class="internal-link" title="tmt.utils.SerializableContainerDerivedType"><wbr></wbr>Serializable<wbr></wbr>Container<wbr></wbr>Derived<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SpecBasedContainerT" class="internal-link" title="tmt.utils.SpecBasedContainerT"><wbr></wbr>Spec<wbr></wbr>Based<wbr></wbr>Container<wbr></wbr>T</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#T" class="internal-link" title="tmt.utils.T">T</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType"><wbr></wbr>Environment<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FmfContextType" class="internal-link" title="tmt.utils.FmfContextType"><wbr></wbr>Fmf<wbr></wbr>Context<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KeySource" class="internal-link" title="tmt.utils.KeySource"><wbr></wbr>Key<wbr></wbr>Source</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LoggerFnType" class="internal-link" title="tmt.utils.LoggerFnType"><wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Schema" class="internal-link" title="tmt.utils.Schema"><wbr></wbr>Schema</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SchemaStore" class="internal-link" title="tmt.utils.SchemaStore"><wbr></wbr>Schema<wbr></wbr>Store</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SFSectionValueType" class="internal-link" title="tmt.utils.SFSectionValueType"><wbr></wbr>SFSection<wbr></wbr>Value<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WaitCheckType" class="internal-link" title="tmt.utils.WaitCheckType"><wbr></wbr>Wait<wbr></wbr>Check<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WorkdirArgumentType" class="internal-link" title="tmt.utils.WorkdirArgumentType"><wbr></wbr>Workdir<wbr></wbr>Argument<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WorkdirType" class="internal-link" title="tmt.utils.WorkdirType"><wbr></wbr>Workdir<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#YamlTypType" class="internal-link" title="tmt.utils.YamlTypType"><wbr></wbr>Yaml<wbr></wbr>Typ<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log" class="internal-link" title="tmt.utils.log">log</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">tmt</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.plugins.html" class="internal-link" title="tmt.plugins">plugins</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html" class="internal-link" title="tmt.steps">steps</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html" class="internal-link" title="tmt.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.beakerlib.html" class="internal-link" title="tmt.beakerlib">beakerlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.cli.html" class="internal-link" title="tmt.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.convert.html" class="internal-link" title="tmt.convert">convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.export.html" class="internal-link" title="tmt.export">export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.identifier.html" class="internal-link" title="tmt.identifier">identifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.options.html" class="internal-link" title="tmt.options">options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.templates.html" class="internal-link" title="tmt.templates">templates</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html" class="internal-link" title="tmt.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.__main__.html" class="internal-link" title="tmt.__main__">__main__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Clean.html" class="internal-link" title="tmt.Clean"><wbr></wbr>Clean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Guest.html" class="internal-link" title="tmt.Guest"><wbr></wbr>Guest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.GuestSsh.html" class="internal-link" title="tmt.GuestSsh"><wbr></wbr>Guest<wbr></wbr>Ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Plan.html" class="internal-link" title="tmt.Plan"><wbr></wbr>Plan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Result.html" class="internal-link" title="tmt.Result"><wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Run.html" class="internal-link" title="tmt.Run"><wbr></wbr>Run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Status.html" class="internal-link" title="tmt.Status"><wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Story.html" class="internal-link" title="tmt.Story"><wbr></wbr>Story</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Test.html" class="internal-link" title="tmt.Test"><wbr></wbr>Test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Tree.html" class="internal-link" title="tmt.Tree"><wbr></wbr>Tree</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="tmt.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.utils.html" class="internal-link" title="tmt.utils">utils</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Test Metadata Utilities</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id422">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.BaseLoggerFnType.html" class="internal-link" title="tmt.utils.BaseLoggerFnType"><wbr></wbr>Base<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.CentOSDistGit.html" class="internal-link" title="tmt.utils.CentOSDistGit"><wbr></wbr>Cent<wbr></wbr>OSDist<wbr></wbr>Git</a></code></td>
+    <td>CentOS Handler</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.CommandOutput.html" class="internal-link" title="tmt.utils.CommandOutput"><wbr></wbr>Command<wbr></wbr>Output</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common"><wbr></wbr>Common</a></code></td>
+    <td>Common shared stuff</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.Config.html" class="internal-link" title="tmt.utils.Config"><wbr></wbr>Config</a></code></td>
+    <td>User configuration</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.DataContainer.html" class="internal-link" title="tmt.utils.DataContainer"><wbr></wbr>Data<wbr></wbr>Container</a></code></td>
+    <td>A base class for objects that have keys and values</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.DistGitHandler.html" class="internal-link" title="tmt.utils.DistGitHandler"><wbr></wbr>Dist<wbr></wbr>Git<wbr></wbr>Handler</a></code></td>
+    <td>Common functionality for DistGit handlers</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.FedoraDistGit.html" class="internal-link" title="tmt.utils.FedoraDistGit"><wbr></wbr>Fedora<wbr></wbr>Dist<wbr></wbr>Git</a></code></td>
+    <td>Fedora Handler</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.LevelessLoggerFnType.html" class="internal-link" title="tmt.utils.LevelessLoggerFnType"><wbr></wbr>Leveless<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link" title="tmt.utils.LoadFmfKeysMixin"><wbr></wbr>Load<wbr></wbr>Fmf<wbr></wbr>Keys<wbr></wbr>Mixin</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html" class="internal-link" title="tmt.utils.NormalizeKeysMixin"><wbr></wbr>Normalize<wbr></wbr>Keys<wbr></wbr>Mixin</a></code></td>
+    <td>Mixin adding support for loading fmf keys into object attributes.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.retry_session.html" class="internal-link" title="tmt.utils.retry_session">retry<wbr></wbr>_session</a></code></td>
+    <td>Context manager for requests.Session() with retries and timeout</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.RetryStrategy.html" class="internal-link" title="tmt.utils.RetryStrategy"><wbr></wbr>Retry<wbr></wbr>Strategy</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.SemanticLoggerFnType.html" class="internal-link" title="tmt.utils.SemanticLoggerFnType"><wbr></wbr>Semantic<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.SerializableContainer.html" class="internal-link" title="tmt.utils.SerializableContainer"><wbr></wbr>Serializable<wbr></wbr>Container</a></code></td>
+    <td>A mixin class for saving and loading objects</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.SpecBasedContainer.html" class="internal-link" title="tmt.utils.SpecBasedContainer"><wbr></wbr>Spec<wbr></wbr>Based<wbr></wbr>Container</a></code></td>
+    <td><span class="undocumented">No class docstring; 1/1 method, 1/1 class method documented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.StreamLogger.html" class="internal-link" title="tmt.utils.StreamLogger"><wbr></wbr>Stream<wbr></wbr>Logger</a></code></td>
+    <td>Reading pipes of running process in threads.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.StructuredField.html" class="internal-link" title="tmt.utils.StructuredField"><wbr></wbr>Structured<wbr></wbr>Field</a></code></td>
+    <td>Handling multiple text data in a single text field</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.TimeoutHTTPAdapter.html" class="internal-link" title="tmt.utils.TimeoutHTTPAdapter"><wbr></wbr>Timeout<wbr></wbr>HTTPAdapter</a></code></td>
+    <td>Spice up request's session with custom timeout.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.updatable_message.html" class="internal-link" title="tmt.utils.updatable_message">updatable<wbr></wbr>_message</a></code></td>
+    <td>Updatable message suitable for progress-bar-like reporting</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin"><wbr></wbr>Validate<wbr></wbr>Fmf<wbr></wbr>Mixin</a></code></td>
+    <td>Mixin adding validation of an fmf node.</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.ConvertError.html" class="internal-link" title="tmt.utils.ConvertError"><wbr></wbr>Convert<wbr></wbr>Error</a></code></td>
+    <td>Metadata conversion error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.DiscoverError.html" class="internal-link" title="tmt.utils.DiscoverError"><wbr></wbr>Discover<wbr></wbr>Error</a></code></td>
+    <td>Discover step error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.ExecuteError.html" class="internal-link" title="tmt.utils.ExecuteError"><wbr></wbr>Execute<wbr></wbr>Error</a></code></td>
+    <td>Execute step error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.FileError.html" class="internal-link" title="tmt.utils.FileError"><wbr></wbr>File<wbr></wbr>Error</a></code></td>
+    <td>File operation error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.FinishError.html" class="internal-link" title="tmt.utils.FinishError"><wbr></wbr>Finish<wbr></wbr>Error</a></code></td>
+    <td>Finish step error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.GeneralError.html" class="internal-link" title="tmt.utils.GeneralError"><wbr></wbr>General<wbr></wbr>Error</a></code></td>
+    <td>General error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.GitUrlError.html" class="internal-link" title="tmt.utils.GitUrlError"><wbr></wbr>Git<wbr></wbr>Url<wbr></wbr>Error</a></code></td>
+    <td>Remote git url is not reachable</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.MetadataError.html" class="internal-link" title="tmt.utils.MetadataError"><wbr></wbr>Metadata<wbr></wbr>Error</a></code></td>
+    <td>General metadata error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.PrepareError.html" class="internal-link" title="tmt.utils.PrepareError"><wbr></wbr>Prepare<wbr></wbr>Error</a></code></td>
+    <td>Prepare step error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.ProvisionError.html" class="internal-link" title="tmt.utils.ProvisionError"><wbr></wbr>Provision<wbr></wbr>Error</a></code></td>
+    <td>Provision step error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.RebootTimeoutError.html" class="internal-link" title="tmt.utils.RebootTimeoutError"><wbr></wbr>Reboot<wbr></wbr>Timeout<wbr></wbr>Error</a></code></td>
+    <td>Reboot failed due to a timeout</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.ReportError.html" class="internal-link" title="tmt.utils.ReportError"><wbr></wbr>Report<wbr></wbr>Error</a></code></td>
+    <td>Report step error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.RunError.html" class="internal-link" title="tmt.utils.RunError"><wbr></wbr>Run<wbr></wbr>Error</a></code></td>
+    <td>Command execution error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.SpecificationError.html" class="internal-link" title="tmt.utils.SpecificationError"><wbr></wbr>Specification<wbr></wbr>Error</a></code></td>
+    <td>Metadata specification error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.StructuredFieldError.html" class="internal-link" title="tmt.utils.StructuredFieldError"><wbr></wbr>Structured<wbr></wbr>Field<wbr></wbr>Error</a></code></td>
+    <td>StructuredField parsing error</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.WaitingIncomplete.html" class="internal-link" title="tmt.utils.WaitingIncomplete"><wbr></wbr>Waiting<wbr></wbr>Incomplete</a></code></td>
+    <td>Waiting incomplete</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="tmt.utils.WaitingTimedOutError.html" class="internal-link" title="tmt.utils.WaitingTimedOutError"><wbr></wbr>Waiting<wbr></wbr>Timed<wbr></wbr>Out<wbr></wbr>Error</a></code></td>
+    <td>Waiting ran out of time</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ascii" class="internal-link" title="tmt.utils.ascii">ascii</a></code></td>
+    <td>Transliterate special unicode characters into pure ascii</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#check_git_url" class="internal-link" title="tmt.utils.check_git_url">check<wbr></wbr>_git<wbr></wbr>_url</a></code></td>
+    <td>Check that a remote git url is accessible</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#context_to_dict" class="internal-link" title="tmt.utils.context_to_dict">context<wbr></wbr>_to<wbr></wbr>_dict</a></code></td>
+    <td>Convert command line context definition into a dictionary</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#copytree" class="internal-link" title="tmt.utils.copytree">copytree</a></code></td>
+    <td>Similar to shutil.copytree but with dirs_exist_ok for Python &lt; 3.8</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_directory" class="internal-link" title="tmt.utils.create_directory">create<wbr></wbr>_directory</a></code></td>
+    <td>Create a new directory, handle errors</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_file" class="internal-link" title="tmt.utils.create_file">create<wbr></wbr>_file</a></code></td>
+    <td>Create a new file, handle errors</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#default_branch" class="internal-link" title="tmt.utils.default_branch">default<wbr></wbr>_branch</a></code></td>
+    <td>Detect default branch from given local git repository</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#dict_to_yaml" class="internal-link" title="tmt.utils.dict_to_yaml">dict<wbr></wbr>_to<wbr></wbr>_yaml</a></code></td>
+    <td>Convert dictionary into yaml</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#duration_to_seconds" class="internal-link" title="tmt.utils.duration_to_seconds">duration<wbr></wbr>_to<wbr></wbr>_seconds</a></code></td>
+    <td>Convert sleep time format into seconds</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#environment_file_to_dict" class="internal-link" title="tmt.utils.environment_file_to_dict">environment<wbr></wbr>_file<wbr></wbr>_to<wbr></wbr>_dict</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#environment_files_to_dict" class="internal-link" title="tmt.utils.environment_files_to_dict">environment<wbr></wbr>_files<wbr></wbr>_to<wbr></wbr>_dict</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#environment_to_dict" class="internal-link" title="tmt.utils.environment_to_dict">environment<wbr></wbr>_to<wbr></wbr>_dict</a></code></td>
+    <td>Convert environment variables into a dictionary</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#find_fmf_root" class="internal-link" title="tmt.utils.find_fmf_root">find<wbr></wbr>_fmf<wbr></wbr>_root</a></code></td>
+    <td>Search trough path and return all fmf roots that exist there</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#format" class="internal-link" title="tmt.utils.format">format</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#generate_runs" class="internal-link" title="tmt.utils.generate_runs">generate<wbr></wbr>_runs</a></code></td>
+    <td>Generate absolute paths to runs from path</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_distgit_handler" class="internal-link" title="tmt.utils.get_distgit_handler">get<wbr></wbr>_distgit<wbr></wbr>_handler</a></code></td>
+    <td>Return the right DistGitHandler</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_distgit_handler_names" class="internal-link" title="tmt.utils.get_distgit_handler_names">get<wbr></wbr>_distgit<wbr></wbr>_handler<wbr></wbr>_names</a></code></td>
+    <td>All known distgit handlers</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#git_clone" class="internal-link" title="tmt.utils.git_clone">git<wbr></wbr>_clone</a></code></td>
+    <td>Git clone url to destination, retry without shallow if necessary</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#indent" class="internal-link" title="tmt.utils.indent">indent</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#key_to_option" class="internal-link" title="tmt.utils.key_to_option">key<wbr></wbr>_to<wbr></wbr>_option</a></code></td>
+    <td>Convert a key name to corresponding option name</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#listify" class="internal-link" title="tmt.utils.listify">listify</a></code></td>
+    <td>Ensure that variable is a list, convert if necessary For dictionaries check all items or only those with provided keys. Also split strings on white-space/comma if split=True.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#load_run" class="internal-link" title="tmt.utils.load_run">load<wbr></wbr>_run</a></code></td>
+    <td>Load a run and its steps from the workdir</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#load_schema" class="internal-link" title="tmt.utils.load_schema">load<wbr></wbr>_schema</a></code></td>
+    <td>Load a JSON schema from a given filepath.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#load_schema_store" class="internal-link" title="tmt.utils.load_schema_store">load<wbr></wbr>_schema<wbr></wbr>_store</a></code></td>
+    <td>Load all available JSON schemas, and put them into a "store".</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#markdown_to_html" class="internal-link" title="tmt.utils.markdown_to_html">markdown<wbr></wbr>_to<wbr></wbr>_html</a></code></td>
+    <td>Convert markdown to html</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#modify_environ" class="internal-link" title="tmt.utils.modify_environ">modify<wbr></wbr>_environ</a></code></td>
+    <td>A context manager for os.environ that restores the initial state</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#option_to_key" class="internal-link" title="tmt.utils.option_to_key">option<wbr></wbr>_to<wbr></wbr>_key</a></code></td>
+    <td>Convert an option name to corresponding key name</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#parse_dotenv" class="internal-link" title="tmt.utils.parse_dotenv">parse<wbr></wbr>_dotenv</a></code></td>
+    <td>Parse dotenv (shell) format of variables</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#parse_yaml" class="internal-link" title="tmt.utils.parse_yaml">parse<wbr></wbr>_yaml</a></code></td>
+    <td>Parse variables from yaml, ensure flat dictionary format</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#public_git_url" class="internal-link" title="tmt.utils.public_git_url">public<wbr></wbr>_git<wbr></wbr>_url</a></code></td>
+    <td>Convert a git url into a public format</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#quote" class="internal-link" title="tmt.utils.quote">quote</a></code></td>
+    <td>Surround a string with double quotes</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#remove_color" class="internal-link" title="tmt.utils.remove_color">remove<wbr></wbr>_color</a></code></td>
+    <td>Remove ansi color sequences from the string</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#shell_to_dict" class="internal-link" title="tmt.utils.shell_to_dict">shell<wbr></wbr>_to<wbr></wbr>_dict</a></code></td>
+    <td>Convert shell-like variables into a dictionary</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#shell_variables" class="internal-link" title="tmt.utils.shell_variables">shell<wbr></wbr>_variables</a></code></td>
+    <td>Prepare variables to be consumed by shell</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#validate_fmf_node" class="internal-link" title="tmt.utils.validate_fmf_node">validate<wbr></wbr>_fmf<wbr></wbr>_node</a></code></td>
+    <td>Validate a given fmf node</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#validate_git_status" class="internal-link" title="tmt.utils.validate_git_status">validate<wbr></wbr>_git<wbr></wbr>_status</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#verdict" class="internal-link" title="tmt.utils.verdict">verdict</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#wait" class="internal-link" title="tmt.utils.wait">wait</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#yaml_to_dict" class="internal-link" title="tmt.utils.yaml_to_dict">yaml<wbr></wbr>_to<wbr></wbr>_dict</a></code></td>
+    <td>Convert yaml into dictionary</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#yaml_to_list" class="internal-link" title="tmt.utils.yaml_to_list">yaml<wbr></wbr>_to<wbr></wbr>_list</a></code></td>
+    <td>Convert yaml into list</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CONFIG_PATH" class="internal-link" title="tmt.utils.CONFIG_PATH">CONFIG<wbr></wbr>_PATH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_NAME" class="internal-link" title="tmt.utils.DEFAULT_NAME">DEFAULT<wbr></wbr>_NAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_PLUGIN_ORDER" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_PLUGIN_ORDER_MULTIHOST" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_MULTIHOST">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_MULTIHOST</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_PLUGIN_ORDER_RECOMMENDS" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_RECOMMENDS">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_RECOMMENDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_PLUGIN_ORDER_REQUIRES" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_REQUIRES">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_REQUIRES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_RETRY_SESSION_BACKOFF_FACTOR" class="internal-link" title="tmt.utils.DEFAULT_RETRY_SESSION_BACKOFF_FACTOR">DEFAULT<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_BACKOFF<wbr></wbr>_FACTOR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_RETRY_SESSION_RETRIES" class="internal-link" title="tmt.utils.DEFAULT_RETRY_SESSION_RETRIES">DEFAULT<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_RETRIES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_SELECT_TIMEOUT" class="internal-link" title="tmt.utils.DEFAULT_SELECT_TIMEOUT">DEFAULT<wbr></wbr>_SELECT<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_SHELL" class="internal-link" title="tmt.utils.DEFAULT_SHELL">DEFAULT<wbr></wbr>_SHELL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_WAIT_TICK" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK">DEFAULT<wbr></wbr>_WAIT<wbr></wbr>_TICK</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_WAIT_TICK_INCREASE" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK_INCREASE">DEFAULT<wbr></wbr>_WAIT<wbr></wbr>_TICK<wbr></wbr>_INCREASE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ENVFILE_RETRY_SESSION_BACKOFF_FACTOR" class="internal-link" title="tmt.utils.ENVFILE_RETRY_SESSION_BACKOFF_FACTOR">ENVFILE<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_BACKOFF<wbr></wbr>_FACTOR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ENVFILE_RETRY_SESSION_RETRIES" class="internal-link" title="tmt.utils.ENVFILE_RETRY_SESSION_RETRIES">ENVFILE<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_RETRIES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INDENT" class="internal-link" title="tmt.utils.INDENT">INDENT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_FILENAME" class="internal-link" title="tmt.utils.LOG_FILENAME">LOG<wbr></wbr>_FILENAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#OUTPUT_LINES" class="internal-link" title="tmt.utils.OUTPUT_LINES">OUTPUT<wbr></wbr>_LINES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#OUTPUT_WIDTH" class="internal-link" title="tmt.utils.OUTPUT_WIDTH">OUTPUT<wbr></wbr>_WIDTH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#PLAN_SKIP_WORKTREE_INIT" class="internal-link" title="tmt.utils.PLAN_SKIP_WORKTREE_INIT">PLAN<wbr></wbr>_SKIP<wbr></wbr>_WORKTREE<wbr></wbr>_INIT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#PROCESS_TIMEOUT" class="internal-link" title="tmt.utils.PROCESS_TIMEOUT">PROCESS<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SHELL_OPTIONS" class="internal-link" title="tmt.utils.SHELL_OPTIONS">SHELL<wbr></wbr>_OPTIONS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WORKDIR_MAX" class="internal-link" title="tmt.utils.WORKDIR_MAX">WORKDIR<wbr></wbr>_MAX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WORKDIR_ROOT" class="internal-link" title="tmt.utils.WORKDIR_ROOT">WORKDIR<wbr></wbr>_ROOT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typevariable">
+    
+    <td>Type Variable</td>
+    <td><code><a href="#CommonDerivedType" class="internal-link" title="tmt.utils.CommonDerivedType"><wbr></wbr>Common<wbr></wbr>Derived<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typevariable">
+    
+    <td>Type Variable</td>
+    <td><code><a href="#SerializableContainerDerivedType" class="internal-link" title="tmt.utils.SerializableContainerDerivedType"><wbr></wbr>Serializable<wbr></wbr>Container<wbr></wbr>Derived<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typevariable">
+    
+    <td>Type Variable</td>
+    <td><code><a href="#SpecBasedContainerT" class="internal-link" title="tmt.utils.SpecBasedContainerT"><wbr></wbr>Spec<wbr></wbr>Based<wbr></wbr>Container<wbr></wbr>T</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typevariable">
+    
+    <td>Type Variable</td>
+    <td><code><a href="#T" class="internal-link" title="tmt.utils.T">T</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType"><wbr></wbr>Environment<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#FmfContextType" class="internal-link" title="tmt.utils.FmfContextType"><wbr></wbr>Fmf<wbr></wbr>Context<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#KeySource" class="internal-link" title="tmt.utils.KeySource"><wbr></wbr>Key<wbr></wbr>Source</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#LoggerFnType" class="internal-link" title="tmt.utils.LoggerFnType"><wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#Schema" class="internal-link" title="tmt.utils.Schema"><wbr></wbr>Schema</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#SchemaStore" class="internal-link" title="tmt.utils.SchemaStore"><wbr></wbr>Schema<wbr></wbr>Store</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#SFSectionValueType" class="internal-link" title="tmt.utils.SFSectionValueType"><wbr></wbr>SFSection<wbr></wbr>Value<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#WaitCheckType" class="internal-link" title="tmt.utils.WaitCheckType"><wbr></wbr>Wait<wbr></wbr>Check<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#WorkdirArgumentType" class="internal-link" title="tmt.utils.WorkdirArgumentType"><wbr></wbr>Workdir<wbr></wbr>Argument<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#WorkdirType" class="internal-link" title="tmt.utils.WorkdirType"><wbr></wbr>Workdir<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#YamlTypType" class="internal-link" title="tmt.utils.YamlTypType"><wbr></wbr>Yaml<wbr></wbr>Typ<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#log" class="internal-link" title="tmt.utils.log">log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_add_file_vars" class="internal-link" title="tmt.utils._add_file_vars">_add<wbr></wbr>_file<wbr></wbr>_vars</a></code></td>
+    <td>Add variables loaded from file into the result dictionary</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_add_simple_var" class="internal-link" title="tmt.utils._add_simple_var">_add<wbr></wbr>_simple<wbr></wbr>_var</a></code></td>
+    <td>Add a single NAME=VALUE pair into result dictionary</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_load_schema" class="internal-link" title="tmt.utils._load_schema">_load<wbr></wbr>_schema</a></code></td>
+    <td>Load a JSON schema from a given filepath.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_patch_plan_schema" class="internal-link" title="tmt.utils._patch_plan_schema">_patch<wbr></wbr>_plan<wbr></wbr>_schema</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_prenormalize_fmf_node" class="internal-link" title="tmt.utils._prenormalize_fmf_node">_prenormalize<wbr></wbr>_fmf<wbr></wbr>_node</a></code></td>
+    <td>Apply the minimal possible normalization steps to nodes before validating them with schemas.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="tmt.utils.ascii">
+    
+  </a>
+  <a name="ascii">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ascii</span>(text):
+    
+    <a class="headerLink" href="#ascii" title="tmt.utils.ascii">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Transliterate special unicode characters into pure ascii</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>bytes</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.check_git_url">
+    
+  </a>
+  <a name="check_git_url">
+    
+  </a>
+  <div class="functionHeader">
+    @lru_cache(<wbr></wbr>maxsize=None)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">check_git_url</span>(url):
+    
+    <a class="headerLink" href="#check_git_url" title="tmt.utils.check_git_url">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check that a remote git url is accessible</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">url:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.context_to_dict">
+    
+  </a>
+  <a name="context_to_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">context_to_dict</span>(context):
+    
+    <a class="headerLink" href="#context_to_dict" title="tmt.utils.context_to_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert command line context definition into a dictionary</p>
+<p>Does the same as environment_to_dict() plus separates possible comma-separated values into lists. Here's a couple of examples:</p>
+<p>distro=fedora-33 ---&gt; {'distro': ['fedora']} arch=x86_64,ppc64 ---&gt; {'arch': ['x86_64', 'ppc64']}</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">context:</span><code>List[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#FmfContextType" class="internal-link" title="tmt.utils.FmfContextType">FmfContextType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.copytree">
+    
+  </a>
+  <a name="copytree">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">copytree</span>(src, dst, symlinks=False, dirs_exist_ok=False):
+    
+    <a class="headerLink" href="#copytree" title="tmt.utils.copytree">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Similar to shutil.copytree but with dirs_exist_ok for Python &lt; 3.8</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">src:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dst:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">symlinks:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dirs<wbr></wbr>_exist<wbr></wbr>_ok:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.create_directory">
+    
+  </a>
+  <a name="create_directory">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_directory</span>(path, name, dry=False, quiet=False):
+    
+    <a class="headerLink" href="#create_directory" title="tmt.utils.create_directory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a new directory, handle errors</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dry:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">quiet:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.create_file">
+    
+  </a>
+  <a name="create_file">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_file</span>(path, content, name, dry=False, force=False, mode=436, quiet=False):
+    
+    <a class="headerLink" href="#create_file" title="tmt.utils.create_file">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a new file, handle errors</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dry:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode:</span><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">quiet:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.default_branch">
+    
+  </a>
+  <a name="default_branch">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">default_branch</span>(repository, remote=<span class="rst-variable-quote">'</span><span class="rst-variable-string">origin</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#default_branch" title="tmt.utils.default_branch">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Detect default branch from given local git repository</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">repository:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">remote:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.dict_to_yaml">
+    
+  </a>
+  <a name="dict_to_yaml">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">dict_to_yaml</span>(data, width=None, sort=False, start=False):
+    
+    <a class="headerLink" href="#dict_to_yaml" title="tmt.utils.dict_to_yaml">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert dictionary into yaml</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Union[<wbr></wbr>Dict[<wbr></wbr>str, <wbr></wbr>Any], <wbr></wbr>List[<wbr></wbr>Any]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">width:</span><code>Optional[<wbr></wbr>int]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sort:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">start:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.duration_to_seconds">
+    
+  </a>
+  <a name="duration_to_seconds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">duration_to_seconds</span>(duration):
+    
+    <a class="headerLink" href="#duration_to_seconds" title="tmt.utils.duration_to_seconds">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert sleep time format into seconds</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">duration:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.environment_file_to_dict">
+    
+  </a>
+  <a name="environment_file_to_dict">
+    
+  </a>
+  <div class="functionHeader">
+    @lru_cache(<wbr></wbr>maxsize=None)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">environment_file_to_dict</span>(env_file, root=<span class="rst-variable-quote">'</span><span class="rst-variable-string">.</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#environment_file_to_dict" title="tmt.utils.environment_file_to_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env<wbr></wbr>_file:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">root:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.environment_files_to_dict">
+    
+  </a>
+  <a name="environment_files_to_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">environment_files_to_dict</span>(env_files, root=<span class="rst-variable-quote">'</span><span class="rst-variable-string">.</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#environment_files_to_dict" title="tmt.utils.environment_files_to_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env<wbr></wbr>_files:</span><code>Iterable[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">root:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.environment_to_dict">
+    
+  </a>
+  <a name="environment_to_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">environment_to_dict</span>(variables):
+    
+    <a class="headerLink" href="#environment_to_dict" title="tmt.utils.environment_to_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert environment variables into a dictionary</p>
+<p>Variables may be specified in the following two ways:</p>
+<p>* NAME=VALUE pairs * @foo.yaml</p>
+<p>If "variable" starts with "@" character, it is treated as a path to a YAML file that contains "key: value" pairs which are then transparently loaded and added to the final dictionary.</p>
+<p>In general, allowed inputs are the same as in "shell_to_dict" function, with the addition of "@foo.yaml" form: 'X=1' 'X=1 Y=2 Z=3' ['X=1', 'Y=2', 'Z=3'] ['X=1 Y=2 Z=3', 'A=1 B=2 C=3'] 'TXT="Some text with spaces in it"' @foo.yaml @../../bar.yaml</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">variables:</span><code>Union[<wbr></wbr>str, <wbr></wbr>List[<wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.find_fmf_root">
+    
+  </a>
+  <a name="find_fmf_root">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">find_fmf_root</span>(path):
+    
+    <a class="headerLink" href="#find_fmf_root" title="tmt.utils.find_fmf_root">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Search trough path and return all fmf roots that exist there</p>
+<p>Returned list is ordered by path length, shortest one first.</p>
+<p>Raise `MetadataError` if no fmf root is found.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.format">
+    
+  </a>
+  <a name="format">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">format</span>(key, value=None, indent=12, width=72, wrap=<span class="rst-variable-quote">'</span><span class="rst-variable-string">auto</span><span class="rst-variable-quote">'</span>, key_color=<span class="rst-variable-quote">'</span><span class="rst-variable-string">green</span><span class="rst-variable-quote">'</span>, value_color=<span class="rst-variable-quote">'</span><span class="rst-variable-string">black</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#format" title="tmt.utils.format">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span><code>Union[<wbr></wbr>None, <wbr></wbr>str, <wbr></wbr>List[<wbr></wbr>Any], <wbr></wbr>Dict[<wbr></wbr>Any, <wbr></wbr>Any]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">width:</span><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">wrap:</span><code>Literal[<wbr></wbr>True, <wbr></wbr>False, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">auto</span><span class="rst-variable-quote">'</span>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key<wbr></wbr>_color:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value<wbr></wbr>_color:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.generate_runs">
+    
+  </a>
+  <a name="generate_runs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">generate_runs</span>(path, id_=None):
+    
+    <a class="headerLink" href="#generate_runs" title="tmt.utils.generate_runs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generate absolute paths to runs from path</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">id_:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Generator[<wbr></wbr>str, <wbr></wbr>None, <wbr></wbr>None]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.get_distgit_handler">
+    
+  </a>
+  <a name="get_distgit_handler">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_distgit_handler</span>(remotes=None, usage_name=None):
+    
+    <a class="headerLink" href="#get_distgit_handler" title="tmt.utils.get_distgit_handler">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the right DistGitHandler</p>
+<p>Pick the DistGitHandler class which understands specified remotes or by usage_name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">remotes:</span><code>Optional[<wbr></wbr>List[<wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">usage<wbr></wbr>_name:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="tmt.utils.DistGitHandler.html" class="internal-link" title="tmt.utils.DistGitHandler">DistGitHandler</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.get_distgit_handler_names">
+    
+  </a>
+  <a name="get_distgit_handler_names">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_distgit_handler_names</span>():
+    
+    <a class="headerLink" href="#get_distgit_handler_names" title="tmt.utils.get_distgit_handler_names">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>All known distgit handlers</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.git_clone">
+    
+  </a>
+  <a name="git_clone">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">git_clone</span>(url, destination, common, env=None, shallow=False):
+    
+    <a class="headerLink" href="#git_clone" title="tmt.utils.git_clone">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Git clone url to destination, retry without shallow if necessary</p>
+<p>For shallow=True attempt to clone repository using --depth=1 option first. If not successful attempt to clone whole repo.</p>
+<p>Common instance is used to run the command for appropriate logging. Environment is updated by 'env' dictionary.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">url:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">destination:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">common:</span><code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common">Common</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env:</span><code>Optional[<wbr></wbr><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">shallow:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="tmt.utils.CommandOutput.html" class="internal-link" title="tmt.utils.CommandOutput">CommandOutput</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.indent">
+    
+  </a>
+  <a name="indent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">indent</span>(key, value=None, color=None, level=0):
+    
+    <a class="headerLink" href="#indent" title="tmt.utils.indent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">color:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">level:</span><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.key_to_option">
+    
+  </a>
+  <a name="key_to_option">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">key_to_option</span>(key):
+    
+    <a class="headerLink" href="#key_to_option" title="tmt.utils.key_to_option">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert a key name to corresponding option name</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.listify">
+    
+  </a>
+  <a name="listify">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">listify</span>(data, split=False, keys=None):
+    
+    <a class="headerLink" href="#listify" title="tmt.utils.listify">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure that variable is a list, convert if necessary For dictionaries check all items or only those with provided keys. Also split strings on white-space/comma if split=True.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Union[<wbr></wbr>Tuple[<wbr></wbr>Any, <wbr></wbr><span class="rst-variable-ellipsis">...</span>], <wbr></wbr>List[<wbr></wbr>Any], <wbr></wbr>str, <wbr></wbr>Dict[<wbr></wbr>Any, <wbr></wbr>Any]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">split:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">keys:</span><code>Optional[<wbr></wbr>List[<wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Union[<wbr></wbr>List[<wbr></wbr>Any], <wbr></wbr>Dict[<wbr></wbr>Any, <wbr></wbr>Any]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.load_run">
+    
+  </a>
+  <a name="load_run">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load_run</span>(run):
+    
+    <a class="headerLink" href="#load_run" title="tmt.utils.load_run">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load a run and its steps from the workdir</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">run:</span><code><a href="tmt.Run.html" class="internal-link" title="tmt.Run">tmt.base.Run</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Tuple[<wbr></wbr>bool, <wbr></wbr>Optional[<wbr></wbr>Exception]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.load_schema">
+    
+  </a>
+  <a name="load_schema">
+    
+  </a>
+  <div class="functionHeader">
+    @functools.lru_cache(<wbr></wbr>maxsize=None)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">load_schema</span>(schema_filepath):
+    
+    <a class="headerLink" href="#load_schema" title="tmt.utils.load_schema">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load a JSON schema from a given filepath.</p>
+<p>Recommended for general use, the method may apply some post-loading touches to the given schema, and unless caller is interested in the raw content of the file, this functions should be used instead of the real workhorse of schema loading, :py:func:`_load_schema`.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">schema<wbr></wbr>_filepath:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#Schema" class="internal-link" title="tmt.utils.Schema">Schema</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.load_schema_store">
+    
+  </a>
+  <a name="load_schema_store">
+    
+  </a>
+  <div class="functionHeader">
+    @functools.lru_cache(<wbr></wbr>maxsize=None)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">load_schema_store</span>():
+    
+    <a class="headerLink" href="#load_schema_store" title="tmt.utils.load_schema_store">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load all available JSON schemas, and put them into a "store".</p>
+<p>Schema store is a simple mapping between schema IDs and schemas.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#SchemaStore" class="internal-link" title="tmt.utils.SchemaStore">SchemaStore</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.markdown_to_html">
+    
+  </a>
+  <a name="markdown_to_html">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">markdown_to_html</span>(filename):
+    
+    <a class="headerLink" href="#markdown_to_html" title="tmt.utils.markdown_to_html">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert markdown to html</p>
+<p>Expects: Markdown document as a file. Returns: An HTML document as a string.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.modify_environ">
+    
+  </a>
+  <a name="modify_environ">
+    
+  </a>
+  <div class="functionHeader">
+    @contextlib.contextmanager<br />
+    <span class="py-keyword">def</span> <span class="py-defname">modify_environ</span>(new_elements):
+    
+    <a class="headerLink" href="#modify_environ" title="tmt.utils.modify_environ">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>A context manager for os.environ that restores the initial state</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_elements:</span><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Generator[<wbr></wbr>None, <wbr></wbr>None, <wbr></wbr>None]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.option_to_key">
+    
+  </a>
+  <a name="option_to_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">option_to_key</span>(option):
+    
+    <a class="headerLink" href="#option_to_key" title="tmt.utils.option_to_key">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert an option name to corresponding key name</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">option:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.parse_dotenv">
+    
+  </a>
+  <a name="parse_dotenv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse_dotenv</span>(content):
+    
+    <a class="headerLink" href="#parse_dotenv" title="tmt.utils.parse_dotenv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse dotenv (shell) format of variables</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.parse_yaml">
+    
+  </a>
+  <a name="parse_yaml">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse_yaml</span>(content):
+    
+    <a class="headerLink" href="#parse_yaml" title="tmt.utils.parse_yaml">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse variables from yaml, ensure flat dictionary format</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.public_git_url">
+    
+  </a>
+  <a name="public_git_url">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">public_git_url</span>(url):
+    
+    <a class="headerLink" href="#public_git_url" title="tmt.utils.public_git_url">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert a git url into a public format</p>
+<p>Return url in the format which can be accessed without authentication. For now just cover the most common services.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">url:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.quote">
+    
+  </a>
+  <a name="quote">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">quote</span>(string):
+    
+    <a class="headerLink" href="#quote" title="tmt.utils.quote">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Surround a string with double quotes</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">string:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.remove_color">
+    
+  </a>
+  <a name="remove_color">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">remove_color</span>(text):
+    
+    <a class="headerLink" href="#remove_color" title="tmt.utils.remove_color">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove ansi color sequences from the string</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.shell_to_dict">
+    
+  </a>
+  <a name="shell_to_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">shell_to_dict</span>(variables):
+    
+    <a class="headerLink" href="#shell_to_dict" title="tmt.utils.shell_to_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert shell-like variables into a dictionary</p>
+<p>Accepts single string or list of strings. Allowed forms are: 'X=1' 'X=1 Y=2 Z=3' ['X=1', 'Y=2', 'Z=3'] ['X=1 Y=2 Z=3', 'A=1 B=2 C=3'] 'TXT="Some text with spaces in it"'</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">variables:</span><code>Union[<wbr></wbr>str, <wbr></wbr>List[<wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.shell_variables">
+    
+  </a>
+  <a name="shell_variables">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">shell_variables</span>(data):
+    
+    <a class="headerLink" href="#shell_variables" title="tmt.utils.shell_variables">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare variables to be consumed by shell</p>
+<p>Convert dictionary or list/tuple of key=value pairs to list of key=value pairs where value is quoted with shlex.quote().</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Union[<wbr></wbr>List[<wbr></wbr>str], <wbr></wbr>Tuple[<wbr></wbr>str, <wbr></wbr><span class="rst-variable-ellipsis">...</span>], <wbr></wbr>Dict[<wbr></wbr>str, <wbr></wbr>Any]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.validate_fmf_node">
+    
+  </a>
+  <a name="validate_fmf_node">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">validate_fmf_node</span>(node, schema_name):
+    
+    <a class="headerLink" href="#validate_fmf_node" title="tmt.utils.validate_fmf_node">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Validate a given fmf node</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span><code>fmf.Tree</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">schema<wbr></wbr>_name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>Tuple[<wbr></wbr>jsonschema.ValidationError, <wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.validate_git_status">
+    
+  </a>
+  <a name="validate_git_status">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">validate_git_status</span>(test):
+    
+    <a class="headerLink" href="#validate_git_status" title="tmt.utils.validate_git_status">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link" title="tmt.Test">tmt.base.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Tuple[<wbr></wbr>bool, <wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.verdict">
+    
+  </a>
+  <a name="verdict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">verdict</span>(decision, comment=None, good=<span class="rst-variable-quote">'</span><span class="rst-variable-string">pass</span><span class="rst-variable-quote">'</span>, bad=<span class="rst-variable-quote">'</span><span class="rst-variable-string">fail</span><span class="rst-variable-quote">'</span>, problem=<span class="rst-variable-quote">'</span><span class="rst-variable-string">warn</span><span class="rst-variable-quote">'</span>, **kwargs):
+    
+    <a class="headerLink" href="#verdict" title="tmt.utils.verdict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">decision:</span><code>Optional[<wbr></wbr>bool]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">comment:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">good:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bad:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">problem:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Optional[<wbr></wbr>bool]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.wait">
+    
+  </a>
+  <a name="wait">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">wait</span>(parent, check, timeout, tick=<a href="#DEFAULT_WAIT_TICK" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK">DEFAULT_WAIT_TICK</a>, tick_increase=<a href="#DEFAULT_WAIT_TICK_INCREASE" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK_INCREASE">DEFAULT_WAIT_TICK_INCREASE</a>):
+    
+    <a class="headerLink" href="#wait" title="tmt.utils.wait">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">parent:</span><code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common">Common</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">check:</span><code><a href="#WaitCheckType" class="internal-link" title="tmt.utils.WaitCheckType">WaitCheckType</a>[<wbr></wbr><a href="#T" class="internal-link" title="tmt.utils.T">T</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout:</span><code>datetime.timedelta</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">tick:</span><code>float</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">tick<wbr></wbr>_increase:</span><code>float</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#T" class="internal-link" title="tmt.utils.T">T</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.yaml_to_dict">
+    
+  </a>
+  <a name="yaml_to_dict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">yaml_to_dict</span>(data, yaml_type=None):
+    
+    <a class="headerLink" href="#yaml_to_dict" title="tmt.utils.yaml_to_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert yaml into dictionary</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">yaml<wbr></wbr>_type:</span><code>Optional[<wbr></wbr><a href="#YamlTypType" class="internal-link" title="tmt.utils.YamlTypType">YamlTypType</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Dict[<wbr></wbr>Any, <wbr></wbr>Any]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.utils.yaml_to_list">
+    
+  </a>
+  <a name="yaml_to_list">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">yaml_to_list</span>(data, yaml_type=<span class="rst-variable-quote">'</span><span class="rst-variable-string">safe</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#yaml_to_list" title="tmt.utils.yaml_to_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert yaml into list</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">yaml<wbr></wbr>_type:</span><code>Optional[<wbr></wbr><a href="#YamlTypType" class="internal-link" title="tmt.utils.YamlTypType">YamlTypType</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>Any]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.CONFIG_PATH">
+    
+  </a>
+  <a name="CONFIG_PATH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CONFIG_PATH</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#CONFIG_PATH" title="tmt.utils.CONFIG_PATH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">~/.config/tmt</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_NAME">
+    
+  </a>
+  <a name="DEFAULT_NAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_NAME</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DEFAULT_NAME" title="tmt.utils.DEFAULT_NAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">default</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_PLUGIN_ORDER">
+    
+  </a>
+  <a name="DEFAULT_PLUGIN_ORDER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_PLUGIN_ORDER</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_PLUGIN_ORDER" title="tmt.utils.DEFAULT_PLUGIN_ORDER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>50</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_PLUGIN_ORDER_MULTIHOST">
+    
+  </a>
+  <a name="DEFAULT_PLUGIN_ORDER_MULTIHOST">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_PLUGIN_ORDER_MULTIHOST</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_PLUGIN_ORDER_MULTIHOST" title="tmt.utils.DEFAULT_PLUGIN_ORDER_MULTIHOST">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_PLUGIN_ORDER_RECOMMENDS">
+    
+  </a>
+  <a name="DEFAULT_PLUGIN_ORDER_RECOMMENDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_PLUGIN_ORDER_RECOMMENDS</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_PLUGIN_ORDER_RECOMMENDS" title="tmt.utils.DEFAULT_PLUGIN_ORDER_RECOMMENDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>75</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_PLUGIN_ORDER_REQUIRES">
+    
+  </a>
+  <a name="DEFAULT_PLUGIN_ORDER_REQUIRES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_PLUGIN_ORDER_REQUIRES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_PLUGIN_ORDER_REQUIRES" title="tmt.utils.DEFAULT_PLUGIN_ORDER_REQUIRES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>70</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_RETRY_SESSION_BACKOFF_FACTOR">
+    
+  </a>
+  <a name="DEFAULT_RETRY_SESSION_BACKOFF_FACTOR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_RETRY_SESSION_BACKOFF_FACTOR</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#DEFAULT_RETRY_SESSION_BACKOFF_FACTOR" title="tmt.utils.DEFAULT_RETRY_SESSION_BACKOFF_FACTOR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>0.1</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_RETRY_SESSION_RETRIES">
+    
+  </a>
+  <a name="DEFAULT_RETRY_SESSION_RETRIES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_RETRY_SESSION_RETRIES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_RETRY_SESSION_RETRIES" title="tmt.utils.DEFAULT_RETRY_SESSION_RETRIES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>3</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_SELECT_TIMEOUT">
+    
+  </a>
+  <a name="DEFAULT_SELECT_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_SELECT_TIMEOUT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#DEFAULT_SELECT_TIMEOUT" title="tmt.utils.DEFAULT_SELECT_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>5</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_SHELL">
+    
+  </a>
+  <a name="DEFAULT_SHELL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_SHELL</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#DEFAULT_SHELL" title="tmt.utils.DEFAULT_SHELL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">/bin/bash</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_WAIT_TICK">
+    
+  </a>
+  <a name="DEFAULT_WAIT_TICK">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_WAIT_TICK</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#DEFAULT_WAIT_TICK" title="tmt.utils.DEFAULT_WAIT_TICK">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>30.0</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.DEFAULT_WAIT_TICK_INCREASE">
+    
+  </a>
+  <a name="DEFAULT_WAIT_TICK_INCREASE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_WAIT_TICK_INCREASE</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#DEFAULT_WAIT_TICK_INCREASE" title="tmt.utils.DEFAULT_WAIT_TICK_INCREASE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1.0</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.ENVFILE_RETRY_SESSION_BACKOFF_FACTOR">
+    
+  </a>
+  <a name="ENVFILE_RETRY_SESSION_BACKOFF_FACTOR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ENVFILE_RETRY_SESSION_BACKOFF_FACTOR</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#ENVFILE_RETRY_SESSION_BACKOFF_FACTOR" title="tmt.utils.ENVFILE_RETRY_SESSION_BACKOFF_FACTOR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.ENVFILE_RETRY_SESSION_RETRIES">
+    
+  </a>
+  <a name="ENVFILE_RETRY_SESSION_RETRIES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ENVFILE_RETRY_SESSION_RETRIES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#ENVFILE_RETRY_SESSION_RETRIES" title="tmt.utils.ENVFILE_RETRY_SESSION_RETRIES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.INDENT">
+    
+  </a>
+  <a name="INDENT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INDENT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#INDENT" title="tmt.utils.INDENT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>4</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.LOG_FILENAME">
+    
+  </a>
+  <a name="LOG_FILENAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_FILENAME</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#LOG_FILENAME" title="tmt.utils.LOG_FILENAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">log.txt</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.OUTPUT_LINES">
+    
+  </a>
+  <a name="OUTPUT_LINES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">OUTPUT_LINES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#OUTPUT_LINES" title="tmt.utils.OUTPUT_LINES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>100</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.OUTPUT_WIDTH">
+    
+  </a>
+  <a name="OUTPUT_WIDTH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">OUTPUT_WIDTH</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#OUTPUT_WIDTH" title="tmt.utils.OUTPUT_WIDTH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>79</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.PLAN_SKIP_WORKTREE_INIT">
+    
+  </a>
+  <a name="PLAN_SKIP_WORKTREE_INIT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PLAN_SKIP_WORKTREE_INIT</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#PLAN_SKIP_WORKTREE_INIT" title="tmt.utils.PLAN_SKIP_WORKTREE_INIT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">plan_skip_worktree_init</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.PROCESS_TIMEOUT">
+    
+  </a>
+  <a name="PROCESS_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PROCESS_TIMEOUT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PROCESS_TIMEOUT" title="tmt.utils.PROCESS_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>124</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.SHELL_OPTIONS">
+    
+  </a>
+  <a name="SHELL_OPTIONS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SHELL_OPTIONS</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#SHELL_OPTIONS" title="tmt.utils.SHELL_OPTIONS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">set -eo pipefail</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.WORKDIR_MAX">
+    
+  </a>
+  <a name="WORKDIR_MAX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WORKDIR_MAX</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#WORKDIR_MAX" title="tmt.utils.WORKDIR_MAX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1000</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.utils.WORKDIR_ROOT">
+    
+  </a>
+  <a name="WORKDIR_ROOT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WORKDIR_ROOT</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#WORKDIR_ROOT" title="tmt.utils.WORKDIR_ROOT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">/var/tmp/tmt</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basetypevariable">
+  
+  
+  <a name="tmt.utils.CommonDerivedType">
+    
+  </a>
+  <a name="CommonDerivedType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CommonDerivedType</span> =
+    
+    <a class="headerLink" href="#CommonDerivedType" title="tmt.utils.CommonDerivedType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>TypeVar(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">CommonDerivedType</span><span class="rst-variable-quote">'</span>,
+        <wbr></wbr>bound=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Common</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypevariable">
+  
+  
+  <a name="tmt.utils.SerializableContainerDerivedType">
+    
+  </a>
+  <a name="SerializableContainerDerivedType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SerializableContainerDerivedType</span> =
+    
+    <a class="headerLink" href="#SerializableContainerDerivedType" title="tmt.utils.SerializableContainerDerivedType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>TypeVar(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">SerializableContainerDerivedType</span><span class="rst-variable-quote">'</span>,
+        <wbr></wbr>bound=<span class="rst-variable-quote">'</span><span class="rst-variable-string">SerializableContainer</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypevariable">
+  
+  
+  <a name="tmt.utils.SpecBasedContainerT">
+    
+  </a>
+  <a name="SpecBasedContainerT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SpecBasedContainerT</span> =
+    
+    <a class="headerLink" href="#SpecBasedContainerT" title="tmt.utils.SpecBasedContainerT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>TypeVar(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">SpecBasedContainerT</span><span class="rst-variable-quote">'</span>,
+        <wbr></wbr>bound=<span class="rst-variable-quote">'</span><span class="rst-variable-string">SpecBasedContainer</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypevariable">
+  
+  
+  <a name="tmt.utils.T">
+    
+  </a>
+  <a name="T">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">T</span> =
+    
+    <a class="headerLink" href="#T" title="tmt.utils.T">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>TypeVar(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">T</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.EnvironmentType">
+    
+  </a>
+  <a name="EnvironmentType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">EnvironmentType</span> =
+    
+    <a class="headerLink" href="#EnvironmentType" title="tmt.utils.EnvironmentType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Dict[<wbr></wbr>str, <wbr></wbr>str]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.FmfContextType">
+    
+  </a>
+  <a name="FmfContextType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FmfContextType</span> =
+    
+    <a class="headerLink" href="#FmfContextType" title="tmt.utils.FmfContextType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Dict[<wbr></wbr>str, <wbr></wbr>List[<wbr></wbr>str]]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.KeySource">
+    
+  </a>
+  <a name="KeySource">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KeySource</span> =
+    
+    <a class="headerLink" href="#KeySource" title="tmt.utils.KeySource">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Union[<wbr></wbr>Dict[<wbr></wbr>str, <wbr></wbr>Any], <wbr></wbr>fmf.Tree]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.LoggerFnType">
+    
+  </a>
+  <a name="LoggerFnType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LoggerFnType</span> =
+    
+    <a class="headerLink" href="#LoggerFnType" title="tmt.utils.LoggerFnType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Union[<wbr></wbr><a href="tmt.utils.BaseLoggerFnType.html" class="internal-link" title="tmt.utils.BaseLoggerFnType">BaseLoggerFnType</a>, <wbr></wbr><a href="tmt.utils.LevelessLoggerFnType.html" class="internal-link" title="tmt.utils.LevelessLoggerFnType">LevelessLoggerFnType</a>, <wbr></wbr><a href="tmt.utils.SemanticLoggerFnType.html" class="internal-link" title="tmt.utils.SemanticLoggerFnType">SemanticLoggerFnType</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.Schema">
+    
+  </a>
+  <a name="Schema">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">Schema</span> =
+    
+    <a class="headerLink" href="#Schema" title="tmt.utils.Schema">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Dict[<wbr></wbr>str, <wbr></wbr>Any]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.SchemaStore">
+    
+  </a>
+  <a name="SchemaStore">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SchemaStore</span> =
+    
+    <a class="headerLink" href="#SchemaStore" title="tmt.utils.SchemaStore">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Dict[<wbr></wbr>str, <wbr></wbr><a href="#Schema" class="internal-link" title="tmt.utils.Schema">Schema</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.SFSectionValueType">
+    
+  </a>
+  <a name="SFSectionValueType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SFSectionValueType</span> =
+    
+    <a class="headerLink" href="#SFSectionValueType" title="tmt.utils.SFSectionValueType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Union[<wbr></wbr>str, <wbr></wbr>List[<wbr></wbr>str]]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.WaitCheckType">
+    
+  </a>
+  <a name="WaitCheckType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WaitCheckType</span> =
+    
+    <a class="headerLink" href="#WaitCheckType" title="tmt.utils.WaitCheckType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Callable[<wbr></wbr>[], <wbr></wbr><a href="#T" class="internal-link" title="tmt.utils.T">T</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.WorkdirArgumentType">
+    
+  </a>
+  <a name="WorkdirArgumentType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WorkdirArgumentType</span> =
+    
+    <a class="headerLink" href="#WorkdirArgumentType" title="tmt.utils.WorkdirArgumentType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Union[<wbr></wbr>Literal[<wbr></wbr>True], <wbr></wbr>str, <wbr></wbr>None]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.WorkdirType">
+    
+  </a>
+  <a name="WorkdirType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WorkdirType</span> =
+    
+    <a class="headerLink" href="#WorkdirType" title="tmt.utils.WorkdirType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Optional[<wbr></wbr>str]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.utils.YamlTypType">
+    
+  </a>
+  <a name="YamlTypType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">YamlTypType</span> =
+    
+    <a class="headerLink" href="#YamlTypType" title="tmt.utils.YamlTypType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Literal[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">rt</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">safe</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">unsafe</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">base</span><span class="rst-variable-quote">'</span>]</code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.utils.log">
+    
+  </a>
+  <a name="log">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">log</span> =
+    
+    <a class="headerLink" href="#log" title="tmt.utils.log">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="tmt.utils._add_file_vars">
+    
+  </a>
+  <a name="_add_file_vars">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_add_file_vars</span>(result, filepath):
+    
+    <a class="headerLink" href="#_add_file_vars" title="tmt.utils._add_file_vars">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add variables loaded from file into the result dictionary</p>
+<p>Load mapping from a YAML file 'filepath', and add its content - "name: value" entries - to the provided dict.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">result:</span><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filepath:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="tmt.utils._add_simple_var">
+    
+  </a>
+  <a name="_add_simple_var">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_add_simple_var</span>(result, var):
+    
+    <a class="headerLink" href="#_add_simple_var" title="tmt.utils._add_simple_var">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add a single NAME=VALUE pair into result dictionary</p>
+<p>Parse given string VAR to its constituents, NAME and VALUE, and add them to the provided dict.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">result:</span><code><a href="#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType">EnvironmentType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">var:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="tmt.utils._load_schema">
+    
+  </a>
+  <a name="_load_schema">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_load_schema</span>(schema_filepath):
+    
+    <a class="headerLink" href="#_load_schema" title="tmt.utils._load_schema">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load a JSON schema from a given filepath.</p>
+<p>A helper returning the raw loaded schema.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">schema<wbr></wbr>_filepath:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#Schema" class="internal-link" title="tmt.utils.Schema">Schema</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="tmt.utils._patch_plan_schema">
+    
+  </a>
+  <a name="_patch_plan_schema">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_patch_plan_schema</span>(schema, store):
+    
+    <a class="headerLink" href="#_patch_plan_schema" title="tmt.utils._patch_plan_schema">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">schema:</span><code><a href="#Schema" class="internal-link" title="tmt.utils.Schema">Schema</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">store:</span><code><a href="#SchemaStore" class="internal-link" title="tmt.utils.SchemaStore">SchemaStore</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="tmt.utils._prenormalize_fmf_node">
+    
+  </a>
+  <a name="_prenormalize_fmf_node">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_prenormalize_fmf_node</span>(node, schema_name):
+    
+    <a class="headerLink" href="#_prenormalize_fmf_node" title="tmt.utils._prenormalize_fmf_node">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Apply the minimal possible normalization steps to nodes before validating them with schemas.</p>
+<p>tmt allows some fields to have default values, and at least ``how`` field is necessary for schema-based validation to work reliably. Based on ``how`` field, plan schema identifies the correct *plugin* schema for step validation. Without ``how``, it's hard to pick the correct schema.</p>
+<p>This function tries to do minimal number of changes to a given fmf node to honor the promise of ``how`` being optional, with known defaults for each step. It might be possible to resolve this purely with schemas, but since we don't know how (yet?), a Python implementation has been chosen to unblock schema-based validation while keeping things easier for users. This may change in the future, dropping the need for this pre-validation step.</p>
+<p>.. note:</p>
+<pre class="rst-literal-block">
+   This function is not part of the normalization process that happens after validation. The
+   purpose of this function is to make the world nice and shiny for tmt users while avoiding
+   the possibility of schema becoming way too complicated, especially when we would need
+   non-trivial amount fo time for experiments.
+
+   The real normalization process takes place after validation, and is responsible for
+   converting raw fmf data to data types and structures more suited for tmt internal
+   implementation.
+</pre>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span><code>fmf.Tree</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">schema<wbr></wbr>_name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>fmf.Tree</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

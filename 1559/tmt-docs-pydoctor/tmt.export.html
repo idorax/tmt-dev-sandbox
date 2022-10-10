@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.export</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="tmt.export.html" class="internal-link" title="This module">export</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#add_to_nitrate_runs" class="internal-link" title="tmt.export.add_to_nitrate_runs">add<wbr></wbr>_to<wbr></wbr>_nitrate<wbr></wbr>_runs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bz_set_coverage" class="internal-link" title="tmt.export.bz_set_coverage">bz<wbr></wbr>_set<wbr></wbr>_coverage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#check_md_file_respects_spec" class="internal-link" title="tmt.export.check_md_file_respects_spec">check<wbr></wbr>_md<wbr></wbr>_file<wbr></wbr>_respects<wbr></wbr>_spec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#convert_manual_to_nitrate" class="internal-link" title="tmt.export.convert_manual_to_nitrate">convert<wbr></wbr>_manual<wbr></wbr>_to<wbr></wbr>_nitrate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_nitrate_case" class="internal-link" title="tmt.export.create_nitrate_case">create<wbr></wbr>_nitrate<wbr></wbr>_case</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_polarion_case" class="internal-link" title="tmt.export.create_polarion_case">create<wbr></wbr>_polarion<wbr></wbr>_case</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#enabled_for_environment" class="internal-link" title="tmt.export.enabled_for_environment">enabled<wbr></wbr>_for<wbr></wbr>_environment</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#enabled_somewhere" class="internal-link" title="tmt.export.enabled_somewhere">enabled<wbr></wbr>_somewhere</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#export_to_nitrate" class="internal-link" title="tmt.export.export_to_nitrate">export<wbr></wbr>_to<wbr></wbr>_nitrate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#export_to_polarion" class="internal-link" title="tmt.export.export_to_polarion">export<wbr></wbr>_to<wbr></wbr>_polarion</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#find_general_plan" class="internal-link" title="tmt.export.find_general_plan">find<wbr></wbr>_general<wbr></wbr>_plan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#find_polarion_case_ids" class="internal-link" title="tmt.export.find_polarion_case_ids">find<wbr></wbr>_polarion<wbr></wbr>_case<wbr></wbr>_ids</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_bz_instance" class="internal-link" title="tmt.export.get_bz_instance">get<wbr></wbr>_bz<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_category" class="internal-link" title="tmt.export.get_category">get<wbr></wbr>_category</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_polarion_case" class="internal-link" title="tmt.export.get_polarion_case">get<wbr></wbr>_polarion<wbr></wbr>_case</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_polarion_ids" class="internal-link" title="tmt.export.get_polarion_ids">get<wbr></wbr>_polarion<wbr></wbr>_ids</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#import_nitrate" class="internal-link" title="tmt.export.import_nitrate">import<wbr></wbr>_nitrate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#import_polarion" class="internal-link" title="tmt.export.import_polarion">import<wbr></wbr>_polarion</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#prepare_extra_summary" class="internal-link" title="tmt.export.prepare_extra_summary">prepare<wbr></wbr>_extra<wbr></wbr>_summary</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#return_markdown_file" class="internal-link" title="tmt.export.return_markdown_file">return<wbr></wbr>_markdown<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_nitrate_find_fmf_testcases" class="internal-link" title="tmt.export._nitrate_find_fmf_testcases">_nitrate<wbr></wbr>_find<wbr></wbr>_fmf<wbr></wbr>_testcases</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BUGZILLA_XMLRPC_URL" class="internal-link" title="tmt.export.BUGZILLA_XMLRPC_URL">BUGZILLA<wbr></wbr>_XMLRPC<wbr></wbr>_URL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_PRODUCT" class="internal-link" title="tmt.export.DEFAULT_PRODUCT">DEFAULT<wbr></wbr>_PRODUCT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LEGACY_POLARION_PROJECTS" class="internal-link" title="tmt.export.LEGACY_POLARION_PROJECTS">LEGACY<wbr></wbr>_POLARION<wbr></wbr>_PROJECTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NITRATE_TRACKER_ID" class="internal-link" title="tmt.export.NITRATE_TRACKER_ID">NITRATE<wbr></wbr>_TRACKER<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#POLARION_TRACKER_ID" class="internal-link" title="tmt.export.POLARION_TRACKER_ID">POLARION<wbr></wbr>_TRACKER<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RE_BUGZILLA_URL" class="internal-link" title="tmt.export.RE_BUGZILLA_URL">RE<wbr></wbr>_BUGZILLA<wbr></wbr>_URL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RE_POLARION_URL" class="internal-link" title="tmt.export.RE_POLARION_URL">RE<wbr></wbr>_POLARION<wbr></wbr>_URL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WARNING" class="internal-link" title="tmt.export.WARNING">WARNING</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HeadingsType" class="internal-link" title="tmt.export.HeadingsType"><wbr></wbr>Headings<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SectionsHeadingsType" class="internal-link" title="tmt.export.SectionsHeadingsType"><wbr></wbr>Sections<wbr></wbr>Headings<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SectionsReturnType" class="internal-link" title="tmt.export.SectionsReturnType"><wbr></wbr>Sections<wbr></wbr>Return<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bugzilla" class="internal-link" title="tmt.export.bugzilla">bugzilla</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gssapi" class="internal-link" title="tmt.export.gssapi">gssapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log" class="internal-link" title="tmt.export.log">log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#nitrate" class="internal-link" title="tmt.export.nitrate">nitrate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PolarionException" class="internal-link" title="tmt.export.PolarionException"><wbr></wbr>Polarion<wbr></wbr>Exception</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PolarionTestCase" class="internal-link" title="tmt.export.PolarionTestCase"><wbr></wbr>Polarion<wbr></wbr>Test<wbr></wbr>Case</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PolarionWorkItem" class="internal-link" title="tmt.export.PolarionWorkItem"><wbr></wbr>Polarion<wbr></wbr>Work<wbr></wbr>Item</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">tmt</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.plugins.html" class="internal-link" title="tmt.plugins">plugins</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html" class="internal-link" title="tmt.steps">steps</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html" class="internal-link" title="tmt.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.beakerlib.html" class="internal-link" title="tmt.beakerlib">beakerlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.cli.html" class="internal-link" title="tmt.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.convert.html" class="internal-link" title="tmt.convert">convert</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.export.html" class="internal-link" title="tmt.export">export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.identifier.html" class="internal-link" title="tmt.identifier">identifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.options.html" class="internal-link" title="tmt.options">options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.templates.html" class="internal-link" title="tmt.templates">templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html" class="internal-link" title="tmt.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.__main__.html" class="internal-link" title="tmt.__main__">__main__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Clean.html" class="internal-link" title="tmt.Clean"><wbr></wbr>Clean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Guest.html" class="internal-link" title="tmt.Guest"><wbr></wbr>Guest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.GuestSsh.html" class="internal-link" title="tmt.GuestSsh"><wbr></wbr>Guest<wbr></wbr>Ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Plan.html" class="internal-link" title="tmt.Plan"><wbr></wbr>Plan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Result.html" class="internal-link" title="tmt.Result"><wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Run.html" class="internal-link" title="tmt.Run"><wbr></wbr>Run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Status.html" class="internal-link" title="tmt.Status"><wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Story.html" class="internal-link" title="tmt.Story"><wbr></wbr>Story</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Test.html" class="internal-link" title="tmt.Test"><wbr></wbr>Test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Tree.html" class="internal-link" title="tmt.Tree"><wbr></wbr>Tree</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="tmt.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.export.html" class="internal-link" title="tmt.export">export</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Export metadata into nitrate</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id24">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#add_to_nitrate_runs" class="internal-link" title="tmt.export.add_to_nitrate_runs">add<wbr></wbr>_to<wbr></wbr>_nitrate<wbr></wbr>_runs</a></code></td>
+    <td>Add nitrate test case to all active runs under given general plan</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#bz_set_coverage" class="internal-link" title="tmt.export.bz_set_coverage">bz<wbr></wbr>_set<wbr></wbr>_coverage</a></code></td>
+    <td>Set coverage in Bugzilla</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#check_md_file_respects_spec" class="internal-link" title="tmt.export.check_md_file_respects_spec">check<wbr></wbr>_md<wbr></wbr>_file<wbr></wbr>_respects<wbr></wbr>_spec</a></code></td>
+    <td>Check that the file respects manual test specification</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#convert_manual_to_nitrate" class="internal-link" title="tmt.export.convert_manual_to_nitrate">convert<wbr></wbr>_manual<wbr></wbr>_to<wbr></wbr>_nitrate</a></code></td>
+    <td>Convert Markdown document to html sections.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_nitrate_case" class="internal-link" title="tmt.export.create_nitrate_case">create<wbr></wbr>_nitrate<wbr></wbr>_case</a></code></td>
+    <td>Create new nitrate case</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#create_polarion_case" class="internal-link" title="tmt.export.create_polarion_case">create<wbr></wbr>_polarion<wbr></wbr>_case</a></code></td>
+    <td>Create new polarion case</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#enabled_for_environment" class="internal-link" title="tmt.export.enabled_for_environment">enabled<wbr></wbr>_for<wbr></wbr>_environment</a></code></td>
+    <td>Check whether test is enabled for specified environment</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#enabled_somewhere" class="internal-link" title="tmt.export.enabled_somewhere">enabled<wbr></wbr>_somewhere</a></code></td>
+    <td>True if the test is enabled for some context (adjust rules)</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#export_to_nitrate" class="internal-link" title="tmt.export.export_to_nitrate">export<wbr></wbr>_to<wbr></wbr>_nitrate</a></code></td>
+    <td>Export fmf metadata to nitrate test cases</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#export_to_polarion" class="internal-link" title="tmt.export.export_to_polarion">export<wbr></wbr>_to<wbr></wbr>_polarion</a></code></td>
+    <td>Export fmf metadata to a Polarion test case</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#find_general_plan" class="internal-link" title="tmt.export.find_general_plan">find<wbr></wbr>_general<wbr></wbr>_plan</a></code></td>
+    <td>Return single General Test Plan or raise an error</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#find_polarion_case_ids" class="internal-link" title="tmt.export.find_polarion_case_ids">find<wbr></wbr>_polarion<wbr></wbr>_case<wbr></wbr>_ids</a></code></td>
+    <td>Find IDs for Polarion case from data dictionary</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_bz_instance" class="internal-link" title="tmt.export.get_bz_instance">get<wbr></wbr>_bz<wbr></wbr>_instance</a></code></td>
+    <td>Import the bugzilla module and return BZ instance</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_category" class="internal-link" title="tmt.export.get_category">get<wbr></wbr>_category</a></code></td>
+    <td>Get category from Makefile</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_polarion_case" class="internal-link" title="tmt.export.get_polarion_case">get<wbr></wbr>_polarion<wbr></wbr>_case</a></code></td>
+    <td>Get Polarion case through couple different methods</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_polarion_ids" class="internal-link" title="tmt.export.get_polarion_ids">get<wbr></wbr>_polarion<wbr></wbr>_ids</a></code></td>
+    <td>Return case and project ids from query results</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#import_nitrate" class="internal-link" title="tmt.export.import_nitrate">import<wbr></wbr>_nitrate</a></code></td>
+    <td>Conditionally import the nitrate module</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#import_polarion" class="internal-link" title="tmt.export.import_polarion">import<wbr></wbr>_polarion</a></code></td>
+    <td>Import polarion python api - pylero</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#prepare_extra_summary" class="internal-link" title="tmt.export.prepare_extra_summary">prepare<wbr></wbr>_extra<wbr></wbr>_summary</a></code></td>
+    <td>extra-summary for export --create test</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#return_markdown_file" class="internal-link" title="tmt.export.return_markdown_file">return<wbr></wbr>_markdown<wbr></wbr>_file</a></code></td>
+    <td>Return path to the markdown file</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#BUGZILLA_XMLRPC_URL" class="internal-link" title="tmt.export.BUGZILLA_XMLRPC_URL">BUGZILLA<wbr></wbr>_XMLRPC<wbr></wbr>_URL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_PRODUCT" class="internal-link" title="tmt.export.DEFAULT_PRODUCT">DEFAULT<wbr></wbr>_PRODUCT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LEGACY_POLARION_PROJECTS" class="internal-link" title="tmt.export.LEGACY_POLARION_PROJECTS">LEGACY<wbr></wbr>_POLARION<wbr></wbr>_PROJECTS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NITRATE_TRACKER_ID" class="internal-link" title="tmt.export.NITRATE_TRACKER_ID">NITRATE<wbr></wbr>_TRACKER<wbr></wbr>_ID</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#POLARION_TRACKER_ID" class="internal-link" title="tmt.export.POLARION_TRACKER_ID">POLARION<wbr></wbr>_TRACKER<wbr></wbr>_ID</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RE_BUGZILLA_URL" class="internal-link" title="tmt.export.RE_BUGZILLA_URL">RE<wbr></wbr>_BUGZILLA<wbr></wbr>_URL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RE_POLARION_URL" class="internal-link" title="tmt.export.RE_POLARION_URL">RE<wbr></wbr>_POLARION<wbr></wbr>_URL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WARNING" class="internal-link" title="tmt.export.WARNING">WARNING</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#HeadingsType" class="internal-link" title="tmt.export.HeadingsType"><wbr></wbr>Headings<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#SectionsHeadingsType" class="internal-link" title="tmt.export.SectionsHeadingsType"><wbr></wbr>Sections<wbr></wbr>Headings<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="typealias">
+    
+    <td>Type Alias</td>
+    <td><code><a href="#SectionsReturnType" class="internal-link" title="tmt.export.SectionsReturnType"><wbr></wbr>Sections<wbr></wbr>Return<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#bugzilla" class="internal-link" title="tmt.export.bugzilla">bugzilla</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#gssapi" class="internal-link" title="tmt.export.gssapi">gssapi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#log" class="internal-link" title="tmt.export.log">log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#nitrate" class="internal-link" title="tmt.export.nitrate">nitrate</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PolarionException" class="internal-link" title="tmt.export.PolarionException"><wbr></wbr>Polarion<wbr></wbr>Exception</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PolarionTestCase" class="internal-link" title="tmt.export.PolarionTestCase"><wbr></wbr>Polarion<wbr></wbr>Test<wbr></wbr>Case</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PolarionWorkItem" class="internal-link" title="tmt.export.PolarionWorkItem"><wbr></wbr>Polarion<wbr></wbr>Work<wbr></wbr>Item</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_nitrate_find_fmf_testcases" class="internal-link" title="tmt.export._nitrate_find_fmf_testcases">_nitrate<wbr></wbr>_find<wbr></wbr>_fmf<wbr></wbr>_testcases</a></code></td>
+    <td>Find all Nitrate test cases with the same fmf identifier</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="tmt.export.add_to_nitrate_runs">
+    
+  </a>
+  <a name="add_to_nitrate_runs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_to_nitrate_runs</span>(nitrate_case, general_plan, test, dry_mode):
+    
+    <a class="headerLink" href="#add_to_nitrate_runs" title="tmt.export.add_to_nitrate_runs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add nitrate test case to all active runs under given general plan</p>
+<p>Go down plan tree from general plan, add case and case run to all open runs. Try to apply adjust.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nitrate<wbr></wbr>_case:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">general<wbr></wbr>_plan:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dry<wbr></wbr>_mode:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.bz_set_coverage">
+    
+  </a>
+  <a name="bz_set_coverage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">bz_set_coverage</span>(bug_ids, case_id, tracker_id):
+    
+    <a class="headerLink" href="#bz_set_coverage" title="tmt.export.bz_set_coverage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set coverage in Bugzilla</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bug<wbr></wbr>_ids:</span><code>List[<wbr></wbr>int]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">case<wbr></wbr>_id:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">tracker<wbr></wbr>_id:</span><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.check_md_file_respects_spec">
+    
+  </a>
+  <a name="check_md_file_respects_spec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">check_md_file_respects_spec</span>(md_path):
+    
+    <a class="headerLink" href="#check_md_file_respects_spec" title="tmt.export.check_md_file_respects_spec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check that the file respects manual test specification</p>
+<p>Return list of warnings, empty list if no problems found.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">md<wbr></wbr>_path:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.convert_manual_to_nitrate">
+    
+  </a>
+  <a name="convert_manual_to_nitrate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">convert_manual_to_nitrate</span>(test_md):
+    
+    <a class="headerLink" href="#convert_manual_to_nitrate" title="tmt.export.convert_manual_to_nitrate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert Markdown document to html sections.</p>
+<p>These sections can be exported to nitrate. Expects: Markdown document as a file. Returns: tuple of (step, expect, setup, cleanup) sections as html strings.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test<wbr></wbr>_md:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#SectionsReturnType" class="internal-link" title="tmt.export.SectionsReturnType">SectionsReturnType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.create_nitrate_case">
+    
+  </a>
+  <a name="create_nitrate_case">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_nitrate_case</span>(summary):
+    
+    <a class="headerLink" href="#create_nitrate_case" title="tmt.export.create_nitrate_case">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create new nitrate case</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">summary:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.create_polarion_case">
+    
+  </a>
+  <a name="create_polarion_case">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">create_polarion_case</span>(summary, project_id):
+    
+    <a class="headerLink" href="#create_polarion_case" title="tmt.export.create_polarion_case">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create new polarion case</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">summary:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">project<wbr></wbr>_id:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.enabled_for_environment">
+    
+  </a>
+  <a name="enabled_for_environment">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">enabled_for_environment</span>(test, tcms_notes):
+    
+    <a class="headerLink" href="#enabled_for_environment" title="tmt.export.enabled_for_environment">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether test is enabled for specified environment</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">tcms<wbr></wbr>_notes:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.enabled_somewhere">
+    
+  </a>
+  <a name="enabled_somewhere">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">enabled_somewhere</span>(test):
+    
+    <a class="headerLink" href="#enabled_somewhere" title="tmt.export.enabled_somewhere">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>True if the test is enabled for some context (adjust rules)</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.export_to_nitrate">
+    
+  </a>
+  <a name="export_to_nitrate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">export_to_nitrate</span>(test):
+    
+    <a class="headerLink" href="#export_to_nitrate" title="tmt.export.export_to_nitrate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Export fmf metadata to nitrate test cases</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.export_to_polarion">
+    
+  </a>
+  <a name="export_to_polarion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">export_to_polarion</span>(test):
+    
+    <a class="headerLink" href="#export_to_polarion" title="tmt.export.export_to_polarion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Export fmf metadata to a Polarion test case</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.find_general_plan">
+    
+  </a>
+  <a name="find_general_plan">
+    
+  </a>
+  <div class="functionHeader">
+    @lru_cache(<wbr></wbr>maxsize=None)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">find_general_plan</span>(component):
+    
+    <a class="headerLink" href="#find_general_plan" title="tmt.export.find_general_plan">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return single General Test Plan or raise an error</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">component:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.find_polarion_case_ids">
+    
+  </a>
+  <a name="find_polarion_case_ids">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">find_polarion_case_ids</span>(data, preferred_project=None, polarion_case_id=None):
+    
+    <a class="headerLink" href="#find_polarion_case_ids" title="tmt.export.find_polarion_case_ids">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Find IDs for Polarion case from data dictionary</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Dict[<wbr></wbr>str, <wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">preferred<wbr></wbr>_project:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">polarion<wbr></wbr>_case<wbr></wbr>_id:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Tuple[<wbr></wbr>str, <wbr></wbr>Optional[<wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.get_bz_instance">
+    
+  </a>
+  <a name="get_bz_instance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_bz_instance</span>():
+    
+    <a class="headerLink" href="#get_bz_instance" title="tmt.export.get_bz_instance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Import the bugzilla module and return BZ instance</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.get_category">
+    
+  </a>
+  <a name="get_category">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_category</span>():
+    
+    <a class="headerLink" href="#get_category" title="tmt.export.get_category">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get category from Makefile</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.get_polarion_case">
+    
+  </a>
+  <a name="get_polarion_case">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_polarion_case</span>(data, preferred_project=None, polarion_case_id=None):
+    
+    <a class="headerLink" href="#get_polarion_case" title="tmt.export.get_polarion_case">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get Polarion case through couple different methods</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Dict[<wbr></wbr>str, <wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">preferred<wbr></wbr>_project:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">polarion<wbr></wbr>_case<wbr></wbr>_id:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.get_polarion_ids">
+    
+  </a>
+  <a name="get_polarion_ids">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_polarion_ids</span>(query_result, preferred_project=None):
+    
+    <a class="headerLink" href="#get_polarion_ids" title="tmt.export.get_polarion_ids">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return case and project ids from query results</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">query<wbr></wbr>_result:</span><code>List[<wbr></wbr>Any]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">preferred<wbr></wbr>_project:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Tuple[<wbr></wbr>str, <wbr></wbr>Optional[<wbr></wbr>str]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.import_nitrate">
+    
+  </a>
+  <a name="import_nitrate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">import_nitrate</span>():
+    
+    <a class="headerLink" href="#import_nitrate" title="tmt.export.import_nitrate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Conditionally import the nitrate module</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.import_polarion">
+    
+  </a>
+  <a name="import_polarion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">import_polarion</span>():
+    
+    <a class="headerLink" href="#import_polarion" title="tmt.export.import_polarion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Import polarion python api - pylero</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.prepare_extra_summary">
+    
+  </a>
+  <a name="prepare_extra_summary">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">prepare_extra_summary</span>(test):
+    
+    <a class="headerLink" href="#prepare_extra_summary" title="tmt.export.prepare_extra_summary">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>extra-summary for export --create test</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="tmt.export.return_markdown_file">
+    
+  </a>
+  <a name="return_markdown_file">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">return_markdown_file</span>():
+    
+    <a class="headerLink" href="#return_markdown_file" title="tmt.export.return_markdown_file">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return path to the markdown file</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.BUGZILLA_XMLRPC_URL">
+    
+  </a>
+  <a name="BUGZILLA_XMLRPC_URL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">BUGZILLA_XMLRPC_URL</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#BUGZILLA_XMLRPC_URL" title="tmt.export.BUGZILLA_XMLRPC_URL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">https://bugzilla.redhat.com/xmlrpc.cgi</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.DEFAULT_PRODUCT">
+    
+  </a>
+  <a name="DEFAULT_PRODUCT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_PRODUCT</span>: <code>Any</code> =
+    
+    <a class="headerLink" href="#DEFAULT_PRODUCT" title="tmt.export.DEFAULT_PRODUCT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>None</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.LEGACY_POLARION_PROJECTS">
+    
+  </a>
+  <a name="LEGACY_POLARION_PROJECTS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LEGACY_POLARION_PROJECTS</span> =
+    
+    <a class="headerLink" href="#LEGACY_POLARION_PROJECTS" title="tmt.export.LEGACY_POLARION_PROJECTS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>set(<wbr></wbr>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">RedHatEnterpriseLinux7</span><span class="rst-variable-quote">'</span>])</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.NITRATE_TRACKER_ID">
+    
+  </a>
+  <a name="NITRATE_TRACKER_ID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NITRATE_TRACKER_ID</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#NITRATE_TRACKER_ID" title="tmt.export.NITRATE_TRACKER_ID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>69</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.POLARION_TRACKER_ID">
+    
+  </a>
+  <a name="POLARION_TRACKER_ID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">POLARION_TRACKER_ID</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#POLARION_TRACKER_ID" title="tmt.export.POLARION_TRACKER_ID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>117</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.RE_BUGZILLA_URL">
+    
+  </a>
+  <a name="RE_BUGZILLA_URL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RE_BUGZILLA_URL</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#RE_BUGZILLA_URL" title="tmt.export.RE_BUGZILLA_URL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">bugzilla.redhat.com/show_bug.cgi\\?id=(\\d+)</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.RE_POLARION_URL">
+    
+  </a>
+  <a name="RE_POLARION_URL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RE_POLARION_URL</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#RE_POLARION_URL" title="tmt.export.RE_POLARION_URL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">.*/polarion/#/project/.*/workitem\\?id=(.*)</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.export.WARNING">
+    
+  </a>
+  <a name="WARNING">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WARNING</span> =
+    
+    <a class="headerLink" href="#WARNING" title="tmt.export.WARNING">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>"""
+Test case has been migrated to git. Any changes made here might be overwritten.
+See: https://tmt.readthedocs.io/en/latest/questions.html#nitrate-migration
+""".lstrip()</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.export.HeadingsType">
+    
+  </a>
+  <a name="HeadingsType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HeadingsType</span> =
+    
+    <a class="headerLink" href="#HeadingsType" title="tmt.export.HeadingsType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>List[<wbr></wbr>List[<wbr></wbr>Union[<wbr></wbr>int, <wbr></wbr>str]]]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.export.SectionsHeadingsType">
+    
+  </a>
+  <a name="SectionsHeadingsType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SectionsHeadingsType</span> =
+    
+    <a class="headerLink" href="#SectionsHeadingsType" title="tmt.export.SectionsHeadingsType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Dict[<wbr></wbr>str, <wbr></wbr><a href="#HeadingsType" class="internal-link" title="tmt.export.HeadingsType">HeadingsType</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="basetypealias">
+  
+  
+  <a name="tmt.export.SectionsReturnType">
+    
+  </a>
+  <a name="SectionsReturnType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SectionsReturnType</span> =
+    
+    <a class="headerLink" href="#SectionsReturnType" title="tmt.export.SectionsReturnType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Tuple[<wbr></wbr>str, <wbr></wbr>str, <wbr></wbr>str, <wbr></wbr>str]</code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.bugzilla">
+    
+  </a>
+  <a name="bugzilla">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bugzilla</span>: <code>Optional[<wbr></wbr>types.ModuleType]</code> =
+    
+    <a class="headerLink" href="#bugzilla" title="tmt.export.bugzilla">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.gssapi">
+    
+  </a>
+  <a name="gssapi">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">gssapi</span>: <code>Optional[<wbr></wbr>types.ModuleType]</code> =
+    
+    <a class="headerLink" href="#gssapi" title="tmt.export.gssapi">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.log">
+    
+  </a>
+  <a name="log">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">log</span> =
+    
+    <a class="headerLink" href="#log" title="tmt.export.log">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.nitrate">
+    
+  </a>
+  <a name="nitrate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">nitrate</span>: <code>Optional[<wbr></wbr>types.ModuleType]</code> =
+    
+    <a class="headerLink" href="#nitrate" title="tmt.export.nitrate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.PolarionException">
+    
+  </a>
+  <a name="PolarionException">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PolarionException</span>: <code>Any</code> =
+    
+    <a class="headerLink" href="#PolarionException" title="tmt.export.PolarionException">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.PolarionTestCase">
+    
+  </a>
+  <a name="PolarionTestCase">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PolarionTestCase</span>: <code>Any</code> =
+    
+    <a class="headerLink" href="#PolarionTestCase" title="tmt.export.PolarionTestCase">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="tmt.export.PolarionWorkItem">
+    
+  </a>
+  <a name="PolarionWorkItem">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PolarionWorkItem</span>: <code>Any</code> =
+    
+    <a class="headerLink" href="#PolarionWorkItem" title="tmt.export.PolarionWorkItem">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="tmt.export._nitrate_find_fmf_testcases">
+    
+  </a>
+  <a name="_nitrate_find_fmf_testcases">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_nitrate_find_fmf_testcases</span>(test):
+    
+    <a class="headerLink" href="#_nitrate_find_fmf_testcases" title="tmt.export._nitrate_find_fmf_testcases">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Find all Nitrate test cases with the same fmf identifier</p>
+<p>All component general plans are explored for possible duplicates.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span><code><a href="tmt.Test.html" class="internal-link">tmt.Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Generator[<wbr></wbr>Any, <wbr></wbr>None, <wbr></wbr>None]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,2295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.Test</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="tmt.Test.html" class="internal-link" title="This class"><wbr></wbr>Test</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#from_dict" class="internal-link" title="tmt.Test.from_dict">from<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create" class="internal-link" title="tmt.Test.create">create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#overview" class="internal-link" title="tmt.Test.overview">overview</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="tmt.Test.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#export" class="internal-link" title="tmt.Test.export">export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lint" class="internal-link" title="tmt.Test.lint">lint</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show" class="internal-link" title="tmt.Test.show">show</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_lint_manual" class="internal-link" title="tmt.Test._lint_manual">_lint<wbr></wbr>_manual</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_normalize_require" class="internal-link" title="tmt.Test._normalize_require">_normalize<wbr></wbr>_require</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#keys" class="internal-link" title="tmt.utils.NormalizeKeysMixin.keys">keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#__str__" class="internal-link" title="tmt.base.Core.__str__">__str__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#has_link" class="internal-link" title="tmt.base.Core.has_link">has<wbr></wbr>_link</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#lint_keys" class="internal-link" title="tmt.base.Core.lint_keys">lint<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#ls" class="internal-link" title="tmt.base.Core.ls">ls</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#name_and_summary" class="internal-link" title="tmt.base.Core.name_and_summary">name<wbr></wbr>_and<wbr></wbr>_summary</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#debug" class="internal-link" title="tmt.utils.Common.debug">debug</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#fail" class="internal-link" title="tmt.utils.Common.fail">fail</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#info" class="internal-link" title="tmt.utils.Common.info">info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#opt" class="internal-link" title="tmt.utils.Common.opt">opt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#print" class="internal-link" title="tmt.utils.Common.print">print</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#read" class="internal-link" title="tmt.utils.Common.read">read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#run" class="internal-link" title="tmt.utils.Common.run">run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#verbose" class="internal-link" title="tmt.utils.Common.verbose">verbose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#warn" class="internal-link" title="tmt.utils.Common.warn">warn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#write" class="internal-link" title="tmt.utils.Common.write">write</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#items" class="internal-link" title="tmt.utils.NormalizeKeysMixin.items">items</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_save_context" class="internal-link" title="tmt.base.Core._save_context">_save<wbr></wbr>_context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_opt" class="internal-link" title="tmt.utils.Common._opt">_opt</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#_iter_key_annotations" class="internal-link" title="tmt.utils.NormalizeKeysMixin._iter_key_annotations">_iter<wbr></wbr>_key<wbr></wbr>_annotations</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#_keys" class="internal-link" title="tmt.utils.NormalizeKeysMixin._keys">_keys</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_fmf_id" class="internal-link" title="tmt.base.Core._fmf_id">_fmf<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_lint_summary" class="internal-link" title="tmt.base.Core._lint_summary">_lint<wbr></wbr>_summary</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_normalize_adjust" class="internal-link" title="tmt.base.Core._normalize_adjust">_normalize<wbr></wbr>_adjust</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_normalize_link" class="internal-link" title="tmt.base.Core._normalize_link">_normalize<wbr></wbr>_link</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_normalize_order" class="internal-link" title="tmt.base.Core._normalize_order">_normalize<wbr></wbr>_order</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_normalize_tier" class="internal-link" title="tmt.base.Core._normalize_tier">_normalize<wbr></wbr>_tier</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_show_additional_keys" class="internal-link" title="tmt.base.Core._show_additional_keys">_show<wbr></wbr>_additional<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_update_metadata" class="internal-link" title="tmt.base.Core._update_metadata">_update<wbr></wbr>_metadata</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_fmf_context" class="internal-link" title="tmt.utils.Common._fmf_context">_fmf<wbr></wbr>_context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_indent" class="internal-link" title="tmt.utils.Common._indent">_indent</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_level" class="internal-link" title="tmt.utils.Common._level">_level</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_log" class="internal-link" title="tmt.utils.Common._log">_log</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_run" class="internal-link" title="tmt.utils.Common._run">_run</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_save_context_to_instance" class="internal-link" title="tmt.utils.Common._save_context_to_instance">_save<wbr></wbr>_context<wbr></wbr>_to<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_cleanup" class="internal-link" title="tmt.utils.Common._workdir_cleanup">_workdir<wbr></wbr>_cleanup</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_init" class="internal-link" title="tmt.utils.Common._workdir_init">_workdir<wbr></wbr>_init</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_load" class="internal-link" title="tmt.utils.Common._workdir_load">_workdir<wbr></wbr>_load</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir_name" class="internal-link" title="tmt.utils.Common._workdir_name">_workdir<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#_load_keys" class="internal-link" title="tmt.utils.NormalizeKeysMixin._load_keys">_load<wbr></wbr>_keys</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#_normalize_environment" class="internal-link" title="tmt.utils.NormalizeKeysMixin._normalize_environment">_normalize<wbr></wbr>_environment</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html#_normalize_string_list" class="internal-link" title="tmt.utils.NormalizeKeysMixin._normalize_string_list">_normalize<wbr></wbr>_string<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ValidateFmfMixin.html#_validate_fmf_node" class="internal-link" title="tmt.utils.ValidateFmfMixin._validate_fmf_node">_validate<wbr></wbr>_fmf<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KEYS_SHOW_ORDER" class="internal-link" title="tmt.Test.KEYS_SHOW_ORDER">KEYS<wbr></wbr>_SHOW<wbr></wbr>_ORDER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#component" class="internal-link" title="tmt.Test.component">component</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#contact" class="internal-link" title="tmt.Test.contact">contact</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#environment" class="internal-link" title="tmt.Test.environment">environment</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#framework" class="internal-link" title="tmt.Test.framework">framework</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#manual" class="internal-link" title="tmt.Test.manual">manual</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#recommend" class="internal-link" title="tmt.Test.recommend">recommend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#require" class="internal-link" title="tmt.Test.require">require</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#result" class="internal-link" title="tmt.Test.result">result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test" class="internal-link" title="tmt.Test.test">test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#path" class="internal-link" title="tmt.Test.path">path</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#adjust" class="internal-link" title="tmt.base.Core.adjust">adjust</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#description" class="internal-link" title="tmt.base.Core.description">description</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#enabled" class="internal-link" title="tmt.base.Core.enabled">enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#id" class="internal-link" title="tmt.base.Core.id">id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#link" class="internal-link" title="tmt.base.Core.link">link</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#summary" class="internal-link" title="tmt.base.Core.summary">summary</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#tag" class="internal-link" title="tmt.base.Core.tag">tag</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#tier" class="internal-link" title="tmt.base.Core.tier">tier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#ignore_class_options" class="internal-link" title="tmt.utils.Common.ignore_class_options">ignore<wbr></wbr>_class<wbr></wbr>_options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#node" class="internal-link" title="tmt.base.Core.node">node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#name" class="internal-link" title="tmt.utils.Common.name">name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#parent" class="internal-link" title="tmt.utils.Common.parent">parent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#safe_name" class="internal-link" title="tmt.utils.Common.safe_name">safe<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#fmf_id" class="internal-link" title="tmt.base.Core.fmf_id">fmf<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#workdir" class="internal-link" title="tmt.utils.Common.workdir">workdir</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html#_metadata" class="internal-link" title="tmt.base.Core._metadata">_metadata</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_context" class="internal-link" title="tmt.utils.Common._context">_context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_options" class="internal-link" title="tmt.utils.Common._options">_options</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_relative_indent" class="internal-link" title="tmt.utils.Common._relative_indent">_relative<wbr></wbr>_indent</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html#_workdir" class="internal-link" title="tmt.utils.Common._workdir">_workdir</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this class">tmt</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.plugins.html" class="internal-link" title="tmt.plugins">plugins</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.steps.html" class="internal-link" title="tmt.steps">steps</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html" class="internal-link" title="tmt.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.beakerlib.html" class="internal-link" title="tmt.beakerlib">beakerlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.cli.html" class="internal-link" title="tmt.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.convert.html" class="internal-link" title="tmt.convert">convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.export.html" class="internal-link" title="tmt.export">export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.identifier.html" class="internal-link" title="tmt.identifier">identifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.options.html" class="internal-link" title="tmt.options">options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.templates.html" class="internal-link" title="tmt.templates">templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html" class="internal-link" title="tmt.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.__main__.html" class="internal-link" title="tmt.__main__">__main__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Clean.html" class="internal-link" title="tmt.Clean"><wbr></wbr>Clean</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Guest.html" class="internal-link" title="tmt.Guest"><wbr></wbr>Guest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.GuestSsh.html" class="internal-link" title="tmt.GuestSsh"><wbr></wbr>Guest<wbr></wbr>Ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Plan.html" class="internal-link" title="tmt.Plan"><wbr></wbr>Plan</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Result.html" class="internal-link" title="tmt.Result"><wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Run.html" class="internal-link" title="tmt.Run"><wbr></wbr>Run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Status.html" class="internal-link" title="tmt.Status"><wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Story.html" class="internal-link" title="tmt.Story"><wbr></wbr>Story</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Test.html" class="internal-link" title="tmt.Test"><wbr></wbr>Test</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.Tree.html" class="internal-link" title="tmt.Tree"><wbr></wbr>Tree</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#__version__" class="internal-link" title="tmt.__version__">__version__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.Test.html" class="internal-link" title="tmt.Test">Test</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">Test</span>(<a href="tmt.utils.ValidateFmfMixin.html" class="internal-link">tmt.utils.ValidateFmfMixin</a>, <a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link">tmt.utils.LoadFmfKeysMixin</a>, Core):</code></p>
+          <p><a href="classIndex.html#tmt.Test">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Test object (L1 Metadata)</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id485">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#from_dict" class="internal-link" title="tmt.Test.from_dict">from<wbr></wbr>_dict</a></code></td>
+    <td>Initialize test data from a dictionary.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#create" class="internal-link" title="tmt.Test.create">create</a></code></td>
+    <td>Create a new test</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#overview" class="internal-link" title="tmt.Test.overview">overview</a></code></td>
+    <td>Show overview of available tests</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="tmt.Test.__init__">__init__</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#export" class="internal-link" title="tmt.Test.export">export</a></code></td>
+    <td>Export test data into requested format</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#lint" class="internal-link" title="tmt.Test.lint">lint</a></code></td>
+    <td>Check test against the L1 metadata specification.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show" class="internal-link" title="tmt.Test.show">show</a></code></td>
+    <td>Show test details</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KEYS_SHOW_ORDER" class="internal-link" title="tmt.Test.KEYS_SHOW_ORDER">KEYS<wbr></wbr>_SHOW<wbr></wbr>_ORDER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#component" class="internal-link" title="tmt.Test.component">component</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#contact" class="internal-link" title="tmt.Test.contact">contact</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#environment" class="internal-link" title="tmt.Test.environment">environment</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#framework" class="internal-link" title="tmt.Test.framework">framework</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#manual" class="internal-link" title="tmt.Test.manual">manual</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#recommend" class="internal-link" title="tmt.Test.recommend">recommend</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#require" class="internal-link" title="tmt.Test.require">require</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#result" class="internal-link" title="tmt.Test.result">result</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#test" class="internal-link" title="tmt.Test.test">test</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#path" class="internal-link" title="tmt.Test.path">path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_lint_manual" class="internal-link" title="tmt.Test._lint_manual">_lint<wbr></wbr>_manual</a></code></td>
+    <td>Check that the manual instructions respect the specification</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_normalize_require" class="internal-link" title="tmt.Test._normalize_require">_normalize<wbr></wbr>_require</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin">ValidateFmfMixin</a></code>:
+            </p>
+            <table class="children sortable" id="id486">
+  
+  
+  <tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.ValidateFmfMixin.html#_validate_fmf_node" class="internal-link" title="tmt.utils.ValidateFmfMixin._validate_fmf_node">_validate<wbr></wbr>_fmf<wbr></wbr>_node</a></code></td>
+    <td>Validate a given fmf node</td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.utils.NormalizeKeysMixin.html" class="internal-link" title="tmt.utils.NormalizeKeysMixin">NormalizeKeysMixin</a></code> (via <code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin">ValidateFmfMixin</a></code>, <code><a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link" title="tmt.utils.LoadFmfKeysMixin">LoadFmfKeysMixin</a></code>):
+            </p>
+            <table class="children sortable" id="id487">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#keys" class="internal-link" title="tmt.utils.NormalizeKeysMixin.keys">keys</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#items" class="internal-link" title="tmt.utils.NormalizeKeysMixin.items">items</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#_iter_key_annotations" class="internal-link" title="tmt.utils.NormalizeKeysMixin._iter_key_annotations">_iter<wbr></wbr>_key<wbr></wbr>_annotations</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#_keys" class="internal-link" title="tmt.utils.NormalizeKeysMixin._keys">_keys</a></code></td>
+    <td>Return a list of names of object's keys.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#_load_keys" class="internal-link" title="tmt.utils.NormalizeKeysMixin._load_keys">_load<wbr></wbr>_keys</a></code></td>
+    <td>Extract values for class-level attributes, and verify they match declared types.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#_normalize_environment" class="internal-link" title="tmt.utils.NormalizeKeysMixin._normalize_environment">_normalize<wbr></wbr>_environment</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.NormalizeKeysMixin.html#_normalize_string_list" class="internal-link" title="tmt.utils.NormalizeKeysMixin._normalize_string_list">_normalize<wbr></wbr>_string<wbr></wbr>_list</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.base.Core.html" class="internal-link" title="tmt.base.Core">Core</a></code> (via <code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin">ValidateFmfMixin</a></code>, <code><a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link" title="tmt.utils.LoadFmfKeysMixin">LoadFmfKeysMixin</a></code>, <code><a href="tmt.utils.NormalizeKeysMixin.html" class="internal-link" title="tmt.utils.NormalizeKeysMixin">NormalizeKeysMixin</a></code>):
+            </p>
+            <table class="children sortable" id="id488">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#__str__" class="internal-link" title="tmt.base.Core.__str__">__str__</a></code></td>
+    <td>Node name</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#has_link" class="internal-link" title="tmt.base.Core.has_link">has<wbr></wbr>_link</a></code></td>
+    <td>Whether object contains specified link</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#lint_keys" class="internal-link" title="tmt.base.Core.lint_keys">lint<wbr></wbr>_keys</a></code></td>
+    <td>Return list of invalid keys used, empty when all good</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#ls" class="internal-link" title="tmt.base.Core.ls">ls</a></code></td>
+    <td>List node</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#name_and_summary" class="internal-link" title="tmt.base.Core.name_and_summary">name<wbr></wbr>_and<wbr></wbr>_summary</a></code></td>
+    <td>Node name and optional summary</td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#adjust" class="internal-link" title="tmt.base.Core.adjust">adjust</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#description" class="internal-link" title="tmt.base.Core.description">description</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#enabled" class="internal-link" title="tmt.base.Core.enabled">enabled</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#id" class="internal-link" title="tmt.base.Core.id">id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#link" class="internal-link" title="tmt.base.Core.link">link</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#summary" class="internal-link" title="tmt.base.Core.summary">summary</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#tag" class="internal-link" title="tmt.base.Core.tag">tag</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.base.Core.html#tier" class="internal-link" title="tmt.base.Core.tier">tier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.base.Core.html#node" class="internal-link" title="tmt.base.Core.node">node</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseproperty">
+    
+    <td>Property</td>
+    <td><code><a href="tmt.base.Core.html#fmf_id" class="internal-link" title="tmt.base.Core.fmf_id">fmf<wbr></wbr>_id</a></code></td>
+    <td>Return full fmf identifier of the node</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.base.Core.html#_save_context" class="internal-link" title="tmt.base.Core._save_context">_save<wbr></wbr>_context</a></code></td>
+    <td>Save provided command line context for future use</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_fmf_id" class="internal-link" title="tmt.base.Core._fmf_id">_fmf<wbr></wbr>_id</a></code></td>
+    <td>Show fmf identifier</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_lint_summary" class="internal-link" title="tmt.base.Core._lint_summary">_lint<wbr></wbr>_summary</a></code></td>
+    <td>Lint summary attribute</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_normalize_adjust" class="internal-link" title="tmt.base.Core._normalize_adjust">_normalize<wbr></wbr>_adjust</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_normalize_link" class="internal-link" title="tmt.base.Core._normalize_link">_normalize<wbr></wbr>_link</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_normalize_order" class="internal-link" title="tmt.base.Core._normalize_order">_normalize<wbr></wbr>_order</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_normalize_tier" class="internal-link" title="tmt.base.Core._normalize_tier">_normalize<wbr></wbr>_tier</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_show_additional_keys" class="internal-link" title="tmt.base.Core._show_additional_keys">_show<wbr></wbr>_additional<wbr></wbr>_keys</a></code></td>
+    <td>Show source files</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.base.Core.html#_update_metadata" class="internal-link" title="tmt.base.Core._update_metadata">_update<wbr></wbr>_metadata</a></code></td>
+    <td>Update the _metadata attribute</td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.base.Core.html#_metadata" class="internal-link" title="tmt.base.Core._metadata">_metadata</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common">Common</a></code> (via <code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin">ValidateFmfMixin</a></code>, <code><a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link" title="tmt.utils.LoadFmfKeysMixin">LoadFmfKeysMixin</a></code>, <code><a href="tmt.utils.NormalizeKeysMixin.html" class="internal-link" title="tmt.utils.NormalizeKeysMixin">NormalizeKeysMixin</a></code>, <code><a href="tmt.base.Core.html" class="internal-link" title="tmt.base.Core">Core</a></code>):
+            </p>
+            <table class="children sortable" id="id489">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#debug" class="internal-link" title="tmt.utils.Common.debug">debug</a></code></td>
+    <td>Show message if in requested debug mode level</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#fail" class="internal-link" title="tmt.utils.Common.fail">fail</a></code></td>
+    <td>Show a red failure message on info level, send to stderr</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#info" class="internal-link" title="tmt.utils.Common.info">info</a></code></td>
+    <td>Show a message unless in quiet mode</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#opt" class="internal-link" title="tmt.utils.Common.opt">opt</a></code></td>
+    <td>Get an option from the command line options</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#print" class="internal-link" title="tmt.utils.Common.print">print</a></code></td>
+    <td>Print a message regardless the quiet mode</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#read" class="internal-link" title="tmt.utils.Common.read">read</a></code></td>
+    <td>Read a file from the workdir</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#run" class="internal-link" title="tmt.utils.Common.run">run</a></code></td>
+    <td>Run command, give message, handle errors</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#verbose" class="internal-link" title="tmt.utils.Common.verbose">verbose</a></code></td>
+    <td>Show message if in requested verbose mode level</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#warn" class="internal-link" title="tmt.utils.Common.warn">warn</a></code></td>
+    <td>Show a yellow warning message on info level, send to stderr</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#write" class="internal-link" title="tmt.utils.Common.write">write</a></code></td>
+    <td>Write a file to the workdir</td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="tmt.utils.Common.html#ignore_class_options" class="internal-link" title="tmt.utils.Common.ignore_class_options">ignore<wbr></wbr>_class<wbr></wbr>_options</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#name" class="internal-link" title="tmt.utils.Common.name">name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#parent" class="internal-link" title="tmt.utils.Common.parent">parent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#safe_name" class="internal-link" title="tmt.utils.Common.safe_name">safe<wbr></wbr>_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseproperty">
+    
+    <td>Property</td>
+    <td><code><a href="tmt.utils.Common.html#workdir" class="internal-link" title="tmt.utils.Common.workdir">workdir</a></code></td>
+    <td>Get the workdir, create if does not exist</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.Common.html#_opt" class="internal-link" title="tmt.utils.Common._opt">_opt</a></code></td>
+    <td>Get an option from the command line context (class version)</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_fmf_context" class="internal-link" title="tmt.utils.Common._fmf_context">_fmf<wbr></wbr>_context</a></code></td>
+    <td>Return the current fmf context</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_indent" class="internal-link" title="tmt.utils.Common._indent">_indent</a></code></td>
+    <td>Indent message according to the object hierarchy</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_level" class="internal-link" title="tmt.utils.Common._level">_level</a></code></td>
+    <td>Hierarchy level</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_log" class="internal-link" title="tmt.utils.Common._log">_log</a></code></td>
+    <td>Append provided message to the current log</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_run" class="internal-link" title="tmt.utils.Common._run">_run</a></code></td>
+    <td>Run command, capture the output</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_save_context_to_instance" class="internal-link" title="tmt.utils.Common._save_context_to_instance">_save<wbr></wbr>_context<wbr></wbr>_to<wbr></wbr>_instance</a></code></td>
+    <td>Save provided command line context and options to the instance</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_cleanup" class="internal-link" title="tmt.utils.Common._workdir_cleanup">_workdir<wbr></wbr>_cleanup</a></code></td>
+    <td>Clean up the work directory</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_init" class="internal-link" title="tmt.utils.Common._workdir_init">_workdir<wbr></wbr>_init</a></code></td>
+    <td>Initialize the work directory</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_load" class="internal-link" title="tmt.utils.Common._workdir_load">_workdir<wbr></wbr>_load</a></code></td>
+    <td>Create the given workdir if it is not None</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir_name" class="internal-link" title="tmt.utils.Common._workdir_name">_workdir<wbr></wbr>_name</a></code></td>
+    <td>Construct work directory name from parent workdir</td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_context" class="internal-link" title="tmt.utils.Common._context">_context</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_options" class="internal-link" title="tmt.utils.Common._options">_options</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_relative_indent" class="internal-link" title="tmt.utils.Common._relative_indent">_relative<wbr></wbr>_indent</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="tmt.utils.Common.html#_workdir" class="internal-link" title="tmt.utils.Common._workdir">_workdir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="tmt.Test.from_dict">
+    
+  </a>
+  <a name="from_dict">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">from_dict</span>(cls, mapping, name, skip_validation=False, raise_on_validation_error=False, **kwargs):
+    
+    <a class="headerLink" href="#from_dict" title="tmt.Test.from_dict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize test data from a dictionary.</p>
+<p>Useful when data describing a test are stored in a mapping instead of an fmf node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mapping:</span><code>Dict[<wbr></wbr>str, <wbr></wbr>Any]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">skip<wbr></wbr>_validation:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">raise<wbr></wbr>_on<wbr></wbr>_validation<wbr></wbr>_error:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="tmt.Test.html" class="internal-link" title="tmt.Test">Test</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="tmt.Test.create">
+    
+  </a>
+  <a name="create">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">create</span>(name, template, path, force=False, dry=None):
+    
+    <a class="headerLink" href="#create" title="tmt.Test.create">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a new test</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="tmt.Test.overview">
+    
+  </a>
+  <a name="overview">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">overview</span>(tree):
+    
+    <a class="headerLink" href="#overview" title="tmt.Test.overview">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Show overview of available tests</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.Test.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, *, node, skip_validation=False, raise_on_validation_error=False, **kwargs):
+    
+    <a class="headerLink" href="#__init__" title="tmt.Test.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="tmt.utils.ValidateFmfMixin.html#__init__" class="internal-link">tmt.utils.ValidateFmfMixin.__init__</a></code></div>
+    <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span><code>fmf.Tree</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">skip<wbr></wbr>_validation:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">raise<wbr></wbr>_on<wbr></wbr>_validation<wbr></wbr>_error:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.Test.export">
+    
+  </a>
+  <a name="export">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">export</span>(self, format_=<span class="rst-variable-quote">'</span><span class="rst-variable-string">yaml</span><span class="rst-variable-quote">'</span>, keys=None):
+    
+    <a class="headerLink" href="#export" title="tmt.Test.export">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="tmt.base.Core.html#export" class="internal-link">tmt.base.Core.export</a></code></div>
+    <div><p>Export test data into requested format</p>
+<p>In addition to 'yaml' and 'dict' it supports also a special format 'execute' used by the execute step which returns (test-name, test-data) tuples.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.Test.lint">
+    
+  </a>
+  <a name="lint">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">lint</span>(self):
+    
+    <a class="headerLink" href="#lint" title="tmt.Test.lint">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check test against the L1 metadata specification.</p>
+<p>Return whether the test is valid.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.Test.show">
+    
+  </a>
+  <a name="show">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show</span>(self):
+    
+    <a class="headerLink" href="#show" title="tmt.Test.show">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Show test details</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="tmt.Test.KEYS_SHOW_ORDER">
+    
+  </a>
+  <a name="KEYS_SHOW_ORDER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KEYS_SHOW_ORDER</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#KEYS_SHOW_ORDER" title="tmt.Test.KEYS_SHOW_ORDER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="tmt.utils.NormalizeKeysMixin.html#KEYS_SHOW_ORDER" class="internal-link">tmt.utils.NormalizeKeysMixin.KEYS_SHOW_ORDER</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">summary</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">description</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">contact</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">component</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">id</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">test</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">path</span><span class="rst-variable-quote">'</span>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.component">
+    
+  </a>
+  <a name="component">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">component</span>: <code>List[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#component" title="tmt.Test.component">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.contact">
+    
+  </a>
+  <a name="contact">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">contact</span>: <code>List[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#contact" title="tmt.Test.contact">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.environment">
+    
+  </a>
+  <a name="environment">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">environment</span>: <code>Optional[<wbr></wbr><a href="tmt.utils.html#EnvironmentType" class="internal-link">tmt.utils.EnvironmentType</a>]</code> =
+    
+    <a class="headerLink" href="#environment" title="tmt.Test.environment">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.framework">
+    
+  </a>
+  <a name="framework">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">framework</span>: <code>Optional[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#framework" title="tmt.Test.framework">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.manual">
+    
+  </a>
+  <a name="manual">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">manual</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#manual" title="tmt.Test.manual">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.recommend">
+    
+  </a>
+  <a name="recommend">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">recommend</span>: <code>List[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#recommend" title="tmt.Test.recommend">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.require">
+    
+  </a>
+  <a name="require">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">require</span>: <code>List[<wbr></wbr>Union[<wbr></wbr>str, <wbr></wbr>FmfId]]</code> =
+    
+    <a class="headerLink" href="#require" title="tmt.Test.require">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">result</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#result" title="tmt.Test.result">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="tmt.Test.test">
+    
+  </a>
+  <a name="test">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">test</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#test" title="tmt.Test.test">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="tmt.Test.path">
+    
+  </a>
+  <a name="path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">path</span> =
+    
+    <a class="headerLink" href="#path" title="tmt.Test.path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.Test._lint_manual">
+    
+  </a>
+  <a name="_lint_manual">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_lint_manual</span>(self, test_path):
+    
+    <a class="headerLink" href="#_lint_manual" title="tmt.Test._lint_manual">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check that the manual instructions respect the specification</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.Test._normalize_require">
+    
+  </a>
+  <a name="_normalize_require">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_normalize_require</span>(self, value):
+    
+    <a class="headerLink" href="#_normalize_require" title="tmt.Test._normalize_require">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span><code>Optional[<wbr></wbr>_RawRequire]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>Union[<wbr></wbr>str, <wbr></wbr>FmfId]]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

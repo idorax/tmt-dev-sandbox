@@ -1,0 +1,2596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.utils.StructuredField</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="tmt.utils.StructuredField.html" class="internal-link" title="This class"><wbr></wbr>Structured<wbr></wbr>Field</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="tmt.utils.StructuredField.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__iter__" class="internal-link" title="tmt.utils.StructuredField.__iter__">__iter__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__nonzero__" class="internal-link" title="tmt.utils.StructuredField.__nonzero__">__nonzero__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#footer" class="internal-link" title="tmt.utils.StructuredField.footer">footer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get" class="internal-link" title="tmt.utils.StructuredField.get">get</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#header" class="internal-link" title="tmt.utils.StructuredField.header">header</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#iterate" class="internal-link" title="tmt.utils.StructuredField.iterate">iterate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#load" class="internal-link" title="tmt.utils.StructuredField.load">load</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#remove" class="internal-link" title="tmt.utils.StructuredField.remove">remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#save" class="internal-link" title="tmt.utils.StructuredField.save">save</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sections" class="internal-link" title="tmt.utils.StructuredField.sections">sections</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set" class="internal-link" title="tmt.utils.StructuredField.set">set</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#version" class="internal-link" title="tmt.utils.StructuredField.version">version</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_load" class="internal-link" title="tmt.utils.StructuredField._load">_load</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_load_version_zero" class="internal-link" title="tmt.utils.StructuredField._load_version_zero">_load<wbr></wbr>_version<wbr></wbr>_zero</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_read_section" class="internal-link" title="tmt.utils.StructuredField._read_section">_read<wbr></wbr>_section</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_save" class="internal-link" title="tmt.utils.StructuredField._save">_save</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_save_version_zero" class="internal-link" title="tmt.utils.StructuredField._save_version_zero">_save<wbr></wbr>_version<wbr></wbr>_zero</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_write_section" class="internal-link" title="tmt.utils.StructuredField._write_section">_write<wbr></wbr>_section</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_footer" class="internal-link" title="tmt.utils.StructuredField._footer">_footer</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_header" class="internal-link" title="tmt.utils.StructuredField._header">_header</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_multi" class="internal-link" title="tmt.utils.StructuredField._multi">_multi</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_order" class="internal-link" title="tmt.utils.StructuredField._order">_order</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_sections" class="internal-link" title="tmt.utils.StructuredField._sections">_sections</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_version" class="internal-link" title="tmt.utils.StructuredField._version">_version</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="tmt.utils.html" class="internal-link" title="The parent of this class">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.BaseLoggerFnType.html" class="internal-link" title="tmt.utils.BaseLoggerFnType"><wbr></wbr>Base<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.CentOSDistGit.html" class="internal-link" title="tmt.utils.CentOSDistGit"><wbr></wbr>Cent<wbr></wbr>OSDist<wbr></wbr>Git</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.CommandOutput.html" class="internal-link" title="tmt.utils.CommandOutput"><wbr></wbr>Command<wbr></wbr>Output</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Common.html" class="internal-link" title="tmt.utils.Common"><wbr></wbr>Common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.Config.html" class="internal-link" title="tmt.utils.Config"><wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html" class="internal-link" title="tmt.utils.DataContainer"><wbr></wbr>Data<wbr></wbr>Container</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DistGitHandler.html" class="internal-link" title="tmt.utils.DistGitHandler"><wbr></wbr>Dist<wbr></wbr>Git<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.FedoraDistGit.html" class="internal-link" title="tmt.utils.FedoraDistGit"><wbr></wbr>Fedora<wbr></wbr>Dist<wbr></wbr>Git</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.LevelessLoggerFnType.html" class="internal-link" title="tmt.utils.LevelessLoggerFnType"><wbr></wbr>Leveless<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.LoadFmfKeysMixin.html" class="internal-link" title="tmt.utils.LoadFmfKeysMixin"><wbr></wbr>Load<wbr></wbr>Fmf<wbr></wbr>Keys<wbr></wbr>Mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.NormalizeKeysMixin.html" class="internal-link" title="tmt.utils.NormalizeKeysMixin"><wbr></wbr>Normalize<wbr></wbr>Keys<wbr></wbr>Mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.retry_session.html" class="internal-link" title="tmt.utils.retry_session">retry<wbr></wbr>_session</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.RetryStrategy.html" class="internal-link" title="tmt.utils.RetryStrategy"><wbr></wbr>Retry<wbr></wbr>Strategy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SemanticLoggerFnType.html" class="internal-link" title="tmt.utils.SemanticLoggerFnType"><wbr></wbr>Semantic<wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SerializableContainer.html" class="internal-link" title="tmt.utils.SerializableContainer"><wbr></wbr>Serializable<wbr></wbr>Container</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SpecBasedContainer.html" class="internal-link" title="tmt.utils.SpecBasedContainer"><wbr></wbr>Spec<wbr></wbr>Based<wbr></wbr>Container</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.StreamLogger.html" class="internal-link" title="tmt.utils.StreamLogger"><wbr></wbr>Stream<wbr></wbr>Logger</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.StructuredField.html" class="internal-link" title="tmt.utils.StructuredField"><wbr></wbr>Structured<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.TimeoutHTTPAdapter.html" class="internal-link" title="tmt.utils.TimeoutHTTPAdapter"><wbr></wbr>Timeout<wbr></wbr>HTTPAdapter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.updatable_message.html" class="internal-link" title="tmt.utils.updatable_message">updatable<wbr></wbr>_message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ValidateFmfMixin.html" class="internal-link" title="tmt.utils.ValidateFmfMixin"><wbr></wbr>Validate<wbr></wbr>Fmf<wbr></wbr>Mixin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ConvertError.html" class="internal-link" title="tmt.utils.ConvertError"><wbr></wbr>Convert<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DiscoverError.html" class="internal-link" title="tmt.utils.DiscoverError"><wbr></wbr>Discover<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ExecuteError.html" class="internal-link" title="tmt.utils.ExecuteError"><wbr></wbr>Execute<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.FileError.html" class="internal-link" title="tmt.utils.FileError"><wbr></wbr>File<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.FinishError.html" class="internal-link" title="tmt.utils.FinishError"><wbr></wbr>Finish<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.GeneralError.html" class="internal-link" title="tmt.utils.GeneralError"><wbr></wbr>General<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.GitUrlError.html" class="internal-link" title="tmt.utils.GitUrlError"><wbr></wbr>Git<wbr></wbr>Url<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.MetadataError.html" class="internal-link" title="tmt.utils.MetadataError"><wbr></wbr>Metadata<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.PrepareError.html" class="internal-link" title="tmt.utils.PrepareError"><wbr></wbr>Prepare<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ProvisionError.html" class="internal-link" title="tmt.utils.ProvisionError"><wbr></wbr>Provision<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.RebootTimeoutError.html" class="internal-link" title="tmt.utils.RebootTimeoutError"><wbr></wbr>Reboot<wbr></wbr>Timeout<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.ReportError.html" class="internal-link" title="tmt.utils.ReportError"><wbr></wbr>Report<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.RunError.html" class="internal-link" title="tmt.utils.RunError"><wbr></wbr>Run<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SpecificationError.html" class="internal-link" title="tmt.utils.SpecificationError"><wbr></wbr>Specification<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.StructuredFieldError.html" class="internal-link" title="tmt.utils.StructuredFieldError"><wbr></wbr>Structured<wbr></wbr>Field<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.WaitingIncomplete.html" class="internal-link" title="tmt.utils.WaitingIncomplete"><wbr></wbr>Waiting<wbr></wbr>Incomplete</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.WaitingTimedOutError.html" class="internal-link" title="tmt.utils.WaitingTimedOutError"><wbr></wbr>Waiting<wbr></wbr>Timed<wbr></wbr>Out<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#ascii" class="internal-link" title="tmt.utils.ascii">ascii</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#check_git_url" class="internal-link" title="tmt.utils.check_git_url">check<wbr></wbr>_git<wbr></wbr>_url</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#context_to_dict" class="internal-link" title="tmt.utils.context_to_dict">context<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#copytree" class="internal-link" title="tmt.utils.copytree">copytree</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#create_directory" class="internal-link" title="tmt.utils.create_directory">create<wbr></wbr>_directory</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#create_file" class="internal-link" title="tmt.utils.create_file">create<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#default_branch" class="internal-link" title="tmt.utils.default_branch">default<wbr></wbr>_branch</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#dict_to_yaml" class="internal-link" title="tmt.utils.dict_to_yaml">dict<wbr></wbr>_to<wbr></wbr>_yaml</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#duration_to_seconds" class="internal-link" title="tmt.utils.duration_to_seconds">duration<wbr></wbr>_to<wbr></wbr>_seconds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#environment_file_to_dict" class="internal-link" title="tmt.utils.environment_file_to_dict">environment<wbr></wbr>_file<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#environment_files_to_dict" class="internal-link" title="tmt.utils.environment_files_to_dict">environment<wbr></wbr>_files<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#environment_to_dict" class="internal-link" title="tmt.utils.environment_to_dict">environment<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#find_fmf_root" class="internal-link" title="tmt.utils.find_fmf_root">find<wbr></wbr>_fmf<wbr></wbr>_root</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#format" class="internal-link" title="tmt.utils.format">format</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#generate_runs" class="internal-link" title="tmt.utils.generate_runs">generate<wbr></wbr>_runs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#get_distgit_handler" class="internal-link" title="tmt.utils.get_distgit_handler">get<wbr></wbr>_distgit<wbr></wbr>_handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#get_distgit_handler_names" class="internal-link" title="tmt.utils.get_distgit_handler_names">get<wbr></wbr>_distgit<wbr></wbr>_handler<wbr></wbr>_names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#git_clone" class="internal-link" title="tmt.utils.git_clone">git<wbr></wbr>_clone</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#indent" class="internal-link" title="tmt.utils.indent">indent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#key_to_option" class="internal-link" title="tmt.utils.key_to_option">key<wbr></wbr>_to<wbr></wbr>_option</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#listify" class="internal-link" title="tmt.utils.listify">listify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#load_run" class="internal-link" title="tmt.utils.load_run">load<wbr></wbr>_run</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#load_schema" class="internal-link" title="tmt.utils.load_schema">load<wbr></wbr>_schema</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#load_schema_store" class="internal-link" title="tmt.utils.load_schema_store">load<wbr></wbr>_schema<wbr></wbr>_store</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#markdown_to_html" class="internal-link" title="tmt.utils.markdown_to_html">markdown<wbr></wbr>_to<wbr></wbr>_html</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#modify_environ" class="internal-link" title="tmt.utils.modify_environ">modify<wbr></wbr>_environ</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#option_to_key" class="internal-link" title="tmt.utils.option_to_key">option<wbr></wbr>_to<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#parse_dotenv" class="internal-link" title="tmt.utils.parse_dotenv">parse<wbr></wbr>_dotenv</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#parse_yaml" class="internal-link" title="tmt.utils.parse_yaml">parse<wbr></wbr>_yaml</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#public_git_url" class="internal-link" title="tmt.utils.public_git_url">public<wbr></wbr>_git<wbr></wbr>_url</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#quote" class="internal-link" title="tmt.utils.quote">quote</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#remove_color" class="internal-link" title="tmt.utils.remove_color">remove<wbr></wbr>_color</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#shell_to_dict" class="internal-link" title="tmt.utils.shell_to_dict">shell<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#shell_variables" class="internal-link" title="tmt.utils.shell_variables">shell<wbr></wbr>_variables</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#validate_fmf_node" class="internal-link" title="tmt.utils.validate_fmf_node">validate<wbr></wbr>_fmf<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#validate_git_status" class="internal-link" title="tmt.utils.validate_git_status">validate<wbr></wbr>_git<wbr></wbr>_status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#verdict" class="internal-link" title="tmt.utils.verdict">verdict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#wait" class="internal-link" title="tmt.utils.wait">wait</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#yaml_to_dict" class="internal-link" title="tmt.utils.yaml_to_dict">yaml<wbr></wbr>_to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#yaml_to_list" class="internal-link" title="tmt.utils.yaml_to_list">yaml<wbr></wbr>_to<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#_add_file_vars" class="internal-link" title="tmt.utils._add_file_vars">_add<wbr></wbr>_file<wbr></wbr>_vars</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#_add_simple_var" class="internal-link" title="tmt.utils._add_simple_var">_add<wbr></wbr>_simple<wbr></wbr>_var</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#_load_schema" class="internal-link" title="tmt.utils._load_schema">_load<wbr></wbr>_schema</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#_patch_plan_schema" class="internal-link" title="tmt.utils._patch_plan_schema">_patch<wbr></wbr>_plan<wbr></wbr>_schema</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#_prenormalize_fmf_node" class="internal-link" title="tmt.utils._prenormalize_fmf_node">_prenormalize<wbr></wbr>_fmf<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#CONFIG_PATH" class="internal-link" title="tmt.utils.CONFIG_PATH">CONFIG<wbr></wbr>_PATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_NAME" class="internal-link" title="tmt.utils.DEFAULT_NAME">DEFAULT<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_PLUGIN_ORDER" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_PLUGIN_ORDER_MULTIHOST" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_MULTIHOST">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_MULTIHOST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_PLUGIN_ORDER_RECOMMENDS" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_RECOMMENDS">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_RECOMMENDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_PLUGIN_ORDER_REQUIRES" class="internal-link" title="tmt.utils.DEFAULT_PLUGIN_ORDER_REQUIRES">DEFAULT<wbr></wbr>_PLUGIN<wbr></wbr>_ORDER<wbr></wbr>_REQUIRES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_RETRY_SESSION_BACKOFF_FACTOR" class="internal-link" title="tmt.utils.DEFAULT_RETRY_SESSION_BACKOFF_FACTOR">DEFAULT<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_BACKOFF<wbr></wbr>_FACTOR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_RETRY_SESSION_RETRIES" class="internal-link" title="tmt.utils.DEFAULT_RETRY_SESSION_RETRIES">DEFAULT<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_RETRIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_SELECT_TIMEOUT" class="internal-link" title="tmt.utils.DEFAULT_SELECT_TIMEOUT">DEFAULT<wbr></wbr>_SELECT<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_SHELL" class="internal-link" title="tmt.utils.DEFAULT_SHELL">DEFAULT<wbr></wbr>_SHELL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_WAIT_TICK" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK">DEFAULT<wbr></wbr>_WAIT<wbr></wbr>_TICK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#DEFAULT_WAIT_TICK_INCREASE" class="internal-link" title="tmt.utils.DEFAULT_WAIT_TICK_INCREASE">DEFAULT<wbr></wbr>_WAIT<wbr></wbr>_TICK<wbr></wbr>_INCREASE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#ENVFILE_RETRY_SESSION_BACKOFF_FACTOR" class="internal-link" title="tmt.utils.ENVFILE_RETRY_SESSION_BACKOFF_FACTOR">ENVFILE<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_BACKOFF<wbr></wbr>_FACTOR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#ENVFILE_RETRY_SESSION_RETRIES" class="internal-link" title="tmt.utils.ENVFILE_RETRY_SESSION_RETRIES">ENVFILE<wbr></wbr>_RETRY<wbr></wbr>_SESSION<wbr></wbr>_RETRIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#INDENT" class="internal-link" title="tmt.utils.INDENT">INDENT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#LOG_FILENAME" class="internal-link" title="tmt.utils.LOG_FILENAME">LOG<wbr></wbr>_FILENAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#OUTPUT_LINES" class="internal-link" title="tmt.utils.OUTPUT_LINES">OUTPUT<wbr></wbr>_LINES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#OUTPUT_WIDTH" class="internal-link" title="tmt.utils.OUTPUT_WIDTH">OUTPUT<wbr></wbr>_WIDTH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#PLAN_SKIP_WORKTREE_INIT" class="internal-link" title="tmt.utils.PLAN_SKIP_WORKTREE_INIT">PLAN<wbr></wbr>_SKIP<wbr></wbr>_WORKTREE<wbr></wbr>_INIT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#PROCESS_TIMEOUT" class="internal-link" title="tmt.utils.PROCESS_TIMEOUT">PROCESS<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#SHELL_OPTIONS" class="internal-link" title="tmt.utils.SHELL_OPTIONS">SHELL<wbr></wbr>_OPTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#WORKDIR_MAX" class="internal-link" title="tmt.utils.WORKDIR_MAX">WORKDIR<wbr></wbr>_MAX</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#WORKDIR_ROOT" class="internal-link" title="tmt.utils.WORKDIR_ROOT">WORKDIR<wbr></wbr>_ROOT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#CommonDerivedType" class="internal-link" title="tmt.utils.CommonDerivedType"><wbr></wbr>Common<wbr></wbr>Derived<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#SerializableContainerDerivedType" class="internal-link" title="tmt.utils.SerializableContainerDerivedType"><wbr></wbr>Serializable<wbr></wbr>Container<wbr></wbr>Derived<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#SpecBasedContainerT" class="internal-link" title="tmt.utils.SpecBasedContainerT"><wbr></wbr>Spec<wbr></wbr>Based<wbr></wbr>Container<wbr></wbr>T</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#T" class="internal-link" title="tmt.utils.T">T</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#EnvironmentType" class="internal-link" title="tmt.utils.EnvironmentType"><wbr></wbr>Environment<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#FmfContextType" class="internal-link" title="tmt.utils.FmfContextType"><wbr></wbr>Fmf<wbr></wbr>Context<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#KeySource" class="internal-link" title="tmt.utils.KeySource"><wbr></wbr>Key<wbr></wbr>Source</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#LoggerFnType" class="internal-link" title="tmt.utils.LoggerFnType"><wbr></wbr>Logger<wbr></wbr>Fn<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#Schema" class="internal-link" title="tmt.utils.Schema"><wbr></wbr>Schema</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#SchemaStore" class="internal-link" title="tmt.utils.SchemaStore"><wbr></wbr>Schema<wbr></wbr>Store</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#SFSectionValueType" class="internal-link" title="tmt.utils.SFSectionValueType"><wbr></wbr>SFSection<wbr></wbr>Value<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#WaitCheckType" class="internal-link" title="tmt.utils.WaitCheckType"><wbr></wbr>Wait<wbr></wbr>Check<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#WorkdirArgumentType" class="internal-link" title="tmt.utils.WorkdirArgumentType"><wbr></wbr>Workdir<wbr></wbr>Argument<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#WorkdirType" class="internal-link" title="tmt.utils.WorkdirType"><wbr></wbr>Workdir<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#YamlTypType" class="internal-link" title="tmt.utils.YamlTypType"><wbr></wbr>Yaml<wbr></wbr>Typ<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.html#log" class="internal-link" title="tmt.utils.log">log</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.utils.html" class="internal-link" title="tmt.utils">utils</a></code><wbr></wbr>.<code><a href="tmt.utils.StructuredField.html" class="internal-link" title="tmt.utils.StructuredField">StructuredField</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">StructuredField</span>:</code></p>
+          <p><a href="classIndex.html#tmt.utils.StructuredField">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Handling multiple text data in a single text field</p>
+<p>The StructuredField allows you to easily store and extract several sections of text data to/from a single text field. The sections are separated by section names in square brackets and can be hosted in other text as well.</p>
+<p>The section names have to be provided on a separate line and there must be no leading/trailing white space before/after the brackets. The StructuredField supports two versions of the format:</p>
+<p>Version 0: Simple, concise, useful when neither the surrounding text or the section data can contain lines which could resemble section names. Here's an example of a simple StructuredField:</p>
+<pre class="rst-literal-block">
+    Note written by human.
+
+    [section-one]
+    Section one content.
+
+    [section-two]
+    Section two content.
+
+    [section-three]
+    Section three content.
+
+    [end]
+
+    Another note written by human.
+</pre>
+<p>Version 1: Includes unique header to prevent collisions with the surrounding text and escapes any section-like lines in the content:</p>
+<pre class="rst-literal-block">
+    Note written by human.
+
+    [structured-field-start]
+    This is StructuredField version 1. Please, edit with care.
+
+    [section-one]
+    Section one content.
+
+    [section-two]
+    Section two content.
+    [structured-field-escape][something-resembling-section-name]
+
+    [section-three]
+    Section three content.
+
+    [structured-field-end]
+
+    Another note written by human.
+</pre>
+<p>Note that an additional empty line is added at the end of each section to improve the readability. This line is not considered to be part of the section content.</p>
+<p>Besides handling the whole section content it's also possible to store several key-value pairs in a single section, similarly as in the ini config format:</p>
+<pre class="rst-literal-block">
+    [section]
+    key1 = value1
+    key2 = value2
+    key3 = value3
+</pre>
+<p>Provide the key name as the optional argument 'item' when accessing these single-line items. Note that the section cannot contain both plain text data and key-value pairs.</p>
+<p>Example:</p>
+<pre class="rst-literal-block">
+    field = qe.StructuredField()
+    field.set("project", "Project Name")
+    field.set("details", "somebody", "owner")
+    field.set("details", "2013-05-27", "started")
+    field.set("description", "This is a description.\n"
+            "It spans across multiple lines.\n")
+    print field.save()
+
+        [structured-field-start]
+        This is StructuredField version 1. Please, edit with care.
+
+        [project]
+        Project Name
+
+        [details]
+        owner = somebody
+        started = 2013-05-27
+
+        [description]
+        This is a description.
+        It spans across multiple lines.
+
+        [structured-field-end]
+
+    field.version(0)
+    print field.save()
+
+        [project]
+        Project Name
+
+        [details]
+        owner = somebody
+        started = 2013-05-27
+
+        [description]
+        This is a description.
+        It spans across multiple lines.
+
+        [end]
+</pre>
+<p>Multiple values for the same key are supported as well. Enable this feature with 'multi=True' when initializing the structured field. If multiple values are present their list will be returned instead of a single string. Similarly use list for setting multiple values:</p>
+<pre class="rst-literal-block">
+    field = qe.StructuredField(multi=True)
+    requirements = ['hypervisor=', 'labcontroller=lab.example.com']
+    field.set("hardware", requirements, "hostrequire")
+    print field.save()
+
+        [structured-field-start]
+        This is StructuredField version 1. Please, edit with care.
+
+        [hardware]
+        hostrequire = hypervisor=
+        hostrequire = labcontroller=lab.example.com
+
+        [structured-field-end]
+
+    print field.get("hardware", "hostrequire")
+
+        ['hypervisor=', 'labcontroller=lab.example.com']
+</pre>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id457">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="tmt.utils.StructuredField.__init__">__init__</a></code></td>
+    <td>Initialize the structured field</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__iter__" class="internal-link" title="tmt.utils.StructuredField.__iter__">__iter__</a></code></td>
+    <td>By default iterate through all available section names</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__nonzero__" class="internal-link" title="tmt.utils.StructuredField.__nonzero__">__nonzero__</a></code></td>
+    <td>True when any section is defined</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#footer" class="internal-link" title="tmt.utils.StructuredField.footer">footer</a></code></td>
+    <td>Get or set the footer content</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get" class="internal-link" title="tmt.utils.StructuredField.get">get</a></code></td>
+    <td>Return content of given section or section item</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#header" class="internal-link" title="tmt.utils.StructuredField.header">header</a></code></td>
+    <td>Get or set the header content</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#iterate" class="internal-link" title="tmt.utils.StructuredField.iterate">iterate</a></code></td>
+    <td>Return (section, content) tuples for all sections</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#load" class="internal-link" title="tmt.utils.StructuredField.load">load</a></code></td>
+    <td>Load the StructuredField from a string</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#remove" class="internal-link" title="tmt.utils.StructuredField.remove">remove</a></code></td>
+    <td>Remove given section or section item</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#save" class="internal-link" title="tmt.utils.StructuredField.save">save</a></code></td>
+    <td>Convert the StructuredField into a string</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#sections" class="internal-link" title="tmt.utils.StructuredField.sections">sections</a></code></td>
+    <td>Get the list of available sections</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set" class="internal-link" title="tmt.utils.StructuredField.set">set</a></code></td>
+    <td>Update content of given section or section item</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#version" class="internal-link" title="tmt.utils.StructuredField.version">version</a></code></td>
+    <td>Get or set the StructuredField version</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_load" class="internal-link" title="tmt.utils.StructuredField._load">_load</a></code></td>
+    <td>Load version 1+ format</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_load_version_zero" class="internal-link" title="tmt.utils.StructuredField._load_version_zero">_load<wbr></wbr>_version<wbr></wbr>_zero</a></code></td>
+    <td>Load version 0 format</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_read_section" class="internal-link" title="tmt.utils.StructuredField._read_section">_read<wbr></wbr>_section</a></code></td>
+    <td>Parse config section and return ordered dictionary</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_save" class="internal-link" title="tmt.utils.StructuredField._save">_save</a></code></td>
+    <td>Save version 1+ format</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_save_version_zero" class="internal-link" title="tmt.utils.StructuredField._save_version_zero">_save<wbr></wbr>_version<wbr></wbr>_zero</a></code></td>
+    <td>Save version 0 format</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_write_section" class="internal-link" title="tmt.utils.StructuredField._write_section">_write<wbr></wbr>_section</a></code></td>
+    <td>Convert dictionary into a config section format</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_footer" class="internal-link" title="tmt.utils.StructuredField._footer">_footer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_header" class="internal-link" title="tmt.utils.StructuredField._header">_header</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_multi" class="internal-link" title="tmt.utils.StructuredField._multi">_multi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_order" class="internal-link" title="tmt.utils.StructuredField._order">_order</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_sections" class="internal-link" title="tmt.utils.StructuredField._sections">_sections</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_version" class="internal-link" title="tmt.utils.StructuredField._version">_version</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, text=None, version=1, multi=False):
+    
+    <a class="headerLink" href="#__init__" title="tmt.utils.StructuredField.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize the structured field</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">version:</span><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">multi:</span><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.__iter__">
+    
+  </a>
+  <a name="__iter__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__iter__</span>(self):
+    
+    <a class="headerLink" href="#__iter__" title="tmt.utils.StructuredField.__iter__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>By default iterate through all available section names</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Generator[<wbr></wbr>str, <wbr></wbr>None, <wbr></wbr>None]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.__nonzero__">
+    
+  </a>
+  <a name="__nonzero__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__nonzero__</span>(self):
+    
+    <a class="headerLink" href="#__nonzero__" title="tmt.utils.StructuredField.__nonzero__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>True when any section is defined</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.footer">
+    
+  </a>
+  <a name="footer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">footer</span>(self, content=None):
+    
+    <a class="headerLink" href="#footer" title="tmt.utils.StructuredField.footer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get or set the footer content</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.get">
+    
+  </a>
+  <a name="get">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get</span>(self, section, item=None):
+    
+    <a class="headerLink" href="#get" title="tmt.utils.StructuredField.get">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return content of given section or section item</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">item:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="tmt.utils.html#SFSectionValueType" class="internal-link" title="tmt.utils.SFSectionValueType">SFSectionValueType</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.header">
+    
+  </a>
+  <a name="header">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">header</span>(self, content=None):
+    
+    <a class="headerLink" href="#header" title="tmt.utils.StructuredField.header">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get or set the header content</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.iterate">
+    
+  </a>
+  <a name="iterate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">iterate</span>(self):
+    
+    <a class="headerLink" href="#iterate" title="tmt.utils.StructuredField.iterate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return (section, content) tuples for all sections</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Generator[<wbr></wbr>Tuple[<wbr></wbr>str, <wbr></wbr>str], <wbr></wbr>None, <wbr></wbr>None]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.load">
+    
+  </a>
+  <a name="load">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">load</span>(self, text, version=None):
+    
+    <a class="headerLink" href="#load" title="tmt.utils.StructuredField.load">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load the StructuredField from a string</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">version:</span><code>Optional[<wbr></wbr>int]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.remove">
+    
+  </a>
+  <a name="remove">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">remove</span>(self, section, item=None):
+    
+    <a class="headerLink" href="#remove" title="tmt.utils.StructuredField.remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove given section or section item</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">item:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.save">
+    
+  </a>
+  <a name="save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">save</span>(self):
+    
+    <a class="headerLink" href="#save" title="tmt.utils.StructuredField.save">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert the StructuredField into a string</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.sections">
+    
+  </a>
+  <a name="sections">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sections</span>(self):
+    
+    <a class="headerLink" href="#sections" title="tmt.utils.StructuredField.sections">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get the list of available sections</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.set">
+    
+  </a>
+  <a name="set">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set</span>(self, section, content, item=None):
+    
+    <a class="headerLink" href="#set" title="tmt.utils.StructuredField.set">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Update content of given section or section item</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>Any</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">item:</span><code>Optional[<wbr></wbr>str]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.utils.StructuredField.version">
+    
+  </a>
+  <a name="version">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">version</span>(self, version=None):
+    
+    <a class="headerLink" href="#version" title="tmt.utils.StructuredField.version">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get or set the StructuredField version</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">version:</span><code>Optional[<wbr></wbr>int]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>int</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.utils.StructuredField._load">
+    
+  </a>
+  <a name="_load">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_load</span>(self, text):
+    
+    <a class="headerLink" href="#_load" title="tmt.utils.StructuredField._load">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load version 1+ format</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.utils.StructuredField._load_version_zero">
+    
+  </a>
+  <a name="_load_version_zero">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_load_version_zero</span>(self, text):
+    
+    <a class="headerLink" href="#_load_version_zero" title="tmt.utils.StructuredField._load_version_zero">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load version 0 format</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.utils.StructuredField._read_section">
+    
+  </a>
+  <a name="_read_section">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_read_section</span>(self, content):
+    
+    <a class="headerLink" href="#_read_section" title="tmt.utils.StructuredField._read_section">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse config section and return ordered dictionary</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">content:</span><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Dict[<wbr></wbr>str, <wbr></wbr><a href="tmt.utils.html#SFSectionValueType" class="internal-link" title="tmt.utils.SFSectionValueType">SFSectionValueType</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.utils.StructuredField._save">
+    
+  </a>
+  <a name="_save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_save</span>(self):
+    
+    <a class="headerLink" href="#_save" title="tmt.utils.StructuredField._save">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Save version 1+ format</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.utils.StructuredField._save_version_zero">
+    
+  </a>
+  <a name="_save_version_zero">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_save_version_zero</span>(self):
+    
+    <a class="headerLink" href="#_save_version_zero" title="tmt.utils.StructuredField._save_version_zero">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Save version 0 format</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="tmt.utils.StructuredField._write_section">
+    
+  </a>
+  <a name="_write_section">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_write_section</span>(self, dictionary):
+    
+    <a class="headerLink" href="#_write_section" title="tmt.utils.StructuredField._write_section">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert dictionary into a config section format</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dictionary:</span><code>Dict[<wbr></wbr>str, <wbr></wbr><a href="tmt.utils.html#SFSectionValueType" class="internal-link" title="tmt.utils.SFSectionValueType">SFSectionValueType</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>str</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.utils.StructuredField._footer">
+    
+  </a>
+  <a name="_footer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_footer</span> =
+    
+    <a class="headerLink" href="#_footer" title="tmt.utils.StructuredField._footer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.utils.StructuredField._header">
+    
+  </a>
+  <a name="_header">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_header</span> =
+    
+    <a class="headerLink" href="#_header" title="tmt.utils.StructuredField._header">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.utils.StructuredField._multi">
+    
+  </a>
+  <a name="_multi">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_multi</span> =
+    
+    <a class="headerLink" href="#_multi" title="tmt.utils.StructuredField._multi">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.utils.StructuredField._order">
+    
+  </a>
+  <a name="_order">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_order</span>: <code>List[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_order" title="tmt.utils.StructuredField._order">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.utils.StructuredField._sections">
+    
+  </a>
+  <a name="_sections">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_sections</span>: <code>Dict[<wbr></wbr>str, <wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_sections" title="tmt.utils.StructuredField._sections">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.utils.StructuredField._version">
+    
+  </a>
+  <a name="_version">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_version</span> =
+    
+    <a class="headerLink" href="#_version" title="tmt.utils.StructuredField._version">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tmt.base.Links</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          tmt <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="tmt.base.Links.html" class="internal-link" title="This class"><wbr></wbr>Links</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="tmt.base.Links.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get" class="internal-link" title="tmt.base.Links.get">get</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#has_link" class="internal-link" title="tmt.base.Links.has_link">has<wbr></wbr>_link</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show" class="internal-link" title="tmt.base.Links.show">show</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#to_spec" class="internal-link" title="tmt.base.Links.to_spec">to<wbr></wbr>_spec</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html#keys" class="internal-link" title="tmt.utils.DataContainer.keys">keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.SpecBasedContainer.html#from_spec" class="internal-link" title="tmt.utils.SpecBasedContainer.from_spec">from<wbr></wbr>_spec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html#items" class="internal-link" title="tmt.utils.DataContainer.items">items</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html#to_dict" class="internal-link" title="tmt.utils.DataContainer.to_dict">to<wbr></wbr>_dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html#values" class="internal-link" title="tmt.utils.DataContainer.values">values</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html#_default" class="internal-link" title="tmt.utils.DataContainer._default">_default</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_relations" class="internal-link" title="tmt.base.Links._relations">_relations</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_links" class="internal-link" title="tmt.base.Links._links">_links</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.utils.DataContainer.html#is_bare" class="internal-link" title="tmt.utils.DataContainer.is_bare">is<wbr></wbr>_bare</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="tmt.base.html" class="internal-link" title="The parent of this class">base</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Core.html" class="internal-link" title="tmt.base.Core"><wbr></wbr>Core</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.FmfId.html" class="internal-link" title="tmt.base.FmfId"><wbr></wbr>Fmf<wbr></wbr>Id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Link.html" class="internal-link" title="tmt.base.Link"><wbr></wbr>Link</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.LinkNeedle.html" class="internal-link" title="tmt.base.LinkNeedle"><wbr></wbr>Link<wbr></wbr>Needle</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.Links.html" class="internal-link" title="tmt.base.Links"><wbr></wbr>Links</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.StoryPriority.html" class="internal-link" title="tmt.base.StoryPriority"><wbr></wbr>Story<wbr></wbr>Priority</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#DEFAULT_ORDER" class="internal-link" title="tmt.base.DEFAULT_ORDER">DEFAULT<wbr></wbr>_ORDER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#DEFAULT_TEST_DURATION_L1" class="internal-link" title="tmt.base.DEFAULT_TEST_DURATION_L1">DEFAULT<wbr></wbr>_TEST<wbr></wbr>_DURATION<wbr></wbr>_L1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#DEFAULT_TEST_DURATION_L2" class="internal-link" title="tmt.base.DEFAULT_TEST_DURATION_L2">DEFAULT<wbr></wbr>_TEST<wbr></wbr>_DURATION<wbr></wbr>_L2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#EXTRA_RESULT_IDENTIFICATION_KEYS" class="internal-link" title="tmt.base.EXTRA_RESULT_IDENTIFICATION_KEYS">EXTRA<wbr></wbr>_RESULT<wbr></wbr>_IDENTIFICATION<wbr></wbr>_KEYS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#EXTRA_STORY_KEYS" class="internal-link" title="tmt.base.EXTRA_STORY_KEYS">EXTRA<wbr></wbr>_STORY<wbr></wbr>_KEYS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#EXTRA_TEST_KEYS" class="internal-link" title="tmt.base.EXTRA_TEST_KEYS">EXTRA<wbr></wbr>_TEST<wbr></wbr>_KEYS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#FOLLOW_LINES" class="internal-link" title="tmt.base.FOLLOW_LINES">FOLLOW<wbr></wbr>_LINES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#OBSOLETED_TEST_KEYS" class="internal-link" title="tmt.base.OBSOLETED_TEST_KEYS">OBSOLETED<wbr></wbr>_TEST<wbr></wbr>_KEYS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#SECTIONS_HEADINGS" class="internal-link" title="tmt.base.SECTIONS_HEADINGS">SECTIONS<wbr></wbr>_HEADINGS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawLink" class="internal-link" title="tmt.base._RawLink">_<wbr></wbr>Raw<wbr></wbr>Link</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawLinkRelation" class="internal-link" title="tmt.base._RawLinkRelation">_<wbr></wbr>Raw<wbr></wbr>Link<wbr></wbr>Relation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawLinkRelationName" class="internal-link" title="tmt.base._RawLinkRelationName">_<wbr></wbr>Raw<wbr></wbr>Link<wbr></wbr>Relation<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawLinks" class="internal-link" title="tmt.base._RawLinks">_<wbr></wbr>Raw<wbr></wbr>Links</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawLinkTarget" class="internal-link" title="tmt.base._RawLinkTarget">_<wbr></wbr>Raw<wbr></wbr>Link<wbr></wbr>Target</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawRequire" class="internal-link" title="tmt.base._RawRequire">_<wbr></wbr>Raw<wbr></wbr>Require</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawAdjustRule" class="internal-link" title="tmt.base._RawAdjustRule">_<wbr></wbr>Raw<wbr></wbr>Adjust<wbr></wbr>Rule</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tmt.base.html#_RawFmfId" class="internal-link" title="tmt.base._RawFmfId">_<wbr></wbr>Raw<wbr></wbr>Fmf<wbr></wbr>Id</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">tmt</a></code><wbr></wbr>.<code><a href="tmt.base.html" class="internal-link" title="tmt.base">base</a></code><wbr></wbr>.<code><a href="tmt.base.Links.html" class="internal-link" title="tmt.base.Links">Links</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">Links</span>(<a href="tmt.utils.SpecBasedContainer.html" class="internal-link">tmt.utils.SpecBasedContainer</a>):</code></p>
+          <p><a href="classIndex.html#tmt.base.Links">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Collection of links in tests, plans and stories.</p>
+<p>Provides abstraction over the whole collection of object's links.</p>
+<p>[1] https://tmt.readthedocs.io/en/stable/spec/core.html#link</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id13">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="tmt.base.Links.__init__">__init__</a></code></td>
+    <td>Create a collection from raw link data</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get" class="internal-link" title="tmt.base.Links.get">get</a></code></td>
+    <td>Get links with given relation, all by default</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#has_link" class="internal-link" title="tmt.base.Links.has_link">has<wbr></wbr>_link</a></code></td>
+    <td>Check whether this set of links contains a matching link</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show" class="internal-link" title="tmt.base.Links.show">show</a></code></td>
+    <td>Format a list of links with their relations</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#to_spec" class="internal-link" title="tmt.base.Links.to_spec">to<wbr></wbr>_spec</a></code></td>
+    <td>Convert to a form suitable for saving in a specification file</td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_relations" class="internal-link" title="tmt.base.Links._relations">_relations</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_links" class="internal-link" title="tmt.base.Links._links">_links</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.utils.SpecBasedContainer.html" class="internal-link" title="tmt.utils.SpecBasedContainer">SpecBasedContainer</a></code>:
+            </p>
+            <table class="children sortable" id="id14">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.SpecBasedContainer.html#from_spec" class="internal-link" title="tmt.utils.SpecBasedContainer.from_spec">from<wbr></wbr>_spec</a></code></td>
+    <td>Convert from a specification file or from a CLI option</td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="tmt.utils.DataContainer.html" class="internal-link" title="tmt.utils.DataContainer">DataContainer</a></code> (via <code><a href="tmt.utils.SpecBasedContainer.html" class="internal-link" title="tmt.utils.SpecBasedContainer">SpecBasedContainer</a></code>):
+            </p>
+            <table class="children sortable" id="id15">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.DataContainer.html#keys" class="internal-link" title="tmt.utils.DataContainer.keys">keys</a></code></td>
+    <td>Iterate over key names</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.DataContainer.html#items" class="internal-link" title="tmt.utils.DataContainer.items">items</a></code></td>
+    <td>Iterate over key/value pairs</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.DataContainer.html#to_dict" class="internal-link" title="tmt.utils.DataContainer.to_dict">to<wbr></wbr>_dict</a></code></td>
+    <td>Convert to a mapping.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="tmt.utils.DataContainer.html#values" class="internal-link" title="tmt.utils.DataContainer.values">values</a></code></td>
+    <td>Iterate over key values</td>
+  </tr><tr class="baseproperty">
+    
+    <td>Property</td>
+    <td><code><a href="tmt.utils.DataContainer.html#is_bare" class="internal-link" title="tmt.utils.DataContainer.is_bare">is<wbr></wbr>_bare</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="tmt.utils.DataContainer.html#_default" class="internal-link" title="tmt.utils.DataContainer._default">_default</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="tmt.base.Links.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, data=None):
+    
+    <a class="headerLink" href="#__init__" title="tmt.base.Links.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a collection from raw link data</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span><code>Optional[<wbr></wbr><a href="tmt.base.html#_RawLinks" class="internal-link" title="tmt.base._RawLinks">_RawLinks</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.base.Links.get">
+    
+  </a>
+  <a name="get">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get</span>(self, relation=None):
+    
+    <a class="headerLink" href="#get" title="tmt.base.Links.get">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get links with given relation, all by default</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">relation:</span><code>Optional[<wbr></wbr><a href="tmt.base.html#_RawLinkRelationName" class="internal-link" title="tmt.base._RawLinkRelationName">_RawLinkRelationName</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr><a href="tmt.base.Link.html" class="internal-link" title="tmt.base.Link">Link</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.base.Links.has_link">
+    
+  </a>
+  <a name="has_link">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">has_link</span>(self, needle):
+    
+    <a class="headerLink" href="#has_link" title="tmt.base.Links.has_link">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether this set of links contains a matching link</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">needle:</span><code><a href="tmt.base.LinkNeedle.html" class="internal-link" title="tmt.base.LinkNeedle">LinkNeedle</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>bool</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.base.Links.show">
+    
+  </a>
+  <a name="show">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show</span>(self):
+    
+    <a class="headerLink" href="#show" title="tmt.base.Links.show">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Format a list of links with their relations</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tmt.base.Links.to_spec">
+    
+  </a>
+  <a name="to_spec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">to_spec</span>(self):
+    
+    <a class="headerLink" href="#to_spec" title="tmt.base.Links.to_spec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="tmt.utils.SpecBasedContainer.html#to_spec" class="internal-link">tmt.utils.SpecBasedContainer.to_spec</a></code></div>
+    <div><p>Convert to a form suitable for saving in a specification file</p>
+<p>No matter what the original specification was, every link will generate the very same type of specification, the ``relation: target`` one.</p>
+<p>Output of this method is fully compatible with specification, and when used to instantiate :py:meth:`Link` object, it shall create a collection of links with the same properties as the original one.</p>
+<p>[1] https://tmt.readthedocs.io/en/stable/spec/core.html#link</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>List[<wbr></wbr><a href="tmt.base.html#_RawLinkRelation" class="internal-link" title="tmt.base._RawLinkRelation">_RawLinkRelation</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="tmt.base.Links._relations">
+    
+  </a>
+  <a name="_relations">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_relations</span>: <code>List[<wbr></wbr><a href="tmt.base.html#_RawLinkRelationName" class="internal-link" title="tmt.base._RawLinkRelationName">_RawLinkRelationName</a>]</code> =
+    
+    <a class="headerLink" href="#_relations" title="tmt.base.Links._relations">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="tmt.base.Links._links">
+    
+  </a>
+  <a name="_links">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_links</span> =
+    
+    <a class="headerLink" href="#_links" title="tmt.base.Links._links">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for tmt,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-10-10 13:39:41.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
