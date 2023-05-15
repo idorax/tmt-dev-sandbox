@@ -1,0 +1,29 @@
+<job retention_tag="scratch">
+  <whiteboard>kvm-01-guest10.lab.eng.brq2.redhat.com  #CentOS 7.9</whiteboard>
+  <recipeSet priority="High">
+    <recipe whiteboard="" role="RECIPE_MEMBERS" ks_meta="" kernel_options="" kernel_options_post="">
+      <autopick random="false"/>
+      <watchdog panic="ignore"/>
+      <packages/>
+      <ks_appends/>
+      <repos/>
+      <distroRequires>
+        <and>
+          <distro_family op="=" value="CentOS7"/>
+          <distro_variant op="=" value=""/>
+          <distro_name op="=" value="CentOS-7.9"/>
+          <distro_arch op="=" value="x86_64"/>
+        </and>
+      </distroRequires>
+      <hostRequires force="kvm-01-guest10.lab.eng.brq2.redhat.com"/>
+      <partitions/>
+      <task name="/distribution/check-install" role="STANDALONE"/>
+      <task name="/distribution/reservesys" role="STANDALONE">
+        <params>
+          <param name="RESERVETIME" value="345600"/>
+        </params>
+      </task>
+      <reservesys duration="345600" when="always"/>
+    </recipe>
+  </recipeSet>
+</job>
