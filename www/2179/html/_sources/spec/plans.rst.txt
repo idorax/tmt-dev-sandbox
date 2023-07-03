@@ -1,0 +1,2637 @@
+.. _/spec/plans:
+
+Plans
+=====
+*As a tester I want to easily execute selected tests or selected test steps in given environment.*
+
+
+**Plans**, also called L2 metadata, are used to group relevant
+tests and enable the CI. They describe how to `discover` tests
+for execution, how to `provision` the environment, how to
+`prepare` it for testing, how to `execute` tests, `report`
+results and finally how to `finish` the test job.
+
+Each of the six steps mentioned above supports multiple
+implementations.  The default methods are listed below.
+
+ * :ref:`/spec/plans/discover`: shell
+ * :ref:`/spec/plans/provision`: virtual
+ * :ref:`/spec/plans/prepare`: shell
+ * :ref:`/spec/plans/execute`: tmt
+ * :ref:`/spec/plans/report`: display
+ * :ref:`/spec/plans/finish`: shell
+
+Thanks to clearly separated test steps it is possible to run
+only selected steps, for example ``tmt run discover`` to see
+which tests would be executed.
+
+In addition to the attributes defined here, plans also support
+common :ref:`/spec/core` attributes which are shared across
+all metadata levels.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enabled a minimal smoke test
+   execute:
+       script: foo --version
+
+   # Run tier one tests in a container
+   discover:
+       how: fmf
+       filter: tier:1
+   provision:
+       how: container
+   execute:
+       how: tmt
+
+   # Verify that apache can serve pages
+   summary: Basic httpd smoke test
+   provision:
+       how: virtual
+       memory: 4096
+   prepare:
+     - name: packages
+       how: install
+       package: [httpd, curl]
+     - name: service
+       how: shell
+       script: systemctl start httpd
+   execute:
+       how: shell
+       script:
+       - echo foo > /var/www/html/index.html
+       - curl http://localhost/ | grep foo
+
+.. _/spec/plans/context:
+
+context
+^^^^^^^
+
+Definition of the test execution context
+
+*As a user I want to define the default context in which tests included in given plan should be executed.*
+
+
+Define the default context values for all tests executed under
+the given plan. Can be overriden by context provided directly
+on the command line. See the :ref:`/spec/context` definition
+for the full list of supported context dimensions. Must be a
+``dictionary``.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   summary:
+       Test basic functionality of the httpd24 collection
+   discover:
+       how: fmf
+   execute:
+       how: tmt
+   context:
+       collection: httpd24
+
+
+
+.. code-block:: yaml
+
+   summary:
+       Verify dash against the shared shell tests repository
+   discover:
+       how: fmf
+       url: https://src.fedoraproject.org/tests/shell
+   execute:
+       how: tmt
+   context:
+       component: dash
+
+
+Status: implemented
+
+.. _/spec/plans/discover:
+
+discover
+^^^^^^^^
+
+Discover tests relevant for execution
+
+
+
+Gather information about tests which are supposed to be run.
+Provide method ``tests()`` returning a list of discovered
+tests and ``requires()`` returning a list of all required
+packages aggregated from the `require`_ attribute of the
+individual test metadata.
+
+.. _require: https://tmt.readthedocs.io/en/latest/spec/tests.html#require
+
+Store the list of aggregated tests with their corresponding
+metadata in the ``tests.yaml`` file. The format must be a
+list of dictionaries structured in the following way:
+
+.. code-block:: yaml
+
+    - name: /test/one
+      summary: Short test summary.
+      description: Long test description.
+      contact: Petr Šplíchal <psplicha@redhat.com>
+      component: [tmt]
+      test: tmt --help
+      path: /test/path/
+      require: [package1, package2]
+      environment:
+          key1: value1
+          key2: value2
+          key3: value3
+      duration: 5m
+      enabled: true
+      result: respect
+      tag: [tag]
+      tier: 1
+      serialnumber: 1
+
+    - name: /test/two
+      summary: Short test summary.
+      description: Long test description.
+      ...
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enabled a minimal smoke test
+   execute:
+       script: foo --version
+
+   # Run tier one tests in a container
+   discover:
+       how: fmf
+       filter: tier:1
+   provision:
+       how: container
+   execute:
+       how: tmt
+
+   # Verify that apache can serve pages
+   summary: Basic httpd smoke test
+   provision:
+       how: virtual
+       memory: 4096
+   prepare:
+     - name: packages
+       how: install
+       package: [httpd, curl]
+     - name: service
+       how: shell
+       script: systemctl start httpd
+   execute:
+       how: shell
+       script:
+       - echo foo > /var/www/html/index.html
+       - curl http://localhost/ | grep foo
+
+.. _/spec/plans/discover/fmf:
+
+fmf
+:::
+
+Discover available tests using the fmf format
+
+
+
+Use the `Flexible Metadata Format`_ to explore all
+available tests in given repository. The following
+parameters are supported:
+
+url
+    Git repository containing the metadata tree.
+    Current git repository used by default.
+ref
+    Branch, tag or commit specifying the desired git
+    revision. Defaults to the remote repository's default
+    branch if url given or to the current ``HEAD`` if url
+    not provided.
+
+    Additionally, one can set ``ref`` dynamically. This is
+    possible using a special file in tmt format stored in
+    the *default* branch of a tests repository. This special
+    file should contain rules assigning attribute ``ref``
+    in an `adjust` block, for example depending on a test
+    run context.
+
+    Dynamic ``ref`` assignment is enabled whenever a test
+    plan reference has the format ``ref: @FILEPATH``.
+path
+    Path to the metadata tree root. Must be relative to
+    the git repository root if url provided, absolute
+    local filesystem path otherwise. By default ``.`` is
+    used.
+
+See also the `fmf identifier`_ documentation for details.
+Use the following keys to limit the test discovery by test
+name, an advanced filter or link:
+
+test
+    List of test names or regular expressions used to
+    select tests by name. Duplicate test names are allowed
+    to enable repetitive test execution, preserving the
+    listed test order.
+link
+    Select tests using the :ref:`/spec/core/link` keys.
+    Values must be in the form of ``RELATION:TARGET``,
+    tests containing at least one of them are selected.
+    Regular expressions are supported for both relation
+    and target. Relation part can be omitted to match all
+    relations.
+filter
+    Apply advanced filter based on test metadata
+    attributes. See ``pydoc fmf.filter`` for more info.
+exclude
+    Exclude tests which match a regular expression.
+
+It is also possible to limit tests only to those that have
+changed in git since a given revision. This can be
+particularly useful when testing changes to tests
+themselves (e.g. in a pull request CI). Related config
+options (all optional) are:
+
+modified-only
+    Set to True if you want to filter modified tests only.
+    The test is modified if its name starts with the name
+    of any directory modified since modified-ref.
+modified-url
+    An additional remote repository to be used as the
+    reference for comparison. Will be fetched as a
+    ``reference`` remote in the test dir.
+modified-ref
+    The ref to compare against. Defaults to the local
+    repository's default branch. Note that you need to
+    specify ``reference/<branch>`` to compare to a branch
+    from the repository specified in ``modified-url``.
+
+There is a support for discovering tests from extracted
+(rpm) sources. Needs to run on top of the supported
+DistGit (Fedora, CentOS), ``url`` can be used to point to
+such repository, ``path`` denotes path to the metadata
+tree root within extracted sources. At this moment no
+patches are applied, only tarball extraction happens.
+
+dist-git-source
+    Set to ``true`` to enable extracting sources.
+dist-git-type
+    The DistGit auto detection is based on git remotes.
+    Use this option to specify it directly. At least
+    ``Fedora`` and ``CentOS`` are supported as values,
+    help will print all possible values.
+
+.. _fmf identifier: https://fmf.readthedocs.io/en/latest/concept.html#identifiers
+.. _Flexible Metadata Format: https://fmf.readthedocs.io/
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Discover all fmf tests in the current repository
+   discover:
+       how: fmf
+
+
+
+.. code-block:: yaml
+
+   # Fetch tests from a remote repo, filter by name/tier
+   discover:
+       how: fmf
+       url: https://github.com/teemtee/tmt
+       ref: main
+       path: /metadata/tree/path
+       test: [regexp]
+       filter: tier:1
+
+
+
+.. code-block:: yaml
+
+   # Choose tests verifying given issue
+   discover:
+       how: fmf
+       link: verifies:issues/123$
+
+
+
+.. code-block:: yaml
+
+   # Select only tests which have been modified
+   discover:
+       how: fmf
+       modified-only: true
+       modified-url: https://github.com/teemtee/tmt-official
+       modified-ref: reference/main
+
+
+
+.. code-block:: yaml
+
+   # Extract tests from the distgit sources
+   discover:
+       how: fmf
+       dist-git-source: true
+
+
+Status: implemented
+
+.. _/spec/plans/discover/shell:
+
+shell
+:::::
+
+Provide a manual list of shell test cases
+
+
+
+List of test cases to be executed can be defined manually
+directly in the plan as a list of dictionaries containing
+test ``name`` and actual ``test`` script. Optionally it is
+possible to define any other :ref:`/spec/tests` attributes
+such as ``path`` or ``duration`` here as well. The default
+:ref:`/spec/tests/duration` for tests defined directly in
+the discover step is ``1h``.
+
+It is possible to fetch code from a remote git repository
+using ``url``. In that case repository is cloned and all
+paths are relative to the remote git root. Using remote
+repo and local test code at the same time is not possible
+within the same discover config, use
+:ref:`multiple-configs` instead.
+
+url
+    Git repository, used directly as a git clone argument.
+
+ref
+    Branch, tag or commit specifying the desired git
+    revision. Defaults to the remote repository's default
+    branch.
+
+keep-git-metadata
+    By default the ``.git`` directory is removed to save
+    disk space. Set to ``true`` to sync the git metadata
+    to guest as well.
+
+There is a support for discovering tests from extracted
+(rpm) sources. Needs to run on top of the supported
+DistGit (Fedora, CentOS), ``url`` can be used to point to
+such repository, ``path`` denotes path to the metadata
+tree root within extracted sources. At this moment no
+patches are applied, only tarball extraction happens.
+
+dist-git-source
+    Set to ``true`` to enable extracting sources.
+dist-git-type
+    The DistGit auto detection is based on git remotes.
+    Use this option to specify it directly. At least
+    ``Fedora`` and ``CentOS`` are supported as values,
+    help will print all possible values.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Define several local tests
+   discover:
+       how: shell
+       tests:
+         - name: /help/main
+           test: tmt --help
+         - name: /help/test
+           test: tmt test --help
+         - name: /help/smoke
+           test: ./smoke.sh
+           path: /tests/shell
+           duration: 1m
+
+
+
+.. code-block:: yaml
+
+   # Fetch tests from a remote repository
+   discover:
+       how: shell
+       url: https://github.com/teemtee/tmt
+       tests:
+         - name: Use tests/full/test.sh from the remote repo
+           path: /tests/full
+           test: ./test.sh
+
+
+Status: implemented
+
+.. _/spec/plans/discover/where:
+
+where
+:::::
+
+Execute tests on selected guests
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+In the :ref:`/spec/plans/provision/multihost` scenarios it
+is often necessary to execute test code on selected guests
+only or execute different test code on individual guests.
+The ``where`` key allows to select guests where the tests
+should be executed by providing their ``name`` or the
+``role`` they play in the scenario. Use a list to specify
+multiple names or roles. By default, when the ``where`` key
+is not defined, tests are executed on all provisioned
+guests.
+
+There is also an alternative to the syntax using a ``where``
+dictionary encapsulating the ``discover`` config under keys
+corresponding to guest names or roles. This can result in
+much more concise config especially when defining several
+shell scripts for each guest or role.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Run different script for each guest or role
+   discover:
+       how: shell
+       tests:
+         - name: run-the-client-code
+           test: client.py
+           where: client
+         - name: run-the-server-code
+           test: server.py
+           where: server
+
+
+
+.. code-block:: yaml
+
+   # Filter different set of tests for each guest or role
+   discover:
+     - how: fmf
+       filter: tag:client-tests
+       where: client
+     - how: fmf
+       filter: tag:server-tests
+       where: server
+
+
+
+.. code-block:: yaml
+
+   # Alternative syntax using the 'where' dictionary
+   # encapsulating for tests defined by fmf
+   discover:
+       where:
+           client:
+             - how: fmf
+               filter: tag:client-tests
+           server:
+             - how: fmf
+               filter: tag:server-tests
+
+
+
+.. code-block:: yaml
+
+   # Alternative syntax using the 'where' dictionary
+   # encapsulating for shell script tests
+   discover:
+       where:
+           server:
+               how: shell
+               tests:
+                 - test: first server script
+                 - test: second server script
+                 - test: third server script
+           client:
+               how: shell
+               tests:
+                 - test: first client script
+                 - test: second client script
+                 - test: third client script
+
+
+Status: idea
+
+.. _/spec/plans/environment-file:
+
+environment-file
+^^^^^^^^^^^^^^^^
+
+Environment variables from files
+
+
+
+In addition to the :ref:`/spec/plans/environment` key it is also possible to provide environment variables in a file. Supported formats are dotenv/shell with ``KEY=VALUE`` pairs and ``yaml``. Full `url` can be used to fetch variables from a remote source. The ``environment`` key has a higher priority. File path must be relative to the metadata tree root.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Load from a dotenv/shell format
+   /plan:
+       environment-file:
+         - env
+
+   # Load from a yaml format
+   /plan:
+       environment-file:
+         - environment.yml
+         - environment.yaml
+
+   # Fetch from remote source
+   /plan:
+       environment-file:
+         - https://example.org/project/environment.yaml
+
+
+Status: implemented and verified
+
+.. _/spec/plans/environment:
+
+environment
+^^^^^^^^^^^
+
+Environment variables
+
+
+
+Specifies environment variables available in all steps. Plugins need to include these environment variables while running commands or other programs. These environment variables override test :ref:`/spec/tests/environment` if present. Command line option ``--environment`` can be used to override environment variables defined in both tests and plan. Use the :ref:`/spec/plans/environment-file` key to load variables from files. The ``environment+`` notation can be used to extend environment defined in the parent plan, see also the :ref:`inherit-plans` section for more examples.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Environment variables defined in a plan
+   environment:
+       KOJI_TASK_ID: 42890031
+       RELEASE: f33
+   execute:
+       script: echo "Testing $KOJI_TASK_ID on release $RELEASE"
+
+
+
+.. code-block:: yaml
+
+   # Share common variables across plans using inheritance
+   /plans:
+       environment:
+           COMMON: This is a common variable content
+
+       /mini:
+           environment+:
+               VARIANT: mini
+       /full:
+           environment+:
+               VARIANT: full
+
+
+
+.. code-block:: yaml
+
+   # Variables from the command line
+   tmt run --environment X=1 --environment Y=2
+   tmt run --environment "X=1 Y=2"
+
+
+
+.. code-block:: yaml
+
+   # Make sure to quote properly values which include spaces
+   tmt run --environment "BUGS='123 456 789'"
+
+
+Status: implemented and verified
+
+.. _/spec/plans/execute:
+
+execute
+^^^^^^^
+
+Define how tests should be executed
+
+
+
+Execute discovered tests in the provisioned environment using
+selected test executor. By default tests are executed using
+the internal ``tmt`` executor which allows to show detailed
+progress of the testing and supports interactive debugging.
+
+This is a **required** attribute. Each plan has to define this
+step.
+
+For each test, a separate directory is created for storing
+artifacts related to the test execution. Its path is
+constructed from the test name and it's stored under the
+``execute/data`` directory. It contains a ``metadata.yaml``
+file with the aggregated L1 metadata which can be used by the
+test :ref:`/spec/tests/framework`. In addition to supported
+:ref:`/spec/tests` attributes it also contains fmf ``name`` of
+the test.
+
+In each plan, the execute step must produce a ``results.yaml`` file
+with results for executed tests. The format of the file is described
+at :ref:`/spec/plans/results`.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enabled a minimal smoke test
+   execute:
+       script: foo --version
+
+   # Run tier one tests in a container
+   discover:
+       how: fmf
+       filter: tier:1
+   provision:
+       how: container
+   execute:
+       how: tmt
+
+   # Verify that apache can serve pages
+   summary: Basic httpd smoke test
+   provision:
+       how: virtual
+       memory: 4096
+   prepare:
+     - name: packages
+       how: install
+       package: [httpd, curl]
+     - name: service
+       how: shell
+       script: systemctl start httpd
+   execute:
+       how: shell
+       script:
+       - echo foo > /var/www/html/index.html
+       - curl http://localhost/ | grep foo
+
+.. _/spec/plans/execute/exit-first:
+
+exit-first
+::::::::::
+
+Stop execution after a test fails
+
+*As a user I want to avoid waiting for all discovered tests to finish if one of them fails.*
+
+
+Optional boolean attribute `exit-first` can be used to make the executor stop executing tests once a test failure is encountered.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   execute:
+       how: tmt
+       exit-first: true
+
+
+Status: implemented and verified
+
+.. _/spec/plans/execute/isolate:
+
+isolate
+:::::::
+
+Run tests in an isolated environment
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Optional boolean attribute `isolate` can be used to request a clean test environment for each test.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   execute:
+       how: tmt
+       isolate: true
+
+
+Status: idea
+
+.. _/spec/plans/execute/script:
+
+script
+::::::
+
+Execute shell scripts
+
+*As a user I want to easily run shell script as a test.*
+
+
+Execute arbitratry shell commands and check their exit
+code which is used as a test result. The ``script`` field
+is provided to cover simple test use cases only and must
+not be combined with the :ref:`/spec/plans/discover` step
+which is more suitable for more complex test scenarios.
+
+Default shell options are applied to the script, see
+:ref:`/spec/tests/test` for more details. The default
+:ref:`/spec/tests/duration` for tests defined directly
+under the execute step is ``1h``. Use the ``duration``
+attribute to modify the default limit.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Run a simple smoke test
+   execute:
+       how: tmt
+       script: tmt --help
+
+
+
+.. code-block:: yaml
+
+   # Modify the default maximum duration
+   execute:
+       how: tmt
+       script: a-long-test-suite
+       duration: 3h
+
+.. _/spec/plans/execute/script/multi:
+
+Multi-line script
+-----------------
+
+Multi-line shell script
+
+
+
+Providing a multi-line shell script is also supported. Note that the first command with non-zero exit code will finish the execution. See the :ref:`/spec/tests/test` key for details about default shell options.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   execute:
+       script: |
+           dnf -y install httpd curl
+           systemctl start httpd
+           echo foo > /var/www/html/index.html
+           curl http://localhost/ | grep foo
+
+
+Status: implemented
+
+.. _/spec/plans/execute/script/several:
+
+Multiple commands
+-----------------
+
+Multiple shell commands
+
+
+
+You can also include several commands as a list. Executor will run commands one-by-one and check exit code of each.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   execute:
+       script:
+         - dnf -y install httpd curl
+         - systemctl start httpd
+         - echo foo > /var/www/html/index.html
+         - curl http://localhost/ | grep foo
+
+
+Status: implemented
+
+.. _/spec/plans/execute/script/simple:
+
+The simplest usage
+------------------
+
+Simple use case should be super simple to write
+
+
+
+As the `how` keyword can be omitted when using the
+default executor you can just define the shell
+`script` to be run. This is how a minimal smoke test
+configuration for the `tmt` command can look like:
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   execute:
+       script: tmt --help
+
+
+Status: implemented
+
+.. _/spec/plans/execute/tmt:
+
+tmt
+:::
+
+Internal test executor
+
+*As a user I want to execute tests directly from tmt.*
+
+
+The internal ``tmt`` executor runs tests in the
+provisioned environment one by one directly from the
+tmt code which allows features such as showing live
+:ref:`/stories/cli/steps/execute/progress` or the
+:ref:`/stories/cli/steps/execute/interactive` session .
+This is the default execute step implementation.
+
+The executor provides following shell scripts which can
+be used by the tests for certain operations.
+
+``tmt-file-submit``
+    Archive the given file in the tmt test data directory.
+    See the :ref:`/stories/features/report-log` section
+    for more details.
+
+``tmt-reboot``
+    Soft reboot the machine from inside the test. After reboot
+    the execution starts from the test which rebooted the machine.
+    An environment variable ``TMT_REBOOT_COUNT`` is provided which
+    the test can use to handle the reboot. The variable holds the
+    number of reboots performed by the test. For more information
+    see the :ref:`/stories/features/reboot` feature documentation.
+
+``tmt-report-result``
+    Generate a result report file from inside the test. Can be
+    called multiple times by the test. The generated report
+    file will be overwritten if a higher hierarchical result is
+    reported by the test. The hierarchy is as follows:
+    SKIP, PASS, WARN, FAIL.
+    For more information see the
+    :ref:`/stories/features/report-result` feature documentation.
+
+``tmt-abort``
+    Generate an abort file from inside the test. This will
+    set the current test result to failed and terminate
+    the execution of subsequent tests.
+    For more information see the
+    :ref:`/stories/features/abort` feature documentation.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   execute:
+       how: tmt
+
+
+Status: implemented and verified
+
+.. _/spec/plans/execute/upgrade:
+
+upgrade
+:::::::
+
+Perform system upgrades during testing
+
+*As a tester I want to verify that a configured application or service still correctly works after the system upgrade.*
+
+
+In order to enable developing tests for upgrade testing, we
+need to provide a way how to execute these tests easily.
+This does not cover unit tests for individual actors but
+rather system tests which verify the whole upgrade story.
+
+The ``upgrade`` executor runs the discovered tests (using
+the internal executor, hence the same config options can
+be used), then performs a set of upgrade tasks from
+a remote repository, and finally, re-runs the tests on
+the upgraded system.
+
+The ``IN_PLACE_UPGRADE`` environment variable is set during
+the test execution to differentiate between the stages of
+the test. It is set to ``old`` during the first execution
+and ``new`` during the second execution. Test names are
+prefixed with this value to make the names unique.
+Based on this variable, the test can perform appropriate
+actions.
+
+old
+    setup, test
+new
+    test, cleanup
+without
+    setup, test, cleanup
+
+The upgrade tasks performing the actual system upgrade are
+taken from a remote repository (specified by the ``url`` key)
+based on an upgrade path (specified by the ``upgrade-path`` key)
+or other filters (e.g. specified by the ``filter`` key).
+If both ``upgrade-path`` and extra filters are specified,
+the discover keys in the remote upgrade path plan are overridden
+by the filters specified in the local plan.
+
+The upgrade path must correspond to a plan name in the remote
+repository whose discover selects tests (upgrade tasks).
+The environment variables defined in the upgrade path are passed
+to the upgrade tasks.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Main testing plan
+   discover:
+       how: fmf
+   execute:
+       how: upgrade
+       url: https://github.com/teemtee/upgrade
+       upgrade-path: /paths/fedora35to36
+
+
+
+.. code-block:: yaml
+
+   # Upgrade path /paths/fedora35to36.fmf in the remote repository
+   discover: # Selects appropriate upgrade tasks (L1 tests)
+       how: fmf
+       filter: "tag:fedora"
+   environment: # This is passed to upgrade tasks
+       SOURCE: 35
+       TARGET: 36
+   execute:
+       how: tmt
+
+
+
+.. code-block:: yaml
+
+   # Alternative main testing plan, without upgrade path
+   execute:
+       how: upgrade
+       url: https://github.com/teemtee/upgrade
+       filter: "tag:fedora"
+
+
+
+.. code-block:: yaml
+
+   # A simple beakerlib test using the $IN_PLACE_UPGRADE variable
+   . /usr/share/beakerlib/beakerlib.sh || exit 1
+
+   VENV_PATH=/var/tmp/venv_test
+
+   rlJournalStart
+       # Perform the setup only for the old distro
+       if [[ "$IN_PLACE_UPGRADE" !=  "new" ]]; then
+           rlPhaseStartSetup
+               rlRun "python3.9 -m venv $VENV_PATH"
+               rlRun "$VENV_PATH/bin/pip install pyjokes"
+           rlPhaseEnd
+       fi
+
+       # Execute the test for both old & new distro
+       rlPhaseStartTest
+           rlAsssertExists "$VENV_PATH/bin/pyjoke"
+           rlRun "$VENV_PATH/bin/pyjoke"
+       rlPhaseEnd
+
+       # Skip the cleanup phase when on the old distro
+       if [[ "$IN_PLACE_UPGRADE" !=  "old" ]]; then
+           rlPhaseStartCleanup
+               rlRun "rm -rf $VENV_PATH"
+           rlPhaseEnd
+       fi
+   rlJournalEnd
+
+
+Status: implemented and verified
+
+.. _/spec/plans/finish:
+
+finish
+^^^^^^
+
+Finishing tasks
+
+
+
+Additional actions to be performed after the test execution has been completed.  Counterpart of the ``prepare`` step useful for various cleanup actions. Use the :ref:`/spec/core/order` attribute to select in which order finishing tasks should happen if there are multiple configs. Default order is ``50``.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   finish:
+       how: shell
+       script: upload-logs.sh
+
+.. _/spec/plans/finish/ansible:
+
+ansible
+:::::::
+
+Perform finishing tasks using ansible
+
+
+
+One or more playbooks can be provided as a list under the
+``playbook`` attribute.  Each of them will be applied
+using ``ansible-playbook`` in the given order. The path
+must be relative to the metadata tree root.
+
+Remote playbooks can be referenced as well as the local ones,
+and both kinds can be used at the same time.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   finish:
+       how: ansible
+       playbook:
+           - playbooks/common.yml
+           - playbooks/os/rhel7.yml
+           - https://foo.bar/rhel7-final-touches.yml
+
+
+Status: implemented
+
+.. _/spec/plans/finish/shell:
+
+shell
+:::::
+
+Perform finishing tasks using shell (bash) scripts
+
+
+
+Execute arbitrary shell commands to finish the testing.
+Default shell options are applied to the script, see the :ref:`/spec/tests/test` key specification for more details.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   finish:
+       how: shell
+       script:
+       - upload-logs.sh || true
+       - rm -rf /tmp/temporary-files
+
+
+Status: implemented
+
+.. _/spec/plans/gate:
+
+gate
+^^^^
+
+Gates relevant for testing
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Multiple gates can be defined in the process of releasing a change.
+Currently we define the following gates:
+
+merge-pull-request
+    block merging a pull request into a git branch
+add-build-to-update
+    attaching a build to an erratum / bodhi update
+add-build-to-compose
+    block adding a build to a compose
+release-update
+    block releasing an erratum / bodhi update
+
+Each plan can define one or more gates it should be blocking.
+Attached is an example of configuring multiple gates.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   /test:
+       /pull-request:
+           /pep:
+               summary: All code must comply with the PEP8 style guide
+               # Do not allow ugly code to be merged into the main branch
+               gate:
+                   - merge-pull-request
+           /lint:
+               summary: Run pylint to catch common problems (no gating)
+       /build:
+           /smoke:
+               summary: Basic smoke test (Tier1)
+               # Basic smoke test is used by three gates
+               gate:
+                   - merge-pull-request
+                   - add-build-to-update
+                   - add-build-to-compose
+           /features:
+               summary: Verify important features
+       /update:
+           # This enables the 'release-update' gate for all three plans
+           gate:
+               - release-update
+           /basic:
+               summary: Run all Tier1, Tier2 and Tier3 tests
+           /security:
+               summary: Security tests (extra job to get quick results)
+           /integration:
+               summary: Integration tests with related components
+
+
+Status: idea
+
+.. _/spec/plans/prepare:
+
+prepare
+^^^^^^^
+
+Prepare the environment for testing
+
+
+
+The ``prepare`` step is used to define how the guest
+environment should be prepared so that the tests can be
+successfully executed.
+
+The :ref:`/spec/plans/prepare/install` plugin provides an easy
+way to install required or recommended packages from disk and
+from the offical distribution or copr repositories. Use the
+:ref:`/spec/plans/prepare/ansible` plugin for applying custom
+playbooks or execute :ref:`/spec/plans/prepare/shell` scripts
+to perform arbitrary preparation tasks.
+
+Use the ``order`` attribute to select in which order the
+preparation should happen if there are multiple configs.
+Default order is ``50``. For installation of required packages
+gathered from the :ref:`/spec/tests/require` attribute of
+individual tests order ``70`` is used, for recommended
+packages it is ``75``.
+
+.. note::
+
+    If you want to use the ``prepare`` step to generate data
+    files needed for testing during the ``execute`` step,
+    move or copy them into ``${TMT_PLAN_DATA}`` directory. Only
+    files in this directory are guaranteed to be preserved.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Install fresh packages from a custom copr repository
+   prepare:
+     - how: install
+       copr: psss/tmt
+       package: tmt-all
+
+   # Install required packages and start the service
+   prepare:
+     - name: packages
+       how: install
+       package: [httpd, curl]
+     - name: service
+       how: shell
+       script: systemctl start httpd
+
+.. _/spec/plans/prepare/ansible:
+
+ansible
+:::::::
+
+Apply ansible playbook to get the desired final state.
+
+
+
+One or more playbooks can be provided as a list under the ``playbook`` attribute.  Each of them will be applied using ``ansible-playbook`` in the given order. The path must be relative to the metadata tree root.
+Use ``extra-args`` attribute to enable optional arguments for ``ansible-playbook``.
+Remote playbooks can be referenced as well as the local ones, and both kinds can be used at the same time.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   prepare:
+       how: ansible
+       playbook:
+           - playbooks/common.yml
+           - playbooks/os/rhel7.yml
+           - https://foo.bar/rhel7-final-touches.yml
+       extra-args: '-vvv'
+
+
+Status: implemented and verified
+
+.. _/spec/plans/prepare/install:
+
+install
+:::::::
+
+Install packages on the guest
+
+
+
+One or more RPM packages can be specified under the
+``package`` attribute. The packages will be installed
+on the guest. They can either be specified using their
+names, paths to local rpm files or urls to remote rpms.
+
+Additionaly, the ``directory`` attribute can be used to
+install all packages from the given directory. Copr
+repositories can be enabled using the ``copr`` attribute.
+Use the ``exclude`` option to skip selected packages from
+installation (globbing characters are supported as well).
+
+It's possible to change the behaviour when a package is
+missing using the ``missing`` attribute. The missing
+packages can either be silently ignored ('skip') or a
+preparation error is thrown ('fail'), which is the default
+behaviour.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Install local rpms using file path
+   prepare:
+       how: install
+       package:
+         - tmp/RPMS/noarch/tmt-0.15-1.fc31.noarch.rpm
+         - tmp/RPMS/noarch/python3-tmt-0.15-1.fc31.noarch.rpm
+
+
+
+.. code-block:: yaml
+
+   # Install remote packages using url
+   prepare:
+       how: install
+       package:
+         - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+         - https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-8.noarch.rpm
+
+
+
+.. code-block:: yaml
+
+   # Install the whole directory, exclude selected packages
+   prepare:
+       how: install
+       directory:
+         - tmp/RPMS/noarch
+       exclude:
+         - tmt-all
+         - tmt-provision-virtual
+
+
+
+.. code-block:: yaml
+
+   # Enable copr repository, skip missing packages
+   prepare:
+       how: install
+       copr: psss/tmt
+       package: tmt-all
+       missing: skip
+
+
+Status: implemented and verified
+
+.. _/spec/plans/prepare/shell:
+
+shell
+:::::
+
+Prepare system using shell (bash) commands
+
+
+
+Execute arbitrary shell commands to set up the system.
+Default shell options are applied to the script, see the :ref:`/spec/tests/test` key specification for more details.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   prepare:
+       how: shell
+       script: dnf install -y httpd
+
+
+Status: implemented
+
+.. _/spec/plans/prepare/where:
+
+where
+:::::
+
+Apply preparation on selected guests
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+In the :ref:`/spec/plans/provision/multihost` scenarios it
+is often necessary to perform different preparation tasks on
+individual guests. The ``where`` key allows to select guests
+where the preparation should be applied by providing their
+``name`` or the ``role`` they play in the scenario. Use a
+list to specify multiple names or roles. By default, when
+the ``where`` key is not defined, preparation is done on all
+provisioned guests.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Start Apache on the server
+   prepare:
+     - how: shell
+       script: systemctl start httpd
+       where: server
+
+   # Apply common setup on the primary server and all replicas
+   prepare:
+     - how: ansible
+       playbook: common.yaml
+       where: [primary, replica]
+
+
+Status: idea
+
+.. _/spec/plans/provision:
+
+provision
+^^^^^^^^^
+
+Provision a system for testing
+
+
+
+Describes what environment is needed for testing and how it
+should be provisioned. There are several provision plugins
+supporting multiple ways to provision the environment for
+testing, for example
+:ref:`/spec/plans/provision/virtual`,
+:ref:`/spec/plans/provision/container`,
+:ref:`/spec/plans/provision/connect`,
+:ref:`/spec/plans/provision/local` or
+:ref:`/spec/plans/provision/artemis`.
+See individual plugin documentation for details about
+supported options.
+
+As part of the provision step it is also possible to specify
+detailed hardware requirements for the testing environment.
+See the :ref:`/spec/hardware` specification section for
+details.
+
+As part of the provision step it is also possible to specify
+kickstart file used during the installation.
+See the :ref:`/spec/plans/provision/kickstart` specification
+section for details.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Provision a local virtual machine with the latest Fedora
+   provision:
+       how: virtual
+       image: fedora
+
+.. _/spec/plans/provision/beaker:
+
+beaker
+::::::
+
+Provision a machine in Beaker
+
+
+
+Reserve a machine from the Beaker pool using the ``mrack``
+plugin.  `mrack`__ is a multicloud provisioning library
+supporting multiple cloud services including Beaker.
+
+The following two files are used for configuration:
+
+/etc/tmt/mrack.conf
+    for basic configuration
+
+/etc/tmt/provisioning-config.yaml
+    configuration per supported provider
+
+Beaker installs distribution specified by the ``image``
+key. If the image can not be translated using the
+``provisioning-config.yaml`` file mrack passes the image
+value to Beaker hub and tries to request distribution
+based on the image value. This way we can bypass default
+translations and use desired distribution specified like
+the one in the example below.
+
+__ https://github.com/neoave/mrack
+
+.. note::
+
+    The beaker provision plugin is not available for
+    ``rhel-8`` or ``centos-stream-8``.
+
+.. versionadded:: 1.22
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Use image name translation
+   provision:
+       how: beaker
+       image: fedora
+
+
+
+.. code-block:: yaml
+
+   # Specify the distro directly
+   provision:
+       how: beaker
+       image: Fedora-37%
+
+
+Status: implemented and verified
+
+.. _/spec/plans/provision/connect:
+
+connect
+:::::::
+
+Connect to a provisioned box
+
+
+
+Do not provision a new system. Instead, use provided
+authentication data to connect to a running machine.
+
+guest
+    hostname or ip address of the box
+user
+    user name to be used to log in, ``root`` by default
+password
+    user password to be used to log in
+key
+    path to the file with private key
+port
+    use specific port to connect to
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: connect
+       guest: hostname or ip address
+       user: username
+       password: password
+
+   provision:
+       how: connect
+       guest: hostname or ip address
+       key: private-key-path
+
+
+Status: implemented
+
+.. _/spec/plans/provision/container:
+
+container
+:::::::::
+
+Provision a container
+
+
+
+Download (if necessary) and start a new container using podman or docker.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: container
+       image: fedora:latest
+
+
+Status: implemented
+
+.. _/spec/plans/provision/local:
+
+local
+:::::
+
+Use the localhost for testing
+
+
+
+Do not provision any system. Tests will be executed directly on the localhost. Note that for some actions like installing additional packages you need root permission or enabled sudo.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: local
+
+
+Status: implemented and verified
+
+.. _/spec/plans/provision/multihost:
+
+multihost
+:::::::::
+
+Multihost testing specification
+
+
+
+.. versionchanged:: 1.24
+
+As a part of the provision step it is possible to request
+multiple guests to be provisioned for testing. Each guest
+has to be assigned a unique ``name`` which is used to
+identify it.
+
+The optional parameter ``role`` can be used to mark
+related guests so that common actions can be applied to
+all such guests at once. An example role name can be
+`client` or `server` but arbitrary identifier can be used.
+
+Both `name` and `role` can be used together with the
+``where`` key to select guests on which the
+:ref:`preparation</spec/plans/prepare/where>`
+tasks should be applied or where the test
+:ref:`execution</spec/plans/discover/where>` should
+take place.
+
+See :ref:`/spec/plans/guest-topology` for details on how
+this information is exposed to tests and ``prepare`` and
+``finish`` tasks.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Request two guests
+   provision:
+     - name: server
+       how: virtual
+     - name: client
+       how: virtual
+
+   # Assign role to guests
+   provision:
+     - name: main-server
+       role: primary
+     - name: backup-one
+       role: replica
+     - name: backup-two
+       role: replica
+     - name: tester-one
+       role: client
+     - name: tester-two
+       role: client
+
+
+Status: implemented and verified
+
+.. _/spec/plans/provision/openstack:
+
+openstack
+:::::::::
+
+Provision a virtual machine in OpenStack
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Create a virtual machine using OpenStack.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: openstack
+       image: f31
+
+
+Status: idea
+
+.. _/spec/plans/provision/virtual:
+
+virtual
+:::::::
+
+Provision a virtual machine (default)
+
+
+
+Create a new virtual machine on the localhost using testcloud (libvirt). Testcloud takes care of downloading an image and making necessary changes to it for optimal experience (such as disabling UseDNS and GSSAPI for SSH).
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: virtual
+       image: fedora
+
+
+Status: implemented
+
+.. _/spec/plans/provision/artemis:
+
+artemis
+:::::::
+
+Provision a guest via an Artemis service
+
+
+
+Reserve a machine using the Artemis service.
+Users can specify many requirements, mostly regarding the
+desired OS, RAM, disk size and more. Most of the HW specifications
+defined in the :ref:`/spec/hardware` are supported. Including the
+:ref:`/spec/plans/provision/kickstart`.
+
+Artemis takes machines from AWS, OpenStack, Beaker or Azure.
+By default, Artemis handles the selection of a cloud provider
+to its best abilities and the required specification. However, it
+is possible to specify the keyword ``pool`` and select the
+desired cloud provider.
+
+Artemis project:
+https://gitlab.com/testing-farm/artemis
+
+.. note::
+
+    When used together with TF infrastructure
+    some of the options from the first example below
+    will be filled for you by the TF service.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: artemis
+       # Specify the Artemis URL where the service is running.
+       # Here is an example of a local Artemis instance
+       api-url: "http://127.0.0.1:8001/v0.0.56"
+       api-version: "0.0.56"
+       image: Fedora-37
+       # ssh key used to connect to the machine
+       keyname: master-key
+
+
+
+.. code-block:: yaml
+
+   provision:
+       how: artemis
+       # How long (seconds) to wait for guest provisioning to complete
+       provision-timeout: 300
+       # How often (seconds) check Artemis API for provisioning status
+       provision-tick: 40
+       # How long (seconds) to wait for API operations to complete
+       api-timeout: 15
+       # How many attempts to use when talking to API
+       api-retries: 5
+       # How long (seconds) before the guest "is-alive" watchdog is dispatched
+       watchdog-dispatch-delay: 200
+       # How often (seconds) check that the guest "is-alive"
+       watchdog-period-delay : 500
+
+
+
+.. code-block:: yaml
+
+   provision:
+       how: artemis
+       arch: x86_64
+       pool: beaker
+       hardware:
+           # Pick a guest with at least 8 GB RAM
+           memory: ">= 8 GB"
+
+
+Status: implemented
+
+.. _/spec/plans/provision/kickstart:
+
+kickstart
+:::::::::
+
+
+*As a tester I want to specify detailed installation of a guest using the kickstart script.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+As part of the :ref:`/spec/plans/provision` step it is possible to
+use the ``kickstart`` key to specify additional requirements for the
+installation of a guest. It is possible to specify a kickstart
+script that will for example specify specific partitioning.
+
+The structure of a kickstart file is separated into several
+sections.
+
+pre-install
+    Corresponds to the ``%pre`` section of a file.  It can contain
+    ``bash`` commands, this part is run before the installation of a
+    guest.
+
+post-install
+    Corresponds to the ``%post`` section of a file.  It can contain
+    ``bash`` commands, this part is run after the installation of a
+    guest.
+
+script
+    Contains the kickstart specific commands that are run during the
+    installation of a guest.
+
+It is also possible to specify ``metadata``. This part may be
+interpreted differently for each of the pools that the guest is
+created from. For example, in Beaker this section can be used to
+modify the default kickstart template used by Beaker.  Similarly
+works the ``kernel-options`` and ``kernel-options-post``.  Kernel
+options are passed on the kernel command line when the installer is
+booted.  Post-install kernel options are set in the boot loader
+configuration, to be passed on the kernel command line after
+installation.
+
+.. note::
+
+    The implementation for the ``kickstart`` key is in progress.
+    Support of a kickstart file is currently limited to Beaker
+    provisioning, as implemented by tmt's beaker and artemis
+    plugins, and may not be fully supported by other provisioning
+    plugins in the future.  Check individual plugin documentation
+    for additional information on the kickstart support.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Use the artemis plugin to provision a guest from Beaker.
+   # The following `kickstart` specification will be run
+   # during the guest installation.
+   provision:
+       how: artemis
+       pool: beaker
+       image: rhel-7
+       kickstart:
+           pre-install: |
+               %pre --log=/dev/console
+               disk=$(lsblk | grep disk | awk '{print $1}')
+               echo $disk
+               %end
+           script: |
+               lang en_US.UTF-8
+               zerombr
+               clearpart --all --initlabel
+               part /boot --fstype="xfs" --size=200
+               part swap --fstype="swap" --size=4096
+               part / --fstype="xfs" --size=10000 --grow
+           post-install: |
+               %post
+               systemctl disable firewalld
+               %end
+           metadata: |
+               "no-autopart harness=restraint"
+           kernel-options: "ksdevice=eth1"
+           kernel-options-post: "quiet"
+
+
+Status: idea
+
+.. _/spec/plans/report:
+
+report
+^^^^^^
+
+Report test results
+
+*As a tester I want to have a nice overview of results once the testing if finished.*
+
+
+Report test results according to user preferences.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enabled a minimal smoke test
+   execute:
+       script: foo --version
+
+   # Run tier one tests in a container
+   discover:
+       how: fmf
+       filter: tier:1
+   provision:
+       how: container
+   execute:
+       how: tmt
+
+   # Verify that apache can serve pages
+   summary: Basic httpd smoke test
+   provision:
+       how: virtual
+       memory: 4096
+   prepare:
+     - name: packages
+       how: install
+       package: [httpd, curl]
+     - name: service
+       how: shell
+       script: systemctl start httpd
+   execute:
+       how: shell
+       script:
+       - echo foo > /var/www/html/index.html
+       - curl http://localhost/ | grep foo
+
+.. _/spec/plans/report/display:
+
+display
+:::::::
+
+Show results in the terminal window
+
+*As a tester I want to see test results in the plain text form in my shell session.*
+
+
+Test results will be displayed as part of the command line tool output directly in the terminal. Allows to select the desired level of verbosity
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -l report        # overall summary only
+   tmt run -l report -v     # individual test results
+   tmt run -l report -vv    # show full paths to logs
+   tmt run -l report -vvv   # provide complete test output
+
+
+Status: implemented
+
+.. _/spec/plans/report/file:
+
+file
+::::
+
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+
+Save the report into a ``report.yaml`` file with the
+following format:
+
+.. code-block:: yaml
+
+    result: OVERALL_RESULT
+    plans:
+        /plan/one:
+            result: PLAN_RESULT
+            tests:
+                /test/one:
+                    result: TEST_RESULT
+                    log:
+                      - LOG_PATH
+
+                /test/two:
+                    result: TEST_RESULT
+                    log:
+                        - LOG_PATH
+                        - LOG_PATH
+                        - LOG_PATH
+        /plan/two:
+            result: PLAN_RESULT
+                /test/one:
+                    result: TEST_RESULT
+                    log:
+                      - LOG_PATH
+
+Where ``OVERALL_RESULT`` is the overall result of all plan
+results. It is counted the same way as ``PLAN_RESULT``.
+
+Where ``TEST_RESULT`` is the same as in `execute`_ step
+definition:
+
+    * info - test finished and produced only information
+      message
+    * passed - test finished and passed
+    * failed - test finished and failed
+    * error - a problem encountered during test execution
+
+Note the priority  of test results is as written above,
+with ``info`` having the lowest priority and ``error`` has
+the highest. This is important for ``PLAN_RESULT``.
+
+Where ``PLAN_RESULT`` is the overall result or all test
+results for the plan run. It has the same values as
+``TEST_RESULT``. Plan result is counted according to the
+priority of the test outcome values. For example:
+
+    * if the test results are info, passed, passed - the
+      plan result will be passed
+    * if the test results are info, passed, failed - the
+      plan result will be failed
+    * if the test results are failed, error, passed - the
+      plan result will be error
+
+Where ``LOG_PATH`` is the test log output path, relative
+to the execute step plan run directory. The ``log`` key
+will be a list of such paths, even if there is just a single
+log.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enabled a minimal smoke test
+   execute:
+       script: foo --version
+
+   # Run tier one tests in a container
+   discover:
+       how: fmf
+       filter: tier:1
+   provision:
+       how: container
+   execute:
+       how: tmt
+
+   # Verify that apache can serve pages
+   summary: Basic httpd smoke test
+   provision:
+       how: virtual
+       memory: 4096
+   prepare:
+     - name: packages
+       how: install
+       package: [httpd, curl]
+     - name: service
+       how: shell
+       script: systemctl start httpd
+   execute:
+       how: shell
+       script:
+       - echo foo > /var/www/html/index.html
+       - curl http://localhost/ | grep foo
+
+
+Status: idea
+
+.. _/spec/plans/report/html:
+
+html
+::::
+
+Generate a web page with test results
+
+*As a tester I want to review results in a nicely arranged web page with links to detailed test output.*
+
+
+Create a local ``html`` file with test results arranged in a table. Optionally open the page in the default browser.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enable html report from the command line
+   tmt run --all report --how html
+   tmt run --all report --how html --open
+   tmt run -l report -h html -o
+
+   # Use html as the default report for given plan
+   report:
+       how: html
+       open: true
+
+
+Status: implemented
+
+.. _/spec/plans/report/junit:
+
+junit
+:::::
+
+Generate a JUnit report file
+
+*As a tester I want to review results in a JUnit xml file.*
+
+
+Create a JUnit file ``junit.xml`` with test results.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enable junit report from the command line
+   tmt run --all report --how junit
+   tmt run --all report --how junit --file test.xml
+
+   # Use junit as the default report for given plan
+   report:
+       how: junit
+       file: test.xml
+
+
+Status: implemented
+
+.. _/spec/plans/report/polarion:
+
+polarion
+::::::::
+
+Generate a xUnit file and export it into Polarion
+
+*As a tester I want to review tests in Polarion and have all results linked to existing test cases there.*
+
+
+Create a xUnit file ``xunit.xml`` with test results and Polarion properties so the xUnit can then be exported into Polarion.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Enable polarion report from the command line
+   tmt run --all report --how polarion --project-id TMT
+   tmt run --all report --how polarion --project-id TMT --no-upload --file test.xml
+
+   # Use polarion as the default report for given plan
+   report:
+       how: polarion
+       file: test.xml
+       project-id: TMT
+       title: tests_that_pass
+       planned-in: RHEL-9.1.0
+       pool-team: sst_tmt
+
+
+Status: implemented
+
+.. _/spec/plans/report/reportportal:
+
+reportportal
+::::::::::::
+
+Report test results to a ReportPortal instance
+
+*As a tester I want to review results in a nicely arranged web page with links to detailed test output.*
+
+
+Prepare a JUnit report with test results, zip it and send it to a ReportPortal instance.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Set environment variables with the server url and token
+   export TMT_REPORT_REPORTPORTAL_URL=...
+   export TMT_REPORT_REPORTPORTAL_TOKEN=...
+
+
+
+.. code-block:: yaml
+
+   # Enable ReportPortal report from the command line
+   tmt run --all report --how reportportal --project=baseosqe --launch-name=maven
+
+
+
+.. code-block:: yaml
+
+   # Use ReportPortal as the default report for given plan
+   report:
+       how: reportportal
+       project: baseosqe
+       launch-name: maven
+
+
+Status: implemented
+
+.. _/spec/plans/summary:
+
+summary
+^^^^^^^
+
+Concise summary describing the plan
+
+
+
+Should shortly describe purpose of the test plan. Must be a one-line ``string``, should be up to 50 characters long. It is challenging to be both concise and descriptive, but that is what a well-written summary should do.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   /pull-request:
+       /pep:
+           summary: All code must comply with the PEP8 style guide
+       /lint:
+           summary: Run pylint to catch common problems (no gating)
+   /build:
+       /smoke:
+           summary: Basic smoke test (Tier1)
+       /features:
+           summary: Verify important features
+
+
+Status: implemented
+
+.. _/spec/plans/import:
+
+Import Plans
+^^^^^^^^^^^^
+
+Importing plans from a remote repository
+
+*As a user I want to reference a plan from a remote repository in order to prevent duplication and minimize maintenance.*
+
+
+In some cases the configuration stored in a plan can be quite
+large, for example the :ref:`/spec/plans/prepare` step can
+define complex scripts to set up the guest for testing. Using
+a reference to a remote plan makes it possible to reuse the
+same config on multiple places without the need to duplicate
+the information. This can be useful for example when enabling
+integration testing between related components.
+
+Remote plans are identified by the ``plan`` key which must
+contain an ``import`` dictionary with an `fmf identifier`__ of
+the remote plan. The ``url`` and ``name`` keys have to be
+defined, ``ref`` and ``path`` are optional. Only one remote
+plan can be referenced and a full plan ``name`` must be used
+(no string matching is applied).
+
+Plan steps must not be defined in the remote plan reference.
+Inheriting or overriding remote plan config with local plan
+steps might be possible in the future but currently is not
+supported. The only way how to modify imported plan is via
+environment variables. Variables defined in the plan override
+any variables defined in the remote plan.
+
+.. versionadded:: 1.19
+
+__ https://fmf.readthedocs.io/en/latest/concept.html#identifiers
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Minimal reference is using 'url' and 'name'
+   plan:
+       import:
+           url: https://github.com/teemtee/tmt
+           name: /plans/features/basic
+
+
+
+.. code-block:: yaml
+
+   # A 'ref' can be used to select specific branch or commit
+   plan:
+       import:
+           url: https://github.com/teemtee/tmt
+           name: /plans/features/basic
+           ref: fedora
+
+
+
+.. code-block:: yaml
+
+   # Use 'path' when fmf tree is deeper in the git repository
+   plan:
+       import:
+           url: https://github.com/teemtee/tmt
+           path: /examples/httpd
+           name: /smoke
+
+
+Status: implemented and verified
+
+.. _/spec/plans/results:
+
+Results Format
+^^^^^^^^^^^^^^
+
+Define format of on-disk storage of results
+
+
+
+The following text defines a YAML file structure tmt uses for storing
+results. tmt itself will use it when saving results of ``execute`` step,
+and custom test results are required to follow it when creating their
+``results.yaml`` file.
+
+Tests may choose JSON instead of YAML for their custom results file and
+create ``results.json`` file, but tmt itself will always stick to YAML,
+the final results would be provided in ``results.yaml`` file in any case.
+
+Results are saved as a single list of dictionaries, each describing
+a single test result.
+
+.. code-block::
+
+   # String, name of the test.
+   name: /test/one
+
+   # fmf ID of the test.
+   fmf_id:
+     url: http://some.git.host.com/project/tests.git
+     name: /test/one
+     path: /
+
+   # String, outcome of the test execution.
+   result: "pass"|"fail"|"info"|"warn"|"error"
+
+   # String, optional comment to report with the result.
+   note: "Things were great."
+
+   # List of strings, paths to file logs.
+   log:
+     - path/to/log1
+     - path/to/log1
+       ...
+
+   # Mapping, collection of various test IDs, if there are any to track.
+   ids:
+     some-id: foo
+     another-id: bar
+
+   # String, when the test started, in an ISO 8601 format.
+   starttime: "yyyy-mm-ddThh:mm:ss.mmmmm+ZZ:ZZ"
+
+   # String, when the test finished, in an ISO 8601 format.
+   endtime: "yyyy-mm-ddThh:mm:ss.mmmmm+ZZ:ZZ"
+
+   # String, how long did the test run.
+   duration: hh:mm:ss
+
+   # Integer, serial number of the test in the sequence of all tests of a plan.
+   serialnumber: 1
+
+   # Mapping, describes the guest on which the test was executed.
+   guest:
+     name: client-1
+     role: clients
+
+The ``result`` key can have the following values:
+
+pass
+    Test execution successfully finished and passed.
+
+info
+    Test finished but only produced an informational
+    message. Represents a soft pass, used for skipped
+    tests and for tests with the :ref:`/spec/tests/result`
+    attribute set to ``ignore``. Automation must treat
+    this as a passed test.
+
+warn
+    A problem appeared during test execution which does
+    not affect test results but might be worth checking
+    and fixing. For example test cleanup phase failed.
+    Automation must treat this as a failed test.
+
+error
+    Undefined problem encountered during test execution.
+    Human inspection is needed to investigate whether it
+    was a test bug, infrastructure error or a real test
+    failure. Automation must treat it as a failed test.
+
+fail
+    Test execution successfully finished and failed.
+
+The ``name`` and ``result`` keys are required. Custom result files
+may omit all other keys, although tmt plugins will strive to provide
+as many keys as possible.
+
+When importing the :ref:`custom results file </spec/tests/result>`, each
+test name referenced in the file by the ``name`` key would be prefixed by
+the original test name. A special case, ``name: /``, sets the result for
+the original test itself.
+
+The ``log`` key must list **relative** paths. Paths in the custom
+results file are treated as relative to ``${TMT_TEST_DATA}`` path.
+Paths in the final results file, saved by the execute step, will be
+relative to the location of the results file itself.
+
+The first ``log`` item is considered to be the "main" log, presented
+to the user by default.
+
+The ``serialnumber``, ``guest`` and ``fmf_id`` keys, if present in the
+custom results file, will be overwritten by tmt during their import after
+test completes. This happens on purpose, to assure this vital
+information is correct.
+
+Similarly, the ``duration``, ``starttime`` and ``endtime`` keys, if
+present in the special custom result, representing the original test
+itself - ``name: /`` -, will be overwritten by tmt with actual
+observed values. This also happens on purpose: while tmt cannot
+tell how long it took to produce various custom results, it is still
+able to report the duration of the whole test.
+
+See also the complete `JSON schema`__.
+
+For custom results files in JSON format, the same rules and schema
+apply.
+
+__ https://github.com/teemtee/tmt/blob/main/tmt/schemas/results.yaml
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Example content of results.yaml
+   - name: /test/passing
+     result: pass
+     serialnumber: 1
+     log:
+       - pass_log
+     starttime: "2023-03-10T09:44:14.439120+00:00"
+     endtime: "2023-03-10T09:44:24.242227+00:00"
+     duration: 00:00:09
+     note: good result
+     ids:
+       extra-nitrate: some-nitrate-id
+     guest:
+       name: default-0
+
+   - name: /test/failing
+     result: fail
+     serialnumber: 2
+     log:
+       - fail_log
+       - another_log
+     starttime: "2023-03-10T09:44:14.439120+00:00"
+     endtime: "2023-03-10T09:44:24.242227+00:00"
+     duration: 00:00:09
+     note: fail result
+     guest:
+       name: default-0
+
+
+
+.. code-block:: yaml
+
+   # Example content of custom results file
+   - name: /test/passing
+     result: pass
+     log:
+       - pass_log
+     duration: 00:11:22
+     note: good result
+     ids:
+       extra-nitrate: some-nitrate-id
+
+   - name: /test/failing
+     result: fail
+     log:
+       - fail_log
+       - another_log
+     duration: 00:22:33
+     note: fail result
+
+
+
+.. code-block:: yaml
+
+   # Example of a perfectly valid, yet stingy custom results file
+   - name: /test/passing
+     result: pass
+
+   - name: /test/failing
+     result: fail
+
+
+
+.. code-block:: json
+
+   /* Example content of custom results.json */
+   [
+     {
+       "name": "/test/passing",
+       "result": "pass",
+       "log": ["pass_log"],
+       "duration": "00:11:22",
+       "note": "good result"
+     }
+   ]
+
+
+Status: implemented and verified
+
+.. _/spec/plans/guest-topology:
+
+Guest Topology Format
+^^^^^^^^^^^^^^^^^^^^^
+
+Define format of on-disk description of provisioned guest topology
+
+
+
+The following text defines structure of files tmt uses for exposing
+guest names, roles and other properties to tests and steps that run
+on a guest (:ref:`prepare </spec/plans/prepare>`,
+:ref:`execute </spec/plans/execute>`, :ref:`finish </spec/plans/finish>`).
+tmt saves these files on every guest used, and exposes their paths to
+processes started by tmt on these guests through environment variables:
+
+* ``TMT_TOPOLOGY_YAML`` for a YAML file
+* ``TMT_TOPOLOGY_BASH`` for a shell-friendly ``NAME=VALUE`` file
+
+Both files are always available, and both carry the same information.
+
+.. warning::
+
+    The shell-friendly file contains arrays, therefore it's compatible
+    with Bash 4.x and newer.
+
+.. note::
+
+    The shell-friendly file is easy to ingest for a shell-based tests,
+    it can be simply ``source``-ed. For parsing the YAML file in shell,
+    pure shell parsers like https://github.com/sopos/yash can be used.
+
+.. code-block:: yaml
+    :caption: TMT_TOPOLOGY_YAML
+
+    # Guest on which the test or script is running.
+    guest:
+        name: ...
+        role: ...
+        hostname: ...
+
+    # List of names of all provisioned guests.
+    guest-names:
+      - guest1
+      - guest2
+      ...
+
+    # Same as `guest`, but one for each provisioned guest, with guest names
+    # as keys.
+    guests:
+        guest1:
+            name: guest1
+            role: ...
+            hostname: ...
+        guest2:
+            name: guest2
+            role: ...
+            hostname: ...
+        ...
+
+    # List of all known roles.
+    role-names:
+      - role1
+      - role2
+      ...
+
+    # Roles and their guests, with role names as keys.
+    roles:
+        role1:
+          - guest1
+          - guest2
+          - ...
+        role2:
+          - guestN
+          ...
+
+.. code-block:: bash
+    :caption: TMT_TOPOLOGY_BASH
+
+    # Guest on which the test is running.
+    declare -A TMT_GUEST
+    TMT_GUEST[name]="..."
+    TMT_GUEST[role]="..."
+    TMT_GUEST[hostname]="..."
+
+    # Space-separated list of names of all provisioned guests.
+    TMT_GUEST_NAMES="guest1 guest2 ..."
+
+    # Same as `guest`, but one for each provisioned guest. Keys are constructed
+    # from guest name and the property name.
+    declare -A TMT_GUESTS
+    TMT_GUESTS[guest1.name]="guest1"
+    TMT_GUESTS[guest1.role]="..."
+    TMT_GUESTS[guest1.hostname]="..."
+    TMT_GUESTS[guest2.name]="guest2"
+    TMT_GUESTS[guest2.role]="..."
+    TMT_GUESTS[guest2.hostname]="..."
+    ...
+
+    # Space-separated list of all known roles.
+    TMT_ROLE_NAMES="client server"
+
+    # Roles and their guests, with role names as keys.
+    declare -A TMT_ROLES
+    TMT_ROLES[role1]="guest1 guest2 ..."
+    TMT_ROLES[role2]="guestN ..."
+    ...
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # A trivial pseudo-test script
+   . "$TMT_TOPOLOGY_BASH"
+
+   echo "I'm running on ${TMT_GUEST[name]}"
+
+
+Status: implemented and verified
+

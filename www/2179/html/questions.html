@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questions &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contribute" href="contribute.html" />
+    <link rel="prev" title="Features" href="stories/features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-difference-between-fmf-and-tmt">What is the difference between fmf and tmt?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-tmt-outside-of-fedora-centos-and-rhel-distribution">Using tmt outside of Fedora, CentOS and RHEL distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtualization-tips">Virtualization Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#container-package-cache">Container Package Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nitrate-migration">Nitrate Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-is-the-id-key-added-to-my-test-during-export">Why is the ‘id’ key added to my test during export?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-integrate-tmt-tests-with-other-tools">How can I integrate tmt tests with other tools?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-migrate-sti-tests-to-tmt">How do I migrate STI tests to tmt?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simple-script">Simple Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#required-packages">Required Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-repository">Remote Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-tests">Multiple Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dist-git-source">Dist Git Source</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Questions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/questions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="questions">
+<span id="id1"></span><h1>Questions<a class="headerlink" href="#questions" title="Permalink to this heading"></a></h1>
+<section id="what-is-the-difference-between-fmf-and-tmt">
+<span id="fmf-and-tmt"></span><h2>What is the difference between fmf and tmt?<a class="headerlink" href="#what-is-the-difference-between-fmf-and-tmt" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference external" href="https://fmf.readthedocs.io/en/latest/">Flexible Metadata Format</a> or <code class="docutils literal notranslate"><span class="pre">fmf</span></code> is a plain text format
+based on <code class="docutils literal notranslate"><span class="pre">yaml</span></code> used to store data in both human and machine
+readable way close to the source code. Thanks to inheritance and
+elasticity, metadata are organized in the structure efficiently,
+preventing unnecessary duplication.</p>
+<p>The <a class="reference external" href="https://tmt.readthedocs.io/en/latest/">Test Management Tool</a> or <code class="docutils literal notranslate"><span class="pre">tmt</span></code> is a project which
+consists of the <a class="reference internal" href="spec.html#specification"><span class="std std-ref">Metadata Specification</span></a> which defines how tests,
+plans and stories are organized, python modules implementing the
+specification and the command-line tool which provides a
+user-friendly way to create, debug and easily run tests.</p>
+</section>
+<section id="using-tmt-outside-of-fedora-centos-and-rhel-distribution">
+<span id="libvirt"></span><h2>Using tmt outside of Fedora, CentOS and RHEL distribution<a class="headerlink" href="#using-tmt-outside-of-fedora-centos-and-rhel-distribution" title="Permalink to this heading"></a></h2>
+<p>The tmt is packaged and tested only for these three flavors,
+however if one <a class="reference internal" href="overview.html#pip-install"><span class="std std-ref">installs</span></a> tmt from the PyPI it
+can be run also on other Linux distributions.</p>
+<p>The caveat is that installation of required packages depends on
+the usage of <code class="docutils literal notranslate"><span class="pre">rpm</span></code>, <code class="docutils literal notranslate"><span class="pre">yum</span></code> or <code class="docutils literal notranslate"><span class="pre">dnf</span></code>. When tmt is executed on
+the host none of these commands is necessary so tmt should work
+once <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> succeeds.</p>
+<p>On the other hand - when tmt is used to execute tests on
+provisioned guest it depends if the plan will try to install any
+packages (either by test <a class="reference internal" href="spec/tests.html#spec-tests-require"><span class="std std-ref">require</span></a>,
+<a class="reference internal" href="spec/tests.html#spec-tests-recommend"><span class="std std-ref">recommend</span></a> or using prepare
+<a class="reference internal" href="spec/plans.html#spec-plans-prepare-install"><span class="std std-ref">install</span></a> plugin) it will fail as tmt
+currently doesn’t work with other package management tools. This
+can be worked around by installing the test dependencies (as well
+as the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command) using <a class="reference internal" href="spec/plans.html#spec-plans-prepare-ansible"><span class="std std-ref">ansible</span></a>
+or <a class="reference internal" href="spec/plans.html#spec-plans-prepare-shell"><span class="std std-ref">shell</span></a> prepare plugins.</p>
+</section>
+<section id="virtualization-tips">
+<h2>Virtualization Tips<a class="headerlink" href="#virtualization-tips" title="Permalink to this heading"></a></h2>
+<p>In order to safely run tests under a virtual machine started on
+your laptop you only need to install the <code class="docutils literal notranslate"><span class="pre">tmt-provision-virtual</span></code>
+package. By default the <code class="docutils literal notranslate"><span class="pre">session</span></code> connection is used so no other
+steps should be needed, just execute tests using the <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">run</span></code>
+command.</p>
+<p>If you want to use the <code class="docutils literal notranslate"><span class="pre">system</span></code> connection you might need to do
+a few steps to set up your box. Here’s just a couple of hints how
+to get the virtualization quickly working on your laptop. See the
+<a class="reference external" href="https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/">Getting started with virtualization</a> docs to learn more.</p>
+<p>Make sure the <code class="docutils literal notranslate"><span class="pre">libvirtd</span></code> is running on your box:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>libvirtd
+</pre></div>
+</div>
+<p>Add your user account to the libvirt group:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>libvirt<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>Note that you might need to restart your desktop session to get it
+fully working. Or at least start a new login shell:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>su<span class="w"> </span>-<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>In some cases you might also need to activate the default network
+device:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>virsh<span class="w"> </span>net-start<span class="w"> </span>default
+</pre></div>
+</div>
+<p>Here you can find vm <a class="reference external" href="https://kojipkgs.fedoraproject.org/compose/">images for download</a>.</p>
+</section>
+<section id="container-package-cache">
+<h2>Container Package Cache<a class="headerlink" href="#container-package-cache" title="Permalink to this heading"></a></h2>
+<p>Using containers can speed up your testing. However, fetching
+package cache can slow things down substantially. Use this set of
+commands to prepare a container image with a fresh dnf cache:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>run<span class="w"> </span>-itd<span class="w"> </span>--name<span class="w"> </span>fresh<span class="w"> </span>fedora
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>fresh<span class="w"> </span>dnf<span class="w"> </span>makecache
+podman<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span>fedora:fresh
+podman<span class="w"> </span>commit<span class="w"> </span>fresh<span class="w"> </span>fedora:fresh
+podman<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>fresh
+</pre></div>
+</div>
+<p>Then specify the newly created image in the provision step:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="w"> </span>container<span class="w"> </span>--image<span class="w"> </span>fedora:fresh
+</pre></div>
+</div>
+<p>In this way you can save up to several minutes for each plan.</p>
+</section>
+<section id="nitrate-migration">
+<h2>Nitrate Migration<a class="headerlink" href="#nitrate-migration" title="Permalink to this heading"></a></h2>
+<p>After a nitrate test case is migrated to <code class="docutils literal notranslate"><span class="pre">fmf</span></code> git becomes the
+canonical source of the test case metadata. All further changes
+should be done in git and updates synchronized back to nitrate
+using <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">test</span> <span class="pre">export</span> <span class="pre">.</span> <span class="pre">--how</span> <span class="pre">nitrate</span></code> command. Otherwise direct
+changes in Nitrate might be lost.</p>
+<p>A unique identifier of the new test metadata location is stored in
+the <code class="docutils literal notranslate"><span class="pre">[fmf]</span></code> section of test case notes. Below is the list of
+attributes which are synchronized to corresponding nitrate fields:</p>
+<ul class="simple">
+<li><p>component — components tab</p></li>
+<li><p>contact — default tester</p></li>
+<li><p>description — purpose-file in the structured field</p></li>
+<li><p>duration — estimated time</p></li>
+<li><p>enabled — status</p></li>
+<li><p>environment — arguments</p></li>
+<li><p>summary — description in the structured field</p></li>
+<li><p>tag — tags tab</p></li>
+<li><p>tier — tags (e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code> synced to the <code class="docutils literal notranslate"><span class="pre">Tier1</span></code> tag)</p></li>
+</ul>
+<p>The following attributes, if present, are exported as well:</p>
+<ul class="simple">
+<li><p>extra-hardware — hardware in the structured field</p></li>
+<li><p>extra-pepa — pepa in the structured field</p></li>
+<li><p>extra-summary — Nitrate test case summary</p></li>
+<li><p>extra-task — Nitrate test case script</p></li>
+</ul>
+<p>They have the <code class="docutils literal notranslate"><span class="pre">extra</span></code> prefix as they are not part of the L1
+Metadata Specification and are supposed to be synced temporarily
+to keep backward compatibility.</p>
+</section>
+<section id="why-is-the-id-key-added-to-my-test-during-export">
+<h2>Why is the ‘id’ key added to my test during export?<a class="headerlink" href="#why-is-the-id-key-added-to-my-test-during-export" title="Permalink to this heading"></a></h2>
+<p>When exporting <code class="docutils literal notranslate"><span class="pre">tmt</span></code> test metadata using <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">export</span></code> to
+other test case management systems, a unique <code class="docutils literal notranslate"><span class="pre">id</span></code> is created in
+order to provide a persistent way to identify the test even if it
+is renamed, moved across the directory structure or into a
+different repository. See the <a class="reference internal" href="spec/core.html#spec-core-id"><span class="std std-ref">id</span></a> key
+specification for more details.</p>
+</section>
+<section id="how-can-i-integrate-tmt-tests-with-other-tools">
+<h2>How can I integrate tmt tests with other tools?<a class="headerlink" href="#how-can-i-integrate-tmt-tests-with-other-tools" title="Permalink to this heading"></a></h2>
+<p>Each tmt test has a unique <a class="reference external" href="https://fmf.readthedocs.io/en/latest/concept.html#identifiers">fmf identifier</a> which can look like
+this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/core/docs</span>
+<span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt.git</span>
+<span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+</pre></div>
+</div>
+<p>These identifiers can be used for integration with other tools,
+for example to execute tmt tests using custom workflows. For this
+use case <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">export</span></code> command can be used to produce a
+list of fmf identifiers of selected tests:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>tests<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--fmf-id<span class="w"> </span><span class="p">|</span><span class="w"> </span>custom-workflow<span class="w"> </span>--fmf-id<span class="w"> </span>-
+tmt<span class="w"> </span>tests<span class="w"> </span><span class="nb">export</span><span class="w"> </span>core/docs<span class="w"> </span>--fmf-id<span class="w"> </span><span class="p">|</span><span class="w"> </span>custom-workflow<span class="w"> </span>--fmf-id<span class="w"> </span>-
+</pre></div>
+</div>
+<p>Custom workflow can then consume generated ids and perform desired
+actions such as fetch the tests and execute them.</p>
+</section>
+<section id="how-do-i-migrate-sti-tests-to-tmt">
+<h2>How do I migrate STI tests to tmt?<a class="headerlink" href="#how-do-i-migrate-sti-tests-to-tmt" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://docs.fedoraproject.org/en-US/ci/standard-test-interface/">Standard Test Interface</a> tests are enabled using <code class="docutils literal notranslate"><span class="pre">tests.yml</span></code>
+Ansible playbooks together with the <a class="reference external" href="https://docs.fedoraproject.org/en-US/ci/standard-test-roles/">Standard Test Roles</a> which
+make it easier to execute tests, check their results and perform
+additional actions such as installing required packages. The
+configuration, however, can sometimes be confusing and quite hard
+to understand.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">tmt</span></code> it is possible to achieve the same result with much
+more concise and clean syntax. For majority of existing tests the
+conversion is relatively straightforward. Let’s demonstrate it on
+a couple of real-life examples. Below you can see the original STI
+ansible playbooks and their <code class="docutils literal notranslate"><span class="pre">tmt</span></code> equivalents for inspiration.</p>
+<p>As the first step, initialize the metadata tree using the <code class="docutils literal notranslate"><span class="pre">tmt</span>
+<span class="pre">init</span></code> command in the root of the git repository. Then store the
+new config files with the <code class="docutils literal notranslate"><span class="pre">.fmf</span></code> extension. Naming and location
+of the files is up to you. See the <a class="reference internal" href="guide.html#guide"><span class="std std-ref">Guide</span></a> for more details.</p>
+<section id="simple-script">
+<h3>Simple Script<a class="headerlink" href="#simple-script" title="Permalink to this heading"></a></h3>
+<p>Running a simple binary using STI:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard-test-basic</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classic</span>
+<span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">simple</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">binary --help</span>
+</pre></div>
+</div>
+<p>The equivalent <code class="docutils literal notranslate"><span class="pre">tmt</span></code> plan has only two lines:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">binary --help</span>
+</pre></div>
+</div>
+<p>Store them for example as <code class="docutils literal notranslate"><span class="pre">/plans/smoke.fmf</span></code> and you’re done.</p>
+</section>
+<section id="required-packages">
+<h3>Required Packages<a class="headerlink" href="#required-packages" title="Permalink to this heading"></a></h3>
+<p>This example prepares testing environment by installing
+required packages.</p>
+<p>STI example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">atomic</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classic</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard-test-beakerlib</span>
+<span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmd-line-options</span>
+<span class="w">    </span><span class="nt">required_packages</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">which</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rpm-build</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libtool</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gettext</span>
+</pre></div>
+</div>
+<p>tmt example plan (L2 metadata):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check basic command line options</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">which</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rpm-build</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libtool</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gettext</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmd-line-options</span>
+</pre></div>
+</div>
+</section>
+<section id="remote-repository">
+<h3>Remote Repository<a class="headerlink" href="#remote-repository" title="Permalink to this heading"></a></h3>
+<p>Tests in the following example are fetched from a remote
+repository and filtered by the provided condition.</p>
+<p>STI example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard-test-beakerlib</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classic</span>
+<span class="w">    </span><span class="nt">repositories</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://src.fedoraproject.org/tests/shell.git&quot;</span>
+<span class="w">      </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;shell&quot;</span>
+<span class="w">      </span><span class="nt">fmf_filter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tier:</span><span class="nv"> </span><span class="s">1&quot;</span>
+</pre></div>
+</div>
+<p>tmt example plan (L2 metadata):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tier 1 shell test plan</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://src.fedoraproject.org/tests/shell.git</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tier:</span><span class="nv"> </span><span class="s">1&quot;</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-tests">
+<h3>Multiple Tests<a class="headerlink" href="#multiple-tests" title="Permalink to this heading"></a></h3>
+<p>In this migration of STI a single plan (L2 metadata) is created
+and each original test is stored in a separate L1 metadata file
+(test). This approach allows the setup of different environment
+variables and required packages for each test.</p>
+<p>STI example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard-test-basic</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classic</span>
+<span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">smoke27</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VERSION=2.7 METHOD=virtualenv ./venv.sh</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">smoke37</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VERSION=3.7 ./venv.sh</span>
+<span class="w">    </span><span class="nt">required_packages</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python27</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python37</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python2-virtualenv</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3-virtualenv</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python2-devel</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3-devel</span>
+</pre></div>
+</div>
+<p>tmt example: plan (L2 metadata) and tests (L1 metadata)</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">plans/example.fmf</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w"> </span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">tests/smoke27.fmf</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./venv.sh</span>
+<span class="w"> </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.7</span>
+<span class="w">     </span><span class="nt">METHOD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtualenv</span>
+<span class="w"> </span><span class="nt">require</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python27</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python2-virtualenv</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python2-devel</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">tests/smoke37.fmf</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./venv.sh</span>
+<span class="w"> </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.7</span>
+<span class="w"> </span><span class="nt">require</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python37</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3-virtualenv</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3-devel</span>
+</pre></div>
+</div>
+</div>
+<p>This arrangement can be especially useful when a large number of
+tests is stored in the repository.</p>
+</section>
+<section id="dist-git-source">
+<h3>Dist Git Source<a class="headerlink" href="#dist-git-source" title="Permalink to this heading"></a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">dist-git-source</span></code> feature of the <code class="docutils literal notranslate"><span class="pre">discover</span></code> step to
+extract tests from the (rpm) sources.</p>
+<p>STI example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classic</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard-test-source</span>
+</pre></div>
+</div>
+<p>tmt example plan (L2 metadata):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">dist-git-source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="spec/plans.html#spec-plans-discover-fmf"><span class="std std-ref">fmf</span></a> plugin documentation for
+more details.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stories/features.html" class="btn btn-neutral float-left" title="Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contribute.html" class="btn btn-neutral float-right" title="Contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

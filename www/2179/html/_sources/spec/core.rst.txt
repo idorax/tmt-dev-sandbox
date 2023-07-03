@@ -1,0 +1,422 @@
+.. _/spec/core:
+
+Core
+====
+*I want to have common core attributes used consistently across all metadata levels.*
+
+.. _/spec/core/adjust:
+
+adjust
+^^^^^^
+
+Adjust metadata based on the given context
+
+*As a user I want to adjust test, plan or story metadata based on the given context such as product, distribution, architecture or trigger.*
+
+
+The ``adjust`` attribute allows to modify arbitrary object
+metadata based on the context in which they are to be used.
+For example, tests may be relevant only for given environment,
+the set of required packages may differ across distributions
+or there might be a different set of plans executed for pull
+requests versus for the full compose integration testing.
+
+.. note::
+    The context currently has to be specified explicitly, see
+    the :ref:`/spec/context` documentation for details. In the
+    future, **tmt** will detect (at least some of) the needed
+    information from the environment.
+
+The value can be a dictionary or a list of dictionaries which
+represent individual rules to be applied. Each rule contains
+metadata to be merged into the original object. The following
+three keys are reserved for rule evaluation:
+
+when
+    The condition to be evaluated in order to decide if the
+    metadata should be merged. In the expression, you can use
+    any defined context :ref:`/spec/context/dimension`. See
+    the full `condition syntax`__ for details about supported
+    operators. This is a **required** key.
+
+continue
+    By default, all provided rules are evaluated. When set to
+    ``false``, the first successful rule finishes the
+    evaluation and the rest is ignored. Must be a ``boolean``.
+
+because
+    An optional comment with justification of the adjustment.
+    Must be a ``string``.
+
+.. note::
+    This covers and extends the original concept of `Test Case
+    Relevancy`__ which is now obsoleted.
+
+__ https://fmf.readthedocs.io/en/latest/context.html#syntax
+__ https://docs.fedoraproject.org/en-US/ci/test-case-relevancy
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Disable a test for older distros
+   enabled: true
+   adjust:
+       enabled: false
+       when: distro < fedora-33
+       because: the feature was added in Fedora 33
+
+   # Adjust the required package name
+   require: procps-ng
+   adjust:
+     - require: procps
+       when: distro == centos-6
+
+   # Extend the environment variables, use multiple rules
+   adjust:
+     - environment+:
+           SH: bash
+       when: component == bash
+       continue: true
+     - when: distro < centos-6
+       enabled: false
+
+   # Install the fresh pytest from pip on older distros
+   adjust:
+       prepare+:
+        - how: shell
+          name: fresh-pytest
+          order: 90
+          script: 'python3 -m pip install -U pytest'
+       when: distro < rhel-8
+
+
+Status: implemented and verified
+
+.. _/spec/core/description:
+
+description
+^^^^^^^^^^^
+
+Detailed description of the object
+
+
+
+Multiline ``string`` describing all important aspects of the object. Usually spans across several paragraphs. For detailed examples using a dedicated attributes 'examples' should be considered.
+
+
+Status: implemented
+
+.. _/spec/core/enabled:
+
+enabled
+^^^^^^^
+
+Allow disabling individual tests, plans or stories
+
+*As a developer or tester I want selected tests or plans to be skipped during test execution.*
+
+
+When a test or a plan is broken or it is not relevant for
+given :ref:`/spec/context` it can be disabled so that it's
+skipped during the execution. For stories, this attribute
+might be used to mark stories which should be skipped when
+generating the documentation.
+
+Must be a ``boolean``. The default value is ``true``.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Mark as disabled
+   enabled: false
+
+   # Disable for older distros
+   enabled: true
+   adjust:
+       enabled: false
+       when: distro < fedora-33
+       because: the feature was added in Fedora 33
+
+   # List only enabled tests
+   tmt tests ls --filter enabled:true
+
+
+Status: implemented and verified
+
+.. _/spec/core/id:
+
+id
+^^
+
+Persistent unique identifier of the object
+
+*As a user I want to be able to track execution history of a test even if it is renamed or moved to another repository.*
+
+
+Sometimes tests, plans or stories are renamed or moved across
+the directory structure, into a different git branch or even
+to another repository. Any of these changes results into an
+update of the `fmf identifier`__.
+
+In order to identify objects even after they are renamed or
+moved the ``id`` attribute can be used to store a unique
+identifier which does not change and can be used for example
+to track the complete test execution history even if the test
+changed the location or name.
+
+Must be a uniqe ``string``, using a `uuid`__ is recommended.
+
+__ https://fmf.readthedocs.io/en/latest/concept.html#identifiers
+__ https://en.wikipedia.org/wiki/Universally_unique_identifier
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   id: af994876-1c68-49a7-90e8-c8d2b189189d
+
+
+Status: implemented and verified
+
+.. _/spec/core/link:
+
+link
+^^^^
+
+Link related objects
+
+*As a user I want to link related tests, stories or external issues so that I can easily find out what the test, plan or story is addressing.*
+
+
+The core attribute ``link`` is used to track relevant objects
+such as user stories or external issues verified by the given
+test, source code implementing particular story, blocking
+issues or parent-child relations.
+
+The value can be a single link or a list of links. There are
+two options how to specify the ``target`` of the reference:
+
+string
+    This can be either a ``name`` of the fmf node within the
+    same metadata tree, a file ``path`` from the tree root to
+    the application or documentation source code or a ``URL``
+    to an external issue tracker.
+
+dict
+    In order to reference remote fmf objects use a dictionary
+    with the full `fmf identifier`__.
+
+By default, the link between the two objects is interpreted in
+a generic way as ``relates``. To explicitly define a different
+connection to the target reference, use a dictionary and set
+the key to one of the supported relations:
+
+verifies
+    This object (a test or a plan) verifies functionality
+    defined in the target (a story, an issue, a bug).
+
+verified-by
+    The functionality (described in a story, an issue or a
+    bug) is verified by the target (a test or a plan).
+
+implements
+    This object (source code) implements functionality defined
+    in the target (a story describing the feature).
+
+implemented-by
+    The functionality (described in a story) is implemented by
+    the target (source code).
+
+documents
+    This object (a guide or examples) documents the target (a
+    story).
+
+documented-by
+    The functionality (described in a story) is documented by
+    the target (a guide or examples).
+
+blocks
+    This object is blocking the target.
+
+blocked-by
+    This object is blocked by the target.
+
+duplicates
+    This object is a duplicate of the target.
+
+duplicated-by
+    This object is duplicated by the target.
+
+parent
+    This object is a child of the target parent.
+
+child
+    This object is a parent of the target child.
+
+relates
+    This object relates to the provided target.
+    This is the **default** relation.
+
+test-script
+    Web link to the location of the testing script, intended
+    for cases where the tests are stored in a different
+    directory or repository than the metadata files.
+
+An optional key ``note`` can be used to add an arbitrary
+comment describing the relation.
+
+__ https://fmf.readthedocs.io/en/latest/concept.html#identifiers
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # A related issue
+   link: https://github.com/teemtee/tmt/issues/461
+
+   # A test verifying a story
+   link:
+       verifies: /stories/cli/init/base
+
+   # A test verifying a story and a bug
+   link:
+     - verifies: /stories/cli/init/base
+     - verifies: https://bugzilla.redhat.com/show_bug.cgi?id=1234
+
+   # An implemented story covered by both tests and docs
+   link:
+     - implemented-by: /tmt/cli.py
+     - verified-by: /tests/init/base
+     - documented-by: /docs/guide.rst
+
+   # A story blocked by a remote story with optional note
+   link:
+       blocked-by:
+           url: https://github.com/teemtee/fmf
+           name: /stories/select/filter/regexp
+       note: Need to get the regexp filter working first.
+
+
+Status: implemented
+
+.. _/spec/core/order:
+
+order
+^^^^^
+
+Order in which the object should be handled
+
+
+
+Sometimes it is important in which order objects are processed. For example when running tests we need to execute some tests first or when exporting stories we need to arrange content in the right sequence to create a meaningful documentation. Must be an ``integer``, negative values are allowed as well. The default value is ``50``.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   order: 30
+
+
+Status: implemented and verified
+
+.. _/spec/core/summary:
+
+summary
+^^^^^^^
+
+Concise summary describing purpose of the object
+
+
+
+Must be a one-line ``string``, should be up to 50 characters long. It is challenging to be both concise and descriptive, but that is what a well-written summary should do.
+
+
+Status: implemented
+
+.. _/spec/core/tag:
+
+tag
+^^^
+
+Free form tags for easy filtering
+
+*As a user I want to run only a subset of available tests, plans or stories.*
+
+
+Throughout the years, free-form tags proved to be useful for many, many scenarios. Primarily to provide an easy way how to select a subset of objects. Tags are case-sensitive. Using lowercase is recommended. Must be a ``string`` or a ``list of strings``. Tag name must not contain spaces or commas.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Single tag
+   tag: security
+
+
+
+.. code-block:: yaml
+
+   # Multiple tags
+   tag: [security, fast]
+
+
+
+.. code-block:: yaml
+
+   # Multiple tags on separate lines
+   tag:
+     - security
+     - fast
+
+
+Status: implemented and verified
+
+.. _/spec/core/tier:
+
+tier
+^^^^
+
+Name of the tier set this the object belongs to
+
+*As a tester testing a security advisory I want to run the stable set of important tests which cover the most essential functionality and can provide test results in a short time.*
+
+
+It's quite common to organize tests or plans into "tiers" based on their importance, stability, duration and other aspects. For this tags have been used quite often in the past, now there is a dedicated field for this use case. Should be a ``string``.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Basic tier one definition.
+   tier: "1"
+
+
+
+.. code-block:: yaml
+
+   # Integer values are converted to strings.
+   tier: 1
+
+
+
+.. code-block:: yaml
+
+   # Any custom string can be used as well.
+   tier: custom
+
+
+Status: implemented
+

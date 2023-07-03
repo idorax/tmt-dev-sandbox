@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lint Checks" href="lint.html" />
+    <link rel="prev" title="Context" href="context.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spec.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plans.html">Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison-operators">Comparison operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search">Search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logic-operators">Logic operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#units">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#arch">arch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boot">boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatible">compatible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cpu">cpu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disk">disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hostname">hostname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memory">memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network">network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system">system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tpm">tpm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualization">virtualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lint.html">Lint Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../spec.html">Metadata Specification</a></li>
+      <li class="breadcrumb-item active">Hardware</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/spec/hardware.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hardware">
+<span id="spec-hardware"></span><h1>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading"></a></h1>
+<p><em>As a tester I want to specify detailed hardware requirements for the guest on which the tests will be executed.</em></p>
+<p>As part of the <a class="reference internal" href="plans.html#spec-plans-provision"><span class="std std-ref">provision</span></a> step it is
+possible to use the <code class="docutils literal notranslate"><span class="pre">hardware</span></code> key to specify additional
+requirements for the testing environment. This provides a
+generic and an extensible way to write down essential hardware
+requirements. For example one consistent way how to specify
+<cite>at least 2 GB of RAM</cite> for all supported provisioners.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>Individual requirements are provided as a simple <code class="docutils literal notranslate"><span class="pre">key:</span>
+<span class="pre">value</span></code> pairs, for example the minimum amount of
+<a class="reference internal" href="#spec-hardware-memory"><span class="std std-ref">memory</span></a>, or the related information is
+grouped under a common parent, for example <code class="docutils literal notranslate"><span class="pre">cores</span></code> or
+<code class="docutils literal notranslate"><span class="pre">model</span></code> under the <a class="reference internal" href="#spec-hardware-cpu"><span class="std std-ref">cpu</span></a> key.</p>
+<section id="comparison-operators">
+<h3>Comparison operators<a class="headerlink" href="#comparison-operators" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> part of the constraint follows the schema <code class="docutils literal notranslate"><span class="pre">[operator]</span> <span class="pre">actual-value</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">operator</span></code> is optional, it may be any of the following: <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code> (regex match), and <code class="docutils literal notranslate"><span class="pre">!~</span></code> (regex <em>not</em>
+matches). When operator is omitted, <code class="docutils literal notranslate"><span class="pre">=</span></code> is assumed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is <strong>highly</strong> recommended to wrap values with single or double quotes,
+i.e. <code class="docutils literal notranslate"><span class="pre">memory:</span> <span class="pre">'&gt;=</span> <span class="pre">8</span> <span class="pre">GiB'</span></code> rather than <code class="docutils literal notranslate"><span class="pre">memory:</span> <span class="pre">&gt;=</span> <span class="pre">8</span> <span class="pre">GiB</span></code>. This should
+prevent any unexpected processing by parsers loading the fmf content.
+Without explicit quotes, some operators might lead to unexpected outcome.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># This...</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+<span class="c1"># ... is the same as this:</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;=</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+
+<span class="c1"># Optional operators at the start of the value</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;!=</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&gt;</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&gt;=</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;=</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&#39;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="search">
+<h3>Search<a class="headerlink" href="#search" title="Permalink to this heading"></a></h3>
+<p>Regular expressions can be used for selected fields such as
+the <a class="reference internal" href="#spec-hardware-cpu"><span class="std std-ref">cpu</span></a> model name or
+<a class="reference internal" href="#spec-hardware-hostname"><span class="std std-ref">hostname</span></a>. Use <code class="docutils literal notranslate"><span class="pre">~</span></code> for positive and
+<code class="docutils literal notranslate"><span class="pre">!~</span></code> for negative regular expressions at the beginning of
+the string. Any leading or trailing white space from the
+search string is removed.</p>
+<p>Please note, that the full extent of regular expressions might
+not be supported across all provision implementations. The
+<code class="docutils literal notranslate"><span class="pre">.*</span></code> notation, however, should be supported everywhere:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search for processors using a cpu model name</span>
+<span class="nt">cpu</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">model-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;~</span><span class="nv"> </span><span class="s">AMD&quot;</span>
+
+<span class="c1"># Select guests with a non-matching hostname</span>
+<span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;!~</span><span class="nv"> </span><span class="s">kvm-01.*&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="logic-operators">
+<h3>Logic operators<a class="headerlink" href="#logic-operators" title="Permalink to this heading"></a></h3>
+<p>When multiple environment requirements are provided the
+provision implementation should attempt to satisfy all of
+them. It is also possible to write this explicitly using the
+<code class="docutils literal notranslate"><span class="pre">and</span></code> operator containing a list of dictionaries with
+individual requirements. When the <code class="docutils literal notranslate"><span class="pre">or</span></code> operator is used, any
+of the alternatives provided in the list should be
+sufficient:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># By default exact value expected, these are equivalent:</span>
+<span class="nt">cpu</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">37</span>
+<span class="nt">cpu</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;=</span><span class="nv"> </span><span class="s">37&#39;</span>
+
+<span class="c1"># Using advanced logic operators</span>
+<span class="nt">and</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cpu</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">or</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cpu</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cpu</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">67</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cpu</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">69</span>
+</pre></div>
+</div>
+</section>
+<section id="units">
+<h3>Units<a class="headerlink" href="#units" title="Permalink to this heading"></a></h3>
+<p>The <a class="reference external" href="https://pint.readthedocs.io/">pint</a> library is used for processing various units,
+both decimal and binary prefixes can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">MB</span> <span class="o">=</span> <span class="mi">1</span> <span class="mi">000</span> <span class="mi">000</span> <span class="n">B</span>
+<span class="mi">1</span> <span class="n">MiB</span> <span class="o">=</span> <span class="mi">1</span> <span class="mi">048</span> <span class="mi">576</span> <span class="n">B</span>
+</pre></div>
+</div>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a></h3>
+<p>The implementation for this common <code class="docutils literal notranslate"><span class="pre">hardware</span></code> key is in
+progress. Features under this section marked as implemented
+are already supported by the <code class="docutils literal notranslate"><span class="pre">artemis</span></code> plugin. Support in
+other provision plugins is on the way.  Check individual
+plugin documentation for additional information on the
+hardware requirement support.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some plugins may require additional configuration. For
+example, Artemis can provision machines with disks of a
+particular size, but to do so, Artemis maintainers must
+configure disk sizes for various AWS / OpenStack / Azure
+flavors. The constraint is supported and implemented, but
+it will not deliver the required virtual machine when the
+plugin’s backend, the Artemis deployment, isn’t configured
+correctly.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some plugins may support requirements that are impossible
+to satisfy, e.g. the <a class="reference internal" href="plans.html#spec-plans-provision-local"><span class="std std-ref">local</span></a>
+plugin can support the <code class="docutils literal notranslate"><span class="pre">cpu.family</span></code> requirement, but it
+is hard-locked to the CPU of one’s own machine.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the artemis plugin to provision the latest Fedora on</span>
+<span class="c1"># a guest with the x86_64 architecture and 8 GB of memory</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artemis</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+<span class="w">    </span><span class="nt">hardware</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x86_64</span>
+<span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8 GB</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="arch">
+<span id="spec-hardware-arch"></span><h2>arch<a class="headerlink" href="#arch" title="Permalink to this heading"></a></h2>
+<p>Select the desired architecture</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Architecture (any of well-known short architecture names,</span>
+<span class="c1"># for example aarch64, i386, ppc64, ppc64le, s390x, x86_64)</span>
+<span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x86_64</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="boot">
+<span id="spec-hardware-boot"></span><h2>boot<a class="headerlink" href="#boot" title="Permalink to this heading"></a></h2>
+<p>Features related to machine boot</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guest with BIOS</span>
+<span class="nt">boot</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bios</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guest with UEFI</span>
+<span class="nt">boot</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uefi</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="compatible">
+<span id="spec-hardware-compatible"></span><h2>compatible<a class="headerlink" href="#compatible" title="Permalink to this heading"></a></h2>
+<p>Select guest based on given compatibility</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Pick only guests compatible with given operating system distribution. See the context <a class="reference internal" href="context.html#spec-context-dimension"><span class="std std-ref">dimension</span></a> definitions for the list of supported values of the <code class="docutils literal notranslate"><span class="pre">distro</span></code> key. Must be a list of strings.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a guest compatible with both rhel-8 and rhel-9</span>
+<span class="nt">compatible</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">distro</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rhel-8</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rhel-9</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="cpu">
+<span id="spec-hardware-cpu"></span><h2>cpu<a class="headerlink" href="#cpu" title="Permalink to this heading"></a></h2>
+<p>Choose system according to the processor features</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Processor-related stuff grouped together</span>
+<span class="nt">cpu</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># The total number of various CPU components in the system.</span>
+<span class="w">    </span><span class="nt">sockets</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">cores</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">    </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+
+<span class="w">    </span><span class="c1"># Ther number of various CPU components per their parent.</span>
+<span class="w">    </span><span class="nt">cores-per-socket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">    </span><span class="nt">threads-per-core</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+
+<span class="w">    </span><span class="c1"># The total number of logical CPUs.</span>
+<span class="w">    </span><span class="nt">processors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+
+<span class="w">    </span><span class="c1"># CPU model name. Usually reported as such by /proc/cpuinfo or lscpu.</span>
+<span class="w">    </span><span class="nt">model-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Intel(R) Core(TM) i7-10610U CPU @ 1.80GHz</span>
+<span class="w">    </span><span class="c1"># CPU model number.</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">142</span>
+<span class="w">    </span><span class="c1"># CPU family name.</span>
+<span class="w">    </span><span class="nt">family-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Comet Lake</span>
+<span class="w">    </span><span class="c1"># CPU family number.</span>
+<span class="w">    </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+
+<span class="w">    </span><span class="c1"># CPU flag(s) as reported with /proc/cpuinfo</span>
+<span class="w">    </span><span class="c1"># Field applies an implicit &quot;and&quot; to listed flags</span>
+<span class="w">    </span><span class="c1"># Supported operators: &quot;=&quot; and &quot;!=&quot;</span>
+<span class="w">    </span><span class="nt">flag</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avx</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avx2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;!=</span><span class="nv"> </span><span class="s">smep&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="disk">
+<span id="spec-hardware-disk"></span><h2>disk<a class="headerlink" href="#disk" title="Permalink to this heading"></a></h2>
+<p>Choose the disk size</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disk group used to allow possible future extensions</span>
+<span class="nt">disk</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500 GB</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple disks can be requested as well</span>
+<span class="nt">disk</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&gt;=</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">GB&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&gt;=</span><span class="nv"> </span><span class="s">20</span><span class="nv"> </span><span class="s">GB&#39;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="hostname">
+<span id="spec-hardware-hostname"></span><h2>hostname<a class="headerlink" href="#hostname" title="Permalink to this heading"></a></h2>
+<p>Select specific guest by its hostname</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose machine with given hostname</span>
+<span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kvm-01.lab.us-east-2.company.com</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hostname matching a regular expression</span>
+<span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;~</span><span class="nv"> </span><span class="s">kvm-01.*&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hostname not matching a regular expression</span>
+<span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;!~</span><span class="nv"> </span><span class="s">kvm-01.*&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="memory">
+<span id="spec-hardware-memory"></span><h2>memory<a class="headerlink" href="#memory" title="Permalink to this heading"></a></h2>
+<p>Select the desired amount of memory</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Require an exact amount of memory</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8 GB</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pick a guest with at least 8 GB</span>
+<span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&gt;=</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="network">
+<span id="spec-hardware-network"></span><h2>network<a class="headerlink" href="#network" title="Permalink to this heading"></a></h2>
+<p>Select guests with given network devices</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select by vendor and device name</span>
+<span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eth</span>
+<span class="w">    </span><span class="nt">vendor-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~ ^Broadcom</span>
+<span class="w">    </span><span class="nt">device-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~ ^NetXtreme II BCM</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="system">
+<span id="spec-hardware-system"></span><h2>system<a class="headerlink" href="#system" title="Permalink to this heading"></a></h2>
+<p>Select machine with given system attributes</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">vendor</span></code> key to choose system by specific vendor, <code class="docutils literal notranslate"><span class="pre">model</span></code> to provide system’s model name, <code class="docutils literal notranslate"><span class="pre">numa-nodes</span></code> to select systems with a given number of NUMA nodes.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">vendor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HPE</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProLiant DL385 Gen10</span>
+<span class="w">    </span><span class="nt">numa-nodes</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&gt;=</span><span class="nv"> </span><span class="s">2&#39;</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="tpm">
+<span id="spec-hardware-tpm"></span><h2>tpm<a class="headerlink" href="#tpm" title="Permalink to this heading"></a></h2>
+<p>Require the <cite>Trusted Platform Module</cite> features</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">version</span></code> key to select the desired <code class="docutils literal notranslate"><span class="pre">tpm</span></code> version, its value must be a <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tpm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.0&quot;</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="virtualization">
+<span id="spec-hardware-virtualization"></span><h2>virtualization<a class="headerlink" href="#virtualization" title="Permalink to this heading"></a></h2>
+<p>Features related to virtualization</p>
+<p>This section allows to select guests which are virtualized or support virtualization. Use the <code class="docutils literal notranslate"><span class="pre">hypervisor</span></code> key to select specific implementation, for example <code class="docutils literal notranslate"><span class="pre">hyperv</span></code>, <code class="docutils literal notranslate"><span class="pre">kvm</span></code>, <code class="docutils literal notranslate"><span class="pre">nitro</span></code>, <code class="docutils literal notranslate"><span class="pre">powerkvm</span></code>, <code class="docutils literal notranslate"><span class="pre">powervm</span></code>, <code class="docutils literal notranslate"><span class="pre">vmware</span></code> or <code class="docutils literal notranslate"><span class="pre">xen</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Require a guest which supports virtualization</span>
+<span class="nt">virtualization</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">is-supported</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask for a virtualized guest using kvm hypervisor</span>
+<span class="nt">virtualization</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">is-virtualized</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">hypervisor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kvm</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="context.html" class="btn btn-neutral float-left" title="Context" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lint.html" class="btn btn-neutral float-right" title="Lint Checks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

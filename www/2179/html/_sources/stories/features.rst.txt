@@ -1,0 +1,438 @@
+.. _/stories/features:
+
+Features
+========
+.. _/stories/features/abort:
+
+Abort test execution
+^^^^^^^^^^^^^^^^^^^^
+
+
+*As a tester I want to abort current, and all subsequent, test executions using a shell command during test execution.*
+
+
+The ``tmt-abort`` command can be used to abort the current
+test execution. This command together with the
+``rstrnt-abort`` and ``rhts-abort`` aliases provides a
+backward-compatible way to execute tests written for the
+`restraint`__ framework. These scripts are installed on the
+guest and overwrite any existing scripts with the same name.
+
+__ https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-abort
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt-abort
+
+
+Status: implemented and verified
+
+.. _/stories/features/coverage:
+
+Test Coverage
+^^^^^^^^^^^^^
+
+
+*As a tester I want to document the test coverage, so that it can be easily tracked which user stories are covered by which test case and vice-versa.*
+
+.. _/stories/features/coverage/filter:
+
+filter
+::::::
+
+.. _/stories/features/coverage/filter/repo:
+
+repo
+----
+
+Filtering based on fmf identifiers
+
+*As a tester I want to filter based on reference identifiers, so that I can learn where the tests are implemented/maintained.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+There should be an easy way to filter based on fmf identifiers.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story ls --filter "url:https://gitlab/project"
+   tmt story ls --filter "url:https://gitlab/project & ref:main name:/tests/smoke"
+
+
+Status: idea
+
+.. _/stories/features/coverage/filter/tags:
+
+tags
+----
+
+Filtering based on test tags
+
+*As a tester I want to filter user stories based on the referenced tests tags, so that I can see what coverage the stories have.*
+
+
+There should be an easy way to filter based on tests tags.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story ls --filter "tag:fast"
+
+
+Status: implemented
+
+.. _/stories/features/coverage/reference:
+
+reference
+:::::::::
+
+Referencing remote repositories
+
+*As a tester I want to reference not only local objects, so that user stories can be covered by test cases from a different repository.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+It is possible to use a full fmf identifier in the :ref:`/spec/core/link` attribute.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   verified-by:
+       url: https://github.com/teemtee/fmf
+       ref: main
+       name: /tests/basic/repo
+
+
+Status: idea
+
+.. _/stories/features/coverage/relevancy:
+
+relevancy
+:::::::::
+
+Story relevancy
+
+*As a product owner I want to connect user stories with products or versions, so that I can filter out items relevant (or not relevant) for a particular product.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Relevancy is an easy way to bind stories to particular product(s). The same relevancy rules as for tests should be also used for stories.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   story:
+       As an admin I want product A doing B, so that I can
+       use it for C.
+   adjust:
+     - enabled: False
+       when: distro < fedora-28
+
+
+Status: idea
+
+.. _/stories/features/reboot:
+
+Reboot during test
+^^^^^^^^^^^^^^^^^^
+
+
+*As a tester I need to reboot the guest during a test and then resume the test execution.*
+
+
+Some tests may require a reboot as a part of them, e.g.
+upgrading the system, rebooting and then running some checks.
+The ``tmt-reboot`` command can be used to request the guest
+reboot from the test and the ``TMT_REBOOT_COUNT`` environment
+variable provides number of successfully completed reboots.
+
+Note that this only works with guests provisioned by tmt, e.g.
+``container`` or ``virtual``, and doesn't work with the
+``local`` provision method. Support of the ``connect``
+provision is on a best effort basis and will not work on
+machines where ``reboot`` command is not available.
+
+When a custom command for rebooting is required, the ``-c``
+option of the reboot script can be used, e.g. ``tmt-reboot -c
+"dnf system-upgrade reboot"``.
+
+In some scenarios, rebooting may take longer than usual. The
+default timeout used in tmt can be overriden using the ``-t``
+option of the reboot script, e.g. ``tmt-reboot -t 3600`` to
+wait for up to an hour for the guest to come back up.
+
+On machines booted in UEFI mode, by default, the *BootNext*
+property shall be set to the value of *BootCurrent*. The
+``-e`` option of the reboot script can be used to prevent
+this from being set, e.g. ``tmt-reboot -e``.
+
+For backward-compatibility with the `restraint`__ framework
+the ``rstrnt-reboot`` and ``rhts-reboot`` commands are provided
+as well together with the ``RSTRNT_REBOOTCOUNT`` and ``REBOOTCOUNT``
+environment variables. Calling the script kills the parent process
+(the running test). Please note that the content of these
+scripts is not preserved, ``tmt`` overwrites them.
+
+__ https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-reboot
+
+
+**Examples:**
+
+
+.. code-block:: shell
+
+   if [ "$TMT_REBOOT_COUNT" -eq 0 ]; then
+       rlRun "echo 'Before the reboot'"
+       rlRun "tmt-reboot" 0 "Reboot the machine"
+   elif [ "$TMT_REBOOT_COUNT" -eq 1 ]; then
+       rlRun "echo 'After the reboot'"
+   fi
+
+
+Status: implemented and verified
+
+.. _/stories/features/report-log:
+
+Save a log file
+^^^^^^^^^^^^^^^
+
+
+*As a tester I want to save a log from a test using the restraint command during test execution.*
+
+
+The ``tmt-file-submit`` command can be used to save a log
+file specified during test execution. This command together
+with ``rstrnt-report-log``, ``rhts-submit-log`` and
+``rhts_submit_log`` provides a backward-compatible way to
+execute tests written for the `restraint`__ framework.
+These scripts are installed on the guest and overwrite
+any existing scripts with the same name.
+
+The command can be called multiple times for a single test,
+if a log of that name already exists then it will be
+overwritten.
+
+__ https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-report-log
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt-file-submit -l /path/to/log/log.txt
+
+
+Status: implemented and verified
+
+.. _/stories/features/report-result:
+
+Report test result
+^^^^^^^^^^^^^^^^^^
+
+
+*As a tester I want to report test results using the restraint command during test execution.*
+
+
+The ``tmt-report-result`` command can be used to report result
+of the test during its execution. This command together with
+``rstrnt-report-result`` and ``rhts-report-result`` provides a
+backward-compatible way to execute tests written for the
+`restraint`__ framework. These scripts are installed on the
+guest and overwrite any existing scripts with the same name.
+
+The command can be called multiple times for a single test,
+the final result will be the most severe rating. Available
+values ordered by severity are SKIP, PASS, WARN and FAIL.
+Note, that the only value currently processed by ``tmt`` is
+the test result, other options are silently ignored.
+
+__ https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-report-result
+
+
+**Examples:**
+
+
+.. code-block:: shell
+
+   tmt-report-result /test/name PASS
+
+
+Status: implemented and verified
+
+.. _/stories/features/prepare:
+
+Package Preparation
+^^^^^^^^^^^^^^^^^^^
+
+Preparing packages for testing
+
+*As a user, I want a flexible and comfortable way to prepare packages on the guest for testing.*
+
+.. _/stories/features/prepare/all:
+
+all
+:::
+
+Install all packages from a given source
+
+*As a developer I would like to install all packages from a given source.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+In case of execution from CI, I want all packages from a given
+Koji build to be installed, even if they have same or lower
+NVR. In case of COPR repository, I want all packages from a
+given repository to be installed, in the latest version
+available in the given repository. In case of already existing
+repository, I want to install all packages from the given
+repository.
+
+I don't have conflicting subpackages in my repository, or I'm
+excluding packages explicitly to solve those conflicts. All
+installation conflicts abort the installation and fail the
+run. If no packages are found the install fails as well. In
+case of CI, I want to be able override default behaviour, and
+install all packages instead.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   /plan/install-all-copr:
+       prepare:
+       - how: install-all
+         copr: psss/tmt
+
+   /plan/install-all-repository:
+       prepare:
+       - how: install-all
+         repository: my-enabled-repo
+
+   /plan/install-all-ci:
+       prepare:
+       - how: install-all
+
+   tmt run -a prepare -h install-all -D my_packages/
+
+
+Status: idea
+
+.. _/stories/features/prepare/minimal:
+
+minimal
+:::::::
+
+Install a minimal set of freshly built required packages
+
+*As a developer who has just built fresh rpms in given local directory I want to prepare on the guest only the minimal set of required packages.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+After building new rpm packages locally there should be an easy way to install on the guest only those packages which are actually required by tests or are explicitly requested in the prepare step.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   make rpm
+   tmt run test --name smoke \
+       prepare --how install --directory fresh/rpms
+
+
+Status: idea
+
+.. _/stories/features/prepare/repository:
+
+repository
+::::::::::
+
+Add artifact repository for installation
+
+*As a CI system I want to be able to add a repository with high priority from which all subsequent packages will be installed, updated, downgraded or reinstalled.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+In case of Fedora CI we want the packages to be from the artifact repository which the CI system provides. Due to support of dist-git pull requests we need to support cases when the artifact repository contains packages with lower or the same version, which is quite common in case of scratch builds.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -a prepare --how repository --order 1 \
+       --base-url file:///repository --priority 999 \
+       plan --name some-plan
+
+
+Status: idea
+
+.. _/stories/features/prepare/required:
+
+required
+::::::::
+
+Install a minimal set of required packages
+
+*As a tester who uses VM or container with relevant repositories enabled and whose packages are not part of the default installation I want to prepare the guest with the minimal set of required packages.*
+
+
+Only packages which are actually required by tests or are explicitly requested in the prepare step are installed. This allows to test the installation itself and also verify functionality without hidden requires.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run plan --name install/dependencies
+
+
+Status: implemented
+
+.. _/stories/features/prepare/selected:
+
+selected
+::::::::
+
+Install specific packages
+
+*As a developer I would like to install certain packages required for testing.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+In case of execution from CI I want these packages to be installed from a given Koji build, even if they have same or lower NVR. I have conflicting subpackages in my package. The specification for local execution and CI should be the same.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   /plan/curl:
+       prepare:
+       - how: install
+         package: curl
+
+   /plan/curl-minimal:
+       prepare:
+       - how: install
+         package: curl-minimal
+
+
+Status: idea
+

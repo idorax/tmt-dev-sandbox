@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribute &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classes" href="classes.html" />
+    <link rel="prev" title="Questions" href="questions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">Questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commits">Commits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#develop">Develop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging">Merging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#makefile">Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release">Release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contribute</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/contribute.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contribute">
+<span id="id1"></span><h1>Contribute<a class="headerlink" href="#contribute" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>Feel free and welcome to contribute to this project. You can start
+with filing issues and ideas for improvement in GitHub <a class="reference external" href="https://github.com/teemtee/tmt">tracker</a>.
+Our favorite thoughts from The Zen of Python:</p>
+<ul class="simple">
+<li><p>Beautiful is better than ugly.</p></li>
+<li><p>Simple is better than complex.</p></li>
+<li><p>Readability counts.</p></li>
+</ul>
+<p>We respect the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> Style Guide for Python Code. Here’s a
+couple of recommendations to keep on mind when writing code:</p>
+<ul class="simple">
+<li><p>Maximum line length is 99 for code and 72 for documentation.</p></li>
+<li><p>Comments should be complete sentences.</p></li>
+<li><p>The first word should be capitalized (unless identifier).</p></li>
+<li><p>When using hanging indent, the first line should be empty.</p></li>
+<li><p>The closing brace/bracket/parenthesis on multiline constructs
+is under the first non-whitespace character of the last line.</p></li>
+</ul>
+<p>When generating user messages use the whole sentence with the
+first word capitalized and enclose any names in single quotes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; not found.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="commits">
+<h2>Commits<a class="headerlink" href="#commits" title="Permalink to this heading"></a></h2>
+<p>It is challenging to be both concise and descriptive, but that is
+what a well-written summary should do. Consider the commit message
+as something that will be pasted into release notes:</p>
+<ul class="simple">
+<li><p>The first line should have up to 50 characters.</p></li>
+<li><p>Complete sentence with the first word capitalized.</p></li>
+<li><p>Should concisely describe the purpose of the patch.</p></li>
+<li><p>Do not prefix the message with file or module names.</p></li>
+<li><p>Other details should be separated by a blank line.</p></li>
+</ul>
+<p>Why should I care?</p>
+<ul class="simple">
+<li><p>It helps others (and yourself) find relevant commits quickly.</p></li>
+<li><p>The summary line will be re-used later (e.g. for rpm changelog).</p></li>
+<li><p>Some tools do not handle wrapping, so it is then hard to read.</p></li>
+<li><p>You will make the maintainers happy to read beautiful commits :)</p></li>
+</ul>
+<p>You can get some more context in the <a class="reference external" href="http://stackoverflow.com/questions/2290016/">stackoverflow</a> article.</p>
+</section>
+<section id="develop">
+<h2>Develop<a class="headerlink" href="#develop" title="Permalink to this heading"></a></h2>
+<p>In order to experiment, play with the latest bits and develop
+improvements it is best to use a virtual environment. Make sure
+that you have all required packages installed on your box:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>gcc<span class="w"> </span>make<span class="w"> </span>git<span class="w"> </span>python3-docutils<span class="w"> </span><span class="o">{</span>python3,libvirt,krb5,libpq<span class="o">}</span>-devel<span class="w"> </span>jq
+</pre></div>
+</div>
+<p>In case you’re using Centos Stream 9 system you need to enable CRB
+repository first to make all the necessary packages available:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb<span class="w"> </span><span class="c1"># for CentOS Stream 9</span>
+</pre></div>
+</div>
+<p>For CentOS Stream 8 install also:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-virtualenv
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">python3-virtualenvwrapper</span></code> to easily create and enable
+virtual environments using <code class="docutils literal notranslate"><span class="pre">mkvirtualenv</span></code> and <code class="docutils literal notranslate"><span class="pre">workon</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-virtualenvwrapper
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">python3-virtualenvwrapper</span></code> package is not available for your
+system you can install it via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>virtualenvwrapper<span class="w"> </span>--user<span class="w"> </span><span class="c1"># use pip3 in case of CentOS Stream 8</span>
+</pre></div>
+</div>
+<p>Note that if you have freshly installed the package you need to
+open a new shell session to enable the wrapper functions. In case
+you installed package via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you need to source
+<code class="docutils literal notranslate"><span class="pre">virtualenvwrapper.sh</span></code> script. You can also consider adding
+following lines into your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.local/bin/virtualenvwrapper.sh
+</pre></div>
+</div>
+<p>There is no default <code class="docutils literal notranslate"><span class="pre">python</span></code> in <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> in case of CentOS Stream 8,
+which causes sourcing of <code class="docutils literal notranslate"><span class="pre">virtualenvwrapper.sh</span></code> script to fail.
+You can resolve it using <code class="docutils literal notranslate"><span class="pre">alternatives</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>alternatives<span class="w"> </span>--set<span class="w"> </span>python<span class="w"> </span>/usr/bin/python3
+</pre></div>
+</div>
+<p>Now let’s create a new virtual environment and install <code class="docutils literal notranslate"><span class="pre">tmt</span></code> in
+editable mode there:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkvirtualenv<span class="w"> </span>tmt
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/teemtee/tmt
+<span class="nb">cd</span><span class="w"> </span>tmt
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The main <code class="docutils literal notranslate"><span class="pre">tmt</span></code> package contains only the core dependencies. For
+building documentation, testing changes, importing/exporting test
+cases or advanced provisioning options install the extra deps:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[docs]&#39;</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[tests]&#39;</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[convert]&#39;</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[provision]&#39;</span>
+</pre></div>
+</div>
+<p>Or simply install all extra dependencies to make sure you have
+everything needed for the tmt development ready on your system:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[all]&#39;</span>
+</pre></div>
+</div>
+<p>Install the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> package to run all available checks for
+your commits to the project:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>pre-commit<span class="w"> </span><span class="c1"># for Fedora</span>
+pip<span class="w"> </span>install<span class="w"> </span>pre-commit<span class="w"> </span>--user<span class="w"> </span><span class="c1"># for CentOS Stream</span>
+</pre></div>
+</div>
+<p>Then you can install the hooks it via:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h2>
+<p>Every code change should be accompanied by tests covering the new
+feature or affected code area. It’s possible to write new tests or
+extend the existing ones.</p>
+<p>If writing a test is not feasible for you, explain the reason in
+the pull request. If possible, the maintainers will help with
+creating needed test coverage. You might also want to add the
+<code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">wanted</span></code> and <code class="docutils literal notranslate"><span class="pre">tests</span> <span class="pre">needed</span></code> labels to bring a bit more
+attention to your pull request.</p>
+<p>Run the default set of tests directly on your localhost:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run
+</pre></div>
+</div>
+<p>Run selected tests or plans in verbose mode:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--verbose<span class="w"> </span>plan<span class="w"> </span>--name<span class="w"> </span>basic
+tmt<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-n<span class="w"> </span>smoke
+</pre></div>
+</div>
+<p>Build the rpms and execute the whole test coverage, including
+tests which need the full virtualization support:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>rpm
+tmt<span class="w"> </span>-c<span class="w"> </span><span class="nv">how</span><span class="o">=</span>full<span class="w"> </span>run
+</pre></div>
+</div>
+<p>This would install the freshly built rpms on your laptop. In order
+to run the full test suite more safely under a virtual machine run
+the full test suite wrapper against the desired branch:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tests/full
+tmt<span class="w"> </span>run<span class="w"> </span>--environment<span class="w"> </span><span class="nv">BRANCH</span><span class="o">=</span>target
+</pre></div>
+</div>
+<p>Or schedule the full test suite under an external test system:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tests/full
+tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>--fmf-id<span class="w"> </span><span class="p">|</span><span class="w"> </span>wow<span class="w"> </span>fedora-35<span class="w"> </span>x86_64<span class="w"> </span>--fmf-id<span class="w"> </span>-<span class="w"> </span>--taskparam<span class="o">=</span><span class="nv">BRANCH</span><span class="o">=</span>target
+</pre></div>
+</div>
+<p>Or run local modifications copied to the virtual machine. Because this
+requires changes outside of the fmf root you need to run make
+which tars sources to the expected location:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tests/full
+make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p>Similar as above but run only tests which don’t run for merge requests:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tests/full
+make<span class="w"> </span>test-complement
+</pre></div>
+</div>
+<p>To run unit tests using pytest and generate coverage report:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>coverage<span class="w"> </span>run<span class="w"> </span>--source<span class="o">=</span>tmt<span class="w"> </span>-m<span class="w"> </span>py.test<span class="w"> </span>tests
+coverage<span class="w"> </span>report
+</pre></div>
+</div>
+<p>Install pytest and coverage using dnf:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dnf<span class="w"> </span>install<span class="w"> </span>python3-pytest<span class="w"> </span>python3-coverage
+</pre></div>
+</div>
+<p>or pip:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo required if not in a virtualenv</span>
+pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>coveralls
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When adding new unit tests, do not create class-based tests derived from
+<code class="docutils literal notranslate"><span class="pre">unittest.TestCase</span></code> class. Such classes do not play well with Pytest’s
+fixtures, see <a class="reference external" href="https://docs.pytest.org/en/7.1.x/how-to/unittest.html">https://docs.pytest.org/en/7.1.x/how-to/unittest.html</a> for
+details.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tests which try various provision methods should use <code class="docutils literal notranslate"><span class="pre">PROVISION_METHODS</span></code>
+environment variable to select which provision methods they can utilize
+during their execution. This variable is likely to have default <code class="docutils literal notranslate"><span class="pre">container</span></code>
+or <code class="docutils literal notranslate"><span class="pre">local</span></code> and use <code class="docutils literal notranslate"><span class="pre">adjust</span></code> rule for <code class="docutils literal notranslate"><span class="pre">how=full</span></code> to add <code class="docutils literal notranslate"><span class="pre">virtual</span></code> method.</p>
+</div>
+</section>
+<section id="docs">
+<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this heading"></a></h2>
+<p>When submitting a change affecting user experience it’s always
+good to include respective documentation. You can add or update
+the <a class="reference internal" href="spec.html#specification"><span class="std std-ref">Metadata Specification</span></a>, extend the <a class="reference internal" href="examples.html#examples"><span class="std std-ref">Examples</span></a> or write a
+new chapter for the user <a class="reference internal" href="guide.html#guide"><span class="std std-ref">Guide</span></a>.</p>
+<p>For building documentation locally install necessary modules:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx<span class="w"> </span>sphinx_rtd_theme
+</pre></div>
+</div>
+<p>Make sure docutils are installed in order to build man pages:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dnf<span class="w"> </span>install<span class="w"> </span>python3-docutils
+</pre></div>
+</div>
+<p>By default, examples provided in the specification stories are
+rendered as <code class="docutils literal notranslate"><span class="pre">yaml</span></code>. In order to select a different syntax
+highlighting schema add <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">syntax:</span> <span class="pre">&lt;format&gt;</span></code>, for example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># syntax: shell</span>
+</pre></div>
+</div>
+<p>Building documentation is then quite straightforward:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docs
+</pre></div>
+</div>
+<p>Find the resulting html pages under the <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>
+folder.</p>
+</section>
+<section id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this heading"></a></h2>
+<p>When submitting a new pull request which is not completely ready
+for merging but you would like to get an early feedback on the
+concept, use the GitHub feature to mark it as a <code class="docutils literal notranslate"><span class="pre">Draft</span></code> rather
+than using the <code class="docutils literal notranslate"><span class="pre">WIP</span></code> prefix in the summary.</p>
+<p>During the pull request review it is recommended to add new
+commits with your changes on the top of the branch instead of
+amending the original commit and doing a force push. This will
+make it easier for the reviewers to see what has recently changed.</p>
+<p>Once the pull request has been successfully reviewed and all tests
+passed, please rebase on the latest <code class="docutils literal notranslate"><span class="pre">main</span></code> branch content and
+squash the changes into a single commit. Use multiple commits to
+group relevant code changes if the pull request is too large for a
+single commit.</p>
+<p>Consider pasting the following checklist (or selected items which
+are applicable) to the pull request description to easily track
+progress of the implementation and prevent forgetting about
+essential steps to be completed before it is merged:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">* [ ]</span> implement the feature
+<span class="k">* [ ]</span> write documentation
+<span class="k">* [ ]</span> extend the test coverage
+<span class="k">* [ ]</span> update specification
+<span class="k">* [ ]</span> adjust module docs
+<span class="k">* [ ]</span> add a usage example
+<span class="k">* [ ]</span> modify json schema
+<span class="k">* [ ]</span> mention version
+</pre></div>
+</div>
+<p>The version should be mentioned in the specification when a new
+essential feature is added so that users can easily check whether
+given functionality is already available in their package:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">versionadded</span><span class="p">::</span> 1.23
+</pre></div>
+</div>
+<p>If the pull request addresses an existing issue, mention it using
+one of the automatically parsed formats so that it is linked to
+it, for example:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Fix <span class="ni">#1234</span>.
+</pre></div>
+</div>
+</section>
+<section id="merging">
+<h2>Merging<a class="headerlink" href="#merging" title="Permalink to this heading"></a></h2>
+<p>Pull request merging is done by one of maintainers who have a good
+overview of the whole code. Maintainer who will take care of
+the process will assign themselves to the pull request.
+Before merging it’s good to check the following:</p>
+<ul class="simple">
+<li><p>New test coverage added if appropriate, all tests passed</p></li>
+<li><p>Documentation has been added or updated where appropriate</p></li>
+<li><p>Commit messages are sane, commits are reasonably squashed</p></li>
+<li><p>At least one positive review provided by the maintainers</p></li>
+<li><p>Merge commits are not used, rebase on the <code class="docutils literal notranslate"><span class="pre">main</span></code> instead</p></li>
+</ul>
+<p>Pull requests which should not or cannot be merged are marked with
+the <code class="docutils literal notranslate"><span class="pre">blocked</span></code> label. For complex topics which need more eyes to
+review and discuss before merging use the <code class="docutils literal notranslate"><span class="pre">discuss</span></code> label.</p>
+</section>
+<section id="makefile">
+<h2>Makefile<a class="headerlink" href="#makefile" title="Permalink to this heading"></a></h2>
+<p>There are several Makefile targets defined to make the common
+daily tasks easy &amp; efficient:</p>
+<dl class="simple">
+<dt>make test</dt><dd><p>Execute the unit test suite.</p>
+</dd>
+<dt>make smoke</dt><dd><p>Perform quick basic functionality test.</p>
+</dd>
+<dt>make coverage</dt><dd><p>Run the test suite under coverage and report results.</p>
+</dd>
+<dt>make docs</dt><dd><p>Build documentation.</p>
+</dd>
+<dt>make packages</dt><dd><p>Build rpm and srpm packages.</p>
+</dd>
+<dt>make images</dt><dd><p>Build container images.</p>
+</dd>
+<dt>make tags</dt><dd><p>Create or update the Vim <code class="docutils literal notranslate"><span class="pre">tags</span></code> file for quick searching.
+You might want to use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">tags=./tags;</span></code> in your <code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>
+to enable parent directory search for the tags file as well.</p>
+</dd>
+<dt>make clean</dt><dd><p>Cleanup all temporary files.</p>
+</dd>
+</dl>
+</section>
+<section id="release">
+<h2>Release<a class="headerlink" href="#release" title="Permalink to this heading"></a></h2>
+<p>Follow the steps below to create a new major or minor release:</p>
+<ul class="simple">
+<li><p>Run the full test coverage using <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">-c</span> <span class="pre">how=full</span> <span class="pre">run</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span> <span class="pre">--no-decorate</span> <span class="pre">x.y-1..</span></code> to generate the changelog</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">README</span></code> with new contributors since the last release</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">Release</span> <span class="pre">tmt-x.y.0</span></code> commit with the specfile update</p></li>
+<li><p>Create a pull request with the commit, ensure tests pass, merge it</p></li>
+</ul>
+<p>Release a new package to Fedora and EPEL repositories:</p>
+<ul class="simple">
+<li><p>Move the <code class="docutils literal notranslate"><span class="pre">fedora</span></code> branch to point to the new release</p></li>
+<li><p>Tag the commit with <code class="docutils literal notranslate"><span class="pre">x.y.0</span></code>, push tags <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span></code></p></li>
+<li><p>Create a source tarball using the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">tarball</span></code> command</p></li>
+<li><p>Draft a new <a class="reference external" href="https://github.com/teemtee/tmt/releases/">github release</a> based on the tag above</p></li>
+<li><p>Upload tarball to the release attachments and publish it</p></li>
+<li><p>Check Fedora <a class="reference external" href="https://src.fedoraproject.org/rpms/tmt/pull-requests">pull requests</a>, make sure tests pass and merge</p></li>
+</ul>
+<p>Finally, if everything went well:</p>
+<ul class="simple">
+<li><p>Close the corresponding release milestone</p></li>
+<li><p>Once the <a class="reference external" href="https://copr.fedorainfracloud.org/coprs/psss/tmt/builds/">copr build</a> is completed, move the <code class="docutils literal notranslate"><span class="pre">quay</span></code> branch
+to point to the release commit as well to build fresh container
+images.</p></li>
+</ul>
+<p>Handle manually what did not went well:</p>
+<ul class="simple">
+<li><p>If the automation triggered by publishing the new github release
+was not successful, publish the fresh code to the <a class="reference external" href="https://pypi.org/project/tmt/">pypi</a>
+repository manually using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">wheel</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">upload</span></code></p></li>
+<li><p>If there was a problem with creating Fedora pull requests, you
+can trigger them manually using <code class="docutils literal notranslate"><span class="pre">/packit</span> <span class="pre">propose-downstream</span></code>
+in any open issue.</p></li>
+<li><p>If running <a class="reference external" href="https://packit.dev/docs/cli/propose-downstream/">packit propose-downstream</a> from your laptop make
+sure that the <code class="docutils literal notranslate"><span class="pre">post-upstream-clone</span></code> action is disabled in
+<code class="docutils literal notranslate"><span class="pre">.packit.yaml</span></code> to prevent bumping the devel version.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="questions.html" class="btn btn-neutral float-left" title="Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classes.html" class="btn btn-neutral float-right" title="Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

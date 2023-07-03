@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tmt &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Guide" href="guide.html" />
+    <link rel="prev" title="tmt" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test">Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plan">Plan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#story">Story</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-completion">Shell Completion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exit-codes">Exit Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#command-variables">Command Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-variables">Step Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-variables">Test Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plugin-variables">Plugin Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copyright">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">tmt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tmt">
+<span id="overview"></span><h1>tmt<a class="headerlink" href="#tmt" title="Permalink to this heading"></a></h1>
+<p>Test Management Tool</p>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tmt</span></code> tool provides a user-friendly way to work with tests.
+You can comfortably create new tests, safely and easily run tests
+across different environments, review test results, debug test
+code and enable tests in the CI using a consistent and concise
+config.</p>
+<p>The python module and command-line tool implement the Metadata
+Specification which allows storing all needed test execution data
+directly within a git repository. Together with possibility to
+reference remote repositories it makes it easy to share test
+coverage across projects and distros.</p>
+<p>The Flexible Metadata Format <code class="docutils literal notranslate"><span class="pre">fmf</span></code> is used to store data in both
+human and machine readable way close to the source code. Thanks to
+inheritance and elasticity metadata are organized in the structure
+efficiently, preventing unnecessary duplication.</p>
+</section>
+<section id="specification">
+<h2>Specification<a class="headerlink" href="#specification" title="Permalink to this heading"></a></h2>
+<p>There are several metadata levels defined by the specification:</p>
+<p><strong>Core</strong> attributes such as <cite>summary</cite> or <cite>description</cite> which are
+common across all levels are defined by the special L0 metadata.</p>
+<p><strong>Tests</strong>, or L1 metadata, define attributes which are closely
+related to individual test cases such as <cite>test</cite> script,
+<cite>framework</cite>, directory <cite>path</cite> where the test should be executed,
+maximum test <cite>duration</cite> or packages required to run the test.</p>
+<p><strong>Plans</strong>, also called L2 metadata, are used to group relevant
+tests and enable them in the CI. They describe how to <cite>discover</cite>
+tests for execution, how to <cite>provision</cite> the environment, how to
+<cite>prepare</cite> it for testing, how to <cite>execute</cite> tests and <cite>report</cite> test
+results.</p>
+<p><strong>Stories</strong>, which implement the L3 metadata, can be used to track
+implementation, test and documentation coverage for individual
+features or requirements. Thanks to this you can track everything
+in one place, including the project implementation progress.</p>
+</section>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h2>
+<p>Command line usage is straightforward:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">command</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<p>Let’s see which tests, plans and stories are available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span>
+</pre></div>
+</div>
+<p>Initialize the metadata tree in the current directory, optionally
+with example content based on templates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">init</span>
+<span class="n">tmt</span> <span class="n">init</span> <span class="o">--</span><span class="n">template</span> <span class="n">base</span>
+</pre></div>
+</div>
+<p>Run all or selected steps for each plan:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">run</span>
+<span class="n">tmt</span> <span class="n">run</span> <span class="n">discover</span>
+<span class="n">tmt</span> <span class="n">run</span> <span class="n">prepare</span> <span class="n">execute</span>
+</pre></div>
+</div>
+<p>List tests, show details, check against the specification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">test</span> <span class="n">ls</span>
+<span class="n">tmt</span> <span class="n">test</span> <span class="n">show</span>
+<span class="n">tmt</span> <span class="n">test</span> <span class="n">lint</span>
+</pre></div>
+</div>
+<p>Create a new test, import test metadata from other formats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">test</span> <span class="n">create</span>
+<span class="n">tmt</span> <span class="n">test</span> <span class="kn">import</span>
+</pre></div>
+</div>
+<p>List plans, show details, check against the specification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">plan</span> <span class="n">ls</span>
+<span class="n">tmt</span> <span class="n">plan</span> <span class="n">show</span>
+<span class="n">tmt</span> <span class="n">plan</span> <span class="n">lint</span>
+</pre></div>
+</div>
+<p>List stories, check details, show coverage status:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">story</span> <span class="n">ls</span>
+<span class="n">tmt</span> <span class="n">story</span> <span class="n">show</span>
+<span class="n">tmt</span> <span class="n">story</span> <span class="n">coverage</span>
+</pre></div>
+</div>
+<p>Many commands support regular expression filtering and other
+specific options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">story</span> <span class="n">ls</span> <span class="n">cli</span>
+<span class="n">tmt</span> <span class="n">story</span> <span class="n">show</span> <span class="n">create</span>
+<span class="n">tmt</span> <span class="n">story</span> <span class="n">coverage</span> <span class="o">--</span><span class="n">implemented</span>
+</pre></div>
+</div>
+<p>Check help message of individual commands for the full list of
+available options.</p>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h2>
+<p>Here is the list of the most frequently used commands and options.</p>
+<section id="run">
+<h3>Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h3>
+<p>The <cite>run</cite> command is used to execute test steps. By default all
+test steps are run. See the L2 Metadata specification for detailed
+description of individual steps. Here is a brief overview:</p>
+<dl class="simple">
+<dt>discover</dt><dd><p>Gather information about test cases to be executed.</p>
+</dd>
+<dt>provision</dt><dd><p>Provision an environment for testing or use localhost.</p>
+</dd>
+<dt>prepare</dt><dd><p>Prepare the environment for testing.</p>
+</dd>
+<dt>execute</dt><dd><p>Run tests using the specified executor.</p>
+</dd>
+<dt>report</dt><dd><p>Provide test results overview and send reports.</p>
+</dd>
+<dt>finish</dt><dd><p>Perform the finishing tasks and clean up provisioned guests.</p>
+</dd>
+</dl>
+</section>
+<section id="test">
+<h3>Test<a class="headerlink" href="#test" title="Permalink to this heading"></a></h3>
+<p>Manage tests (L1 metadata). Check available tests, inspect their
+metadata, gather old metadata from various sources and stored them
+in the new fmf format.</p>
+<dl class="simple">
+<dt>ls</dt><dd><p>List available tests.</p>
+</dd>
+<dt>show</dt><dd><p>Show test details.</p>
+</dd>
+<dt>lint</dt><dd><p>Check tests against the L1 metadata specification.</p>
+</dd>
+<dt>create</dt><dd><p>Create a new test based on given template.</p>
+</dd>
+<dt>import</dt><dd><p>Convert old test metadata into the new fmf format.</p>
+</dd>
+</dl>
+</section>
+<section id="plan">
+<h3>Plan<a class="headerlink" href="#plan" title="Permalink to this heading"></a></h3>
+<p>Manage test plans (L2 metadata). Search for available plans.
+Explore detailed test step configuration.</p>
+<dl class="simple">
+<dt>ls</dt><dd><p>List available plans.</p>
+</dd>
+<dt>show</dt><dd><p>Show plan details.</p>
+</dd>
+<dt>lint</dt><dd><p>Check plans against the L2 metadata specification.</p>
+</dd>
+</dl>
+</section>
+<section id="story">
+<h3>Story<a class="headerlink" href="#story" title="Permalink to this heading"></a></h3>
+<p>Manage user stories. Check available user stories. Explore
+coverage (test, implementation, documentation).</p>
+<dl class="simple">
+<dt>ls</dt><dd><p>List available stories.</p>
+</dd>
+<dt>show</dt><dd><p>Show story details.</p>
+</dd>
+<dt>coverage</dt><dd><p>Show code, test and docs coverage for given stories.</p>
+</dd>
+<dt>export</dt><dd><p>Export selected stories into desired format.</p>
+</dd>
+</dl>
+</section>
+<section id="utils">
+<h3>Utils<a class="headerlink" href="#utils" title="Permalink to this heading"></a></h3>
+<p>Various utility options.</p>
+<dl class="option-list">
+<dt><kbd><span class="option">--root <var>PATH</var></span></kbd></dt>
+<dd><p>Path to the metadata tree, current directory used by default.</p>
+</dd>
+<dt><kbd><span class="option">--verbose</span></kbd></dt>
+<dd><p>Print additional information.</p>
+</dd>
+<dt><kbd><span class="option">--debug</span></kbd></dt>
+<dd><p>Turn on debugging output.</p>
+</dd>
+</dl>
+<p>Check help message of individual commands for the full list of
+available options.</p>
+</section>
+</section>
+<section id="install">
+<span id="id1"></span><h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
+<p>The main <code class="docutils literal notranslate"><span class="pre">tmt</span></code> package provides the core features with a minimal
+set of dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span>
+</pre></div>
+</div>
+<p>In order to enable additional functionality, such as particular
+provision or report plugins, install the respective subpackage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">convert</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="n">report</span><span class="o">-</span><span class="n">html</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="n">provision</span><span class="o">-</span><span class="n">container</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="n">provision</span><span class="o">-</span><span class="n">virtual</span>
+</pre></div>
+</div>
+<p>If you don’t care about disk space and want to have all available
+features right at hand install everything:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="nb">all</span>
+</pre></div>
+</div>
+<p>For CentOS and RHEL, first make sure that you have available the
+<a class="reference external" href="https://docs.fedoraproject.org/en-US/epel/">EPEL</a> repository.
+You might also have to enable additional repositories:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">enable</span> <span class="n">powertools</span>  <span class="c1"># CentOS 8</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">enable</span> <span class="n">rhel</span><span class="o">-</span><span class="n">CRB</span>    <span class="c1"># RHEL 8</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dl</span><span class="o">.</span><span class="n">fedoraproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">epel</span><span class="o">/</span><span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">enable</span> <span class="n">crb</span>         <span class="c1"># CentOS 9</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">enable</span> <span class="n">rhel</span><span class="o">-</span><span class="n">CRB</span>    <span class="c1"># RHEL 9</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dl</span><span class="o">.</span><span class="n">fedoraproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">epel</span><span class="o">/</span><span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="mf">9.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span>
+</pre></div>
+</div>
+<p>For plugins which cannot work outside of VPN and so live within
+its walls you need to enable the internal copr repository first.
+Then you can install either everything or only those you need:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="n">redhat</span><span class="o">-</span><span class="nb">all</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span><span class="o">-</span><span class="n">redhat</span><span class="o">-*</span>
+</pre></div>
+</div>
+<p>Impatient to try the fresh features as soon as possible? Install
+the latest greatest version from the <code class="docutils literal notranslate"><span class="pre">copr</span></code> repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">psss</span><span class="o">/</span><span class="n">tmt</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">tmt</span>
+</pre></div>
+</div>
+<p>Not sure, just want to try out how it works? Experiment safely and
+easily inside a container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">testing</span><span class="o">-</span><span class="n">farm</span><span class="o">/</span><span class="n">tmt</span> <span class="n">bash</span>
+<span class="n">podman</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">testing</span><span class="o">-</span><span class="n">farm</span><span class="o">/</span><span class="n">tmt</span><span class="o">-</span><span class="nb">all</span> <span class="n">bash</span>
+</pre></div>
+</div>
+<p id="pip-install">When installing using <code class="docutils literal notranslate"><span class="pre">pip</span></code> you might need to install additional
+packages on your system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">gcc</span> <span class="n">redhat</span><span class="o">-</span><span class="n">rpm</span><span class="o">-</span><span class="n">config</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="p">{</span><span class="n">python3</span><span class="p">,</span><span class="n">libvirt</span><span class="p">,</span><span class="n">krb5</span><span class="p">,</span><span class="n">libpq</span><span class="p">}</span><span class="o">-</span><span class="n">devel</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">tmt</span>
+</pre></div>
+</div>
+<p>On other distributions than Fedora or RHEL the package names might
+be different. For example on Ubuntu to install all packages to
+have provision plugins working:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">libkrb5</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libvirt</span><span class="o">-</span><span class="n">dev</span> <span class="n">genisoimage</span> <span class="n">qemu</span><span class="o">-</span><span class="n">kvm</span> <span class="n">libvirt</span><span class="o">-</span><span class="n">daemon</span><span class="o">-</span><span class="n">system</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="s2">&quot;tmt[provision]&quot;</span>
+</pre></div>
+</div>
+<p>Note: You can omit the <code class="docutils literal notranslate"><span class="pre">--user</span></code> flag if in a virtual environment.</p>
+</section>
+<section id="shell-completion">
+<h2>Shell Completion<a class="headerlink" href="#shell-completion" title="Permalink to this heading"></a></h2>
+<p>The rpm package includes a system wide script which enables the
+command line completion for <code class="docutils literal notranslate"><span class="pre">bash</span></code> so no additional config
+should be needed. If you use a different installation method or
+prefer another shell, see the instructions below.</p>
+<p>For Bash, add this to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="s2">&quot;$(_TMT_COMPLETE=source_bash tmt)&quot;</span>
+</pre></div>
+</div>
+<p>For Zsh, add this to <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="s2">&quot;$(_TMT_COMPLETE=source_zsh tmt)&quot;</span>
+</pre></div>
+</div>
+<p>For Fish, add this to <code class="docutils literal notranslate"><span class="pre">~/.config/fish/completions/tmt.fish</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="p">(</span><span class="n">env</span> <span class="n">_TMT_COMPLETE</span><span class="o">=</span><span class="n">source_fish</span> <span class="n">tmt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Open a new shell to enable completion. Or run the <code class="docutils literal notranslate"><span class="pre">eval</span></code> command
+directly in your current shell to enable it temporarily.</p>
+<p>This is however run every time you start a shell which can cause
+some delay. To speed it up, write the generated script to a file
+and then source it from your shell’s configuration file. All
+of this can be achieved using <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">setup</span> <span class="pre">completion</span></code> command.
+By default, it outputs the completion script to the terminal but
+it can also add it to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> or <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> using
+the <code class="docutils literal notranslate"><span class="pre">--install</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">setup</span> <span class="n">completion</span> <span class="p">{</span><span class="n">bash</span><span class="p">,</span> <span class="n">zsh</span><span class="p">,</span> <span class="n">fish</span><span class="p">}</span> <span class="o">--</span><span class="n">install</span>
+</pre></div>
+</div>
+</section>
+<section id="exit-codes">
+<h2>Exit Codes<a class="headerlink" href="#exit-codes" title="Permalink to this heading"></a></h2>
+<p>The following exit codes are returned from <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">run</span></code>. Note that
+you can use the <code class="docutils literal notranslate"><span class="pre">--quiet</span></code> option to completely disable output
+and only check for the exit code.</p>
+<dl class="simple">
+<dt>0</dt><dd><p>At least one test passed, there was no fail, warn or error.</p>
+</dd>
+<dt>1</dt><dd><p>There was a fail or warn identified, but no error.</p>
+</dd>
+<dt>2</dt><dd><p>Errors occured during test execution.</p>
+</dd>
+<dt>3</dt><dd><p>No test results found.</p>
+</dd>
+</dl>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading"></a></h2>
+<p>The list of available environment variables which can be used to
+adjust the execution.</p>
+<section id="command-variables">
+<h3>Command Variables<a class="headerlink" href="#command-variables" title="Permalink to this heading"></a></h3>
+<p>The following environment variables can be used to modify
+behaviour of the <code class="docutils literal notranslate"><span class="pre">tmt</span></code> command.</p>
+<dl>
+<dt>TMT_DEBUG</dt><dd><p>Enable the desired debug level. Most of the commands support
+levels from 1 to 3. However, some of the plugins go even
+deeper when needed.</p>
+</dd>
+<dt>TMT_PLUGINS</dt><dd><p>Path to a directory with additional plugins. Multiple paths
+separated with the <code class="docutils literal notranslate"><span class="pre">:</span></code> character can be provided as well.</p>
+</dd>
+<dt>TMT_WORKDIR_ROOT</dt><dd><p>Path to root directory containing run workdirs. Defaults to
+<code class="docutils literal notranslate"><span class="pre">/var/tmp/tmt</span></code>.</p>
+</dd>
+<dt>NO_COLOR, TMT_NO_COLOR</dt><dd><p>Disable colors in the output, both the actual output and
+logging messages. Output only plain, non-colored text.</p>
+<p>Two variables are accepted, one with the usual <code class="docutils literal notranslate"><span class="pre">TMT_</span></code>
+prefix, but tmt accepts also <code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code> to support the
+NO_COLOR effort, see <a class="reference external" href="https://no-color.org/">https://no-color.org/</a> for more
+information.</p>
+</dd>
+<dt>TMT_FORCE_COLOR</dt><dd><p>Enforce colors in the output, both the actual output and
+logging messages. Might come handy when tmt’s output streams
+are not terminal-like, yet its output would be displayed by
+tools with ANSI color support. This is often the case of
+various CI systems.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">TMT_FORCE_COLOR</span></code> takes priority over <code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code>
+and <code class="docutils literal notranslate"><span class="pre">TMT_NO_COLOR</span></code>. If user tries both to disable and enable
+colorization, output would be colorized.</p>
+</dd>
+</dl>
+</section>
+<section id="step-variables">
+<h3>Step Variables<a class="headerlink" href="#step-variables" title="Permalink to this heading"></a></h3>
+<p>The following environment variables are provided to the environment
+during <code class="docutils literal notranslate"><span class="pre">prepare</span></code>, <code class="docutils literal notranslate"><span class="pre">execute</span></code> and <code class="docutils literal notranslate"><span class="pre">finish</span></code> steps:</p>
+<dl class="simple">
+<dt>TMT_TREE</dt><dd><p>The full path of the working directory where the metadata tree
+is copied. This usually contains the whole git repository from
+which tests have been executed.</p>
+</dd>
+<dt>TMT_PLAN_DATA</dt><dd><p>Path to the common directory used for storing logs and other
+artifacts related to the whole plan execution. It is pulled
+back from the guest and available for inspection after the
+plan is completed.</p>
+</dd>
+</dl>
+</section>
+<section id="test-variables">
+<h3>Test Variables<a class="headerlink" href="#test-variables" title="Permalink to this heading"></a></h3>
+<p>The following environment variables are provided to the test
+during the execution:</p>
+<dl>
+<dt>TMT_TEST_NAME</dt><dd><p>The test name, as a resolved FMF object name starting with <code class="docutils literal notranslate"><span class="pre">/</span></code>
+from the root of the hierarchy.</p>
+</dd>
+<dt>TMT_TEST_DATA</dt><dd><p>Path to the directory where test can store logs and other
+artifacts generated during its execution. These will be pulled
+back from the guest and available for inspection after the
+test execution is finished.</p>
+</dd>
+<dt>TMT_TEST_SERIAL_NUMBER</dt><dd><p>The serial number of running test in the whole plan. Each test
+is assigned its own serial number.</p>
+</dd>
+<dt>TMT_TEST_METADATA</dt><dd><p>Path to a YAML-formatted file with test metadata collected
+during the <code class="docutils literal notranslate"><span class="pre">discover</span></code> step.</p>
+</dd>
+<dt>TMT_SOURCE_DIR</dt><dd><p>Path to directory with downloaded and extracted sources if
+the <code class="docutils literal notranslate"><span class="pre">dist-git-source</span></code> option was used in the <code class="docutils literal notranslate"><span class="pre">discover</span></code>
+step.</p>
+</dd>
+<dt>TMT_REBOOT_COUNT</dt><dd><p>During the test execution the <code class="docutils literal notranslate"><span class="pre">tmt-reboot</span></code> command can be
+used to request reboot of the guest. This variable contains
+number of reboots which already happened during the test.
+Value is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> if no reboot occurred.</p>
+<p>In order to keep backward-compatibility with older tests,
+<code class="docutils literal notranslate"><span class="pre">rhts-reboot</span></code> and <code class="docutils literal notranslate"><span class="pre">rstrnt-reboot</span></code> commands are supported
+for requesting the reboot, variables <code class="docutils literal notranslate"><span class="pre">REBOOTCOUNT</span></code> and
+<code class="docutils literal notranslate"><span class="pre">RSTRNT_REBOOTCOUNT</span></code> contain number of reboots as well.</p>
+</dd>
+<dt>TMT_TOPOLOGY_BASH, TMT_TOPOLOGY_YAML</dt><dd><p>Paths of files describing existing guests, their roles and the
+guest on which the test is running. Format of these files
+is described in the <code class="docutils literal notranslate"><span class="pre">Guest</span> <span class="pre">Topology</span> <span class="pre">Format</span></code> section of the
+plan specification.</p>
+</dd>
+</dl>
+</section>
+<section id="plugin-variables">
+<h3>Plugin Variables<a class="headerlink" href="#plugin-variables" title="Permalink to this heading"></a></h3>
+<p>Each plugin option can be also specified via environment variable.
+Variables follow a naming scheme utilizing plugin name, step it
+belongs to, and the option name:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">TMT_PLUGIN_${STEP}_${PLUGIN}_${OPTION}</span></code></p>
+</div></blockquote>
+<p>All values are upper-cased, with dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) replaced by
+underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p>
+<p>For example, an execute plugin “tmt” would run with verbosity
+equal to <code class="docutils literal notranslate"><span class="pre">-vvv</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TMT_PLUGIN_EXECUTE_TMT_VERBOSE</span><span class="o">=</span><span class="mi">3</span> <span class="n">tmt</span> <span class="n">run</span> <span class="o">...</span> <span class="n">execute</span> <span class="o">-</span><span class="n">h</span> <span class="n">tmt</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Command-line takes precedence over environment variables, therefore
+<code class="docutils literal notranslate"><span class="pre">-v</span></code> would undo the effect of environment variable, and reduce
+verbosity to one level only:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TMT_PLUGIN_EXECUTE_TMT_VERBOSE</span><span class="o">=</span><span class="mi">3</span> <span class="n">tmt</span> <span class="n">run</span> <span class="o">...</span> <span class="n">execute</span> <span class="o">-</span><span class="n">h</span> <span class="n">tmt</span> <span class="o">-</span><span class="n">v</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Environment variables - just like command-line options - take
+precedence over values stored in files. For example, consider the
+following discover step:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discover</span><span class="p">:</span>
+    <span class="n">how</span><span class="p">:</span> <span class="n">fmf</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The following commands would override the URL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmt</span> <span class="n">run</span> <span class="o">...</span> <span class="n">discover</span> <span class="o">-</span><span class="n">h</span> <span class="n">fmf</span> <span class="o">--</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">actual</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="o">...</span>
+
+<span class="n">TMT_PLUGIN_DISCOVER_FMF_URL</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">actual</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="n">tmt</span> <span class="n">run</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>For setting flag-like option, 0 and 1 are the expected value. For
+example, an interactive mode would be enabled in this run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TMT_PLUGIN_EXECUTE_TMT_INTERACTIVE</span><span class="o">=</span><span class="mi">1</span> <span class="n">tmt</span> <span class="n">run</span> <span class="o">...</span> <span class="n">execute</span> <span class="o">-</span><span class="n">h</span> <span class="n">tmt</span> <span class="o">...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following applies to situations when a plugin is specified
+on the command line only. Keys of plugins specified in fmf files
+would not be modified. This is a limit of the current implementation,
+and will be addressed in the future:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Here the verbosity will not be increased since the plugin is
+# not mentioned on the command line:
+$ TMT_PLUGIN_DISCOVER_FMF_VERBOSE=2 tmt run -a
+
+# Here the environment variable will take effect:
+$ TMT_PLUGIN_DISCOVER_FMF_VERBOSE=2 tmt run -a discover -h fmf ...
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading"></a></h2>
+<p>Git:
+<a class="reference external" href="https://github.com/teemtee/tmt">https://github.com/teemtee/tmt</a></p>
+<p>Docs:
+<a class="reference external" href="http://tmt.readthedocs.io/">http://tmt.readthedocs.io/</a></p>
+<p>Stories:
+<a class="reference external" href="https://tmt.readthedocs.io/en/stable/stories.html">https://tmt.readthedocs.io/en/stable/stories.html</a></p>
+<p>Issues:
+<a class="reference external" href="https://github.com/teemtee/tmt/issues">https://github.com/teemtee/tmt/issues</a></p>
+<p>Releases:
+<a class="reference external" href="https://github.com/teemtee/tmt/releases">https://github.com/teemtee/tmt/releases</a></p>
+<p>Copr:
+<a class="reference external" href="http://copr.fedoraproject.org/coprs/psss/tmt">http://copr.fedoraproject.org/coprs/psss/tmt</a></p>
+<p>PIP:
+<a class="reference external" href="https://pypi.org/project/tmt/">https://pypi.org/project/tmt/</a></p>
+<p>Metadata Specification:
+<a class="reference external" href="https://tmt.readthedocs.io/en/stable/spec.html">https://tmt.readthedocs.io/en/stable/spec.html</a></p>
+<p>Flexible Metadata Format:
+<a class="reference external" href="http://fmf.readthedocs.io/">http://fmf.readthedocs.io/</a></p>
+<p>Packit &amp; Testing Farm:
+<a class="reference external" href="https://packit.dev/testing-farm/">https://packit.dev/testing-farm/</a></p>
+</section>
+<section id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this heading"></a></h2>
+<p>Petr Šplíchal, Miro Hrončok, Alexander Sosedkin, Lukáš Zachar,
+Petr Menšík, Leoš Pol, Miroslav Vadkerti, Pavel Valena, Jakub
+Heger, Honza Horák, Rachel Sibley, František Nečas, Michal
+Ruprich, Martin Kyral, Miloš Prchlík, Tomáš Navrátil, František
+Lachman, Patrik Kis, Ondrej Mosnáček, Andrea Ficková, Denis
+Karpelevich, Michal Srb, Jan Ščotka, Artem Zhukov, Vinzenz
+Feenstra, Inessa Vasilevskaya, Štěpán Němec, Robin Hack, Yulia
+Kopkova, Ondrej Moriš, Martin Zelený, Karel Šrot, František
+Zatloukal, Simon Walter, Petr Matyáš, Yariv Rachmani, Pavel
+Cahyna, Martin Litwora, Brian Grech, Vojtěch Eichler, Philip Daly,
+Vector Li, Evgeny Fedin, Guy Inger, Adrián Tomašov, Jan Havlín,
+Lukáš Kotek, Daniel Diblík, Laura Barcziova, Marián Konček,
+Marcin Sobczyk, Jiří Jabůrek, Huijing Hei, Tibor Dudlák, Jan
+Macků, Filip Vágner, Martin Hoyer, Iveta Česalová, Yi Zhang
+and Zhaojuan Guo.</p>
+</section>
+<section id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this heading"></a></h2>
+<p>Copyright Red Hat</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the MIT License.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="tmt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="guide.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

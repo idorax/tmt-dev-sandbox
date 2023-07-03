@@ -1,0 +1,46 @@
+.. _/stories/install:
+
+Installation
+============
+*As a Fedora user I want to easily install tmt on my system.*
+
+.. _/stories/install/all:
+
+all
+^^^
+
+Install tmt with all available plugins and dependencies
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   dnf install tmt-all
+
+
+Status: implemented and documented
+
+.. _/stories/install/minimal:
+
+minimal
+^^^^^^^
+
+Minimal tmt installation with core features only
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   dnf install tmt
+
+
+Status: implemented, verified and documented
+

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Context &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hardware" href="hardware.html" />
+    <link rel="prev" title="Stories" href="stories.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spec.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plans.html">Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dimension">dimension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initiator">initiator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trigger">trigger</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lint.html">Lint Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../spec.html">Metadata Specification</a></li>
+      <li class="breadcrumb-item active">Context</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/spec/context.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="context">
+<span id="spec-context"></span><h1>Context<a class="headerlink" href="#context" title="Permalink to this heading"></a></h1>
+<p>Definition of the environment context</p>
+<p><em>As a user I want to define a context so that test, plan or story metadata can be adjusted to it accordingly.</em></p>
+<p>This specification defines all standard context dimensions
+which can be used together with the <a class="reference internal" href="core.html#spec-core-adjust"><span class="std std-ref">adjust</span></a>
+attribute to modify object metadata for particular context.
+For a detailed description of the concept itself see the fmf
+<a class="reference external" href="https://fmf.readthedocs.io/en/latest/context.html">context</a> documentation.</p>
+<p>The context is usually defined from the command line using the
+<code class="docutils literal notranslate"><span class="pre">--context</span></code> option. All dimensions are optional. It is
+possible to define your own dimensions to describe the
+context, just make sure the <a class="reference internal" href="#spec-context-dimension"><span class="std std-ref">dimension</span></a>
+name does not conflict with reserved names.</p>
+<p>Some of the context dimensions can be detected (e.g. distro
+from the provision step config). Each plan can provide its own
+<a class="reference internal" href="plans.html#spec-plans-context"><span class="std std-ref">context</span></a> which will override detected
+values. Finally, the context definition provided directly on
+the command line overrides detected and defined dimensions.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt --context distro=fedora-33 run</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt --context product=rhscl run</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt --context trigger=code run</span>
+
+<span class="l l-Scalar l-Scalar-Plain">tmt -c distro=fedora test show</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt -c distro=fedora plan show</span>
+</pre></div>
+</div>
+<section id="dimension">
+<span id="spec-context-dimension"></span><h2>dimension<a class="headerlink" href="#dimension" title="Permalink to this heading"></a></h2>
+<p>Supported context dimensions</p>
+<p><em>As a tester I want to clearly specify dimensions, such as ‘distro’ or ‘trigger’, so that I can well describe the context in which a test is running.</em></p>
+<p>The following dimensions are reserved for storing dedicated
+information as described below:</p>
+<dl class="simple">
+<dt>distro</dt><dd><p>The operating system distribution on which the application
+runs (fedora, fedora-33, centos, centos-8, centos-8.4,
+centos-stream, centos-stream-9, rhel, rhel-8, rhel-8.4).</p>
+</dd>
+<dt>variant</dt><dd><p>The distribution variant (Client, Desktop, Server
+Workstation, Silverblue, CoreOS).</p>
+</dd>
+<dt>arch</dt><dd><p>The guest architecture (aarch64, armhfp, i386, ppc64,
+ppc64le, s390x, x86_64).</p>
+</dd>
+<dt>component</dt><dd><p>Name of the relevant component, should match the source
+package name (bash, php, httpd).</p>
+</dd>
+<dt>collection</dt><dd><p>The Red Hat Software Collection name (python27,
+rh-python34, rh-mariadb100, httpd24).</p>
+</dd>
+<dt>module</dt><dd><p>Module name with an optional stream specification
+(mariadb, mariadb:10.5, httpd, httpd:2.4, perl, perl:5.32,
+ruby, ruby:2.7).</p>
+</dd>
+<dt>initiator</dt><dd><p>Name of the service, pipeline or tool which initiated the
+testing or special value <code class="docutils literal notranslate"><span class="pre">human</span></code> for manual testing. See
+the <a class="reference internal" href="#spec-context-initiator"><span class="std std-ref">initiator</span></a> section for details.</p>
+</dd>
+<dt>trigger</dt><dd><p>The event which triggered testing, see the
+<a class="reference internal" href="#spec-context-trigger"><span class="std std-ref">trigger</span></a> section for the full list
+of supported values.</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">distro</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora-33</span>
+<span class="w">    </span><span class="nt">variant</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workstation</span>
+<span class="w">    </span><span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x86_64</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">product</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rhscl</span>
+<span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd24</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="initiator">
+<span id="spec-context-initiator"></span><h2>initiator<a class="headerlink" href="#initiator" title="Permalink to this heading"></a></h2>
+<p>Definition of the initiator dimension</p>
+<p><em>As a user I want to run a custom set of tests based on the service, pipeline or tool which initiated the testing.</em></p>
+<p>Sometimes it is useful to choose a custom set of tests for
+particular automation service or when tests are run manually.
+The following values are defined:</p>
+<dl class="simple">
+<dt>human</dt><dd><p>Test execution was initiated manually by a human.</p>
+</dd>
+<dt>packit</dt><dd><p>For jobs initiated by the Packit service.
+To be implemented.</p>
+</dd>
+<dt>fedora-ci</dt><dd><p>Testing in the Fedora CI pipeline.
+To be implemented.</p>
+</dd>
+<dt>centos-ci</dt><dd><p>Testing in the CentOS CI pipeline.
+To be implemented.</p>
+</dd>
+<dt>rhel-ci</dt><dd><p>Testing in the RHEL CI pipeline.
+To be implemented.</p>
+</dd>
+<dt>ewa</dt><dd><p>Errata Workflow Automation jobs.
+To be implemented.</p>
+</dd>
+</dl>
+<p>Each service, pipeline or tool is responsible to set the value
+to its name. For manual testing <code class="docutils literal notranslate"><span class="pre">--context</span> <span class="pre">initiator=human</span></code>
+is expected on the command line.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable the plan only when run manually</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tests requiring special environment</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag:special</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">initiator != human</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="trigger">
+<span id="spec-context-trigger"></span><h2>trigger<a class="headerlink" href="#trigger" title="Permalink to this heading"></a></h2>
+<p>Definition of the trigger dimension</p>
+<p><em>As a user I want to run a custom set of tests for different events which trigger the testing.</em></p>
+<p>Testing can be triggered by various events and a different set
+of tests is usually executed for each of them. The <code class="docutils literal notranslate"><span class="pre">trigger</span></code>
+dimension supports the following values:</p>
+<dl class="simple">
+<dt>commit</dt><dd><p>Project source code has changed. This can be either a
+pull/merge request or a new commit pushed to a branch.</p>
+</dd>
+<dt>build</dt><dd><p>There has been a new package built in koji or brew and is
+available for testing.</p>
+</dd>
+<dt>update</dt><dd><p>A new bodhi update or errata advisory with one or more
+builds has been created or updated.</p>
+</dd>
+<dt>compose</dt><dd><p>There is a new compose ready for integration testing.</p>
+</dd>
+</dl>
+<p>This context dimension will usually be provided from the
+command line.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Full test coverage (takes three days)</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trigger == code</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stories.html" class="btn btn-neutral float-left" title="Stories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware.html" class="btn btn-neutral float-right" title="Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,720 @@
+.. _/spec/tests:
+
+Tests
+=====
+*As a tester I want to store test metadata close to the test source code.*
+
+
+Tests, or L1 metadata, define attributes which are closely
+related to individual test cases such :ref:`/spec/tests/test`
+script, :ref:`/spec/tests/framework`, directory
+:ref:`/spec/tests/path` where the test should be executed,
+maximum test :ref:`/spec/tests/duration` or packages required
+to run the test.
+
+In addition to the attributes defined here, tests also support
+common :ref:`/spec/core` attributes which are shared across
+all metadata levels.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   summary: Check the man page
+   test: man tmt | grep friendly
+   require: grep
+   duration: 1m
+   tier: 1
+   tag: docs
+
+.. _/spec/tests/component:
+
+component
+^^^^^^^^^
+
+Relevant fedora/rhel source package names
+
+*As a SELinux tester testing the 'checkpolicy' component I want to run Tier 1 tests for all SELinux components plus all checkpolicy tests.*
+
+
+It's useful to be able to easily select all tests relevant for given component or package. As they do not always have to be stored in the same repository and because many tests cover multiple components a dedicated field is needed. Must be a ``string`` or a ``list of strings``. Component name usually corresponds to the source package name.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Single component
+   component: libselinux
+
+
+
+.. code-block:: yaml
+
+   # Multiple components
+   component: [libselinux, checkpolicy]
+
+
+
+.. code-block:: yaml
+
+   # Multiple components on separate lines
+   component:
+     - libselinux
+     - checkpolicy
+
+
+Status: implemented
+
+.. _/spec/tests/contact:
+
+contact
+^^^^^^^
+
+Test maintainer contact
+
+*As a developer reviewing a complex test which failed I would like to contact the person who maintains the code and understands it well.*
+
+
+When there are several people collaborating on tests it's useful to have a way how find who is responsible for what. Must be a ``string`` or a ``list of strings`` (email address format with name and surname).
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Single contact
+   contact: Name Surname <email@address.org>
+
+
+
+.. code-block:: yaml
+
+   # Multiple contacts
+   contact:
+     - First Person <first@address.org>
+     - Second Person <second@address.org>
+
+
+Status: implemented
+
+.. _/spec/tests/description:
+
+description
+^^^^^^^^^^^
+
+Detailed description of what the test does
+
+*As a developer I review existing test coverage for my component and would like to get an overall idea what is covered without having to read the whole test code.*
+
+
+For complex tests it makes sense to provide more detailed description to better clarify what is covered by the test. This can be useful for test writer as well when reviewing a test written long time ago. Must be a ``string`` (multi line, plain text).
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   description:
+       This test checks all available wget options related to
+       downloading files recursively. First a tree directory
+       structure is created for testing. Then a file download
+       is performed for different recursion depth specified by
+       the "--level=depth" option.
+
+
+Status: implemented
+
+.. _/spec/tests/duration:
+
+duration
+^^^^^^^^
+
+Maximum time for test execution
+
+*As a test harness I need to know after how long time I should kill test if it is still running to prevent resource wasting.*
+
+
+In order to prevent stuck tests consuming resources we define a maximum time for test execution. If the limit is exceeded the running test is killed by the test harness. Use the same format as the ``sleep`` command. Must be a ``string``. The default value is ``5m``.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Three minutes
+   duration: 3m
+
+
+
+.. code-block:: yaml
+
+   # Two hours
+   duration: 2h
+
+
+
+.. code-block:: yaml
+
+   # One day
+   duration: 1d
+
+
+
+.. code-block:: yaml
+
+   # Combination & repetition of time suffixes (total 4h 2m 3s)
+   duration: 1h 3h 2m 3
+
+
+
+.. code-block:: yaml
+
+   # Use context adjust to extend duration for given arch
+   duration: 5m
+   adjust:
+       duration+: 15m
+       when: arch == aarch64
+
+
+Status: implemented and verified
+
+.. _/spec/tests/environment:
+
+environment
+^^^^^^^^^^^
+
+Environment variables to be set before running the test
+
+*As a tester I need to pass environment variables to my test script to properly execute the desired test scenario.*
+
+
+Test scripts might require certain environment variables to be set.  Although this can be done on the shell command line as part of the ``test`` attribute it makes sense to have a dedicated field for this, especially when the number of parameters grows. This might be useful for virtual test cases as well. Plan :ref:`/spec/plans/environment` overrides test environment. Must be a ``dictionary``.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   environment:
+       PACKAGE: python37
+       PYTHON: python3.7
+
+
+Status: implemented and verified
+
+.. _/spec/tests/framework:
+
+framework
+^^^^^^^^^
+
+Test framework defining how tests should be executed
+
+*As a tester I want to include tests using different test execution framework in a single plan.*
+
+
+The framework defines how test code should be executed and how
+test results should be interpreted (e.g. checking exit code of
+a shell test versus checking beakerlib test results file). It
+also determines possible additional required packages to be
+installed on the test environment.
+
+Currently ``shell`` and ``beakerlib`` are supported. Each
+`execute` step plugin must list which frameworks it supports
+and raise an error when an unsupported framework is detected.
+
+Must be a ``string``, by default ``shell`` is used.
+
+shell
+    Only the exit code determines the test result. Exit code
+    ``0`` is handled as a test ``pass``, exit code ``1`` is
+    considered to be a test ``fail`` and any other exit code
+    is interpreted as an ``error``.
+
+beakerlib
+    Exit code and BeakerLib's ``TestResults`` file determine
+    the test result.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Test written in shell
+   framework: shell
+
+
+
+.. code-block:: yaml
+
+   # A beakerlib test
+   framework: beakerlib
+
+
+Status: implemented and verified
+
+.. _/spec/tests/manual:
+
+manual
+^^^^^^
+
+Test automation state
+
+*As a tester I need to store detailed manual instructions covering test scenario I have to perform manually.*
+
+
+Attribute marks whether this test needs human interaction
+during its execution.  Such tests are not likely to be
+executed in automation pipelines. In the future they can be
+executed in a semi-automated way, waiting on human
+interaction.
+
+It's value must be a ``boolean``. The default value is
+``false``. When set to ``true``, the :ref:`/spec/tests/test`
+attribute must point to a Markdown document following the
+`CommonMark`__ specification.
+
+__ https://spec.commonmark.org/0.29
+
+This is a minimal example of a manual test document containing
+a single test with one test step and one expected result:
+
+.. code-block:: markdown
+
+    # Test
+
+    ## Step
+    Do this and that.
+
+    ## Expect
+    Check this and that.
+
+The following sections are recognized by tmt and have a
+special meaning. Any other features of Markdown can be used,
+but tmt will just show them.
+
+Setup
+    Optional heading ``# Setup`` under which any necessary
+    preparation actions are documented. These actions are not
+    part of the test itself.
+
+Test
+    Required level 1 heading ``# Test`` or ``# Test .*``
+    starting with the word 'Test' marks beginning of the test
+    itself. Multiple Test sections can be defined in a single
+    document.
+
+Step
+    Required level 2 heading ``## Step`` or ``## Test Step``
+    marking a single step of the test, must be in pair with
+    the Expect section which follows it. Cannot be used
+    outside of test sections.
+
+Expect
+    Required level 2 heading ``## Expect``, ``## Result`` or
+    ``## Expected Result`` marking expected outcome of the
+    previous step. Cannot be used outside of test sections.
+
+Cleanup
+    Optional heading ``# Cleanup`` under which any cleanup
+    actions which are not part of the test itself are
+    documented.
+
+Code block
+    Optional, can be used in any section to mark code
+    snippets. Code type specification (bash, python...) is
+    recommended. It can be used for syntax highlighting and in
+    the future for the semi-automated test execution as well.
+
+See the `manual test examples`__ to get a better idea.
+
+__ https://github.com/teemtee/tmt/tree/main/examples/manual/
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   manual: true
+   test: manual.md
+
+
+Status: implemented
+
+.. _/spec/tests/path:
+
+path
+^^^^
+
+Directory to be entered before executing the test
+
+*As a test writer I want to define the directory from which the test script should be executed.*
+
+
+In order to have all files which are needed for testing
+prepared for execution and available on locations expected by
+the test script, automation changes the current working
+directory to the provided ``path`` before running the test.
+
+It must be a ``string`` containing path from the metadata
+:ref:`tree root<tree>` to the desired directory and must
+start with a slash. If path is not defined, the directory
+where the test metadata are stored is used as a default.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   path: /protocols/https
+
+
+Status: implemented and verified
+
+.. _/spec/tests/recommend:
+
+recommend
+^^^^^^^^^
+
+Packages or libraries recommended for the test execution
+
+*As a tester I want to specify additional packages which should be installed on the system if available and no error should be reported if they cannot be installed.*
+
+
+Sometimes there can be additional packages which are not
+strictly needed to run tests but can improve test execution in
+some way, for example provide better results presentation.
+
+Also package names can differ across product versions. Using
+this attribute it is possible to specify all possible package
+names and only those which are available will be installed.
+
+If possible, for the second use case it is recommended to
+specify such packages using the :ref:`/spec/plans/prepare`
+step configuration which is usually branched according to the
+version and thus can better ensure that the right packages are
+correctly installed as expected.
+
+Note that beakerlib libraries are supported by this attribute
+as well. See the :ref:`/spec/tests/require` attribute for more
+details about available reference options.
+
+Must be a ``string`` or a ``list of strings`` using package
+specification supported by ``dnf`` which takes care of the
+installation.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Single package
+   recommend: mariadb
+
+
+
+.. code-block:: yaml
+
+   # Multiple packages
+   recommend: [mariadb, mysql]
+
+
+
+.. code-block:: yaml
+
+   # Multiple packages on separate lines
+   recommend:
+     - mariadb
+     - mysql
+
+
+Status: implemented and verified
+
+.. _/spec/tests/require:
+
+require
+^^^^^^^
+
+Packages, libraries or files required for test execution
+
+*As a tester I want to specify packages, libraries and files which are required by the test and need to be installed on or copied over to the system so that the test can be successfully executed.*
+
+
+In order to execute the test, additional packages may need to
+be installed on the system. For example `gcc` and `make` are
+needed to compile tests written in C on the target machine. If
+the package cannot be installed test execution must result
+in an ``error``.
+
+For tests shared across multiple components or product
+versions where required packages have different names it is
+recommended to use the :ref:`/spec/plans/prepare` step
+configuration to specify required packages for each component
+or product version individually.
+
+When referencing beakerlib libraries it is possible to use
+both the backward-compatible syntax ``library(repo/lib)``
+which fetches libraries from the `default location`__ as well
+as provide a ``dictionary`` with a full `fmf identifier`__.
+For the latter case specify ``type: library``.
+
+When referencing local files or directories use ``type: file``
+and define list of paths relative to the fmf root directory.
+These can be regular expressions to match multiple files or
+directories or just a single file or directory name. By
+default everything under test :ref:`/spec/tests/path` is
+copied over to the system.
+
+For now everything is still copied over to the system,
+this addition is just giving you the ability to change
+your metadata to reflect required files for your tests/libraries,
+before the pruning is actually done.
+
+By default, fetched repositories are stored in the discover
+step workdir under the ``libs`` directory. Use optional key
+``destination`` to choose a different location. The ``nick``
+key can be used to override the default git repository name.
+
+For debugging beakerlib libraries it is useful to reference
+the development version directly from the local filesystem.
+Use the ``path`` key to specify a full path to the library.
+
+Must be a ``string`` or a ``list of strings`` using package
+specification supported by ``dnf`` which takes care of the
+installation or a ``dictionary`` if using fmf identifier to
+fetch dependent repositories.
+
+__ https://github.com/beakerlib/
+__ https://fmf.readthedocs.io/en/latest/concept.html#identifiers
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Require a single package
+   require: make
+
+
+
+.. code-block:: yaml
+
+   # Multiple packages
+   require: [gcc, make]
+
+
+
+.. code-block:: yaml
+
+   # Multiple packages on separate lines
+   require:
+     - gcc
+     - make
+
+
+
+.. code-block:: yaml
+
+   # Library from the default upstream location
+   require: library(openssl/certgen)
+
+
+
+.. code-block:: yaml
+
+   # Library from a custom remote git repository
+   require:
+     - type: library
+       url: https://github.com/beakerlib/openssl
+       name: /certgen
+
+
+
+.. code-block:: yaml
+
+   # Library from the local filesystem
+   require:
+     - type: library
+       path: /tmp/library/openssl
+       name: /certgen
+
+
+
+.. code-block:: yaml
+
+   # Use a custom git ref and nick for the library
+   require:
+     - type: library
+       url: https://github.com/redhat-qe-security/certgen
+       ref: devel
+       nick: openssl
+       name: /certgen
+
+
+
+.. code-block:: yaml
+
+   # Require local files needed for the library or test
+   require:
+     - type: file
+       pattern:
+         - /include
+         - /Library/common/helper.sh
+         - /files/photos/IMG.*
+
+
+
+.. code-block:: yaml
+
+   # Require whole fmf tree
+   require:
+     - type: file
+       pattern: /
+
+
+Status: implemented and verified
+
+.. _/spec/tests/result:
+
+result
+^^^^^^
+
+Specify how test result should be interpreted
+
+*As a tester I want to regularly execute the test but temporarily ignore test result until more investigation is done and the test can be fixed properly.*
+
+
+Even if a test fails it might makes sense to execute it to be
+able to manually review the results (ignore test result) or
+ensure the behaviour has not unexpectedly changed and the test
+is still failing (expected fail). The following values are
+supported:
+
+respect
+    test result is respected (fails when test failed) - default value
+xfail
+    expected fail (pass when test fails, fail when test passes)
+pass, info, warn, error, fail
+    ignore the actual test result and always report provided
+    value instead
+custom
+    test needs to create its own ``results.yaml`` or
+    ``results.json`` file in the ``${TMT_TEST_DATA}``
+    directory. The format of the file, notes and detailed examples
+    are documented at :ref:`/spec/plans/results`.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Plain swapping fail to pass and pass to fail result
+   result: xfail
+
+
+
+.. code-block:: yaml
+
+   # Look for $TMT_TEST_DATA/results.yaml (or results.json) with custom results
+   result: custom
+
+
+Status: implemented and verified
+
+.. _/spec/tests/summary:
+
+summary
+^^^^^^^
+
+Concise summary of what the test does
+
+*As a developer reviewing multiple failed tests I would like to get quickly an idea of what my change broke.*
+
+
+In order to efficiently collaborate on test maintenance it's crucial to have a short summary of what the test does. Must be a one-line ``string``, should be up to 50 characters long.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   summary: Test wget recursive download options
+
+
+Status: implemented
+
+.. _/spec/tests/test:
+
+test
+^^^^
+
+Shell command which executes the test
+
+*As a test writer I want to run a single test script in multiple ways (e.g. by providing different parameters).*
+
+
+This attribute defines how the test is to be executed.
+Allows to parametrize a single test script and in this way
+create virtual test cases.
+
+If the test is :ref:`/spec/tests/manual`, it points to the
+document describing the manual test case steps in Markdown
+format with defined structure.
+
+Must be a ``string``. This is a **required** attribute.
+
+``Bash`` is used as shell and options ``errexit`` and ``pipefail``
+are applied using ``set -eo pipefail`` to avoid potential errors
+going unnoticed. You may revert this setting by explicitly
+using ``set +eo pipefail``. These options are not applied when
+``beakerlib`` is used as the :ref:`/spec/tests/framework`.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   # Run a script
+   test: ./test.sh
+
+
+
+.. code-block:: yaml
+
+   # Run a script with parameter
+   test: ./test.sh --depth 1000
+
+
+
+.. code-block:: yaml
+
+   # Execute selected tests using pytest
+   test: pytest -k performance
+
+
+
+.. code-block:: yaml
+
+   # Run test using a Makefile target
+   test: make run
+
+
+
+.. code-block:: yaml
+
+   # Define a manual test
+   test: manual.md
+   manual: true
+
+
+Status: implemented and verified
+

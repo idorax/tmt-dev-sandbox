@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Line &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Features" href="features.html" />
+    <link rel="prev" title="Documentation" href="docs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stories.html">Stories</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html">Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Command Line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common">common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debug">debug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dry">dry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#force">force</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#format">format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quiet">quiet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verbose">verbose</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#config">config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#levels">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system">system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#init">init</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#base">base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#empty">empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#full">full</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mini">mini</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#plan">plan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create">create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter">filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lint">lint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ls">ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show">show</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#run">run</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-run-debug">debug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default">default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-run-filter">filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interactive">interactive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keep">keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#last">last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#login">login</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restraint">restraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-run-select">select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortcuts">shortcuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smoke">smoke</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#steps">steps</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#discover">discover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#execute">execute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finish">finish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare">prepare</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#provision">provision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#report">report</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#story">story</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coverage">coverage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-story-create">create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#export">export</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-story-filter">filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-story-ls">ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-story-show">show</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stories-cli-test">test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-test-create">create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-test-export">export</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-test-filter">filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import">import</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-test-lint">lint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-test-ls">ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stories-cli-test-show">show</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usability">usability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#abbreviation">abbreviation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#completion">completion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../stories.html">Stories</a></li>
+      <li class="breadcrumb-item active">Command Line</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/stories/cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line">
+<span id="stories-cli"></span><h1>Command Line<a class="headerlink" href="#command-line" title="Permalink to this heading"></a></h1>
+<p><em>As a user I want to have an intuitive command line interface.</em></p>
+<section id="common">
+<span id="stories-cli-common"></span><h2>common<a class="headerlink" href="#common" title="Permalink to this heading"></a></h2>
+<p><em>I want to have common command line options consistenly used across all supported commands and subcommands.</em></p>
+<section id="debug">
+<span id="stories-cli-common-debug"></span><h3>debug<a class="headerlink" href="#debug" title="Permalink to this heading"></a></h3>
+<p>Print additional information for debugging</p>
+<p><em>As a tmt developer I want to see as much details about what’s happening during execution so that I can easily reveal bugs in the code.</em></p>
+<p>Debug level can be used to show detailed implementation steps, revealing what’s happening under the hood, so that tool developers are able to more easily find bugs in the code. Use the option multiple times to increase verbosity.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -d</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -ddd</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --debug</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="dry">
+<span id="stories-cli-common-dry"></span><h3>dry<a class="headerlink" href="#dry" title="Permalink to this heading"></a></h3>
+<p>Run in dry mode, just let me know what would be done</p>
+<p><em>As a user I want to run commands in dry mode so that I can see what would happen if I run the command but no actions are performed or changes saved to disk.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -n</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --dry</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="force">
+<span id="stories-cli-common-force"></span><h3>force<a class="headerlink" href="#force" title="Permalink to this heading"></a></h3>
+<p>Force dangerous operations like overwriting files</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test create -f</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test create --force</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="format">
+<span id="stories-cli-common-format"></span><h3>format<a class="headerlink" href="#format" title="Permalink to this heading"></a></h3>
+<p>Provide machine readable output in given format</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test ls --format json</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan show --format yaml</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story export --format rst</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="quiet">
+<span id="stories-cli-common-quiet"></span><h3>quiet<a class="headerlink" href="#quiet" title="Permalink to this heading"></a></h3>
+<p>Enable quiet mode of the command</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show -q</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show --quiet</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="verbose">
+<span id="stories-cli-common-verbose"></span><h3>verbose<a class="headerlink" href="#verbose" title="Permalink to this heading"></a></h3>
+<p>Enable verbose output of the command</p>
+<p><em>As a user I want to see more detailed information for particular command.</em></p>
+<p>Different verbose levels can be enabled by using the
+option several times. For example, discover step shows
+only number of tests by default, list of tests in verbose
+level one and could show some further test details in
+higher verbose levels.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show -v</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show -vvv</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show --verbose</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+</section>
+<section id="config">
+<span id="stories-cli-config"></span><h2>config<a class="headerlink" href="#config" title="Permalink to this heading"></a></h2>
+<p><em>As a user I want to store configuration so that I don’t have to always provide my preferred default options on the command line.</em></p>
+<p>Configuration should be stored as an <code class="docutils literal notranslate"><span class="pre">fmf</span></code> metadata tree according to <code class="docutils literal notranslate"><span class="pre">L2</span> <span class="pre">Metadata</span></code> specification. Default values from it would be used if value is not specified in the plan.</p>
+<section id="levels">
+<span id="stories-cli-config-levels"></span><h3>levels<a class="headerlink" href="#levels" title="Permalink to this heading"></a></h3>
+<p>Configuration levels</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>There are several levels of test execution data
+configuration.</p>
+<dl class="simple">
+<dt>default</dt><dd><p>global default settings (common for most instances)</p>
+</dd>
+<dt>detect</dt><dd><p>detect from previous steps output (e.g. distro from
+build)</p>
+</dd>
+<dt>define</dt><dd><p>allow to override value by explicit user configuration</p>
+</dd>
+</dl>
+<p>Let’s demonstrate these on a simple example with a
+distribution compose (C) and the amount of memory (M).</p>
+<ul class="simple">
+<li><p>CI system is configured by <code class="docutils literal notranslate"><span class="pre">default</span></code> to use compose
+<code class="docutils literal notranslate"><span class="pre">C1</span></code> installed on machines with <code class="docutils literal notranslate"><span class="pre">M1</span></code> GB of memory.</p></li>
+<li><p>When inspecting an artifact CI can <code class="docutils literal notranslate"><span class="pre">detect</span></code> that for
+this particular build target, compose <code class="docutils literal notranslate"><span class="pre">C2</span></code> is a much
+better choice, and memory is fine as it is.</p></li>
+<li><p>User can still explicitly <code class="docutils literal notranslate"><span class="pre">define</span></code> in the
+configuration that at least <code class="docutils literal notranslate"><span class="pre">M2</span></code> GB of memory is
+needed for successful test execution which overrides
+both default and detected values.</p></li>
+</ul>
+<p>Status: idea</p>
+</section>
+<section id="system">
+<span id="stories-cli-config-system"></span><h3>system<a class="headerlink" href="#system" title="Permalink to this heading"></a></h3>
+<p>System wide configuration</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Global default values common for all users on the system should be stored under the <code class="docutils literal notranslate"><span class="pre">/etc/tmt</span></code> folder. It is overriden by user configuration if present.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="user">
+<span id="stories-cli-config-user"></span><h3>user<a class="headerlink" href="#user" title="Permalink to this heading"></a></h3>
+<p>User configuration</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Configuration for individual users should be stored under the <code class="docutils literal notranslate"><span class="pre">~/.config/tmt</span></code> folder. Overrides global system configuration.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora:33</span>
+<span class="nt">report</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">irc</span>
+<span class="w">    </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="c1">#tmt</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="init">
+<span id="stories-cli-init"></span><h2>init<a class="headerlink" href="#init" title="Permalink to this heading"></a></h2>
+<p>Initialize a new metadata tree</p>
+<p><em>As a user I want to start using tmt in my git repository.</em></p>
+<section id="base">
+<span id="stories-cli-init-base"></span><h3>base<a class="headerlink" href="#base" title="Permalink to this heading"></a></h3>
+<p>Create a tree with some examples</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt init --template base</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="empty">
+<span id="stories-cli-init-empty"></span><h3>empty<a class="headerlink" href="#empty" title="Permalink to this heading"></a></h3>
+<p>Create an empty metadata tree</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt init</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="full">
+<span id="stories-cli-init-full"></span><h3>full<a class="headerlink" href="#full" title="Permalink to this heading"></a></h3>
+<p>Create a tree with full examples</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt init --template full</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="mini">
+<span id="stories-cli-init-mini"></span><h3>mini<a class="headerlink" href="#mini" title="Permalink to this heading"></a></h3>
+<p>Create a tree with simple examples</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt init --template mini</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+</section>
+<section id="plan">
+<span id="stories-cli-plan"></span><h2>plan<a class="headerlink" href="#plan" title="Permalink to this heading"></a></h2>
+<p><em>As a user I want to comfortably work with plans</em></p>
+<section id="create">
+<span id="stories-cli-plan-create"></span><h3>create<a class="headerlink" href="#create" title="Permalink to this heading"></a></h3>
+<p><em>As a developer I want to easily enable CI</em></p>
+<p>Provide a super-easy and user-friendly way how to enable tests in the CI. Several templates should be supported to cover common use cases.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan create /plans/smoke --template=mini</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan create /plans/features --template=full</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="filter">
+<span id="stories-cli-plan-filter"></span><h3>filter<a class="headerlink" href="#filter" title="Permalink to this heading"></a></h3>
+<p><em>Filter available plans</em></p>
+<p>Search plans using a regular expression or a filter. Use <code class="docutils literal notranslate"><span class="pre">.</span></code> to select plans under the current directory.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan ls .</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan ls REGEXP</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan show --filter artifact:build</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="lint">
+<span id="stories-cli-plan-lint"></span><h3>lint<a class="headerlink" href="#lint" title="Permalink to this heading"></a></h3>
+<p><em>Check plan against the L2 metadata specification</em></p>
+<p>Verify that plan metadata are aligned with the specification, e.g. that all required attributes are present and that all attributes have correct type.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan lint</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="ls">
+<span id="stories-cli-plan-ls"></span><h3>ls<a class="headerlink" href="#ls" title="Permalink to this heading"></a></h3>
+<p><em>List available plans</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan ls</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="show">
+<span id="stories-cli-plan-show"></span><h3>show<a class="headerlink" href="#show" title="Permalink to this heading"></a></h3>
+<p><em>Show plan configuration</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt plan show</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+</section>
+<section id="run">
+<span id="stories-cli-run"></span><h2>run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
+<p><em>As a user I want to execute tests easily</em></p>
+<section id="stories-cli-run-debug">
+<span id="id1"></span><h3>debug<a class="headerlink" href="#stories-cli-run-debug" title="Permalink to this heading"></a></h3>
+<p>Handsfree debugging</p>
+<p><em>As a test developer I want to automatically execute tests upon saving the updated test code to disk.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>A very common loop of modifying the source code and
+re-executing the test should be accessible without
+subsequent user interaction with the tool.</p>
+<ul class="simple">
+<li><p>run the tool once, keep it running</p></li>
+<li><p>observe the execution results</p></li>
+<li><p>open an editor in a separate window</p></li>
+<li><p>modify the file, save the changes</p></li>
+<li><p>observe the updated execution results</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Prioritize latency and reuse as much as possible from the
+previous execution. Ideally, start the re-execution from
+the modified line.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run debug</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="default">
+<span id="stories-cli-run-default"></span><h3>default<a class="headerlink" href="#default" title="Permalink to this heading"></a></h3>
+<section id="stories-cli-run-default-plan">
+<span id="id2"></span><h4>plan<a class="headerlink" href="#stories-cli-run-default-plan" title="Permalink to this heading"></a></h4>
+<p>Plan should not be required for test execution</p>
+<p><em>As a tester I want to execute tests in the default environment without having to define a plan.</em></p>
+<p>Even if there are no <a class="reference internal" href="../spec/plans.html#spec-plans"><span class="std std-ref">Plans</span></a> defined it is
+still possible to execute tests and custom scripts. In
+that case the default <a class="reference internal" href="../spec/plans.html#spec-plans"><span class="std std-ref">Plans</span></a> configuration
+is applied and tests are executed using the <code class="docutils literal notranslate"><span class="pre">shell</span></code>
+method.</p>
+<p>In order to discover available tests, the <code class="docutils literal notranslate"><span class="pre">fmf</span></code>
+method is used if metadata tree is detected otherwise
+test discovery defaults to the <code class="docutils literal notranslate"><span class="pre">shell</span></code> method as well.</p>
+<p>Individual steps of the default plan can be adjusted
+as needed in the same way as if it was a real plans.
+For example use <code class="docutils literal notranslate"><span class="pre">execute</span> <span class="pre">-h</span> <span class="pre">beakerlib</span></code> to execute
+tests using the beakerlib method.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/plans/default</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Default plan when fmf metadata found</span>
+<span class="w">    </span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+
+<span class="nt">/plans/default</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Default plan when no fmf metadata around</span>
+<span class="w">    </span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="stories-cli-run-default-run">
+<span id="id3"></span><h4>run<a class="headerlink" href="#stories-cli-run-default-run" title="Permalink to this heading"></a></h4>
+<p>Default should cover the most common use case</p>
+<p><em>As a user I want to easily and safely execute all available tests in the default environment.</em></p>
+<p>Run all relevant tests in a local virtual machine so that the test environment can be safely prepared and adjusted as needed without affecting or possibly breaking user environment such as laptop.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+</section>
+<section id="stories-cli-run-filter">
+<span id="id4"></span><h3>filter<a class="headerlink" href="#stories-cli-run-filter" title="Permalink to this heading"></a></h3>
+<section id="stories-cli-run-filter-plan">
+<span id="id5"></span><h4>plan<a class="headerlink" href="#stories-cli-run-filter-plan" title="Permalink to this heading"></a></h4>
+<p><em>Select plans for execution</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run plan --name=NAME</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run plan --filter=FILTER</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run plan --condition=CONDITION</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="test">
+<span id="stories-cli-run-filter-test"></span><h4>test<a class="headerlink" href="#test" title="Permalink to this heading"></a></h4>
+<p><em>Select tests for execution</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run test --name=NAME</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run test --filter=FILTER</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run test --condition=CONDITION</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run plan --name=NAME2 test --name=NAME1</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+</section>
+<section id="interactive">
+<span id="stories-cli-run-interactive"></span><h3>interactive<a class="headerlink" href="#interactive" title="Permalink to this heading"></a></h3>
+<p><em>Provide way similar to git rebase –interactive</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Provide users with list of steps and let them edit them. Allow adding commands between, or at least interactive “pause”. When user would be finished with single step, just continue recipe. Do not force users to remember all steps when working with them. Make it possible to repeat single step or abort current run. Allow repeating some steps just by repeating lines with task.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --all --interactive</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --continue</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --abort</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="keep">
+<span id="stories-cli-run-keep"></span><h3>keep<a class="headerlink" href="#keep" title="Permalink to this heading"></a></h3>
+<p><em>Store test step status, keep machines running</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --id ID provision prepare</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --id ID discover execute</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --id ID execute</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --id ID execute</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="last">
+<span id="stories-cli-run-last"></span><h3>last<a class="headerlink" href="#last" title="Permalink to this heading"></a></h3>
+<p><em>As a user I want to rerun tests easily</em></p>
+<p>Execute previous run without the need to specify the
+previous run id. The command is a shortcut for:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--id<span class="w"> </span>PREVIOUS_RUN
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">tmt</span></code> saves last run id on each new execution.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -l</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --last</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="login">
+<span id="stories-cli-run-login"></span><h3>login<a class="headerlink" href="#login" title="Permalink to this heading"></a></h3>
+<p>Easily login into a provisioned guest</p>
+<p><em>As a user I want to log into the provisioned guest so that I can adjust the environment before the test is run or investigate what happened after the test is finished.</em></p>
+<section id="experiment">
+<span id="stories-cli-run-login-experiment"></span><h4>experiment<a class="headerlink" href="#experiment" title="Permalink to this heading"></a></h4>
+<p>Provision an environment for experimenting</p>
+<p><em>As a user I want to easily provision a clean and safe environment for experimenting and remove it when done.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision login</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --last finish</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="stories-cli-run-login-last">
+<span id="id6"></span><h4>last<a class="headerlink" href="#stories-cli-run-login-last" title="Permalink to this heading"></a></h4>
+<p>Log in at the end of the last enabled step</p>
+<p><em>As a user I want to log into the provisioned guest to investigate once the test execution has finished.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --until execute login</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="order">
+<span id="stories-cli-run-login-order"></span><h4>order<a class="headerlink" href="#order" title="Permalink to this heading"></a></h4>
+<p>Log in at the selected phase of a step</p>
+<p><em>As a user I want to select the exact phase during the step execution to log into the guest.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run login --step prepare:75</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="select">
+<span id="stories-cli-run-login-select"></span><h4>select<a class="headerlink" href="#select" title="Permalink to this heading"></a></h4>
+<p>Log in at the end of the selected step</p>
+<p><em>As a user I want to finish the guest preparation manually at the end of the prepare step.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run login --step prepare</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run login --step prepare:end</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run login --step prepare:90</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="start">
+<span id="stories-cli-run-login-start"></span><h4>start<a class="headerlink" href="#start" title="Permalink to this heading"></a></h4>
+<p>Log in at the start of the selected step</p>
+<p><em>As a user I want to manually enable extra package repositories before the prepare step is run.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run login --step prepare:start</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run login --step prepare:10</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="status">
+<span id="stories-cli-run-login-status"></span><h4>status<a class="headerlink" href="#status" title="Permalink to this heading"></a></h4>
+<p>Log in when a test finished with given status</p>
+<p><em>As a user I want to quickly investigate what exactly happened on the guest if any test failed.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run login --step execute --when fail</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run login --step execute --when error</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run login --step execute --when fail --when error</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+</section>
+<section id="restraint">
+<span id="stories-cli-run-restraint"></span><h3>restraint<a class="headerlink" href="#restraint" title="Permalink to this heading"></a></h3>
+<p><em>As a tester I want the option to execute tests using the Restraint harness.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Restraint is the default harness in beaker for RHEL8 and beyond. In order to provide compatibility with beaker style tests, I would like a way to invoke <code class="docutils literal notranslate"><span class="pre">tmt</span></code> using the Restaint harness. This would enable Restraint tests to be invoked by <code class="docutils literal notranslate"><span class="pre">tmt</span></code> without modification. Some common commands include <code class="docutils literal notranslate"><span class="pre">rstrnt-reboot</span></code>, <code class="docutils literal notranslate"><span class="pre">rstrnt-abort</span></code>, and <code class="docutils literal notranslate"><span class="pre">rstrnt-report-result</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --all execute --how restraint</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="stories-cli-run-select">
+<span id="id7"></span><h3>select<a class="headerlink" href="#stories-cli-run-select" title="Permalink to this heading"></a></h3>
+<p><em>Select multiple steps to be executed</em></p>
+<section id="all">
+<span id="stories-cli-run-select-all"></span><h4>all<a class="headerlink" href="#all" title="Permalink to this heading"></a></h4>
+<p><em>Run all test steps, customize some</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --all provision --how=container</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="pick">
+<span id="stories-cli-run-select-pick"></span><h4>pick<a class="headerlink" href="#pick" title="Permalink to this heading"></a></h4>
+<p><em>Choose steps to be executed</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision prepare</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run discover provision prepare</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="since">
+<span id="stories-cli-run-select-since"></span><h4>since<a class="headerlink" href="#since" title="Permalink to this heading"></a></h4>
+<p><em>Run given step and all following steps.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --since prepare</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --since execute</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="skip">
+<span id="stories-cli-run-select-skip"></span><h4>skip<a class="headerlink" href="#skip" title="Permalink to this heading"></a></h4>
+<p><em>Skip given step during execution</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --skip prepare</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --skip finish</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="until">
+<span id="stories-cli-run-select-until"></span><h4>until<a class="headerlink" href="#until" title="Permalink to this heading"></a></h4>
+<p><em>Run given step and all preceding steps.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --until prepare</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --until execute</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+</section>
+<section id="shortcuts">
+<span id="stories-cli-run-shortcuts"></span><h3>shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this heading"></a></h3>
+<p><em>Provide shortcuts for common scenarios</em></p>
+<section id="container">
+<span id="stories-cli-run-shortcuts-container"></span><h4>container<a class="headerlink" href="#container" title="Permalink to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --container=fedora:rawhide</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --container=fedora:rawhide --cap-add=SYS_ADMIN</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="mock">
+<span id="stories-cli-run-shortcuts-mock"></span><h4>mock<a class="headerlink" href="#mock" title="Permalink to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt --mock fedora-31-x86_64</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt --mock fedora-31-x86_64 --no-clean --enable-network</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt --mock fedora-31-x86_64 --enablerepo=updates-testing</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="smoke">
+<span id="stories-cli-run-smoke"></span><h3>smoke<a class="headerlink" href="#smoke" title="Permalink to this heading"></a></h3>
+<p><em>As a developer I want to do a quick smoke test of my freshly built rpm package.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --all \</span>
+<span class="l l-Scalar l-Scalar-Plain">prepare -h install -p tmt-0.4-1.fc29.noarch.rpm \</span>
+<span class="l l-Scalar l-Scalar-Plain">execute -h tmt --script &#39;tmt --help&#39;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="steps">
+<span id="stories-cli-steps"></span><h2>steps<a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<section id="discover">
+<span id="stories-cli-steps-discover"></span><h3>discover<a class="headerlink" href="#discover" title="Permalink to this heading"></a></h3>
+<p><em>Select or adjust the discover step</em></p>
+<p>Defines which tests should be executed.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run discover</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run discover --how=fmf</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run discover --how=fmf --url=url</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run discover --how=shell</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="execute">
+<span id="stories-cli-steps-execute"></span><h3>execute<a class="headerlink" href="#execute" title="Permalink to this heading"></a></h3>
+<p><em>Select or adjust the execute step</em></p>
+<p>Specification of the executor which should run tests.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run execute</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run execute --how=tmt</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run execute --how=restraint</span>
+</pre></div>
+</div>
+<section id="exit-first">
+<span id="stories-cli-steps-execute-exit-first"></span><h4>exit-first<a class="headerlink" href="#exit-first" title="Permalink to this heading"></a></h4>
+<p>Stop execution after a test fails</p>
+<p><em>As a user I want to avoid waiting for all discovered tests to finish if one of them fails.</em></p>
+<p>To interrupt test execution after a test fails use the <code class="docutils literal notranslate"><span class="pre">--exit-first</span></code> (or <code class="docutils literal notranslate"><span class="pre">-x</span></code>) option. This option is accepted by both the execute step and the plugins implementing the execute step.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -a execute --exit-first</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -a execute -h tmt -x</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="stories-cli-steps-execute-interactive">
+<span id="id8"></span><h4>interactive<a class="headerlink" href="#stories-cli-steps-execute-interactive" title="Permalink to this heading"></a></h4>
+<p>Interactive test debugging</p>
+<p><em>As a user I want to interactively debug tests in the middle of their execution.</em></p>
+<p>To debug a test use the <code class="docutils literal notranslate"><span class="pre">--interactive</span></code> option which disables output capturing and allows to interact directly with the test from the terminal. For example, for tests written in shell you can insert a <code class="docutils literal notranslate"><span class="pre">bash</span></code> command in the middle of the script and investigate. Supported by the <a class="reference internal" href="../spec/plans.html#spec-plans-execute-tmt"><span class="std std-ref">tmt</span></a> executor only.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --all execute --how tmt --interactive</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="progress">
+<span id="stories-cli-steps-execute-progress"></span><h4>progress<a class="headerlink" href="#progress" title="Permalink to this heading"></a></h4>
+<p>Watch test execution progress</p>
+<p><em>As a user I want to watch live test execution including the complete test output.</em></p>
+<p>In order to see progress of the testing use the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> or <code class="docutils literal notranslate"><span class="pre">-v</span></code> switch. Applying the option multiple times increases verbosity. This is supported by the <a class="reference internal" href="../spec/plans.html#spec-plans-execute-tmt"><span class="std std-ref">tmt</span></a> executor only.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -v</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -vv</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -vvv</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run --all execute -vvv</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="finish">
+<span id="stories-cli-steps-finish"></span><h3>finish<a class="headerlink" href="#finish" title="Permalink to this heading"></a></h3>
+<p><em>Select or adjust the finish step</em></p>
+<p>Additional actions to be performed after the test execution has been completed. Counterpart of the prepare step useful for various cleanup actions.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run finish</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="prepare">
+<span id="stories-cli-steps-prepare"></span><h3>prepare<a class="headerlink" href="#prepare" title="Permalink to this heading"></a></h3>
+<p><em>Select or adjust the prepare step</em></p>
+<p>Additional configuration of the provisioned environment needed for testing.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run prepare</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run prepare --how=install</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run prepare --how=install --package=fresh.rpm</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run prepare --how=ansible</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run prepare --how=ansible --playbook=server.yaml</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="provision">
+<span id="stories-cli-steps-provision"></span><h3>provision<a class="headerlink" href="#provision" title="Permalink to this heading"></a></h3>
+<p><em>Select or adjust the provision step</em></p>
+<p>Describes what environment is needed for testing and how it should provisioned.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=virtual</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=testing-farm --memory=2048MB</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=container</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=container --image=fedora:rawhide</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=local</span>
+</pre></div>
+</div>
+<section id="connect">
+<span id="stories-cli-steps-provision-connect"></span><h4>connect<a class="headerlink" href="#connect" title="Permalink to this heading"></a></h4>
+<p><em>Connect to a provisioned box</em></p>
+<p>Do not provision a new system. Instead, use provided authentication data to connect to a running machine.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=connect --guest=name-or-ip --user=login --password=secret</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=connect --guest=name-or-ip --key=private-key-path</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="stories-cli-steps-provision-container">
+<span id="id9"></span><h4>container<a class="headerlink" href="#stories-cli-steps-provision-container" title="Permalink to this heading"></a></h4>
+<p><em>Provision a container</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=container --image=fedora:latest</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="stories-cli-steps-provision-default">
+<span id="id10"></span><h4>default<a class="headerlink" href="#stories-cli-steps-provision-default" title="Permalink to this heading"></a></h4>
+<p><em>Use default config or provision a virtual machine</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="local">
+<span id="stories-cli-steps-provision-local"></span><h4>local<a class="headerlink" href="#local" title="Permalink to this heading"></a></h4>
+<p><em>Use localhost for testing</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=local</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="virtual">
+<span id="stories-cli-steps-provision-virtual"></span><h4>virtual<a class="headerlink" href="#virtual" title="Permalink to this heading"></a></h4>
+<p><em>Provision a virtual machine</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run provision --how=virtual --image=fedora/31-cloud-base</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+</section>
+<section id="report">
+<span id="stories-cli-steps-report"></span><h3>report<a class="headerlink" href="#report" title="Permalink to this heading"></a></h3>
+<p><em>Select or adjust the report step</em></p>
+<p>Adjusting notifications about the test progress and results.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run report</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run report --how=html</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run report --how=html --open</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="story">
+<span id="stories-cli-story"></span><h2>story<a class="headerlink" href="#story" title="Permalink to this heading"></a></h2>
+<p><em>As a developer I want to comfortably work with stories</em></p>
+<section id="coverage">
+<span id="stories-cli-story-coverage"></span><h3>coverage<a class="headerlink" href="#coverage" title="Permalink to this heading"></a></h3>
+<p>Show story coverage</p>
+<p><em>As a developer I want to easily view which stories have been implemented, are covered by tests and documented and which still need work to be done.</em></p>
+<section id="code">
+<span id="stories-cli-story-coverage-code"></span><h4>code<a class="headerlink" href="#code" title="Permalink to this heading"></a></h4>
+<p>View code implementation status</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage -c</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage --code</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="docs">
+<span id="stories-cli-story-coverage-docs"></span><h4>docs<a class="headerlink" href="#docs" title="Permalink to this heading"></a></h4>
+<p>View documentation status</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage -d</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage --docs</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="overview">
+<span id="stories-cli-story-coverage-overview"></span><h4>overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h4>
+<p>General coverage overview</p>
+<p>Complete overview of the story coverage including implementation, testing and documentation status.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="stories-cli-story-coverage-test">
+<span id="id11"></span><h4>test<a class="headerlink" href="#stories-cli-story-coverage-test" title="Permalink to this heading"></a></h4>
+<p>View test coverage status</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage -t</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story coverage --test</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+</section>
+<section id="stories-cli-story-create">
+<span id="id12"></span><h3>create<a class="headerlink" href="#stories-cli-story-create" title="Permalink to this heading"></a></h3>
+<p><em>As a developer I want to easily create new story.</em></p>
+<p>Provide an easy way how to create a new story. Several templates should be provided to choose from.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story create /stories/area/story</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story create /stories/area/story --template mini</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story create /stories/area/story --template mini --force</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="export">
+<span id="stories-cli-story-export"></span><h3>export<a class="headerlink" href="#export" title="Permalink to this heading"></a></h3>
+<p><em>I need to convert stories into a beautiful format</em></p>
+<section id="html">
+<span id="stories-cli-story-export-html"></span><h4>html<a class="headerlink" href="#html" title="Permalink to this heading"></a></h4>
+<p><em>Export stories into html</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>So that they can be quickly reviewed in a web browser. Optionally a simple python httpd server could be started to serve the page or pages.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story export --html --server</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="rst">
+<span id="stories-cli-story-export-rst"></span><h4>rst<a class="headerlink" href="#rst" title="Permalink to this heading"></a></h4>
+<p><em>Export stories into reStructuredText</em></p>
+<p>So that they can be included in tmt documentation.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story export --rst</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="stories-cli-story-filter">
+<span id="id13"></span><h3>filter<a class="headerlink" href="#stories-cli-story-filter" title="Permalink to this heading"></a></h3>
+<p><em>Search available stories</em></p>
+<p>Search stories using a regular expression, a filter or coverage status. Use <code class="docutils literal notranslate"><span class="pre">.</span></code> to select stories under the current directory.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls .</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls REGEXP</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --implemented</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --unimplemented</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --verified</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --unverified</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --documented</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --undocumented</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="stories-cli-story-ls">
+<span id="id14"></span><h3>ls<a class="headerlink" href="#stories-cli-story-ls" title="Permalink to this heading"></a></h3>
+<p><em>List available stories</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="stories-cli-story-show">
+<span id="id15"></span><h3>show<a class="headerlink" href="#stories-cli-story-show" title="Permalink to this heading"></a></h3>
+<p><em>Show story details</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story show</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+</section>
+<section id="stories-cli-test">
+<span id="id16"></span><h2>test<a class="headerlink" href="#stories-cli-test" title="Permalink to this heading"></a></h2>
+<p><em>As a user I want to comfortably work with tests</em></p>
+<section id="stories-cli-test-create">
+<span id="id17"></span><h3>create<a class="headerlink" href="#stories-cli-test-create" title="Permalink to this heading"></a></h3>
+<p><em>Create a new test skeleton</em></p>
+<p>Provide an easy way how to create a new test. Ideally with support for multiple test skeletons. Similarly as beaker-wizard (which should be obsoleted by this) the tool should prompt for required values if not provided on the command line.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test create</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test create /tests/area/feature</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test create /tests/area/feature --skeleton beakerlib</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test create /tests/area/feature --duration=1h</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="stories-cli-test-export">
+<span id="id18"></span><h3>export<a class="headerlink" href="#stories-cli-test-export" title="Permalink to this heading"></a></h3>
+<p><em>As a tester I want to export test metadata.</em></p>
+<section id="stories-cli-test-export-format">
+<span id="id19"></span><h4>format<a class="headerlink" href="#stories-cli-test-export-format" title="Permalink to this heading"></a></h4>
+<p><em>I want to export test metadata into given format.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test export --format yaml</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="nitrate">
+<span id="stories-cli-test-export-nitrate"></span><h4>nitrate<a class="headerlink" href="#nitrate" title="Permalink to this heading"></a></h4>
+<p><em>I want to export test metadata into nitrate.</em></p>
+<p>In order to keep metadata in sync with the old test
+case management system we need to export selected set
+of attributes back to nitrate. The full fmf object
+identifier should be added to the structured field
+under the key <code class="docutils literal notranslate"><span class="pre">fmf</span></code>. A warning should be added to
+the structured field informing users that the test
+metadata are now maintained in git.</p>
+<p>Below is the list of supported <code class="docutils literal notranslate"><span class="pre">fmf</span></code> attributes and
+corresponding nitrate fields:</p>
+<ul class="simple">
+<li><p>component — components tab</p></li>
+<li><p>contact — default tester</p></li>
+<li><p>description — purpose-file in the structured field</p></li>
+<li><p>duration — estimated time</p></li>
+<li><p>enabled — status</p></li>
+<li><p>environment — arguments</p></li>
+<li><p>path — not synced</p></li>
+<li><p>result — not synced</p></li>
+<li><p>summary — description in the structured field</p></li>
+<li><p>tag — tags tab</p></li>
+<li><p>test — not synced</p></li>
+<li><p>tier — tags (e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code> synced to the <code class="docutils literal notranslate"><span class="pre">Tier1</span></code> tag)</p></li>
+</ul>
+<p>The following attributes, if present, should be
+exported as well:</p>
+<ul class="simple">
+<li><p>extra-summary — test case summary</p></li>
+<li><p>extra-hardware — hardware in the structured field</p></li>
+<li><p>extra-pepa — pepa in the structured field</p></li>
+</ul>
+<p>They have the <code class="docutils literal notranslate"><span class="pre">extra</span></code> prefix as they are not part of
+the L1 Metadata Specification and are supposed to be
+synced temporarily to keep backward compatibility.</p>
+<p>After a successful export, special tag <code class="docutils literal notranslate"><span class="pre">fmf-export</span></code>
+should be added to the nitrate test case in order to
+allow easy search for migrated test cases directly
+from the web interface.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test export --nitrate</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+</section>
+<section id="stories-cli-test-filter">
+<span id="id20"></span><h3>filter<a class="headerlink" href="#stories-cli-test-filter" title="Permalink to this heading"></a></h3>
+<p><em>Filter available tests</em></p>
+<p>Search tests using a regular expression or a filter. Use <code class="docutils literal notranslate"><span class="pre">.</span></code> to select tests under the current directory.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test ls .</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test ls REGEXP</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show --filter tier:1</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show --condition &#39;int(tier) &lt; 2&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show --condition &#39;&quot;gcc&quot; in require&#39;</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="import">
+<span id="stories-cli-test-import"></span><h3>import<a class="headerlink" href="#import" title="Permalink to this heading"></a></h3>
+<p><em>As a tester I want to import test metadata.</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test import</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="stories-cli-test-lint">
+<span id="id21"></span><h3>lint<a class="headerlink" href="#stories-cli-test-lint" title="Permalink to this heading"></a></h3>
+<p><em>Check test against the L1 metadata specification</em></p>
+<p>Verify that test metadata are aligned with the specification, e.g. that all required attributes are present and that all attributes have correct type.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test lint</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+<section id="stories-cli-test-ls">
+<span id="id22"></span><h3>ls<a class="headerlink" href="#stories-cli-test-ls" title="Permalink to this heading"></a></h3>
+<p><em>List available tests</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test ls</span>
+</pre></div>
+</div>
+<p>Status: implemented, verified and documented</p>
+</section>
+<section id="stories-cli-test-show">
+<span id="id23"></span><h3>show<a class="headerlink" href="#stories-cli-test-show" title="Permalink to this heading"></a></h3>
+<p><em>Show test metadata</em></p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt test show</span>
+</pre></div>
+</div>
+<p>Status: implemented and documented</p>
+</section>
+</section>
+<section id="usability">
+<span id="stories-cli-usability"></span><h2>usability<a class="headerlink" href="#usability" title="Permalink to this heading"></a></h2>
+<p><em>As a user I want to type as little as possible.</em></p>
+<section id="abbreviation">
+<span id="stories-cli-usability-abbreviation"></span><h3>abbreviation<a class="headerlink" href="#abbreviation" title="Permalink to this heading"></a></h3>
+<section id="commands">
+<span id="stories-cli-usability-abbreviation-commands"></span><h4>commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h4>
+<p>Allow command abbreviation</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story show</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt st sh</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt s s</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="options">
+<span id="stories-cli-usability-abbreviation-options"></span><h4>options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h4>
+<p>Allow option abbreviation</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --implemented</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --impl</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --i</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="completion">
+<span id="stories-cli-usability-completion"></span><h3>completion<a class="headerlink" href="#completion" title="Permalink to this heading"></a></h3>
+<p>Support bash completion</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt st&lt;tabl&gt; sh&lt;tab&gt;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="docs.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

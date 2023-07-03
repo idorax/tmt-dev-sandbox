@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plans &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stories" href="stories.html" />
+    <link rel="prev" title="Tests" href="tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spec.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plans</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#context">context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#discover">discover</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fmf">fmf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell">shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#where">where</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-file">environment-file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment">environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execute">execute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exit-first">exit-first</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isolate">isolate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#script">script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmt">tmt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upgrade">upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#finish">finish</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ansible">ansible</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spec-plans-finish-shell">shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gate">gate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare">prepare</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spec-plans-prepare-ansible">ansible</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spec-plans-prepare-shell">shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spec-plans-prepare-where">where</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#provision">provision</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#beaker">beaker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect">connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#container">container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#local">local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multihost">multihost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openstack">openstack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#virtual">virtual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#artemis">artemis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kickstart">kickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#report">report</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#display">display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file">file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#html">html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#junit">junit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polarion">polarion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reportportal">reportportal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-plans">Import Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results-format">Results Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guest-topology-format">Guest Topology Format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lint.html">Lint Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../spec.html">Metadata Specification</a></li>
+      <li class="breadcrumb-item active">Plans</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/spec/plans.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plans">
+<span id="spec-plans"></span><h1>Plans<a class="headerlink" href="#plans" title="Permalink to this heading"></a></h1>
+<p><em>As a tester I want to easily execute selected tests or selected test steps in given environment.</em></p>
+<p><strong>Plans</strong>, also called L2 metadata, are used to group relevant
+tests and enable the CI. They describe how to <cite>discover</cite> tests
+for execution, how to <cite>provision</cite> the environment, how to
+<cite>prepare</cite> it for testing, how to <cite>execute</cite> tests, <cite>report</cite>
+results and finally how to <cite>finish</cite> the test job.</p>
+<p>Each of the six steps mentioned above supports multiple
+implementations.  The default methods are listed below.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#spec-plans-discover"><span class="std std-ref">discover</span></a>: shell</p></li>
+<li><p><a class="reference internal" href="#spec-plans-provision"><span class="std std-ref">provision</span></a>: virtual</p></li>
+<li><p><a class="reference internal" href="#spec-plans-prepare"><span class="std std-ref">prepare</span></a>: shell</p></li>
+<li><p><a class="reference internal" href="#spec-plans-execute"><span class="std std-ref">execute</span></a>: tmt</p></li>
+<li><p><a class="reference internal" href="#spec-plans-report"><span class="std std-ref">report</span></a>: display</p></li>
+<li><p><a class="reference internal" href="#spec-plans-finish"><span class="std std-ref">finish</span></a>: shell</p></li>
+</ul>
+</div></blockquote>
+<p>Thanks to clearly separated test steps it is possible to run
+only selected steps, for example <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">run</span> <span class="pre">discover</span></code> to see
+which tests would be executed.</p>
+<p>In addition to the attributes defined here, plans also support
+common <a class="reference internal" href="core.html#spec-core"><span class="std std-ref">Core</span></a> attributes which are shared across
+all metadata levels.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enabled a minimal smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+
+<span class="c1"># Run tier one tests in a container</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="c1"># Verify that apache can serve pages</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic httpd smoke test</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">httpd</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">curl</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<section id="context">
+<span id="spec-plans-context"></span><h2>context<a class="headerlink" href="#context" title="Permalink to this heading"></a></h2>
+<p>Definition of the test execution context</p>
+<p><em>As a user I want to define the default context in which tests included in given plan should be executed.</em></p>
+<p>Define the default context values for all tests executed under
+the given plan. Can be overriden by context provided directly
+on the command line. See the <a class="reference internal" href="context.html#spec-context"><span class="std std-ref">Context</span></a> definition
+for the full list of supported context dimensions. Must be a
+<code class="docutils literal notranslate"><span class="pre">dictionary</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Test basic functionality of the httpd24 collection</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd24</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Verify dash against the shared shell tests repository</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://src.fedoraproject.org/tests/shell</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dash</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="discover">
+<span id="spec-plans-discover"></span><h2>discover<a class="headerlink" href="#discover" title="Permalink to this heading"></a></h2>
+<p>Discover tests relevant for execution</p>
+<p>Gather information about tests which are supposed to be run.
+Provide method <code class="docutils literal notranslate"><span class="pre">tests()</span></code> returning a list of discovered
+tests and <code class="docutils literal notranslate"><span class="pre">requires()</span></code> returning a list of all required
+packages aggregated from the <a class="reference external" href="https://tmt.readthedocs.io/en/latest/spec/tests.html#require">require</a> attribute of the
+individual test metadata.</p>
+<p>Store the list of aggregated tests with their corresponding
+metadata in the <code class="docutils literal notranslate"><span class="pre">tests.yaml</span></code> file. The format must be a
+list of dictionaries structured in the following way:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/one</span>
+<span class="w">  </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Short test summary.</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Long test description.</span>
+<span class="w">  </span><span class="nt">contact</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Petr Šplíchal &lt;psplicha@redhat.com&gt;</span>
+<span class="w">  </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">tmt</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt --help</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/path/</span>
+<span class="w">  </span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">package1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">package2</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span>
+<span class="w">      </span><span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span>
+<span class="w">      </span><span class="nt">key3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value3</span>
+<span class="w">  </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">respect</span>
+<span class="w">  </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">tag</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">serialnumber</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/two</span>
+<span class="w">  </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Short test summary.</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Long test description.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enabled a minimal smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+
+<span class="c1"># Run tier one tests in a container</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="c1"># Verify that apache can serve pages</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic httpd smoke test</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">httpd</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">curl</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<section id="fmf">
+<span id="spec-plans-discover-fmf"></span><h3>fmf<a class="headerlink" href="#fmf" title="Permalink to this heading"></a></h3>
+<p>Discover available tests using the fmf format</p>
+<p>Use the <a class="reference external" href="https://fmf.readthedocs.io/">Flexible Metadata Format</a> to explore all
+available tests in given repository. The following
+parameters are supported:</p>
+<dl>
+<dt>url</dt><dd><p>Git repository containing the metadata tree.
+Current git repository used by default.</p>
+</dd>
+<dt>ref</dt><dd><p>Branch, tag or commit specifying the desired git
+revision. Defaults to the remote repository’s default
+branch if url given or to the current <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> if url
+not provided.</p>
+<p>Additionally, one can set <code class="docutils literal notranslate"><span class="pre">ref</span></code> dynamically. This is
+possible using a special file in tmt format stored in
+the <em>default</em> branch of a tests repository. This special
+file should contain rules assigning attribute <code class="docutils literal notranslate"><span class="pre">ref</span></code>
+in an <cite>adjust</cite> block, for example depending on a test
+run context.</p>
+<p>Dynamic <code class="docutils literal notranslate"><span class="pre">ref</span></code> assignment is enabled whenever a test
+plan reference has the format <code class="docutils literal notranslate"><span class="pre">ref:</span> <span class="pre">&#64;FILEPATH</span></code>.</p>
+</dd>
+<dt>path</dt><dd><p>Path to the metadata tree root. Must be relative to
+the git repository root if url provided, absolute
+local filesystem path otherwise. By default <code class="docutils literal notranslate"><span class="pre">.</span></code> is
+used.</p>
+</dd>
+</dl>
+<p>See also the <a class="reference external" href="https://fmf.readthedocs.io/en/latest/concept.html#identifiers">fmf identifier</a> documentation for details.
+Use the following keys to limit the test discovery by test
+name, an advanced filter or link:</p>
+<dl class="simple">
+<dt>test</dt><dd><p>List of test names or regular expressions used to
+select tests by name. Duplicate test names are allowed
+to enable repetitive test execution, preserving the
+listed test order.</p>
+</dd>
+<dt>link</dt><dd><p>Select tests using the <a class="reference internal" href="core.html#spec-core-link"><span class="std std-ref">link</span></a> keys.
+Values must be in the form of <code class="docutils literal notranslate"><span class="pre">RELATION:TARGET</span></code>,
+tests containing at least one of them are selected.
+Regular expressions are supported for both relation
+and target. Relation part can be omitted to match all
+relations.</p>
+</dd>
+<dt>filter</dt><dd><p>Apply advanced filter based on test metadata
+attributes. See <code class="docutils literal notranslate"><span class="pre">pydoc</span> <span class="pre">fmf.filter</span></code> for more info.</p>
+</dd>
+<dt>exclude</dt><dd><p>Exclude tests which match a regular expression.</p>
+</dd>
+</dl>
+<p>It is also possible to limit tests only to those that have
+changed in git since a given revision. This can be
+particularly useful when testing changes to tests
+themselves (e.g. in a pull request CI). Related config
+options (all optional) are:</p>
+<dl class="simple">
+<dt>modified-only</dt><dd><p>Set to True if you want to filter modified tests only.
+The test is modified if its name starts with the name
+of any directory modified since modified-ref.</p>
+</dd>
+<dt>modified-url</dt><dd><p>An additional remote repository to be used as the
+reference for comparison. Will be fetched as a
+<code class="docutils literal notranslate"><span class="pre">reference</span></code> remote in the test dir.</p>
+</dd>
+<dt>modified-ref</dt><dd><p>The ref to compare against. Defaults to the local
+repository’s default branch. Note that you need to
+specify <code class="docutils literal notranslate"><span class="pre">reference/&lt;branch&gt;</span></code> to compare to a branch
+from the repository specified in <code class="docutils literal notranslate"><span class="pre">modified-url</span></code>.</p>
+</dd>
+</dl>
+<p>There is a support for discovering tests from extracted
+(rpm) sources. Needs to run on top of the supported
+DistGit (Fedora, CentOS), <code class="docutils literal notranslate"><span class="pre">url</span></code> can be used to point to
+such repository, <code class="docutils literal notranslate"><span class="pre">path</span></code> denotes path to the metadata
+tree root within extracted sources. At this moment no
+patches are applied, only tarball extraction happens.</p>
+<dl class="simple">
+<dt>dist-git-source</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to enable extracting sources.</p>
+</dd>
+<dt>dist-git-type</dt><dd><p>The DistGit auto detection is based on git remotes.
+Use this option to specify it directly. At least
+<code class="docutils literal notranslate"><span class="pre">Fedora</span></code> and <code class="docutils literal notranslate"><span class="pre">CentOS</span></code> are supported as values,
+help will print all possible values.</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Discover all fmf tests in the current repository</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch tests from a remote repo, filter by name/tier</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/metadata/tree/path</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">regexp</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose tests verifying given issue</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verifies:issues/123$</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select only tests which have been modified</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">modified-only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">modified-url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt-official</span>
+<span class="w">    </span><span class="nt">modified-ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reference/main</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract tests from the distgit sources</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">dist-git-source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="shell">
+<span id="spec-plans-discover-shell"></span><h3>shell<a class="headerlink" href="#shell" title="Permalink to this heading"></a></h3>
+<p>Provide a manual list of shell test cases</p>
+<p>List of test cases to be executed can be defined manually
+directly in the plan as a list of dictionaries containing
+test <code class="docutils literal notranslate"><span class="pre">name</span></code> and actual <code class="docutils literal notranslate"><span class="pre">test</span></code> script. Optionally it is
+possible to define any other <a class="reference internal" href="tests.html#spec-tests"><span class="std std-ref">Tests</span></a> attributes
+such as <code class="docutils literal notranslate"><span class="pre">path</span></code> or <code class="docutils literal notranslate"><span class="pre">duration</span></code> here as well. The default
+<a class="reference internal" href="tests.html#spec-tests-duration"><span class="std std-ref">duration</span></a> for tests defined directly in
+the discover step is <code class="docutils literal notranslate"><span class="pre">1h</span></code>.</p>
+<p>It is possible to fetch code from a remote git repository
+using <code class="docutils literal notranslate"><span class="pre">url</span></code>. In that case repository is cloned and all
+paths are relative to the remote git root. Using remote
+repo and local test code at the same time is not possible
+within the same discover config, use
+<a class="reference internal" href="../examples.html#multiple-configs"><span class="std std-ref">Multiple Configs</span></a> instead.</p>
+<dl class="simple">
+<dt>url</dt><dd><p>Git repository, used directly as a git clone argument.</p>
+</dd>
+<dt>ref</dt><dd><p>Branch, tag or commit specifying the desired git
+revision. Defaults to the remote repository’s default
+branch.</p>
+</dd>
+<dt>keep-git-metadata</dt><dd><p>By default the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory is removed to save
+disk space. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to sync the git metadata
+to guest as well.</p>
+</dd>
+</dl>
+<p>There is a support for discovering tests from extracted
+(rpm) sources. Needs to run on top of the supported
+DistGit (Fedora, CentOS), <code class="docutils literal notranslate"><span class="pre">url</span></code> can be used to point to
+such repository, <code class="docutils literal notranslate"><span class="pre">path</span></code> denotes path to the metadata
+tree root within extracted sources. At this moment no
+patches are applied, only tarball extraction happens.</p>
+<dl class="simple">
+<dt>dist-git-source</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to enable extracting sources.</p>
+</dd>
+<dt>dist-git-type</dt><dd><p>The DistGit auto detection is based on git remotes.
+Use this option to specify it directly. At least
+<code class="docutils literal notranslate"><span class="pre">Fedora</span></code> and <code class="docutils literal notranslate"><span class="pre">CentOS</span></code> are supported as values,
+help will print all possible values.</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define several local tests</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/help/main</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt --help</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/help/test</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt test --help</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/help/smoke</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./smoke.sh</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/shell</span>
+<span class="w">        </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch tests from a remote repository</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use tests/full/test.sh from the remote repo</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/full</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./test.sh</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="where">
+<span id="spec-plans-discover-where"></span><h3>where<a class="headerlink" href="#where" title="Permalink to this heading"></a></h3>
+<p>Execute tests on selected guests</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>In the <a class="reference internal" href="#spec-plans-provision-multihost"><span class="std std-ref">multihost</span></a> scenarios it
+is often necessary to execute test code on selected guests
+only or execute different test code on individual guests.
+The <code class="docutils literal notranslate"><span class="pre">where</span></code> key allows to select guests where the tests
+should be executed by providing their <code class="docutils literal notranslate"><span class="pre">name</span></code> or the
+<code class="docutils literal notranslate"><span class="pre">role</span></code> they play in the scenario. Use a list to specify
+multiple names or roles. By default, when the <code class="docutils literal notranslate"><span class="pre">where</span></code> key
+is not defined, tests are executed on all provisioned
+guests.</p>
+<p>There is also an alternative to the syntax using a <code class="docutils literal notranslate"><span class="pre">where</span></code>
+dictionary encapsulating the <code class="docutils literal notranslate"><span class="pre">discover</span></code> config under keys
+corresponding to guest names or roles. This can result in
+much more concise config especially when defining several
+shell scripts for each guest or role.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run different script for each guest or role</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run-the-client-code</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client.py</span>
+<span class="w">        </span><span class="nt">where</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run-the-server-code</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server.py</span>
+<span class="w">        </span><span class="nt">where</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter different set of tests for each guest or role</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag:client-tests</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag:server-tests</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternative syntax using the &#39;where&#39; dictionary</span>
+<span class="c1"># encapsulating for tests defined by fmf</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">client</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">            </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag:client-tests</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">            </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag:server-tests</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternative syntax using the &#39;where&#39; dictionary</span>
+<span class="c1"># encapsulating for shell script tests</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">            </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">first server script</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">second server script</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">third server script</span>
+<span class="w">        </span><span class="nt">client</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">            </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">first client script</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">second client script</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">third client script</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="environment-file">
+<span id="spec-plans-environment-file"></span><h2>environment-file<a class="headerlink" href="#environment-file" title="Permalink to this heading"></a></h2>
+<p>Environment variables from files</p>
+<p>In addition to the <a class="reference internal" href="#spec-plans-environment"><span class="std std-ref">environment</span></a> key it is also possible to provide environment variables in a file. Supported formats are dotenv/shell with <code class="docutils literal notranslate"><span class="pre">KEY=VALUE</span></code> pairs and <code class="docutils literal notranslate"><span class="pre">yaml</span></code>. Full <cite>url</cite> can be used to fetch variables from a remote source. The <code class="docutils literal notranslate"><span class="pre">environment</span></code> key has a higher priority. File path must be relative to the metadata tree root.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load from a dotenv/shell format</span>
+<span class="nt">/plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">environment-file</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">env</span>
+
+<span class="c1"># Load from a yaml format</span>
+<span class="nt">/plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">environment-file</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">environment.yml</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">environment.yaml</span>
+
+<span class="c1"># Fetch from remote source</span>
+<span class="nt">/plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">environment-file</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/project/environment.yaml</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="environment">
+<span id="spec-plans-environment"></span><h2>environment<a class="headerlink" href="#environment" title="Permalink to this heading"></a></h2>
+<p>Environment variables</p>
+<p>Specifies environment variables available in all steps. Plugins need to include these environment variables while running commands or other programs. These environment variables override test <a class="reference internal" href="tests.html#spec-tests-environment"><span class="std std-ref">environment</span></a> if present. Command line option <code class="docutils literal notranslate"><span class="pre">--environment</span></code> can be used to override environment variables defined in both tests and plan. Use the <a class="reference internal" href="#spec-plans-environment-file"><span class="std std-ref">environment-file</span></a> key to load variables from files. The <code class="docutils literal notranslate"><span class="pre">environment+</span></code> notation can be used to extend environment defined in the parent plan, see also the <a class="reference internal" href="../guide.html#inherit-plans"><span class="std std-ref">Inherit Plans</span></a> section for more examples.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Environment variables defined in a plan</span>
+<span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">KOJI_TASK_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42890031</span>
+<span class="w">    </span><span class="nt">RELEASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">f33</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Testing $KOJI_TASK_ID on release $RELEASE&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Share common variables across plans using inheritance</span>
+<span class="nt">/plans</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">COMMON</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This is a common variable content</span>
+
+<span class="w">    </span><span class="nt">/mini</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">environment+</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">VARIANT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mini</span>
+<span class="w">    </span><span class="nt">/full</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">environment+</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">VARIANT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables from the command line</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --environment X=1 --environment Y=2</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --environment &quot;X=1 Y=2&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure to quote properly values which include spaces</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --environment &quot;BUGS=&#39;123 456 789&#39;&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="execute">
+<span id="spec-plans-execute"></span><h2>execute<a class="headerlink" href="#execute" title="Permalink to this heading"></a></h2>
+<p>Define how tests should be executed</p>
+<p>Execute discovered tests in the provisioned environment using
+selected test executor. By default tests are executed using
+the internal <code class="docutils literal notranslate"><span class="pre">tmt</span></code> executor which allows to show detailed
+progress of the testing and supports interactive debugging.</p>
+<p>This is a <strong>required</strong> attribute. Each plan has to define this
+step.</p>
+<p>For each test, a separate directory is created for storing
+artifacts related to the test execution. Its path is
+constructed from the test name and it’s stored under the
+<code class="docutils literal notranslate"><span class="pre">execute/data</span></code> directory. It contains a <code class="docutils literal notranslate"><span class="pre">metadata.yaml</span></code>
+file with the aggregated L1 metadata which can be used by the
+test <a class="reference internal" href="tests.html#spec-tests-framework"><span class="std std-ref">framework</span></a>. In addition to supported
+<a class="reference internal" href="tests.html#spec-tests"><span class="std std-ref">Tests</span></a> attributes it also contains fmf <code class="docutils literal notranslate"><span class="pre">name</span></code> of
+the test.</p>
+<p>In each plan, the execute step must produce a <code class="docutils literal notranslate"><span class="pre">results.yaml</span></code> file
+with results for executed tests. The format of the file is described
+at <a class="reference internal" href="#spec-plans-results"><span class="std std-ref">Results Format</span></a>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enabled a minimal smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+
+<span class="c1"># Run tier one tests in a container</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="c1"># Verify that apache can serve pages</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic httpd smoke test</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">httpd</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">curl</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<section id="exit-first">
+<span id="spec-plans-execute-exit-first"></span><h3>exit-first<a class="headerlink" href="#exit-first" title="Permalink to this heading"></a></h3>
+<p>Stop execution after a test fails</p>
+<p><em>As a user I want to avoid waiting for all discovered tests to finish if one of them fails.</em></p>
+<p>Optional boolean attribute <cite>exit-first</cite> can be used to make the executor stop executing tests once a test failure is encountered.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="w">    </span><span class="nt">exit-first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="isolate">
+<span id="spec-plans-execute-isolate"></span><h3>isolate<a class="headerlink" href="#isolate" title="Permalink to this heading"></a></h3>
+<p>Run tests in an isolated environment</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Optional boolean attribute <cite>isolate</cite> can be used to request a clean test environment for each test.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="w">    </span><span class="nt">isolate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="script">
+<span id="spec-plans-execute-script"></span><h3>script<a class="headerlink" href="#script" title="Permalink to this heading"></a></h3>
+<p>Execute shell scripts</p>
+<p><em>As a user I want to easily run shell script as a test.</em></p>
+<p>Execute arbitratry shell commands and check their exit
+code which is used as a test result. The <code class="docutils literal notranslate"><span class="pre">script</span></code> field
+is provided to cover simple test use cases only and must
+not be combined with the <a class="reference internal" href="#spec-plans-discover"><span class="std std-ref">discover</span></a> step
+which is more suitable for more complex test scenarios.</p>
+<p>Default shell options are applied to the script, see
+<a class="reference internal" href="tests.html#spec-tests-test"><span class="std std-ref">test</span></a> for more details. The default
+<a class="reference internal" href="tests.html#spec-tests-duration"><span class="std std-ref">duration</span></a> for tests defined directly
+under the execute step is <code class="docutils literal notranslate"><span class="pre">1h</span></code>. Use the <code class="docutils literal notranslate"><span class="pre">duration</span></code>
+attribute to modify the default limit.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a simple smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt --help</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify the default maximum duration</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a-long-test-suite</span>
+<span class="w">    </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3h</span>
+</pre></div>
+</div>
+<section id="multi-line-script">
+<span id="spec-plans-execute-script-multi"></span><h4>Multi-line script<a class="headerlink" href="#multi-line-script" title="Permalink to this heading"></a></h4>
+<p>Multi-line shell script</p>
+<p>Providing a multi-line shell script is also supported. Note that the first command with non-zero exit code will finish the execution. See the <a class="reference internal" href="tests.html#spec-tests-test"><span class="std std-ref">test</span></a> key for details about default shell options.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">dnf -y install httpd curl</span>
+<span class="w">        </span><span class="no">systemctl start httpd</span>
+<span class="w">        </span><span class="no">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">        </span><span class="no">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="multiple-commands">
+<span id="spec-plans-execute-script-several"></span><h4>Multiple commands<a class="headerlink" href="#multiple-commands" title="Permalink to this heading"></a></h4>
+<p>Multiple shell commands</p>
+<p>You can also include several commands as a list. Executor will run commands one-by-one and check exit code of each.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dnf -y install httpd curl</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="the-simplest-usage">
+<span id="spec-plans-execute-script-simple"></span><h4>The simplest usage<a class="headerlink" href="#the-simplest-usage" title="Permalink to this heading"></a></h4>
+<p>Simple use case should be super simple to write</p>
+<p>As the <cite>how</cite> keyword can be omitted when using the
+default executor you can just define the shell
+<cite>script</cite> to be run. This is how a minimal smoke test
+configuration for the <cite>tmt</cite> command can look like:</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt --help</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="tmt">
+<span id="spec-plans-execute-tmt"></span><h3>tmt<a class="headerlink" href="#tmt" title="Permalink to this heading"></a></h3>
+<p>Internal test executor</p>
+<p><em>As a user I want to execute tests directly from tmt.</em></p>
+<p>The internal <code class="docutils literal notranslate"><span class="pre">tmt</span></code> executor runs tests in the
+provisioned environment one by one directly from the
+tmt code which allows features such as showing live
+<a class="reference internal" href="../stories/cli.html#stories-cli-steps-execute-progress"><span class="std std-ref">progress</span></a> or the
+<a class="reference internal" href="../stories/cli.html#stories-cli-steps-execute-interactive"><span class="std std-ref">interactive</span></a> session .
+This is the default execute step implementation.</p>
+<p>The executor provides following shell scripts which can
+be used by the tests for certain operations.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">tmt-file-submit</span></code></dt><dd><p>Archive the given file in the tmt test data directory.
+See the <a class="reference internal" href="../stories/features.html#stories-features-report-log"><span class="std std-ref">Save a log file</span></a> section
+for more details.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tmt-reboot</span></code></dt><dd><p>Soft reboot the machine from inside the test. After reboot
+the execution starts from the test which rebooted the machine.
+An environment variable <code class="docutils literal notranslate"><span class="pre">TMT_REBOOT_COUNT</span></code> is provided which
+the test can use to handle the reboot. The variable holds the
+number of reboots performed by the test. For more information
+see the <a class="reference internal" href="../stories/features.html#stories-features-reboot"><span class="std std-ref">Reboot during test</span></a> feature documentation.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tmt-report-result</span></code></dt><dd><p>Generate a result report file from inside the test. Can be
+called multiple times by the test. The generated report
+file will be overwritten if a higher hierarchical result is
+reported by the test. The hierarchy is as follows:
+SKIP, PASS, WARN, FAIL.
+For more information see the
+<a class="reference internal" href="../stories/features.html#stories-features-report-result"><span class="std std-ref">Report test result</span></a> feature documentation.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tmt-abort</span></code></dt><dd><p>Generate an abort file from inside the test. This will
+set the current test result to failed and terminate
+the execution of subsequent tests.
+For more information see the
+<a class="reference internal" href="../stories/features.html#stories-features-abort"><span class="std std-ref">Abort test execution</span></a> feature documentation.</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="upgrade">
+<span id="spec-plans-execute-upgrade"></span><h3>upgrade<a class="headerlink" href="#upgrade" title="Permalink to this heading"></a></h3>
+<p>Perform system upgrades during testing</p>
+<p><em>As a tester I want to verify that a configured application or service still correctly works after the system upgrade.</em></p>
+<p>In order to enable developing tests for upgrade testing, we
+need to provide a way how to execute these tests easily.
+This does not cover unit tests for individual actors but
+rather system tests which verify the whole upgrade story.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">upgrade</span></code> executor runs the discovered tests (using
+the internal executor, hence the same config options can
+be used), then performs a set of upgrade tasks from
+a remote repository, and finally, re-runs the tests on
+the upgraded system.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">IN_PLACE_UPGRADE</span></code> environment variable is set during
+the test execution to differentiate between the stages of
+the test. It is set to <code class="docutils literal notranslate"><span class="pre">old</span></code> during the first execution
+and <code class="docutils literal notranslate"><span class="pre">new</span></code> during the second execution. Test names are
+prefixed with this value to make the names unique.
+Based on this variable, the test can perform appropriate
+actions.</p>
+<dl class="simple">
+<dt>old</dt><dd><p>setup, test</p>
+</dd>
+<dt>new</dt><dd><p>test, cleanup</p>
+</dd>
+<dt>without</dt><dd><p>setup, test, cleanup</p>
+</dd>
+</dl>
+<p>The upgrade tasks performing the actual system upgrade are
+taken from a remote repository (specified by the <code class="docutils literal notranslate"><span class="pre">url</span></code> key)
+based on an upgrade path (specified by the <code class="docutils literal notranslate"><span class="pre">upgrade-path</span></code> key)
+or other filters (e.g. specified by the <code class="docutils literal notranslate"><span class="pre">filter</span></code> key).
+If both <code class="docutils literal notranslate"><span class="pre">upgrade-path</span></code> and extra filters are specified,
+the discover keys in the remote upgrade path plan are overridden
+by the filters specified in the local plan.</p>
+<p>The upgrade path must correspond to a plan name in the remote
+repository whose discover selects tests (upgrade tasks).
+The environment variables defined in the upgrade path are passed
+to the upgrade tasks.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Main testing plan</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upgrade</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/upgrade</span>
+<span class="w">    </span><span class="nt">upgrade-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/paths/fedora35to36</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upgrade path /paths/fedora35to36.fmf in the remote repository</span>
+<span class="nt">discover</span><span class="p">:</span><span class="w"> </span><span class="c1"># Selects appropriate upgrade tasks (L1 tests)</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag:fedora&quot;</span>
+<span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="c1"># This is passed to upgrade tasks</span>
+<span class="w">    </span><span class="nt">SOURCE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35</span>
+<span class="w">    </span><span class="nt">TARGET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">36</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternative main testing plan, without upgrade path</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upgrade</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/upgrade</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag:fedora&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple beakerlib test using the $IN_PLACE_UPGRADE variable</span>
+<span class="l l-Scalar l-Scalar-Plain">. /usr/share/beakerlib/beakerlib.sh || exit 1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">VENV_PATH=/var/tmp/venv_test</span>
+
+<span class="l l-Scalar l-Scalar-Plain">rlJournalStart</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain"># Perform the setup only for the old distro</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">if [[ &quot;$IN_PLACE_UPGRADE&quot; !=  &quot;new&quot; ]]; then</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">rlPhaseStartSetup</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">rlRun &quot;python3.9 -m venv $VENV_PATH&quot;</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">rlRun &quot;$VENV_PATH/bin/pip install pyjokes&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">rlPhaseEnd</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">fi</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain"># Execute the test for both old &amp; new distro</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">rlPhaseStartTest</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">rlAsssertExists &quot;$VENV_PATH/bin/pyjoke&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">rlRun &quot;$VENV_PATH/bin/pyjoke&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">rlPhaseEnd</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain"># Skip the cleanup phase when on the old distro</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">if [[ &quot;$IN_PLACE_UPGRADE&quot; !=  &quot;old&quot; ]]; then</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">rlPhaseStartCleanup</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">rlRun &quot;rm -rf $VENV_PATH&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">rlPhaseEnd</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">fi</span>
+<span class="l l-Scalar l-Scalar-Plain">rlJournalEnd</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+</section>
+<section id="finish">
+<span id="spec-plans-finish"></span><h2>finish<a class="headerlink" href="#finish" title="Permalink to this heading"></a></h2>
+<p>Finishing tasks</p>
+<p>Additional actions to be performed after the test execution has been completed.  Counterpart of the <code class="docutils literal notranslate"><span class="pre">prepare</span></code> step useful for various cleanup actions. Use the <a class="reference internal" href="core.html#spec-core-order"><span class="std std-ref">order</span></a> attribute to select in which order finishing tasks should happen if there are multiple configs. Default order is <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">finish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upload-logs.sh</span>
+</pre></div>
+</div>
+<section id="ansible">
+<span id="spec-plans-finish-ansible"></span><h3>ansible<a class="headerlink" href="#ansible" title="Permalink to this heading"></a></h3>
+<p>Perform finishing tasks using ansible</p>
+<p>One or more playbooks can be provided as a list under the
+<code class="docutils literal notranslate"><span class="pre">playbook</span></code> attribute.  Each of them will be applied
+using <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> in the given order. The path
+must be relative to the metadata tree root.</p>
+<p>Remote playbooks can be referenced as well as the local ones,
+and both kinds can be used at the same time.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">finish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible</span>
+<span class="w">    </span><span class="nt">playbook</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">playbooks/common.yml</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">playbooks/os/rhel7.yml</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://foo.bar/rhel7-final-touches.yml</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="spec-plans-finish-shell">
+<span id="id1"></span><h3>shell<a class="headerlink" href="#spec-plans-finish-shell" title="Permalink to this heading"></a></h3>
+<p>Perform finishing tasks using shell (bash) scripts</p>
+<p>Execute arbitrary shell commands to finish the testing.
+Default shell options are applied to the script, see the <a class="reference internal" href="tests.html#spec-tests-test"><span class="std std-ref">test</span></a> key specification for more details.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">finish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upload-logs.sh || true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rm -rf /tmp/temporary-files</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="gate">
+<span id="spec-plans-gate"></span><h2>gate<a class="headerlink" href="#gate" title="Permalink to this heading"></a></h2>
+<p>Gates relevant for testing</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Multiple gates can be defined in the process of releasing a change.
+Currently we define the following gates:</p>
+<dl class="simple">
+<dt>merge-pull-request</dt><dd><p>block merging a pull request into a git branch</p>
+</dd>
+<dt>add-build-to-update</dt><dd><p>attaching a build to an erratum / bodhi update</p>
+</dd>
+<dt>add-build-to-compose</dt><dd><p>block adding a build to a compose</p>
+</dd>
+<dt>release-update</dt><dd><p>block releasing an erratum / bodhi update</p>
+</dd>
+</dl>
+<p>Each plan can define one or more gates it should be blocking.
+Attached is an example of configuring multiple gates.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">/pull-request</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">/pep</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All code must comply with the PEP8 style guide</span>
+<span class="w">            </span><span class="c1"># Do not allow ugly code to be merged into the main branch</span>
+<span class="w">            </span><span class="nt">gate</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merge-pull-request</span>
+<span class="w">        </span><span class="nt">/lint</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run pylint to catch common problems (no gating)</span>
+<span class="w">    </span><span class="nt">/build</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">/smoke</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic smoke test (Tier1)</span>
+<span class="w">            </span><span class="c1"># Basic smoke test is used by three gates</span>
+<span class="w">            </span><span class="nt">gate</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merge-pull-request</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">add-build-to-update</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">add-build-to-compose</span>
+<span class="w">        </span><span class="nt">/features</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify important features</span>
+<span class="w">    </span><span class="nt">/update</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># This enables the &#39;release-update&#39; gate for all three plans</span>
+<span class="w">        </span><span class="nt">gate</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release-update</span>
+<span class="w">        </span><span class="nt">/basic</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run all Tier1, Tier2 and Tier3 tests</span>
+<span class="w">        </span><span class="nt">/security</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Security tests (extra job to get quick results)</span>
+<span class="w">        </span><span class="nt">/integration</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Integration tests with related components</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="prepare">
+<span id="spec-plans-prepare"></span><h2>prepare<a class="headerlink" href="#prepare" title="Permalink to this heading"></a></h2>
+<p>Prepare the environment for testing</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">prepare</span></code> step is used to define how the guest
+environment should be prepared so that the tests can be
+successfully executed.</p>
+<p>The <a class="reference internal" href="#spec-plans-prepare-install"><span class="std std-ref">install</span></a> plugin provides an easy
+way to install required or recommended packages from disk and
+from the offical distribution or copr repositories. Use the
+<a class="reference internal" href="#spec-plans-prepare-ansible"><span class="std std-ref">ansible</span></a> plugin for applying custom
+playbooks or execute <a class="reference internal" href="#spec-plans-prepare-shell"><span class="std std-ref">shell</span></a> scripts
+to perform arbitrary preparation tasks.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">order</span></code> attribute to select in which order the
+preparation should happen if there are multiple configs.
+Default order is <code class="docutils literal notranslate"><span class="pre">50</span></code>. For installation of required packages
+gathered from the <a class="reference internal" href="tests.html#spec-tests-require"><span class="std std-ref">require</span></a> attribute of
+individual tests order <code class="docutils literal notranslate"><span class="pre">70</span></code> is used, for recommended
+packages it is <code class="docutils literal notranslate"><span class="pre">75</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to use the <code class="docutils literal notranslate"><span class="pre">prepare</span></code> step to generate data
+files needed for testing during the <code class="docutils literal notranslate"><span class="pre">execute</span></code> step,
+move or copy them into <code class="docutils literal notranslate"><span class="pre">${TMT_PLAN_DATA}</span></code> directory. Only
+files in this directory are guaranteed to be preserved.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install fresh packages from a custom copr repository</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">copr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">psss/tmt</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt-all</span>
+
+<span class="c1"># Install required packages and start the service</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">httpd</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">curl</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+</pre></div>
+</div>
+<section id="spec-plans-prepare-ansible">
+<span id="id2"></span><h3>ansible<a class="headerlink" href="#spec-plans-prepare-ansible" title="Permalink to this heading"></a></h3>
+<p>Apply ansible playbook to get the desired final state.</p>
+<p>One or more playbooks can be provided as a list under the <code class="docutils literal notranslate"><span class="pre">playbook</span></code> attribute.  Each of them will be applied using <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> in the given order. The path must be relative to the metadata tree root.
+Use <code class="docutils literal notranslate"><span class="pre">extra-args</span></code> attribute to enable optional arguments for <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code>.
+Remote playbooks can be referenced as well as the local ones, and both kinds can be used at the same time.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible</span>
+<span class="w">    </span><span class="nt">playbook</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">playbooks/common.yml</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">playbooks/os/rhel7.yml</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://foo.bar/rhel7-final-touches.yml</span>
+<span class="w">    </span><span class="nt">extra-args</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;-vvv&#39;</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="install">
+<span id="spec-plans-prepare-install"></span><h3>install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h3>
+<p>Install packages on the guest</p>
+<p>One or more RPM packages can be specified under the
+<code class="docutils literal notranslate"><span class="pre">package</span></code> attribute. The packages will be installed
+on the guest. They can either be specified using their
+names, paths to local rpm files or urls to remote rpms.</p>
+<p>Additionaly, the <code class="docutils literal notranslate"><span class="pre">directory</span></code> attribute can be used to
+install all packages from the given directory. Copr
+repositories can be enabled using the <code class="docutils literal notranslate"><span class="pre">copr</span></code> attribute.
+Use the <code class="docutils literal notranslate"><span class="pre">exclude</span></code> option to skip selected packages from
+installation (globbing characters are supported as well).</p>
+<p>It’s possible to change the behaviour when a package is
+missing using the <code class="docutils literal notranslate"><span class="pre">missing</span></code> attribute. The missing
+packages can either be silently ignored (‘skip’) or a
+preparation error is thrown (‘fail’), which is the default
+behaviour.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install local rpms using file path</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp/RPMS/noarch/tmt-0.15-1.fc31.noarch.rpm</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp/RPMS/noarch/python3-tmt-0.15-1.fc31.noarch.rpm</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install remote packages using url</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-8.noarch.rpm</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the whole directory, exclude selected packages</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">directory</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp/RPMS/noarch</span>
+<span class="w">    </span><span class="nt">exclude</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt-all</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt-provision-virtual</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable copr repository, skip missing packages</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">copr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">psss/tmt</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt-all</span>
+<span class="w">    </span><span class="nt">missing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skip</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="spec-plans-prepare-shell">
+<span id="id3"></span><h3>shell<a class="headerlink" href="#spec-plans-prepare-shell" title="Permalink to this heading"></a></h3>
+<p>Prepare system using shell (bash) commands</p>
+<p>Execute arbitrary shell commands to set up the system.
+Default shell options are applied to the script, see the <a class="reference internal" href="tests.html#spec-tests-test"><span class="std std-ref">test</span></a> key specification for more details.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dnf install -y httpd</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="spec-plans-prepare-where">
+<span id="id4"></span><h3>where<a class="headerlink" href="#spec-plans-prepare-where" title="Permalink to this heading"></a></h3>
+<p>Apply preparation on selected guests</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>In the <a class="reference internal" href="#spec-plans-provision-multihost"><span class="std std-ref">multihost</span></a> scenarios it
+is often necessary to perform different preparation tasks on
+individual guests. The <code class="docutils literal notranslate"><span class="pre">where</span></code> key allows to select guests
+where the preparation should be applied by providing their
+<code class="docutils literal notranslate"><span class="pre">name</span></code> or the <code class="docutils literal notranslate"><span class="pre">role</span></code> they play in the scenario. Use a
+list to specify multiple names or roles. By default, when
+the <code class="docutils literal notranslate"><span class="pre">where</span></code> key is not defined, preparation is done on all
+provisioned guests.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start Apache on the server</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+
+<span class="c1"># Apply common setup on the primary server and all replicas</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible</span>
+<span class="w">    </span><span class="nt">playbook</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">common.yaml</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">primary</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">replica</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="provision">
+<span id="spec-plans-provision"></span><h2>provision<a class="headerlink" href="#provision" title="Permalink to this heading"></a></h2>
+<p>Provision a system for testing</p>
+<p>Describes what environment is needed for testing and how it
+should be provisioned. There are several provision plugins
+supporting multiple ways to provision the environment for
+testing, for example
+<a class="reference internal" href="#spec-plans-provision-virtual"><span class="std std-ref">virtual</span></a>,
+<a class="reference internal" href="#spec-plans-provision-container"><span class="std std-ref">container</span></a>,
+<a class="reference internal" href="#spec-plans-provision-connect"><span class="std std-ref">connect</span></a>,
+<a class="reference internal" href="#spec-plans-provision-local"><span class="std std-ref">local</span></a> or
+<a class="reference internal" href="#spec-plans-provision-artemis"><span class="std std-ref">artemis</span></a>.
+See individual plugin documentation for details about
+supported options.</p>
+<p>As part of the provision step it is also possible to specify
+detailed hardware requirements for the testing environment.
+See the <a class="reference internal" href="hardware.html#spec-hardware"><span class="std std-ref">Hardware</span></a> specification section for
+details.</p>
+<p>As part of the provision step it is also possible to specify
+kickstart file used during the installation.
+See the <a class="reference internal" href="#spec-plans-provision-kickstart"><span class="std std-ref">kickstart</span></a> specification
+section for details.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Provision a local virtual machine with the latest Fedora</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+</pre></div>
+</div>
+<section id="beaker">
+<span id="spec-plans-provision-beaker"></span><h3>beaker<a class="headerlink" href="#beaker" title="Permalink to this heading"></a></h3>
+<p>Provision a machine in Beaker</p>
+<p>Reserve a machine from the Beaker pool using the <code class="docutils literal notranslate"><span class="pre">mrack</span></code>
+plugin.  <a class="reference external" href="https://github.com/neoave/mrack">mrack</a> is a multicloud provisioning library
+supporting multiple cloud services including Beaker.</p>
+<p>The following two files are used for configuration:</p>
+<dl class="simple">
+<dt>/etc/tmt/mrack.conf</dt><dd><p>for basic configuration</p>
+</dd>
+<dt>/etc/tmt/provisioning-config.yaml</dt><dd><p>configuration per supported provider</p>
+</dd>
+</dl>
+<p>Beaker installs distribution specified by the <code class="docutils literal notranslate"><span class="pre">image</span></code>
+key. If the image can not be translated using the
+<code class="docutils literal notranslate"><span class="pre">provisioning-config.yaml</span></code> file mrack passes the image
+value to Beaker hub and tries to request distribution
+based on the image value. This way we can bypass default
+translations and use desired distribution specified like
+the one in the example below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The beaker provision plugin is not available for
+<code class="docutils literal notranslate"><span class="pre">rhel-8</span></code> or <code class="docutils literal notranslate"><span class="pre">centos-stream-8</span></code>.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.22.</span></p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use image name translation</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beaker</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the distro directly</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beaker</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fedora-37%</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="connect">
+<span id="spec-plans-provision-connect"></span><h3>connect<a class="headerlink" href="#connect" title="Permalink to this heading"></a></h3>
+<p>Connect to a provisioned box</p>
+<p>Do not provision a new system. Instead, use provided
+authentication data to connect to a running machine.</p>
+<dl class="simple">
+<dt>guest</dt><dd><p>hostname or ip address of the box</p>
+</dd>
+<dt>user</dt><dd><p>user name to be used to log in, <code class="docutils literal notranslate"><span class="pre">root</span></code> by default</p>
+</dd>
+<dt>password</dt><dd><p>user password to be used to log in</p>
+</dd>
+<dt>key</dt><dd><p>path to the file with private key</p>
+</dd>
+<dt>port</dt><dd><p>use specific port to connect to</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connect</span>
+<span class="w">    </span><span class="nt">guest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hostname or ip address</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connect</span>
+<span class="w">    </span><span class="nt">guest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hostname or ip address</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">private-key-path</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="container">
+<span id="spec-plans-provision-container"></span><h3>container<a class="headerlink" href="#container" title="Permalink to this heading"></a></h3>
+<p>Provision a container</p>
+<p>Download (if necessary) and start a new container using podman or docker.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora:latest</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="local">
+<span id="spec-plans-provision-local"></span><h3>local<a class="headerlink" href="#local" title="Permalink to this heading"></a></h3>
+<p>Use the localhost for testing</p>
+<p>Do not provision any system. Tests will be executed directly on the localhost. Note that for some actions like installing additional packages you need root permission or enabled sudo.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="multihost">
+<span id="spec-plans-provision-multihost"></span><h3>multihost<a class="headerlink" href="#multihost" title="Permalink to this heading"></a></h3>
+<p>Multihost testing specification</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 1.24.</span></p>
+</div>
+<p>As a part of the provision step it is possible to request
+multiple guests to be provisioned for testing. Each guest
+has to be assigned a unique <code class="docutils literal notranslate"><span class="pre">name</span></code> which is used to
+identify it.</p>
+<p>The optional parameter <code class="docutils literal notranslate"><span class="pre">role</span></code> can be used to mark
+related guests so that common actions can be applied to
+all such guests at once. An example role name can be
+<cite>client</cite> or <cite>server</cite> but arbitrary identifier can be used.</p>
+<p>Both <cite>name</cite> and <cite>role</cite> can be used together with the
+<code class="docutils literal notranslate"><span class="pre">where</span></code> key to select guests on which the
+<a class="reference internal" href="#spec-plans-prepare-where"><span class="std std-ref">preparation</span></a>
+tasks should be applied or where the test
+<a class="reference internal" href="#spec-plans-discover-where"><span class="std std-ref">execution</span></a> should
+take place.</p>
+<p>See <a class="reference internal" href="#spec-plans-guest-topology"><span class="std std-ref">Guest Topology Format</span></a> for details on how
+this information is exposed to tests and <code class="docutils literal notranslate"><span class="pre">prepare</span></code> and
+<code class="docutils literal notranslate"><span class="pre">finish</span></code> tasks.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request two guests</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+
+<span class="c1"># Assign role to guests</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main-server</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">primary</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup-one</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup-two</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tester-one</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tester-two</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="openstack">
+<span id="spec-plans-provision-openstack"></span><h3>openstack<a class="headerlink" href="#openstack" title="Permalink to this heading"></a></h3>
+<p>Provision a virtual machine in OpenStack</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Create a virtual machine using OpenStack.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openstack</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">f31</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="virtual">
+<span id="spec-plans-provision-virtual"></span><h3>virtual<a class="headerlink" href="#virtual" title="Permalink to this heading"></a></h3>
+<p>Provision a virtual machine (default)</p>
+<p>Create a new virtual machine on the localhost using testcloud (libvirt). Testcloud takes care of downloading an image and making necessary changes to it for optimal experience (such as disabling UseDNS and GSSAPI for SSH).</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="artemis">
+<span id="spec-plans-provision-artemis"></span><h3>artemis<a class="headerlink" href="#artemis" title="Permalink to this heading"></a></h3>
+<p>Provision a guest via an Artemis service</p>
+<p>Reserve a machine using the Artemis service.
+Users can specify many requirements, mostly regarding the
+desired OS, RAM, disk size and more. Most of the HW specifications
+defined in the <a class="reference internal" href="hardware.html#spec-hardware"><span class="std std-ref">Hardware</span></a> are supported. Including the
+<a class="reference internal" href="#spec-plans-provision-kickstart"><span class="std std-ref">kickstart</span></a>.</p>
+<p>Artemis takes machines from AWS, OpenStack, Beaker or Azure.
+By default, Artemis handles the selection of a cloud provider
+to its best abilities and the required specification. However, it
+is possible to specify the keyword <code class="docutils literal notranslate"><span class="pre">pool</span></code> and select the
+desired cloud provider.</p>
+<p>Artemis project:
+<a class="reference external" href="https://gitlab.com/testing-farm/artemis">https://gitlab.com/testing-farm/artemis</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When used together with TF infrastructure
+some of the options from the first example below
+will be filled for you by the TF service.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artemis</span>
+<span class="w">    </span><span class="c1"># Specify the Artemis URL where the service is running.</span>
+<span class="w">    </span><span class="c1"># Here is an example of a local Artemis instance</span>
+<span class="w">    </span><span class="nt">api-url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://127.0.0.1:8001/v0.0.56&quot;</span>
+<span class="w">    </span><span class="nt">api-version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0.56&quot;</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fedora-37</span>
+<span class="w">    </span><span class="c1"># ssh key used to connect to the machine</span>
+<span class="w">    </span><span class="nt">keyname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master-key</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artemis</span>
+<span class="w">    </span><span class="c1"># How long (seconds) to wait for guest provisioning to complete</span>
+<span class="w">    </span><span class="nt">provision-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+<span class="w">    </span><span class="c1"># How often (seconds) check Artemis API for provisioning status</span>
+<span class="w">    </span><span class="nt">provision-tick</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40</span>
+<span class="w">    </span><span class="c1"># How long (seconds) to wait for API operations to complete</span>
+<span class="w">    </span><span class="nt">api-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
+<span class="w">    </span><span class="c1"># How many attempts to use when talking to API</span>
+<span class="w">    </span><span class="nt">api-retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="c1"># How long (seconds) before the guest &quot;is-alive&quot; watchdog is dispatched</span>
+<span class="w">    </span><span class="nt">watchdog-dispatch-delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+<span class="w">    </span><span class="c1"># How often (seconds) check that the guest &quot;is-alive&quot;</span>
+<span class="w">    </span><span class="nt">watchdog-period-delay </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artemis</span>
+<span class="w">    </span><span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x86_64</span>
+<span class="w">    </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beaker</span>
+<span class="w">    </span><span class="nt">hardware</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># Pick a guest with at least 8 GB RAM</span>
+<span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&gt;=</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">GB&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="kickstart">
+<span id="spec-plans-provision-kickstart"></span><h3>kickstart<a class="headerlink" href="#kickstart" title="Permalink to this heading"></a></h3>
+<p><em>As a tester I want to specify detailed installation of a guest using the kickstart script.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>As part of the <a class="reference internal" href="#spec-plans-provision"><span class="std std-ref">provision</span></a> step it is possible to
+use the <code class="docutils literal notranslate"><span class="pre">kickstart</span></code> key to specify additional requirements for the
+installation of a guest. It is possible to specify a kickstart
+script that will for example specify specific partitioning.</p>
+<p>The structure of a kickstart file is separated into several
+sections.</p>
+<dl class="simple">
+<dt>pre-install</dt><dd><p>Corresponds to the <code class="docutils literal notranslate"><span class="pre">%pre</span></code> section of a file.  It can contain
+<code class="docutils literal notranslate"><span class="pre">bash</span></code> commands, this part is run before the installation of a
+guest.</p>
+</dd>
+<dt>post-install</dt><dd><p>Corresponds to the <code class="docutils literal notranslate"><span class="pre">%post</span></code> section of a file.  It can contain
+<code class="docutils literal notranslate"><span class="pre">bash</span></code> commands, this part is run after the installation of a
+guest.</p>
+</dd>
+<dt>script</dt><dd><p>Contains the kickstart specific commands that are run during the
+installation of a guest.</p>
+</dd>
+</dl>
+<p>It is also possible to specify <code class="docutils literal notranslate"><span class="pre">metadata</span></code>. This part may be
+interpreted differently for each of the pools that the guest is
+created from. For example, in Beaker this section can be used to
+modify the default kickstart template used by Beaker.  Similarly
+works the <code class="docutils literal notranslate"><span class="pre">kernel-options</span></code> and <code class="docutils literal notranslate"><span class="pre">kernel-options-post</span></code>.  Kernel
+options are passed on the kernel command line when the installer is
+booted.  Post-install kernel options are set in the boot loader
+configuration, to be passed on the kernel command line after
+installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implementation for the <code class="docutils literal notranslate"><span class="pre">kickstart</span></code> key is in progress.
+Support of a kickstart file is currently limited to Beaker
+provisioning, as implemented by tmt’s beaker and artemis
+plugins, and may not be fully supported by other provisioning
+plugins in the future.  Check individual plugin documentation
+for additional information on the kickstart support.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the artemis plugin to provision a guest from Beaker.</span>
+<span class="c1"># The following `kickstart` specification will be run</span>
+<span class="c1"># during the guest installation.</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artemis</span>
+<span class="w">    </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beaker</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rhel-7</span>
+<span class="w">    </span><span class="nt">kickstart</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">pre-install</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">%pre --log=/dev/console</span>
+<span class="w">            </span><span class="no">disk=$(lsblk | grep disk | awk &#39;{print $1}&#39;)</span>
+<span class="w">            </span><span class="no">echo $disk</span>
+<span class="w">            </span><span class="no">%end</span>
+<span class="w">        </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">lang en_US.UTF-8</span>
+<span class="w">            </span><span class="no">zerombr</span>
+<span class="w">            </span><span class="no">clearpart --all --initlabel</span>
+<span class="w">            </span><span class="no">part /boot --fstype=&quot;xfs&quot; --size=200</span>
+<span class="w">            </span><span class="no">part swap --fstype=&quot;swap&quot; --size=4096</span>
+<span class="w">            </span><span class="no">part / --fstype=&quot;xfs&quot; --size=10000 --grow</span>
+<span class="w">        </span><span class="nt">post-install</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">%post</span>
+<span class="w">            </span><span class="no">systemctl disable firewalld</span>
+<span class="w">            </span><span class="no">%end</span>
+<span class="w">        </span><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">&quot;no-autopart harness=restraint&quot;</span>
+<span class="w">        </span><span class="nt">kernel-options</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ksdevice=eth1&quot;</span>
+<span class="w">        </span><span class="nt">kernel-options-post</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;quiet&quot;</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="report">
+<span id="spec-plans-report"></span><h2>report<a class="headerlink" href="#report" title="Permalink to this heading"></a></h2>
+<p>Report test results</p>
+<p><em>As a tester I want to have a nice overview of results once the testing if finished.</em></p>
+<p>Report test results according to user preferences.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enabled a minimal smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+
+<span class="c1"># Run tier one tests in a container</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="c1"># Verify that apache can serve pages</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic httpd smoke test</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">httpd</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">curl</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<section id="display">
+<span id="spec-plans-report-display"></span><h3>display<a class="headerlink" href="#display" title="Permalink to this heading"></a></h3>
+<p>Show results in the terminal window</p>
+<p><em>As a tester I want to see test results in the plain text form in my shell session.</em></p>
+<p>Test results will be displayed as part of the command line tool output directly in the terminal. Allows to select the desired level of verbosity</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -l report</span><span class="w">        </span><span class="c1"># overall summary only</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run -l report -v</span><span class="w">     </span><span class="c1"># individual test results</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run -l report -vv</span><span class="w">    </span><span class="c1"># show full paths to logs</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run -l report -vvv</span><span class="w">   </span><span class="c1"># provide complete test output</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="file">
+<span id="spec-plans-report-file"></span><h3>file<a class="headerlink" href="#file" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Save the report into a <code class="docutils literal notranslate"><span class="pre">report.yaml</span></code> file with the
+following format:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OVERALL_RESULT</span>
+<span class="nt">plans</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">/plan/one</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAN_RESULT</span>
+<span class="w">        </span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">/test/one</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TEST_RESULT</span>
+<span class="w">                </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">                  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_PATH</span>
+
+<span class="w">            </span><span class="nt">/test/two</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TEST_RESULT</span>
+<span class="w">                </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_PATH</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_PATH</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_PATH</span>
+<span class="w">    </span><span class="nt">/plan/two</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAN_RESULT</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">/test/one</span><span class="p p-Indicator">:</span>
+<span class="w">                </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TEST_RESULT</span>
+<span class="w">                </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">                  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_PATH</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">OVERALL_RESULT</span></code> is the overall result of all plan
+results. It is counted the same way as <code class="docutils literal notranslate"><span class="pre">PLAN_RESULT</span></code>.</p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">TEST_RESULT</span></code> is the same as in <a class="reference internal" href="#execute">execute</a> step
+definition:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>info - test finished and produced only information
+message</p></li>
+<li><p>passed - test finished and passed</p></li>
+<li><p>failed - test finished and failed</p></li>
+<li><p>error - a problem encountered during test execution</p></li>
+</ul>
+</div></blockquote>
+<p>Note the priority  of test results is as written above,
+with <code class="docutils literal notranslate"><span class="pre">info</span></code> having the lowest priority and <code class="docutils literal notranslate"><span class="pre">error</span></code> has
+the highest. This is important for <code class="docutils literal notranslate"><span class="pre">PLAN_RESULT</span></code>.</p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">PLAN_RESULT</span></code> is the overall result or all test
+results for the plan run. It has the same values as
+<code class="docutils literal notranslate"><span class="pre">TEST_RESULT</span></code>. Plan result is counted according to the
+priority of the test outcome values. For example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>if the test results are info, passed, passed - the
+plan result will be passed</p></li>
+<li><p>if the test results are info, passed, failed - the
+plan result will be failed</p></li>
+<li><p>if the test results are failed, error, passed - the
+plan result will be error</p></li>
+</ul>
+</div></blockquote>
+<p>Where <code class="docutils literal notranslate"><span class="pre">LOG_PATH</span></code> is the test log output path, relative
+to the execute step plan run directory. The <code class="docutils literal notranslate"><span class="pre">log</span></code> key
+will be a list of such paths, even if there is just a single
+log.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enabled a minimal smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+
+<span class="c1"># Run tier one tests in a container</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="c1"># Verify that apache can serve pages</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic httpd smoke test</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">virtual</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">httpd</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">curl</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start httpd</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo foo &gt; /var/www/html/index.html</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl http://localhost/ | grep foo</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="html">
+<span id="spec-plans-report-html"></span><h3>html<a class="headerlink" href="#html" title="Permalink to this heading"></a></h3>
+<p>Generate a web page with test results</p>
+<p><em>As a tester I want to review results in a nicely arranged web page with links to detailed test output.</em></p>
+<p>Create a local <code class="docutils literal notranslate"><span class="pre">html</span></code> file with test results arranged in a table. Optionally open the page in the default browser.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable html report from the command line</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how html</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how html --open</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run -l report -h html -o</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Use html as the default report for given plan</span>
+<span class="l l-Scalar l-Scalar-Plain">report</span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">html</span>
+<span class="w">    </span><span class="nt">open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="junit">
+<span id="spec-plans-report-junit"></span><h3>junit<a class="headerlink" href="#junit" title="Permalink to this heading"></a></h3>
+<p>Generate a JUnit report file</p>
+<p><em>As a tester I want to review results in a JUnit xml file.</em></p>
+<p>Create a JUnit file <code class="docutils literal notranslate"><span class="pre">junit.xml</span></code> with test results.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable junit report from the command line</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how junit</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how junit --file test.xml</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Use junit as the default report for given plan</span>
+<span class="l l-Scalar l-Scalar-Plain">report</span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">junit</span>
+<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test.xml</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="polarion">
+<span id="spec-plans-report-polarion"></span><h3>polarion<a class="headerlink" href="#polarion" title="Permalink to this heading"></a></h3>
+<p>Generate a xUnit file and export it into Polarion</p>
+<p><em>As a tester I want to review tests in Polarion and have all results linked to existing test cases there.</em></p>
+<p>Create a xUnit file <code class="docutils literal notranslate"><span class="pre">xunit.xml</span></code> with test results and Polarion properties so the xUnit can then be exported into Polarion.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable polarion report from the command line</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how polarion --project-id TMT</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how polarion --project-id TMT --no-upload --file test.xml</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Use polarion as the default report for given plan</span>
+<span class="l l-Scalar l-Scalar-Plain">report</span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polarion</span>
+<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test.xml</span>
+<span class="w">    </span><span class="nt">project-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TMT</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tests_that_pass</span>
+<span class="w">    </span><span class="nt">planned-in</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RHEL-9.1.0</span>
+<span class="w">    </span><span class="nt">pool-team</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sst_tmt</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="reportportal">
+<span id="spec-plans-report-reportportal"></span><h3>reportportal<a class="headerlink" href="#reportportal" title="Permalink to this heading"></a></h3>
+<p>Report test results to a ReportPortal instance</p>
+<p><em>As a tester I want to review results in a nicely arranged web page with links to detailed test output.</em></p>
+<p>Prepare a JUnit report with test results, zip it and send it to a ReportPortal instance.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set environment variables with the server url and token</span>
+<span class="l l-Scalar l-Scalar-Plain">export TMT_REPORT_REPORTPORTAL_URL=...</span>
+<span class="l l-Scalar l-Scalar-Plain">export TMT_REPORT_REPORTPORTAL_TOKEN=...</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable ReportPortal report from the command line</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run --all report --how reportportal --project=baseosqe --launch-name=maven</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use ReportPortal as the default report for given plan</span>
+<span class="nt">report</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reportportal</span>
+<span class="w">    </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseosqe</span>
+<span class="w">    </span><span class="nt">launch-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="summary">
+<span id="spec-plans-summary"></span><h2>summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h2>
+<p>Concise summary describing the plan</p>
+<p>Should shortly describe purpose of the test plan. Must be a one-line <code class="docutils literal notranslate"><span class="pre">string</span></code>, should be up to 50 characters long. It is challenging to be both concise and descriptive, but that is what a well-written summary should do.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/pull-request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">/pep</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All code must comply with the PEP8 style guide</span>
+<span class="w">    </span><span class="nt">/lint</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run pylint to catch common problems (no gating)</span>
+<span class="nt">/build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">/smoke</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic smoke test (Tier1)</span>
+<span class="w">    </span><span class="nt">/features</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify important features</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="import-plans">
+<span id="spec-plans-import"></span><h2>Import Plans<a class="headerlink" href="#import-plans" title="Permalink to this heading"></a></h2>
+<p>Importing plans from a remote repository</p>
+<p><em>As a user I want to reference a plan from a remote repository in order to prevent duplication and minimize maintenance.</em></p>
+<p>In some cases the configuration stored in a plan can be quite
+large, for example the <a class="reference internal" href="#spec-plans-prepare"><span class="std std-ref">prepare</span></a> step can
+define complex scripts to set up the guest for testing. Using
+a reference to a remote plan makes it possible to reuse the
+same config on multiple places without the need to duplicate
+the information. This can be useful for example when enabling
+integration testing between related components.</p>
+<p>Remote plans are identified by the <code class="docutils literal notranslate"><span class="pre">plan</span></code> key which must
+contain an <code class="docutils literal notranslate"><span class="pre">import</span></code> dictionary with an <a class="reference external" href="https://fmf.readthedocs.io/en/latest/concept.html#identifiers">fmf identifier</a> of
+the remote plan. The <code class="docutils literal notranslate"><span class="pre">url</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> keys have to be
+defined, <code class="docutils literal notranslate"><span class="pre">ref</span></code> and <code class="docutils literal notranslate"><span class="pre">path</span></code> are optional. Only one remote
+plan can be referenced and a full plan <code class="docutils literal notranslate"><span class="pre">name</span></code> must be used
+(no string matching is applied).</p>
+<p>Plan steps must not be defined in the remote plan reference.
+Inheriting or overriding remote plan config with local plan
+steps might be possible in the future but currently is not
+supported. The only way how to modify imported plan is via
+environment variables. Variables defined in the plan override
+any variables defined in the remote plan.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.19.</span></p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Minimal reference is using &#39;url&#39; and &#39;name&#39;</span>
+<span class="nt">plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">import</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/plans/features/basic</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># A &#39;ref&#39; can be used to select specific branch or commit</span>
+<span class="nt">plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">import</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/plans/features/basic</span>
+<span class="w">        </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use &#39;path&#39; when fmf tree is deeper in the git repository</span>
+<span class="nt">plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">import</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/examples/httpd</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/smoke</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="results-format">
+<span id="spec-plans-results"></span><h2>Results Format<a class="headerlink" href="#results-format" title="Permalink to this heading"></a></h2>
+<p>Define format of on-disk storage of results</p>
+<p>The following text defines a YAML file structure tmt uses for storing
+results. tmt itself will use it when saving results of <code class="docutils literal notranslate"><span class="pre">execute</span></code> step,
+and custom test results are required to follow it when creating their
+<code class="docutils literal notranslate"><span class="pre">results.yaml</span></code> file.</p>
+<p>Tests may choose JSON instead of YAML for their custom results file and
+create <code class="docutils literal notranslate"><span class="pre">results.json</span></code> file, but tmt itself will always stick to YAML,
+the final results would be provided in <code class="docutils literal notranslate"><span class="pre">results.yaml</span></code> file in any case.</p>
+<p>Results are saved as a single list of dictionaries, each describing
+a single test result.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># String, name of the test.</span>
+<span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">one</span>
+
+<span class="c1"># fmf ID of the test.</span>
+<span class="n">fmf_id</span><span class="p">:</span>
+  <span class="n">url</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">some</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">tests</span><span class="o">.</span><span class="n">git</span>
+  <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">one</span>
+  <span class="n">path</span><span class="p">:</span> <span class="o">/</span>
+
+<span class="c1"># String, outcome of the test execution.</span>
+<span class="n">result</span><span class="p">:</span> <span class="s2">&quot;pass&quot;</span><span class="o">|</span><span class="s2">&quot;fail&quot;</span><span class="o">|</span><span class="s2">&quot;info&quot;</span><span class="o">|</span><span class="s2">&quot;warn&quot;</span><span class="o">|</span><span class="s2">&quot;error&quot;</span>
+
+<span class="c1"># String, optional comment to report with the result.</span>
+<span class="n">note</span><span class="p">:</span> <span class="s2">&quot;Things were great.&quot;</span>
+
+<span class="c1"># List of strings, paths to file logs.</span>
+<span class="n">log</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">log1</span>
+  <span class="o">-</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">log1</span>
+    <span class="o">...</span>
+
+<span class="c1"># Mapping, collection of various test IDs, if there are any to track.</span>
+<span class="n">ids</span><span class="p">:</span>
+  <span class="n">some</span><span class="o">-</span><span class="nb">id</span><span class="p">:</span> <span class="n">foo</span>
+  <span class="n">another</span><span class="o">-</span><span class="nb">id</span><span class="p">:</span> <span class="n">bar</span>
+
+<span class="c1"># String, when the test started, in an ISO 8601 format.</span>
+<span class="n">starttime</span><span class="p">:</span> <span class="s2">&quot;yyyy-mm-ddThh:mm:ss.mmmmm+ZZ:ZZ&quot;</span>
+
+<span class="c1"># String, when the test finished, in an ISO 8601 format.</span>
+<span class="n">endtime</span><span class="p">:</span> <span class="s2">&quot;yyyy-mm-ddThh:mm:ss.mmmmm+ZZ:ZZ&quot;</span>
+
+<span class="c1"># String, how long did the test run.</span>
+<span class="n">duration</span><span class="p">:</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span>
+
+<span class="c1"># Integer, serial number of the test in the sequence of all tests of a plan.</span>
+<span class="n">serialnumber</span><span class="p">:</span> <span class="mi">1</span>
+
+<span class="c1"># Mapping, describes the guest on which the test was executed.</span>
+<span class="n">guest</span><span class="p">:</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">client</span><span class="o">-</span><span class="mi">1</span>
+  <span class="n">role</span><span class="p">:</span> <span class="n">clients</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">result</span></code> key can have the following values:</p>
+<dl class="simple">
+<dt>pass</dt><dd><p>Test execution successfully finished and passed.</p>
+</dd>
+<dt>info</dt><dd><p>Test finished but only produced an informational
+message. Represents a soft pass, used for skipped
+tests and for tests with the <a class="reference internal" href="tests.html#spec-tests-result"><span class="std std-ref">result</span></a>
+attribute set to <code class="docutils literal notranslate"><span class="pre">ignore</span></code>. Automation must treat
+this as a passed test.</p>
+</dd>
+<dt>warn</dt><dd><p>A problem appeared during test execution which does
+not affect test results but might be worth checking
+and fixing. For example test cleanup phase failed.
+Automation must treat this as a failed test.</p>
+</dd>
+<dt>error</dt><dd><p>Undefined problem encountered during test execution.
+Human inspection is needed to investigate whether it
+was a test bug, infrastructure error or a real test
+failure. Automation must treat it as a failed test.</p>
+</dd>
+<dt>fail</dt><dd><p>Test execution successfully finished and failed.</p>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">result</span></code> keys are required. Custom result files
+may omit all other keys, although tmt plugins will strive to provide
+as many keys as possible.</p>
+<p>When importing the <a class="reference internal" href="tests.html#spec-tests-result"><span class="std std-ref">custom results file</span></a>, each
+test name referenced in the file by the <code class="docutils literal notranslate"><span class="pre">name</span></code> key would be prefixed by
+the original test name. A special case, <code class="docutils literal notranslate"><span class="pre">name:</span> <span class="pre">/</span></code>, sets the result for
+the original test itself.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">log</span></code> key must list <strong>relative</strong> paths. Paths in the custom
+results file are treated as relative to <code class="docutils literal notranslate"><span class="pre">${TMT_TEST_DATA}</span></code> path.
+Paths in the final results file, saved by the execute step, will be
+relative to the location of the results file itself.</p>
+<p>The first <code class="docutils literal notranslate"><span class="pre">log</span></code> item is considered to be the “main” log, presented
+to the user by default.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">serialnumber</span></code>, <code class="docutils literal notranslate"><span class="pre">guest</span></code> and <code class="docutils literal notranslate"><span class="pre">fmf_id</span></code> keys, if present in the
+custom results file, will be overwritten by tmt during their import after
+test completes. This happens on purpose, to assure this vital
+information is correct.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">starttime</span></code> and <code class="docutils literal notranslate"><span class="pre">endtime</span></code> keys, if
+present in the special custom result, representing the original test
+itself - <code class="docutils literal notranslate"><span class="pre">name:</span> <span class="pre">/</span></code> -, will be overwritten by tmt with actual
+observed values. This also happens on purpose: while tmt cannot
+tell how long it took to produce various custom results, it is still
+able to report the duration of the whole test.</p>
+<p>See also the complete <a class="reference external" href="https://github.com/teemtee/tmt/blob/main/tmt/schemas/results.yaml">JSON schema</a>.</p>
+<p>For custom results files in JSON format, the same rules and schema
+apply.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example content of results.yaml</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/passing</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass</span>
+<span class="w">  </span><span class="nt">serialnumber</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass_log</span>
+<span class="w">  </span><span class="nt">starttime</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-03-10T09:44:14.439120+00:00&quot;</span>
+<span class="w">  </span><span class="nt">endtime</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-03-10T09:44:24.242227+00:00&quot;</span>
+<span class="w">  </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00:09</span>
+<span class="w">  </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">good result</span>
+<span class="w">  </span><span class="nt">ids</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">extra-nitrate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some-nitrate-id</span>
+<span class="w">  </span><span class="nt">guest</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default-0</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/failing</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail</span>
+<span class="w">  </span><span class="nt">serialnumber</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail_log</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">another_log</span>
+<span class="w">  </span><span class="nt">starttime</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-03-10T09:44:14.439120+00:00&quot;</span>
+<span class="w">  </span><span class="nt">endtime</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-03-10T09:44:24.242227+00:00&quot;</span>
+<span class="w">  </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00:09</span>
+<span class="w">  </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail result</span>
+<span class="w">  </span><span class="nt">guest</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default-0</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example content of custom results file</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/passing</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass</span>
+<span class="w">  </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass_log</span>
+<span class="w">  </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:11:22</span>
+<span class="w">  </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">good result</span>
+<span class="w">  </span><span class="nt">ids</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">extra-nitrate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some-nitrate-id</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/failing</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail</span>
+<span class="w">  </span><span class="nt">log</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail_log</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">another_log</span>
+<span class="w">  </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:22:33</span>
+<span class="w">  </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail result</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of a perfectly valid, yet stingy custom results file</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/passing</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/test/failing</span>
+<span class="w">  </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fail</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Example content of custom results.json */</span>
+<span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/test/passing&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pass&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pass_log&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00:11:22&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;good result&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="guest-topology-format">
+<span id="spec-plans-guest-topology"></span><h2>Guest Topology Format<a class="headerlink" href="#guest-topology-format" title="Permalink to this heading"></a></h2>
+<p>Define format of on-disk description of provisioned guest topology</p>
+<p>The following text defines structure of files tmt uses for exposing
+guest names, roles and other properties to tests and steps that run
+on a guest (<a class="reference internal" href="#spec-plans-prepare"><span class="std std-ref">prepare</span></a>,
+<a class="reference internal" href="#spec-plans-execute"><span class="std std-ref">execute</span></a>, <a class="reference internal" href="#spec-plans-finish"><span class="std std-ref">finish</span></a>).
+tmt saves these files on every guest used, and exposes their paths to
+processes started by tmt on these guests through environment variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TMT_TOPOLOGY_YAML</span></code> for a YAML file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TMT_TOPOLOGY_BASH</span></code> for a shell-friendly <code class="docutils literal notranslate"><span class="pre">NAME=VALUE</span></code> file</p></li>
+</ul>
+<p>Both files are always available, and both carry the same information.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The shell-friendly file contains arrays, therefore it’s compatible
+with Bash 4.x and newer.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The shell-friendly file is easy to ingest for a shell-based tests,
+it can be simply <code class="docutils literal notranslate"><span class="pre">source</span></code>-ed. For parsing the YAML file in shell,
+pure shell parsers like <a class="reference external" href="https://github.com/sopos/yash">https://github.com/sopos/yash</a> can be used.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">TMT_TOPOLOGY_YAML</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guest on which the test or script is running.</span>
+<span class="nt">guest</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="c1"># List of names of all provisioned guests.</span>
+<span class="nt">guest-names</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest2</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="c1"># Same as `guest`, but one for each provisioned guest, with guest names</span>
+<span class="c1"># as keys.</span>
+<span class="nt">guests</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">guest1</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest1</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">        </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">guest2</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest2</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">        </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="c1"># List of all known roles.</span>
+<span class="nt">role-names</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">role1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">role2</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="c1"># Roles and their guests, with role names as keys.</span>
+<span class="nt">roles</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">role1</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest1</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">role2</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guestN</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">TMT_TOPOLOGY_BASH</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guest on which the test is running.</span>
+<span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span>TMT_GUEST
+TMT_GUEST<span class="o">[</span>name<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+TMT_GUEST<span class="o">[</span>role<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+TMT_GUEST<span class="o">[</span>hostname<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+
+<span class="c1"># Space-separated list of names of all provisioned guests.</span>
+<span class="nv">TMT_GUEST_NAMES</span><span class="o">=</span><span class="s2">&quot;guest1 guest2 ...&quot;</span>
+
+<span class="c1"># Same as `guest`, but one for each provisioned guest. Keys are constructed</span>
+<span class="c1"># from guest name and the property name.</span>
+<span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span>TMT_GUESTS
+TMT_GUESTS<span class="o">[</span>guest1.name<span class="o">]=</span><span class="s2">&quot;guest1&quot;</span>
+TMT_GUESTS<span class="o">[</span>guest1.role<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+TMT_GUESTS<span class="o">[</span>guest1.hostname<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+TMT_GUESTS<span class="o">[</span>guest2.name<span class="o">]=</span><span class="s2">&quot;guest2&quot;</span>
+TMT_GUESTS<span class="o">[</span>guest2.role<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+TMT_GUESTS<span class="o">[</span>guest2.hostname<span class="o">]=</span><span class="s2">&quot;...&quot;</span>
+...
+
+<span class="c1"># Space-separated list of all known roles.</span>
+<span class="nv">TMT_ROLE_NAMES</span><span class="o">=</span><span class="s2">&quot;client server&quot;</span>
+
+<span class="c1"># Roles and their guests, with role names as keys.</span>
+<span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span>TMT_ROLES
+TMT_ROLES<span class="o">[</span>role1<span class="o">]=</span><span class="s2">&quot;guest1 guest2 ...&quot;</span>
+TMT_ROLES<span class="o">[</span>role2<span class="o">]=</span><span class="s2">&quot;guestN ...&quot;</span>
+...
+</pre></div>
+</div>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># A trivial pseudo-test script</span>
+<span class="l l-Scalar l-Scalar-Plain">. &quot;$TMT_TOPOLOGY_BASH&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">echo &quot;I&#39;m running on ${TMT_GUEST[name]}&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tests.html" class="btn btn-neutral float-left" title="Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stories.html" class="btn btn-neutral float-right" title="Stories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

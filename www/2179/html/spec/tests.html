@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tests &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plans" href="plans.html" />
+    <link rel="prev" title="Core" href="core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spec.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#component">component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contact">contact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#duration">duration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment">environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#framework">framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual">manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#path">path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recommend">recommend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#require">require</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#result">result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test">test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plans.html">Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lint.html">Lint Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../spec.html">Metadata Specification</a></li>
+      <li class="breadcrumb-item active">Tests</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/spec/tests.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tests">
+<span id="spec-tests"></span><h1>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h1>
+<p><em>As a tester I want to store test metadata close to the test source code.</em></p>
+<p>Tests, or L1 metadata, define attributes which are closely
+related to individual test cases such <a class="reference internal" href="#spec-tests-test"><span class="std std-ref">test</span></a>
+script, <a class="reference internal" href="#spec-tests-framework"><span class="std std-ref">framework</span></a>, directory
+<a class="reference internal" href="#spec-tests-path"><span class="std std-ref">path</span></a> where the test should be executed,
+maximum test <a class="reference internal" href="#spec-tests-duration"><span class="std std-ref">duration</span></a> or packages required
+to run the test.</p>
+<p>In addition to the attributes defined here, tests also support
+common <a class="reference internal" href="core.html#spec-core"><span class="std std-ref">Core</span></a> attributes which are shared across
+all metadata levels.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check the man page</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">man tmt | grep friendly</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grep</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
+<span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs</span>
+</pre></div>
+</div>
+<section id="component">
+<span id="spec-tests-component"></span><h2>component<a class="headerlink" href="#component" title="Permalink to this heading"></a></h2>
+<p>Relevant fedora/rhel source package names</p>
+<p><em>As a SELinux tester testing the ‘checkpolicy’ component I want to run Tier 1 tests for all SELinux components plus all checkpolicy tests.</em></p>
+<p>It’s useful to be able to easily select all tests relevant for given component or package. As they do not always have to be stored in the same repository and because many tests cover multiple components a dedicated field is needed. Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> or a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code>. Component name usually corresponds to the source package name.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single component</span>
+<span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libselinux</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple components</span>
+<span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">libselinux</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">checkpolicy</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple components on separate lines</span>
+<span class="nt">component</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libselinux</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">checkpolicy</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="contact">
+<span id="spec-tests-contact"></span><h2>contact<a class="headerlink" href="#contact" title="Permalink to this heading"></a></h2>
+<p>Test maintainer contact</p>
+<p><em>As a developer reviewing a complex test which failed I would like to contact the person who maintains the code and understands it well.</em></p>
+<p>When there are several people collaborating on tests it’s useful to have a way how find who is responsible for what. Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> or a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code> (email address format with name and surname).</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single contact</span>
+<span class="nt">contact</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name Surname &lt;email@address.org&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple contacts</span>
+<span class="nt">contact</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">First Person &lt;first@address.org&gt;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Second Person &lt;second@address.org&gt;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="description">
+<span id="spec-tests-description"></span><h2>description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>Detailed description of what the test does</p>
+<p><em>As a developer I review existing test coverage for my component and would like to get an overall idea what is covered without having to read the whole test code.</em></p>
+<p>For complex tests it makes sense to provide more detailed description to better clarify what is covered by the test. This can be useful for test writer as well when reviewing a test written long time ago. Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> (multi line, plain text).</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">This test checks all available wget options related to</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">downloading files recursively. First a tree directory</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">structure is created for testing. Then a file download</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">is performed for different recursion depth specified by</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">the &quot;--level=depth&quot; option.</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="duration">
+<span id="spec-tests-duration"></span><h2>duration<a class="headerlink" href="#duration" title="Permalink to this heading"></a></h2>
+<p>Maximum time for test execution</p>
+<p><em>As a test harness I need to know after how long time I should kill test if it is still running to prevent resource wasting.</em></p>
+<p>In order to prevent stuck tests consuming resources we define a maximum time for test execution. If the limit is exceeded the running test is killed by the test harness. Use the same format as the <code class="docutils literal notranslate"><span class="pre">sleep</span></code> command. Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code>. The default value is <code class="docutils literal notranslate"><span class="pre">5m</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Three minutes</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3m</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Two hours</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2h</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># One day</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1d</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combination &amp; repetition of time suffixes (total 4h 2m 3s)</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h 3h 2m 3</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use context adjust to extend duration for given arch</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">duration+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15m</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arch == aarch64</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="environment">
+<span id="spec-tests-environment"></span><h2>environment<a class="headerlink" href="#environment" title="Permalink to this heading"></a></h2>
+<p>Environment variables to be set before running the test</p>
+<p><em>As a tester I need to pass environment variables to my test script to properly execute the desired test scenario.</em></p>
+<p>Test scripts might require certain environment variables to be set.  Although this can be done on the shell command line as part of the <code class="docutils literal notranslate"><span class="pre">test</span></code> attribute it makes sense to have a dedicated field for this, especially when the number of parameters grows. This might be useful for virtual test cases as well. Plan <a class="reference internal" href="plans.html#spec-plans-environment"><span class="std std-ref">environment</span></a> overrides test environment. Must be a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">PACKAGE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python37</span>
+<span class="w">    </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3.7</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="framework">
+<span id="spec-tests-framework"></span><h2>framework<a class="headerlink" href="#framework" title="Permalink to this heading"></a></h2>
+<p>Test framework defining how tests should be executed</p>
+<p><em>As a tester I want to include tests using different test execution framework in a single plan.</em></p>
+<p>The framework defines how test code should be executed and how
+test results should be interpreted (e.g. checking exit code of
+a shell test versus checking beakerlib test results file). It
+also determines possible additional required packages to be
+installed on the test environment.</p>
+<p>Currently <code class="docutils literal notranslate"><span class="pre">shell</span></code> and <code class="docutils literal notranslate"><span class="pre">beakerlib</span></code> are supported. Each
+<cite>execute</cite> step plugin must list which frameworks it supports
+and raise an error when an unsupported framework is detected.</p>
+<p>Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code>, by default <code class="docutils literal notranslate"><span class="pre">shell</span></code> is used.</p>
+<dl class="simple">
+<dt>shell</dt><dd><p>Only the exit code determines the test result. Exit code
+<code class="docutils literal notranslate"><span class="pre">0</span></code> is handled as a test <code class="docutils literal notranslate"><span class="pre">pass</span></code>, exit code <code class="docutils literal notranslate"><span class="pre">1</span></code> is
+considered to be a test <code class="docutils literal notranslate"><span class="pre">fail</span></code> and any other exit code
+is interpreted as an <code class="docutils literal notranslate"><span class="pre">error</span></code>.</p>
+</dd>
+<dt>beakerlib</dt><dd><p>Exit code and BeakerLib’s <code class="docutils literal notranslate"><span class="pre">TestResults</span></code> file determine
+the test result.</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test written in shell</span>
+<span class="nt">framework</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># A beakerlib test</span>
+<span class="nt">framework</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beakerlib</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="manual">
+<span id="spec-tests-manual"></span><h2>manual<a class="headerlink" href="#manual" title="Permalink to this heading"></a></h2>
+<p>Test automation state</p>
+<p><em>As a tester I need to store detailed manual instructions covering test scenario I have to perform manually.</em></p>
+<p>Attribute marks whether this test needs human interaction
+during its execution.  Such tests are not likely to be
+executed in automation pipelines. In the future they can be
+executed in a semi-automated way, waiting on human
+interaction.</p>
+<p>It’s value must be a <code class="docutils literal notranslate"><span class="pre">boolean</span></code>. The default value is
+<code class="docutils literal notranslate"><span class="pre">false</span></code>. When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the <a class="reference internal" href="#spec-tests-test"><span class="std std-ref">test</span></a>
+attribute must point to a Markdown document following the
+<a class="reference external" href="https://spec.commonmark.org/0.29">CommonMark</a> specification.</p>
+<p>This is a minimal example of a manual test document containing
+a single test with one test step and one expected result:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Test</span>
+
+<span class="gu">## Step</span>
+Do this and that.
+
+<span class="gu">## Expect</span>
+Check this and that.
+</pre></div>
+</div>
+<p>The following sections are recognized by tmt and have a
+special meaning. Any other features of Markdown can be used,
+but tmt will just show them.</p>
+<dl class="simple">
+<dt>Setup</dt><dd><p>Optional heading <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Setup</span></code> under which any necessary
+preparation actions are documented. These actions are not
+part of the test itself.</p>
+</dd>
+<dt>Test</dt><dd><p>Required level 1 heading <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Test</span></code> or <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Test</span> <span class="pre">.*</span></code>
+starting with the word ‘Test’ marks beginning of the test
+itself. Multiple Test sections can be defined in a single
+document.</p>
+</dd>
+<dt>Step</dt><dd><p>Required level 2 heading <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Step</span></code> or <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Test</span> <span class="pre">Step</span></code>
+marking a single step of the test, must be in pair with
+the Expect section which follows it. Cannot be used
+outside of test sections.</p>
+</dd>
+<dt>Expect</dt><dd><p>Required level 2 heading <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Expect</span></code>, <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Result</span></code> or
+<code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Expected</span> <span class="pre">Result</span></code> marking expected outcome of the
+previous step. Cannot be used outside of test sections.</p>
+</dd>
+<dt>Cleanup</dt><dd><p>Optional heading <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Cleanup</span></code> under which any cleanup
+actions which are not part of the test itself are
+documented.</p>
+</dd>
+<dt>Code block</dt><dd><p>Optional, can be used in any section to mark code
+snippets. Code type specification (bash, python…) is
+recommended. It can be used for syntax highlighting and in
+the future for the semi-automated test execution as well.</p>
+</dd>
+</dl>
+<p>See the <a class="reference external" href="https://github.com/teemtee/tmt/tree/main/examples/manual/">manual test examples</a> to get a better idea.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">manual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">manual.md</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="path">
+<span id="spec-tests-path"></span><h2>path<a class="headerlink" href="#path" title="Permalink to this heading"></a></h2>
+<p>Directory to be entered before executing the test</p>
+<p><em>As a test writer I want to define the directory from which the test script should be executed.</em></p>
+<p>In order to have all files which are needed for testing
+prepared for execution and available on locations expected by
+the test script, automation changes the current working
+directory to the provided <code class="docutils literal notranslate"><span class="pre">path</span></code> before running the test.</p>
+<p>It must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> containing path from the metadata
+<a class="reference internal" href="../guide.html#tree"><span class="std std-ref">tree root</span></a> to the desired directory and must
+start with a slash. If path is not defined, the directory
+where the test metadata are stored is used as a default.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/protocols/https</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="recommend">
+<span id="spec-tests-recommend"></span><h2>recommend<a class="headerlink" href="#recommend" title="Permalink to this heading"></a></h2>
+<p>Packages or libraries recommended for the test execution</p>
+<p><em>As a tester I want to specify additional packages which should be installed on the system if available and no error should be reported if they cannot be installed.</em></p>
+<p>Sometimes there can be additional packages which are not
+strictly needed to run tests but can improve test execution in
+some way, for example provide better results presentation.</p>
+<p>Also package names can differ across product versions. Using
+this attribute it is possible to specify all possible package
+names and only those which are available will be installed.</p>
+<p>If possible, for the second use case it is recommended to
+specify such packages using the <a class="reference internal" href="plans.html#spec-plans-prepare"><span class="std std-ref">prepare</span></a>
+step configuration which is usually branched according to the
+version and thus can better ensure that the right packages are
+correctly installed as expected.</p>
+<p>Note that beakerlib libraries are supported by this attribute
+as well. See the <a class="reference internal" href="#spec-tests-require"><span class="std std-ref">require</span></a> attribute for more
+details about available reference options.</p>
+<p>Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> or a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code> using package
+specification supported by <code class="docutils literal notranslate"><span class="pre">dnf</span></code> which takes care of the
+installation.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single package</span>
+<span class="nt">recommend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple packages</span>
+<span class="nt">recommend</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">mariadb</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">mysql</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple packages on separate lines</span>
+<span class="nt">recommend</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="require">
+<span id="spec-tests-require"></span><h2>require<a class="headerlink" href="#require" title="Permalink to this heading"></a></h2>
+<p>Packages, libraries or files required for test execution</p>
+<p><em>As a tester I want to specify packages, libraries and files which are required by the test and need to be installed on or copied over to the system so that the test can be successfully executed.</em></p>
+<p>In order to execute the test, additional packages may need to
+be installed on the system. For example <cite>gcc</cite> and <cite>make</cite> are
+needed to compile tests written in C on the target machine. If
+the package cannot be installed test execution must result
+in an <code class="docutils literal notranslate"><span class="pre">error</span></code>.</p>
+<p>For tests shared across multiple components or product
+versions where required packages have different names it is
+recommended to use the <a class="reference internal" href="plans.html#spec-plans-prepare"><span class="std std-ref">prepare</span></a> step
+configuration to specify required packages for each component
+or product version individually.</p>
+<p>When referencing beakerlib libraries it is possible to use
+both the backward-compatible syntax <code class="docutils literal notranslate"><span class="pre">library(repo/lib)</span></code>
+which fetches libraries from the <a class="reference external" href="https://github.com/beakerlib/">default location</a> as well
+as provide a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> with a full <a class="reference external" href="https://fmf.readthedocs.io/en/latest/concept.html#identifiers">fmf identifier</a>.
+For the latter case specify <code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">library</span></code>.</p>
+<p>When referencing local files or directories use <code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">file</span></code>
+and define list of paths relative to the fmf root directory.
+These can be regular expressions to match multiple files or
+directories or just a single file or directory name. By
+default everything under test <a class="reference internal" href="#spec-tests-path"><span class="std std-ref">path</span></a> is
+copied over to the system.</p>
+<p>For now everything is still copied over to the system,
+this addition is just giving you the ability to change
+your metadata to reflect required files for your tests/libraries,
+before the pruning is actually done.</p>
+<p>By default, fetched repositories are stored in the discover
+step workdir under the <code class="docutils literal notranslate"><span class="pre">libs</span></code> directory. Use optional key
+<code class="docutils literal notranslate"><span class="pre">destination</span></code> to choose a different location. The <code class="docutils literal notranslate"><span class="pre">nick</span></code>
+key can be used to override the default git repository name.</p>
+<p>For debugging beakerlib libraries it is useful to reference
+the development version directly from the local filesystem.
+Use the <code class="docutils literal notranslate"><span class="pre">path</span></code> key to specify a full path to the library.</p>
+<p>Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> or a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code> using package
+specification supported by <code class="docutils literal notranslate"><span class="pre">dnf</span></code> which takes care of the
+installation or a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> if using fmf identifier to
+fetch dependent repositories.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Require a single package</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">make</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple packages</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">gcc</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">make</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple packages on separate lines</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcc</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">make</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Library from the default upstream location</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library(openssl/certgen)</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Library from a custom remote git repository</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/beakerlib/openssl</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/certgen</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Library from the local filesystem</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/library/openssl</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/certgen</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use a custom git ref and nick for the library</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/redhat-qe-security/certgen</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">devel</span>
+<span class="w">    </span><span class="nt">nick</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openssl</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/certgen</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Require local files needed for the library or test</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/include</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/Library/common/helper.sh</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/files/photos/IMG.*</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Require whole fmf tree</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="result">
+<span id="spec-tests-result"></span><h2>result<a class="headerlink" href="#result" title="Permalink to this heading"></a></h2>
+<p>Specify how test result should be interpreted</p>
+<p><em>As a tester I want to regularly execute the test but temporarily ignore test result until more investigation is done and the test can be fixed properly.</em></p>
+<p>Even if a test fails it might makes sense to execute it to be
+able to manually review the results (ignore test result) or
+ensure the behaviour has not unexpectedly changed and the test
+is still failing (expected fail). The following values are
+supported:</p>
+<dl class="simple">
+<dt>respect</dt><dd><p>test result is respected (fails when test failed) - default value</p>
+</dd>
+<dt>xfail</dt><dd><p>expected fail (pass when test fails, fail when test passes)</p>
+</dd>
+<dt>pass, info, warn, error, fail</dt><dd><p>ignore the actual test result and always report provided
+value instead</p>
+</dd>
+<dt>custom</dt><dd><p>test needs to create its own <code class="docutils literal notranslate"><span class="pre">results.yaml</span></code> or
+<code class="docutils literal notranslate"><span class="pre">results.json</span></code> file in the <code class="docutils literal notranslate"><span class="pre">${TMT_TEST_DATA}</span></code>
+directory. The format of the file, notes and detailed examples
+are documented at <a class="reference internal" href="plans.html#spec-plans-results"><span class="std std-ref">Results Format</span></a>.</p>
+</dd>
+</dl>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plain swapping fail to pass and pass to fail result</span>
+<span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xfail</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look for $TMT_TEST_DATA/results.yaml (or results.json) with custom results</span>
+<span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="summary">
+<span id="spec-tests-summary"></span><h2>summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h2>
+<p>Concise summary of what the test does</p>
+<p><em>As a developer reviewing multiple failed tests I would like to get quickly an idea of what my change broke.</em></p>
+<p>In order to efficiently collaborate on test maintenance it’s crucial to have a short summary of what the test does. Must be a one-line <code class="docutils literal notranslate"><span class="pre">string</span></code>, should be up to 50 characters long.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test wget recursive download options</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="test">
+<span id="spec-tests-test"></span><h2>test<a class="headerlink" href="#test" title="Permalink to this heading"></a></h2>
+<p>Shell command which executes the test</p>
+<p><em>As a test writer I want to run a single test script in multiple ways (e.g. by providing different parameters).</em></p>
+<p>This attribute defines how the test is to be executed.
+Allows to parametrize a single test script and in this way
+create virtual test cases.</p>
+<p>If the test is <a class="reference internal" href="#spec-tests-manual"><span class="std std-ref">manual</span></a>, it points to the
+document describing the manual test case steps in Markdown
+format with defined structure.</p>
+<p>Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code>. This is a <strong>required</strong> attribute.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Bash</span></code> is used as shell and options <code class="docutils literal notranslate"><span class="pre">errexit</span></code> and <code class="docutils literal notranslate"><span class="pre">pipefail</span></code>
+are applied using <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-eo</span> <span class="pre">pipefail</span></code> to avoid potential errors
+going unnoticed. You may revert this setting by explicitly
+using <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">+eo</span> <span class="pre">pipefail</span></code>. These options are not applied when
+<code class="docutils literal notranslate"><span class="pre">beakerlib</span></code> is used as the <a class="reference internal" href="#spec-tests-framework"><span class="std std-ref">framework</span></a>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a script</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./test.sh</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a script with parameter</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./test.sh --depth 1000</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute selected tests using pytest</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest -k performance</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run test using a Makefile target</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">make run</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a manual test</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">manual.md</span>
+<span class="nt">manual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="core.html" class="btn btn-neutral float-left" title="Core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plans.html" class="btn btn-neutral float-right" title="Plans" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

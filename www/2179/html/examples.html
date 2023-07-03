@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Stories" href="stories.html" />
+    <link rel="prev" title="Lint Checks" href="spec/lint.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#init">Init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#explore-tests">Explore Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-tests">Filter Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-tests">Import Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-tests">Export Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-libraries">Test Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plans">Plans</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#explore-plans">Explore Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-configs">Multiple Configs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extend-steps">Extend Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametrize-plans">Parametrize Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-ref-evaluation">Dynamic <code class="docutils literal notranslate"><span class="pre">ref</span></code> Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#stories">Stories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#explore-stories">Explore Stories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-stories">Filter Stories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#story-coverage">Story Coverage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#run">Run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-plans">Select Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-tests">Select Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-steps">Select Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execute-progress">Execute Progress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-report">Check Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provision-options">Provision Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-tests">Debug Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aliases">Aliases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guest-login">Guest Login</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#status">Status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verbosity-levels">Verbosity Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-filtering">Status Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clean">Clean</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clean-guests">Clean guests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-workdirs">Clean workdirs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-images">Clean images</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#coding">Coding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h1>
+<p>Let’s have a look at a couple of real-life examples!</p>
+<p>You can obtain detailed list of available options for each command
+by invoking it with <code class="docutils literal notranslate"><span class="pre">--help</span></code>. In order to control the verbosity
+of the output use <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">--quiet</span></code>. To display
+implementation details for debugging use the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> option.
+See <a class="reference internal" href="stories/cli.html#stories-cli-common"><span class="std std-ref">common</span></a> options for details.</p>
+<p>Simply run <code class="docutils literal notranslate"><span class="pre">tmt</span></code> to get started with exploring your working
+directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt
+Found<span class="w"> </span><span class="m">2</span><span class="w"> </span>tests:<span class="w"> </span>/tests/docs<span class="w"> </span>and<span class="w"> </span>/tests/ls.
+Found<span class="w"> </span><span class="m">3</span><span class="w"> </span>plans:<span class="w"> </span>/plans/basic,<span class="w"> </span>/plans/helps<span class="w"> </span>and<span class="w"> </span>/plans/smoke.
+Found<span class="w"> </span><span class="m">109</span><span class="w"> </span>stories:<span class="w"> </span>/spec/core/description,<span class="w"> </span>/spec/core/order,
+/spec/core/summary,<span class="w"> </span>/spec/plans/artifact,<span class="w"> </span>/spec/plans/gate,
+/spec/plans/summary,<span class="w"> </span>/spec/plans/discover<span class="w"> </span>and<span class="w"> </span><span class="m">103</span><span class="w"> </span>more.
+</pre></div>
+</div>
+<section id="init">
+<h2>Init<a class="headerlink" href="#init" title="Permalink to this heading"></a></h2>
+<p>Before starting a new project initialize the metadata tree root:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>init
+Tree<span class="w"> </span><span class="s1">&#39;/tmp/try&#39;</span><span class="w"> </span>initialized.
+To<span class="w"> </span>populate<span class="w"> </span>it<span class="w"> </span>with<span class="w"> </span>example<span class="w"> </span>content,<span class="w"> </span>use<span class="w"> </span>--template<span class="w"> </span>with<span class="w"> </span>mini,<span class="w"> </span>base<span class="w"> </span>or<span class="w"> </span>full.
+</pre></div>
+</div>
+<p>You can also populate it with a minimal plan example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>init<span class="w"> </span>--template<span class="w"> </span>mini
+Tree<span class="w"> </span><span class="s1">&#39;/tmp/try&#39;</span><span class="w"> </span>initialized.
+Applying<span class="w"> </span>template<span class="w"> </span><span class="s1">&#39;mini&#39;</span>.
+Directory<span class="w"> </span><span class="s1">&#39;/tmp/try/plans&#39;</span><span class="w"> </span>created.
+Plan<span class="w"> </span><span class="s1">&#39;/tmp/try/plans/example.fmf&#39;</span><span class="w"> </span>created.
+</pre></div>
+</div>
+<p>Create a plan and a test:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>init<span class="w"> </span>--template<span class="w"> </span>base
+Tree<span class="w"> </span><span class="s1">&#39;/tmp/try&#39;</span><span class="w"> </span>initialized.
+Applying<span class="w"> </span>template<span class="w"> </span><span class="s1">&#39;base&#39;</span>.
+Directory<span class="w"> </span><span class="s1">&#39;/tmp/try/tests/example&#39;</span><span class="w"> </span>created.
+Test<span class="w"> </span>metadata<span class="w"> </span><span class="s1">&#39;/tmp/try/tests/example/main.fmf&#39;</span><span class="w"> </span>created.
+Test<span class="w"> </span>script<span class="w"> </span><span class="s1">&#39;/tmp/try/tests/example/test.sh&#39;</span><span class="w"> </span>created.
+Directory<span class="w"> </span><span class="s1">&#39;/tmp/try/plans&#39;</span><span class="w"> </span>created.
+Plan<span class="w"> </span><span class="s1">&#39;/tmp/try/plans/example.fmf&#39;</span><span class="w"> </span>created.
+</pre></div>
+</div>
+<p>Initialize with a richer example that also includes the story
+(overwriting existing files):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>init<span class="w"> </span>--template<span class="w"> </span>full<span class="w"> </span>--force
+Tree<span class="w"> </span><span class="s1">&#39;/tmp/try&#39;</span><span class="w"> </span>already<span class="w"> </span>exists.
+Applying<span class="w"> </span>template<span class="w"> </span><span class="s1">&#39;full&#39;</span>.
+Directory<span class="w"> </span><span class="s1">&#39;/tmp/try/tests/example&#39;</span><span class="w"> </span>already<span class="w"> </span>exists.
+Test<span class="w"> </span>metadata<span class="w"> </span><span class="s1">&#39;/tmp/try/tests/example/main.fmf&#39;</span><span class="w"> </span>overwritten.
+Test<span class="w"> </span>script<span class="w"> </span><span class="s1">&#39;/tmp/try/tests/example/test.sh&#39;</span><span class="w"> </span>overwritten.
+Directory<span class="w"> </span><span class="s1">&#39;/tmp/try/plans&#39;</span><span class="w"> </span>already<span class="w"> </span>exists.
+Plan<span class="w"> </span><span class="s1">&#39;/tmp/try/plans/example.fmf&#39;</span><span class="w"> </span>overwritten.
+Directory<span class="w"> </span><span class="s1">&#39;/tmp/try/stories&#39;</span><span class="w"> </span>created.
+Story<span class="w"> </span><span class="s1">&#39;/tmp/try/stories/example.fmf&#39;</span><span class="w"> </span>created.
+</pre></div>
+</div>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tests</span></code> command is used to investigate and handle tests.
+See the <a class="reference internal" href="spec.html#specification"><span class="std std-ref">Metadata Specification</span></a> for details about the L1 Metadata.</p>
+<section id="explore-tests">
+<h3>Explore Tests<a class="headerlink" href="#explore-tests" title="Permalink to this heading"></a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span></code> to briefly list discovered tests:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>tests
+Found<span class="w"> </span><span class="m">2</span><span class="w"> </span>tests:<span class="w"> </span>/tests/docs<span class="w"> </span>and<span class="w"> </span>/tests/ls.
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">ls</span></code> to list available tests, one per line:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>ls
+/tests/docs
+/tests/ls
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">show</span></code> to see detailed test metadata:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>show
+/tests/docs
+<span class="w">     </span>summary<span class="w"> </span>Check<span class="w"> </span>that<span class="w"> </span>essential<span class="w"> </span>documentation<span class="w"> </span>is<span class="w"> </span>working
+<span class="w">     </span>contact<span class="w"> </span>Petr<span class="w"> </span>Šplíchal<span class="w"> </span>&lt;psplicha@redhat.com&gt;
+<span class="w">        </span><span class="nb">test</span><span class="w"> </span>./test.sh
+<span class="w">        </span>path<span class="w"> </span>/tests/docs
+<span class="w">    </span>duration<span class="w"> </span>5m
+<span class="w">        </span>tier<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span>result<span class="w"> </span>respect
+<span class="w">     </span>enabled<span class="w"> </span>yes
+
+/tests/ls
+<span class="w">     </span>summary<span class="w"> </span>List<span class="w"> </span>available<span class="w"> </span>tests<span class="w"> </span>and<span class="w"> </span>plans
+<span class="w"> </span>description<span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>that<span class="w"> </span><span class="s1">&#39;tmt test ls&#39;</span><span class="w"> </span>and<span class="w"> </span><span class="s1">&#39;tmt plan ls&#39;</span><span class="w"> </span>work.
+<span class="w">     </span>contact<span class="w"> </span>Petr<span class="w"> </span>Šplíchal<span class="w"> </span>&lt;psplicha@redhat.com&gt;
+<span class="w">        </span><span class="nb">test</span><span class="w"> </span>./test.sh
+<span class="w">        </span>path<span class="w"> </span>/tests/ls
+<span class="w">    </span>duration<span class="w"> </span>5m
+<span class="w">        </span>tier<span class="w"> </span><span class="m">1</span>
+<span class="w">      </span>result<span class="w"> </span>respect
+<span class="w">     </span>enabled<span class="w"> </span>yes
+</pre></div>
+</div>
+<p>Append <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> to get additional information about test as
+the list of source files where metadata are defined and its full id:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>show<span class="w"> </span>/tests/docs<span class="w"> </span>--verbose
+/tests/docs
+<span class="w">     </span>summary<span class="w"> </span>Check<span class="w"> </span>that<span class="w"> </span>essential<span class="w"> </span>documentation<span class="w"> </span>is<span class="w"> </span>working
+<span class="w">     </span>contact<span class="w"> </span>Petr<span class="w"> </span>Šplíchal<span class="w"> </span>&lt;psplicha@redhat.com&gt;
+<span class="w">        </span><span class="nb">test</span><span class="w"> </span>./test.sh
+<span class="w">        </span>path<span class="w"> </span>/tests/docs
+<span class="w">    </span>duration<span class="w"> </span>5m
+<span class="w">        </span>tier<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span>result<span class="w"> </span>respect
+<span class="w">     </span>enabled<span class="w"> </span>yes
+<span class="w">     </span>sources<span class="w"> </span>/home/psss/git/tmt/tests/main.fmf
+<span class="w">             </span>/home/psss/git/tmt/tests/docs/main.fmf
+<span class="w">      </span>fmf-id<span class="w"> </span>name:<span class="w"> </span>/tests/docs
+<span class="w">             </span>url:<span class="w"> </span>https://github.com/teemtee/tmt.git
+</pre></div>
+</div>
+</section>
+<section id="filter-tests">
+<h3>Filter Tests<a class="headerlink" href="#filter-tests" title="Permalink to this heading"></a></h3>
+<p>Both <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">ls</span></code> and <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">show</span></code> can optionally filter
+tests with a regular expression, filter expression, a Python
+condition or link expression:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>show<span class="w"> </span>docs
+/tests/docs
+<span class="w">     </span>summary<span class="w"> </span>Check<span class="w"> </span>that<span class="w"> </span>essential<span class="w"> </span>documentation<span class="w"> </span>is<span class="w"> </span>working
+<span class="w">     </span>contact<span class="w"> </span>Petr<span class="w"> </span>Šplíchal<span class="w"> </span>&lt;psplicha@redhat.com&gt;
+<span class="w">        </span><span class="nb">test</span><span class="w"> </span>./test.sh
+<span class="w">        </span>path<span class="w"> </span>/tests/docs
+<span class="w">    </span>duration<span class="w"> </span>5m
+<span class="w">        </span>tier<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span>result<span class="w"> </span>respect
+<span class="w">     </span>enabled<span class="w"> </span>yes
+
+$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>ls<span class="w"> </span>--filter<span class="w"> </span><span class="s1">&#39;tier: 0&#39;</span>
+/tests/docs
+
+$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>ls<span class="w"> </span>--condition<span class="w"> </span><span class="s1">&#39;tier and int(tier) &gt; 0&#39;</span>
+/tests/ls
+
+$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>ls<span class="w"> </span>--link<span class="w"> </span>verifies:issues/423$
+/tests/prepare/shell
+
+$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>ls<span class="w"> </span>unit
+/tests/report/junit
+/tests/unit
+
+$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span>ls<span class="w"> </span>unit<span class="w"> </span>--exclude<span class="w"> </span>junit
+/tests/unit
+</pre></div>
+</div>
+<p>In order to select tests under the current working directory use
+the single dot notation:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>show<span class="w"> </span>.
+$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--name<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="import-tests">
+<h3>Import Tests<a class="headerlink" href="#import-tests" title="Permalink to this heading"></a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">import</span></code> to gather old metadata stored in
+different sources and convert them into the new <code class="docutils literal notranslate"><span class="pre">fmf</span></code> format.
+By default <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> and <code class="docutils literal notranslate"><span class="pre">PURPOSE</span></code> files in the current
+directory are inspected plus the <code class="docutils literal notranslate"><span class="pre">Nitrate</span></code> and <code class="docutils literal notranslate"><span class="pre">Polarion</span></code> test
+case management systems are contacted to gather all related
+metadata.</p>
+<p>In order to fetch data from Nitrate you need to have <code class="docutils literal notranslate"><span class="pre">nitrate</span></code>
+module installed. For each test case found in Nitrate separate fmf
+file is created with metadata unique to that case. Common metadata
+found in all test cases are stored in <code class="docutils literal notranslate"><span class="pre">main.fmf</span></code>. You can use
+<code class="docutils literal notranslate"><span class="pre">--no-nitrate</span></code> to disable Nitrate integration, <code class="docutils literal notranslate"><span class="pre">--no-makefile</span></code>
+and <code class="docutils literal notranslate"><span class="pre">--no-purpose</span></code> switches to disable the other two metadata
+sources.</p>
+<p>To read data from Polarion you need to install and setup
+<code class="docutils literal notranslate"><span class="pre">pylero</span></code> library (described in <a class="reference internal" href="#export-tests">Export tests</a>) and enable it
+with the <code class="docutils literal notranslate"><span class="pre">--polarion</span></code> flag. You can specify <code class="docutils literal notranslate"><span class="pre">--polarion-case-id</span></code>
+instead of searching by values pulled from other sources and you can specify
+<code class="docutils literal notranslate"><span class="pre">--no-link-polarion</span></code> to not save Polarion links. It reads
+summary, description, enabled status, assignee, id, component,
+tags and links. If <code class="docutils literal notranslate"><span class="pre">id</span></code> is not found in Polarion it’s generated
+and exported.</p>
+<p>Argument <code class="docutils literal notranslate"><span class="pre">--polarion-case-id</span></code> can be provided multiple times to import
+multiple test cases and it supports setting of test names (seprated by <code class="docutils literal notranslate"><span class="pre">:</span></code>),
+if test name is not provided <code class="docutils literal notranslate"><span class="pre">Polarion</span> <span class="pre">WorkItem</span> <span class="pre">ID</span></code> is used
+and lastly when <code class="docutils literal notranslate"><span class="pre">--no-link-polarion</span></code> is used <code class="docutils literal notranslate"><span class="pre">summary</span></code> is taken as test name.
+Examples how to use the import with multiple cases and test names:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>import<span class="w"> </span>--polarion<span class="w"> </span>--polarion-case-id<span class="w"> </span>TMT-123:smoke_test<span class="w"> </span>.
+...
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/smoke_test.fmf&#39;</span>.
+
+$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>import<span class="w"> </span>--polarion<span class="w"> </span>--polarion-case-id<span class="w"> </span>TMT-123:smoke_test<span class="w"> </span>--polarion-case-id<span class="w"> </span>TMT-124:base_test<span class="w"> </span>.
+...
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/main.fmf&#39;</span>.
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/smoke_test.fmf&#39;</span>.
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/base_test.fmf&#39;</span>.
+
+$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>import<span class="w"> </span>--polarion<span class="w"> </span>--polarion-case-id<span class="w"> </span>TMT-123<span class="w"> </span>--polarion-case-id<span class="w"> </span>TMT-124<span class="w"> </span>.
+...
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/main.fmf&#39;</span>.
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/TMT-123.fmf&#39;</span>.
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/path/to/test/TMT-124.fmf&#39;</span>.
+</pre></div>
+</div>
+<p>Manual test cases can be imported from Nitrate using the
+<code class="docutils literal notranslate"><span class="pre">--manual</span></code> option. Provide either <code class="docutils literal notranslate"><span class="pre">--case</span> <span class="pre">ID</span></code> or <code class="docutils literal notranslate"><span class="pre">--plan</span> <span class="pre">ID</span></code>
+with the Nitrate test case/plan identifier to select which test
+case should be imported or which test plan should be checked for
+manual test cases. Directory <code class="docutils literal notranslate"><span class="pre">Manual</span></code> will be created in the fmf
+root directory and manual test cases will be imported there.</p>
+<p>Example output of metadata conversion:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>import
+Checking<span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/examples/convert&#39;</span><span class="w"> </span>directory.
+Makefile<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/examples/convert/Makefile&#39;</span>.
+task:<span class="w"> </span>/tmt/smoke
+summary:<span class="w"> </span>Simple<span class="w"> </span>smoke<span class="w"> </span><span class="nb">test</span>
+test:<span class="w"> </span>./runtest.sh
+contact:<span class="w"> </span>Petr<span class="w"> </span>Splichal<span class="w"> </span>&lt;psplicha@redhat.com&gt;
+component:<span class="w"> </span>tmt
+duration:<span class="w"> </span>5m
+require:<span class="w"> </span>fmf
+recommend:<span class="w"> </span>tmt
+Purpose<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/examples/convert/PURPOSE&#39;</span>.
+description:
+Just<span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;tmt --help&#39;</span><span class="w"> </span>to<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>the<span class="w"> </span>binary<span class="w"> </span>is<span class="w"> </span>sane.
+This<span class="w"> </span>is<span class="w"> </span>really<span class="w"> </span>that<span class="w"> </span>simple.<span class="w"> </span>Nothing<span class="w"> </span>more<span class="w"> </span>here.<span class="w"> </span>Really.
+Nitrate<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>found<span class="w"> </span><span class="s1">&#39;TC#0603489&#39;</span>.
+extra-summary:<span class="w"> </span>tmt<span class="w"> </span>convert<span class="w"> </span><span class="nb">test</span>
+contact:<span class="w"> </span>Petr<span class="w"> </span>Šplíchal<span class="w"> </span>&lt;psplicha@redhat.com&gt;
+environment:
+<span class="o">{</span><span class="s1">&#39;TEXT&#39;</span>:<span class="w"> </span><span class="s1">&#39;Text with spaces&#39;</span>,<span class="w"> </span><span class="s1">&#39;X&#39;</span>:<span class="w"> </span><span class="s1">&#39;1&#39;</span>,<span class="w"> </span><span class="s1">&#39;Y&#39;</span>:<span class="w"> </span><span class="s1">&#39;2&#39;</span>,<span class="w"> </span><span class="s1">&#39;Z&#39;</span>:<span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="o">}</span>
+tag:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;NoRHEL4&#39;</span>,<span class="w"> </span><span class="s1">&#39;NoRHEL5&#39;</span>,<span class="w"> </span><span class="s1">&#39;Tier3&#39;</span><span class="o">]</span>
+tier:<span class="w"> </span><span class="m">3</span>
+component:<span class="w"> </span>tmt
+enabled:<span class="w"> </span>True
+adjust:
+<span class="w">  </span>-<span class="w"> </span>enabled:<span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span>when:<span class="w"> </span>distro<span class="w"> </span>~<span class="o">=</span><span class="w"> </span>rhel-4,<span class="w"> </span>rhel-5
+<span class="w">    </span><span class="k">continue</span>:<span class="w"> </span><span class="nb">false</span>
+<span class="w">  </span>-<span class="w"> </span>environment:
+<span class="w">        </span>PHASES:<span class="w"> </span>novalgrind
+<span class="w">    </span>when:<span class="w"> </span><span class="nv">arch</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>s390x
+<span class="w">    </span><span class="k">continue</span>:<span class="w"> </span><span class="nb">false</span>
+Metadata<span class="w"> </span>successfully<span class="w"> </span>stored<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/examples/convert/main.fmf&#39;</span>.
+</pre></div>
+</div>
+<p>And here’s the resulting <code class="docutils literal notranslate"><span class="pre">main.fmf</span></code> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Simple smoke test</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">Just run &#39;tmt --help&#39; to make sure the binary is sane.</span>
+<span class="w">    </span><span class="no">This is really that simple. Nothing more here. Really.</span>
+<span class="nt">contact</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Petr Šplíchal &lt;psplicha@redhat.com&gt;</span>
+<span class="nt">component</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./runtest.sh</span>
+<span class="nt">require</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="nt">recommend</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">TEXT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text with spaces</span>
+<span class="w">    </span><span class="nt">X</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1&#39;</span>
+<span class="w">    </span><span class="nt">Y</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2&#39;</span>
+<span class="w">    </span><span class="nt">Z</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
+<span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">tag</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NoRHEL4</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NoRHEL5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tier3</span>
+<span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro ~= rhel-4, rhel-5</span>
+<span class="w">    </span><span class="nt">continue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">PHASES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">novalgrind</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arch == s390x</span>
+<span class="w">    </span><span class="nt">continue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">extra-summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt convert test</span>
+<span class="nt">extra-task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmt/smoke</span>
+<span class="nt">extra-nitrate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TC#0603489</span>
+</pre></div>
+</div>
+</section>
+<section id="export-tests">
+<h3>Export Tests<a class="headerlink" href="#export-tests" title="Permalink to this heading"></a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">tests</span> <span class="pre">export</span></code> command to export test metadata into
+different formats and tools. By default all available tests are
+exported, specify regular expression matching test name to export
+only selected tests or use <code class="docutils literal notranslate"><span class="pre">.</span></code> to export tests under the current
+directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>tests<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--how<span class="w"> </span>nitrate<span class="w"> </span>.
+Test<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;TC#0603489&#39;</span><span class="w"> </span>found.
+summary:<span class="w"> </span>tmt<span class="w"> </span>convert<span class="w"> </span><span class="nb">test</span>
+script:<span class="w"> </span>/tmt/smoke
+components:<span class="w"> </span>tmt
+tags:<span class="w"> </span>NoRHEL4<span class="w"> </span>Tier3<span class="w"> </span>NoRHEL5<span class="w"> </span>fmf-export
+default<span class="w"> </span>tester:<span class="w"> </span>psplicha@redhat.com
+estimated<span class="w"> </span>time:<span class="w"> </span>5m
+status:<span class="w"> </span>CONFIRMED
+arguments:<span class="w"> </span><span class="nv">TEXT</span><span class="o">=</span><span class="s1">&#39;Text with spaces&#39;</span><span class="w"> </span><span class="nv">X</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">Y</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">Z</span><span class="o">=</span><span class="m">3</span>
+Structured<span class="w"> </span>Field:
+<span class="nv">distro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rhel-6:<span class="w"> </span>False
+description:<span class="w"> </span>Simple<span class="w"> </span>smoke<span class="w"> </span><span class="nb">test</span>
+purpose-file:<span class="w"> </span>Just<span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;tmt --help&#39;</span><span class="w"> </span>to<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>the<span class="w"> </span>binary<span class="w"> </span>is<span class="w"> </span>sane.
+This<span class="w"> </span>is<span class="w"> </span>really<span class="w"> </span>that<span class="w"> </span>simple.<span class="w"> </span>Nothing<span class="w"> </span>more<span class="w"> </span>here.<span class="w"> </span>Really.
+fmf<span class="w"> </span>id:
+name:<span class="w"> </span>/
+path:<span class="w"> </span>/examples/convert
+url:<span class="w"> </span>https://github.com/teemtee/tmt.git
+Test<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;TC#0603489&#39;</span><span class="w"> </span>successfully<span class="w"> </span>exported<span class="w"> </span>to<span class="w"> </span>nitrate.
+
+$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>--how<span class="w"> </span>polarion<span class="w"> </span>--project-id<span class="w"> </span>TMT<span class="w"> </span>--create<span class="w"> </span>.
+Test<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;TMT-42&#39;</span><span class="w"> </span>created.
+title:<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span><span class="k">case</span><span class="w"> </span>what<span class="w"> </span>already<span class="w"> </span>exists<span class="w"> </span>inside<span class="w"> </span>polarion
+description:<span class="w"> </span>tmt<span class="w"> </span>/existing_testcase<span class="w"> </span>-<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span><span class="k">case</span><span class="w"> </span>what<span class="w"> </span>already<span class="w"> </span>exists<span class="w"> </span>inside<span class="w"> </span>polarion
+script:<span class="w"> </span>https://github.com/teemtee/tmt.git
+components:<span class="w"> </span>tmt
+tags:<span class="w"> </span>integration<span class="w"> </span>fmf-export
+enabled:<span class="w"> </span>True
+Append<span class="w"> </span>the<span class="w"> </span>Polarion<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>link.
+implements:<span class="w"> </span>https://polarion.example/polarion/#/project/TMT/workitem?id<span class="o">=</span>TMT-42
+Test<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;This is case what already exists inside polarion&#39;</span><span class="w"> </span>successfully<span class="w"> </span>exported<span class="w"> </span>to<span class="w"> </span>Polarion.
+</pre></div>
+</div>
+<p>Before export to <code class="docutils literal notranslate"><span class="pre">--how</span> <span class="pre">nitrate</span></code> tmt checks that used test
+metadata are committed to git and present on <code class="docutils literal notranslate"><span class="pre">origin</span></code> remote.
+On own risk the failure can be ignored with <code class="docutils literal notranslate"><span class="pre">--ignore-git-validation</span></code>.</p>
+<p>Nitrate test case can be created from test metadata with <code class="docutils literal notranslate"><span class="pre">--create</span></code>.
+By default existing cases are detected each time, if you need to
+create additional nitrate test case use <code class="docutils literal notranslate"><span class="pre">--duplicate</span></code>.
+Export will append <code class="docutils literal notranslate"><span class="pre">extra-nitrate</span></code> to the test metadata.
+Those changes have to be committed and pushed manually.</p>
+<p>To include nitrate test case in general plans use <code class="docutils literal notranslate"><span class="pre">--general</span></code>.
+Set of general plans to which the test case will be linked is
+detected from the <a class="reference internal" href="spec/tests.html#spec-tests-component"><span class="std std-ref">component</span></a>. Any additional
+general plan will be removed.</p>
+<p>For newly created nitrate test case it can be useful to add it
+to all open nitrate test runs under its general plans. This can be
+done using the <code class="docutils literal notranslate"><span class="pre">--link-runs</span></code> option.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">--bugzilla</span></code> option together with <code class="docutils literal notranslate"><span class="pre">--how</span> <span class="pre">nitrate</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--how</span> <span class="pre">polarion</span></code> to link bugs marked as <code class="docutils literal notranslate"><span class="pre">verifies</span></code>
+in the <a class="reference internal" href="spec/core.html#spec-core-link"><span class="std std-ref">link</span></a> attribute with the corresponding
+Nitrate/Polarion test case.</p>
+<p>Almost all important attributes should be pulled from fmf metadata
+both for Nitrate and Polarion including: Title, Description,
+Author, Assignee, Automation, Automation script, Level, Component,
+Test type, Tags, Importance, Status, Linked BZs and possibly more
+in the future.</p>
+<p>Also a unique id generated by tmt (automatically during export) is
+added into Notes (Nitrate) or Test Case ID (Polarion) fields for
+matching cases across all test case management systems.</p>
+<p>Configuration and guide for setting up nitrate can be found
+at <a class="reference external" href="https://github.com/psss/python-nitrate">https://github.com/psss/python-nitrate</a></p>
+<p>Configuration and guide for setting up pylero can be found
+at <a class="reference external" href="https://github.com/RedHatQE/pylero">https://github.com/RedHatQE/pylero</a></p>
+</section>
+<section id="test-libraries">
+<h3>Test Libraries<a class="headerlink" href="#test-libraries" title="Permalink to this heading"></a></h3>
+<p>In order to prevent unnecessary test code duplication it makes
+sense to use a test library which implements frequently repeated
+actions. Currently beakerlib libraries are supported. They can be
+defined in the <a class="reference internal" href="spec/tests.html#spec-tests-require"><span class="std std-ref">require</span></a> attribute and are
+fetched during the <a class="reference internal" href="spec/plans.html#spec-plans-discover"><span class="std std-ref">discover</span></a> step.</p>
+<p>Use the short backward-compatible syntax to fetch libraries from
+the <a class="reference external" href="https://github.com/beakerlib/">default repository</a>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library(openssl/certgen)</span>
+</pre></div>
+</div>
+<p>The full fmf identifier allows to fetch libraries from arbitrary
+location:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">require</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/beakerlib/openssl</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/certgen</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="spec/tests.html#spec-tests-require"><span class="std std-ref">require</span></a> attribute specification for
+detailed description of the syntax and available keys.</p>
+</section>
+</section>
+<section id="plans">
+<h2>Plans<a class="headerlink" href="#plans" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">plans</span></code> command is used to investigate and handle plans.
+See the <a class="reference internal" href="spec.html#specification"><span class="std std-ref">Metadata Specification</span></a> for details about the L2 Metadata.</p>
+<section id="explore-plans">
+<h3>Explore Plans<a class="headerlink" href="#explore-plans" title="Permalink to this heading"></a></h3>
+<p>Exploring <code class="docutils literal notranslate"><span class="pre">plans</span></code> is similar to using <code class="docutils literal notranslate"><span class="pre">tests</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>plans
+Found<span class="w"> </span><span class="m">3</span><span class="w"> </span>plans:<span class="w"> </span>/plans/basic,<span class="w"> </span>/plans/helps<span class="w"> </span>and<span class="w"> </span>/plans/smoke.
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">plans</span> <span class="pre">ls</span></code> and <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">plans</span> <span class="pre">show</span></code> to output plan names
+and detailed plan information, respectively:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>plans<span class="w"> </span>ls
+/plans/basic
+/plans/helps
+/plans/smoke
+
+$<span class="w"> </span>tmt<span class="w"> </span>plans<span class="w"> </span>show
+/plans/basic
+<span class="w">     </span>summary<span class="w"> </span>Essential<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>features
+<span class="w">    </span>discover
+<span class="w">         </span>how<span class="w"> </span>fmf
+<span class="w">  </span>repository<span class="w"> </span>https://github.com/teemtee/tmt
+<span class="w">    </span>revision<span class="w"> </span>devel
+<span class="w">      </span>filter<span class="w"> </span>tier:<span class="w"> </span><span class="m">0</span>,1
+<span class="w">     </span>prepare
+<span class="w">         </span>how<span class="w"> </span>ansible
+<span class="w">    </span>playbook<span class="w"> </span>ansible/packages.yml
+
+/plans/helps
+<span class="w">     </span>summary<span class="w"> </span>Check<span class="w"> </span><span class="nb">help</span><span class="w"> </span>messages
+<span class="w">    </span>discover
+<span class="w">         </span>how<span class="w"> </span>shell
+
+/plans/smoke
+<span class="w">     </span>summary<span class="w"> </span>Just<span class="w"> </span>a<span class="w"> </span>basic<span class="w"> </span>smoke<span class="w"> </span><span class="nb">test</span>
+<span class="w">     </span>execute
+<span class="w">         </span>how<span class="w"> </span>shell
+<span class="w">      </span>script<span class="w"> </span>tmt<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>Verbose output and filtering are similar as for exploring tests.
+See <a class="reference internal" href="#explore-tests">Explore Tests</a> and <a class="reference internal" href="#filter-tests">Filter Tests</a> for more examples.</p>
+</section>
+<section id="multiple-configs">
+<span id="id3"></span><h3>Multiple Configs<a class="headerlink" href="#multiple-configs" title="Permalink to this heading"></a></h3>
+<p>Step can contain multiple configurations. In this case provide
+each config with a unique name. Applying ansible playbook and
+executing custom script in a single <a class="reference internal" href="spec/plans.html#spec-plans-prepare"><span class="std std-ref">prepare</span></a>
+step could look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packages</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible</span>
+<span class="w">    </span><span class="nt">playbook</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible/packages.yml</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl start service</span>
+</pre></div>
+</div>
+<p>Another common use case which can be easily covered by multiple
+configs can be fetching tests from multiple repositories during
+the <a class="reference internal" href="spec/plans.html#spec-plans-discover"><span class="std std-ref">discover</span></a> step:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upstream</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://src.fedoraproject.org/rpms/tmt/</span>
+</pre></div>
+</div>
+</section>
+<section id="extend-steps">
+<h3>Extend Steps<a class="headerlink" href="#extend-steps" title="Permalink to this heading"></a></h3>
+<p>When defining multiple configurations for a step it is also
+possible to make use of fmf inheritance. For example the common
+preparation config can be defined up in the hierarchy:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+</pre></div>
+</div>
+<p>Extending the prepare config in a child plan to install additional
+package then could be done in the following way:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prepare+</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3-pytest</span>
+</pre></div>
+</div>
+<p>Eventually, use <a class="reference internal" href="spec/core.html#spec-core-adjust"><span class="std std-ref">adjust</span></a> to extend the step
+conditionally:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro == fedora</span>
+<span class="w">    </span><span class="nt">prepare+</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">        </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3-pytest</span>
+</pre></div>
+</div>
+</section>
+<section id="parametrize-plans">
+<h3>Parametrize Plans<a class="headerlink" href="#parametrize-plans" title="Permalink to this heading"></a></h3>
+<p>It is possible to parametrize plans using environment variables and
+context. This may be useful to reduce duplication, for example in
+CI systems.</p>
+<p>For <a class="reference internal" href="spec/plans.html#spec-plans-environment"><span class="std std-ref">environment</span></a> variables the syntax is
+standard, both <code class="docutils literal notranslate"><span class="pre">$var</span></code> and <code class="docutils literal notranslate"><span class="pre">${var}</span></code> may be used. The values of
+variables are taken from the <code class="docutils literal notranslate"><span class="pre">--environment</span></code> command line option
+and the <code class="docutils literal notranslate"><span class="pre">environment</span></code> plan attribute. If a variable is defined
+using both the attribute and the option, the value from the
+<code class="docutils literal notranslate"><span class="pre">--environment</span></code> option has a priority:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/${REPO}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">$ tmt run -e REPO=tmt</span>
+</pre></div>
+</div>
+<p>Variables can be also utilized to pick tests from specific discovery phase.
+The command line (<code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">run</span> <span class="pre">tests</span> <span class="pre">--name</span> <span class="pre">...</span></code>) applies for the whole discovery
+step and would select more tests than required in the case the test names are not unique:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt.git</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PICK_TMT}</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/fmf.git</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PICK_FMF}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">$ tmt run -e PICK_TMT=&#39;^/tests/core/ls$&#39; -e PICK_FMF=&#39;^/tests/(unit|basic/ls)$&#39;</span>
+</pre></div>
+</div>
+<p>For <a class="reference internal" href="spec/context.html#spec-context"><span class="std std-ref">context</span></a> parametrization the syntax is
+<code class="docutils literal notranslate"><span class="pre">$&#64;dimension</span></code> or <code class="docutils literal notranslate"><span class="pre">$&#64;{dimension}</span></code>. The values are set according
+to the defined context specified using <code class="docutils literal notranslate"><span class="pre">--context</span></code> command line
+option and the <code class="docutils literal notranslate"><span class="pre">context</span></code> plan attribute:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$@{branch}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">$ tmt -c branch=tmt run</span>
+</pre></div>
+</div>
+</section>
+<section id="dynamic-ref-evaluation">
+<h3>Dynamic <code class="docutils literal notranslate"><span class="pre">ref</span></code> Evaluation<a class="headerlink" href="#dynamic-ref-evaluation" title="Permalink to this heading"></a></h3>
+<p>When using test branching for test maintenance it becomes handy to
+be able to set <code class="docutils literal notranslate"><span class="pre">ref</span></code> dynamically depending on the provided
+<a class="reference internal" href="spec/context.html#spec-context"><span class="std std-ref">Context</span></a>. This is possible using a special file in tmt format
+stored in a default branch of a tests repository. That special file
+should contain rules assigning attribute <code class="docutils literal notranslate"><span class="pre">ref</span></code> in an <code class="docutils literal notranslate"><span class="pre">adjust</span></code>
+block depending on the context.</p>
+<p>Dynamic <code class="docutils literal notranslate"><span class="pre">ref</span></code> assignment is enabled whenever a test plan reference
+has the format <code class="docutils literal notranslate"><span class="pre">ref:</span> <span class="pre">&#64;FILEPATH</span></code>.</p>
+<p>Example of a test plan:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/repo</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@.tmtref&quot;</span>
+</pre></div>
+</div>
+<p>Example of a dynamic <code class="docutils literal notranslate"><span class="pre">ref</span></code> definition file in <code class="docutils literal notranslate"><span class="pre">repo/.tmtref</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro == centos-stream-9</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rhel-9</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro == fedora</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro == rhel-9</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rhel-9</span>
+</pre></div>
+</div>
+<p>The definition file can also be parametrized using environment
+variables or context dimensions:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro == fedora or distro == rhel</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$@distro</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="stories">
+<h2>Stories<a class="headerlink" href="#stories" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">stories</span></code> command is used to investigate and handle stories.
+See the <a class="reference internal" href="spec.html#specification"><span class="std std-ref">Metadata Specification</span></a> for details about the L3 Metadata.</p>
+<section id="explore-stories">
+<h3>Explore Stories<a class="headerlink" href="#explore-stories" title="Permalink to this heading"></a></h3>
+<p>Exploring <code class="docutils literal notranslate"><span class="pre">stories</span></code> is quite similar to using <code class="docutils literal notranslate"><span class="pre">tests</span></code> or
+<code class="docutils literal notranslate"><span class="pre">plans</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>stories
+Found<span class="w"> </span><span class="m">109</span><span class="w"> </span>stories:<span class="w"> </span>/spec/core/description,<span class="w"> </span>/spec/core/order,
+/spec/core/summary,<span class="w"> </span>/spec/plans/artifact,<span class="w"> </span>/spec/plans/gate,
+/spec/plans/summary,<span class="w"> </span>/spec/plans/discover<span class="w"> </span>and<span class="w"> </span><span class="m">102</span><span class="w"> </span>more.
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">stories</span> <span class="pre">ls</span></code> and <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">stories</span> <span class="pre">show</span></code> commands output
+the names and the detailed information, respectively:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>stories<span class="w"> </span>ls
+/spec/core/description
+/spec/core/order
+/spec/core/summary
+...
+
+$<span class="w"> </span>tmt<span class="w"> </span>stories<span class="w"> </span>show
+/spec/core/description
+<span class="w">     </span>summary<span class="w"> </span>Detailed<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>object
+<span class="w">       </span>story<span class="w"> </span>I<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>common<span class="w"> </span>core<span class="w"> </span>attributes<span class="w"> </span>used<span class="w"> </span>consistently
+<span class="w">             </span>across<span class="w"> </span>all<span class="w"> </span>metadata<span class="w"> </span>levels.
+<span class="w"> </span>description<span class="w"> </span>Multiline<span class="w"> </span><span class="sb">``</span>string<span class="sb">``</span><span class="w"> </span>describing<span class="w"> </span>all<span class="w"> </span>important<span class="w"> </span>aspects<span class="w"> </span>of
+<span class="w">             </span>the<span class="w"> </span>object.<span class="w"> </span>Usually<span class="w"> </span>spans<span class="w"> </span>across<span class="w"> </span>several<span class="w"> </span>paragraphs.<span class="w"> </span>For
+<span class="w">             </span>detailed<span class="w"> </span>examples<span class="w"> </span>using<span class="w"> </span>a<span class="w"> </span>dedicated<span class="w"> </span>attributes<span class="w"> </span><span class="s1">&#39;examples&#39;</span>
+<span class="w">             </span>should<span class="w"> </span>be<span class="w"> </span>considered.
+<span class="w"> </span>...
+</pre></div>
+</div>
+<p>Verbose output and filtering are similar as for exploring tests.
+See <a class="reference internal" href="#explore-tests">Explore Tests</a> and <a class="reference internal" href="#filter-tests">Filter Tests</a> for more examples.</p>
+</section>
+<section id="filter-stories">
+<h3>Filter Stories<a class="headerlink" href="#filter-stories" title="Permalink to this heading"></a></h3>
+<p>Additionally, and specifically to stories, special flags are
+available for binary status filtering:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>stories<span class="w"> </span>show<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>only
+<span class="w">  </span>-i,<span class="w"> </span>--implemented<span class="w">    </span>Implemented<span class="w"> </span>stories<span class="w"> </span>only.
+<span class="w">  </span>-I,<span class="w"> </span>--unimplemented<span class="w">  </span>Unimplemented<span class="w"> </span>stories<span class="w"> </span>only.
+<span class="w">  </span>-t,<span class="w"> </span>--verified<span class="w">       </span>Stories<span class="w"> </span>verified<span class="w"> </span>by<span class="w"> </span>tests.
+<span class="w">  </span>-T,<span class="w"> </span>--unverified<span class="w">     </span>Stories<span class="w"> </span>not<span class="w"> </span>verified<span class="w"> </span>by<span class="w"> </span>tests.
+<span class="w">  </span>-d,<span class="w"> </span>--documented<span class="w">     </span>Documented<span class="w"> </span>stories<span class="w"> </span>only.
+<span class="w">  </span>-D,<span class="w"> </span>--undocumented<span class="w">   </span>Undocumented<span class="w"> </span>stories<span class="w"> </span>only.
+<span class="w">  </span>-c,<span class="w"> </span>--covered<span class="w">        </span>Covered<span class="w"> </span>stories<span class="w"> </span>only.
+<span class="w">  </span>-C,<span class="w"> </span>--uncovered<span class="w">      </span>Uncovered<span class="w"> </span>stories<span class="w"> </span>only.
+
+$<span class="w"> </span>tmt<span class="w"> </span>stories<span class="w"> </span>ls<span class="w"> </span>--implemented
+/spec/core/summary
+/stories/api/plan/attributes/artifact
+/stories/api/plan/attributes/gate
+...
+
+$<span class="w"> </span>tmt<span class="w"> </span>stories<span class="w"> </span>show<span class="w"> </span>--documented
+/stories/cli/common/debug
+<span class="w">     </span>summary<span class="w"> </span>Print<span class="w"> </span>out<span class="w"> </span>everything<span class="w"> </span>tmt<span class="w"> </span>is<span class="w"> </span>doing
+<span class="w">       </span>story<span class="w"> </span>I<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>common<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>options<span class="w"> </span>consistenly<span class="w"> </span>used
+<span class="w">             </span>across<span class="w"> </span>all<span class="w"> </span>supported<span class="w"> </span>commands<span class="w"> </span>and<span class="w"> </span>subcommands.
+<span class="w">     </span>example<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>-d
+<span class="w">             </span>tmt<span class="w"> </span>run<span class="w"> </span>--debug
+<span class="w"> </span>implemented<span class="w"> </span>/tmt/cli
+<span class="w">  </span>documented<span class="w"> </span>/tmt/cli
+...
+</pre></div>
+</div>
+<p>In order to select stories under the current working directory use
+the single dot notation:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>story<span class="w"> </span>show<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="story-coverage">
+<h3>Story Coverage<a class="headerlink" href="#story-coverage" title="Permalink to this heading"></a></h3>
+<p>Current status of the code, test and documentation coverage can be
+checked using the <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">story</span> <span class="pre">coverage</span></code> command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>story<span class="w"> </span>coverage
+code<span class="w"> </span><span class="nb">test</span><span class="w"> </span>docs<span class="w"> </span>story
+todo<span class="w"> </span>todo<span class="w"> </span>todo<span class="w"> </span>/spec/core/description
+todo<span class="w"> </span>todo<span class="w"> </span>todo<span class="w"> </span>/spec/core/order
+<span class="k">done</span><span class="w"> </span>todo<span class="w"> </span>todo<span class="w"> </span>/spec/core/summary
+...
+<span class="k">done</span><span class="w"> </span>todo<span class="w"> </span>todo<span class="w"> </span>/stories/cli/usability/completion
+<span class="w"> </span><span class="m">39</span>%<span class="w">   </span><span class="m">9</span>%<span class="w">   </span><span class="m">9</span>%<span class="w"> </span>from<span class="w"> </span><span class="m">109</span><span class="w"> </span>stories
+</pre></div>
+</div>
+</section>
+</section>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">run</span></code> command is used to execute tests. By default all
+steps for all discovered test plans are executed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run
+/var/tmp/tmt/run-581
+
+/plans/basic
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>fmf
+<span class="w">        </span>directory:<span class="w"> </span>/home/psss/git/tmt
+<span class="w">        </span>filter:<span class="w"> </span>tier:<span class="w"> </span><span class="m">0</span>,1,2
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">15</span><span class="w"> </span>tests<span class="w"> </span>selected
+<span class="w">    </span>provision
+<span class="w">        </span>how:<span class="w"> </span><span class="nb">local</span>
+<span class="w">        </span>distro:<span class="w"> </span>Fedora<span class="w"> </span>release<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="o">(</span>Thirty<span class="w"> </span>Two<span class="o">)</span>
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>guest<span class="w"> </span>provisioned
+<span class="w">    </span>prepare
+<span class="w">        </span>how:<span class="w"> </span>ansible
+<span class="w">        </span>playbook:<span class="w"> </span>ansible/packages.yml
+<span class="w">        </span>how:<span class="w"> </span>install
+<span class="w">        </span>summary:<span class="w"> </span>Install<span class="w"> </span>required<span class="w"> </span>packages
+<span class="w">        </span>package:<span class="w"> </span>beakerlib
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">2</span><span class="w"> </span>preparations<span class="w"> </span>applied
+<span class="w">    </span>execute
+<span class="w">        </span>how:<span class="w"> </span>tmt
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">15</span><span class="w"> </span>tests<span class="w"> </span>executed
+<span class="w">    </span>report
+<span class="w">        </span>how:<span class="w"> </span>display
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">15</span><span class="w"> </span>tests<span class="w"> </span>passed
+<span class="w">    </span>finish
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">0</span><span class="w"> </span>tasks<span class="w"> </span>completed
+</pre></div>
+</div>
+<p>Even if there are no <a class="reference internal" href="spec/plans.html#spec-plans"><span class="std std-ref">Plans</span></a> defined it is still
+possible to execute tests and custom scripts. See the default
+<a class="reference internal" href="stories/cli.html#stories-cli-run-default-plan"><span class="std std-ref">plan</span></a> story for details.</p>
+<p>Dry run mode is enabled with the <code class="docutils literal notranslate"><span class="pre">--dry</span></code> option:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--dry
+</pre></div>
+</div>
+<p>Each test run creates a workdir where relevant data such as tests
+code from the discover step or test results from the execute step
+are stored. If you don’t need to investigate test logs and other
+artifacts generated by the run you can remove the workdir after
+the execution is finished:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--remove
+tmt<span class="w"> </span>run<span class="w"> </span>--rm
+tmt<span class="w"> </span>run<span class="w"> </span>-r
+</pre></div>
+</div>
+<section id="select-plans">
+<h3>Select Plans<a class="headerlink" href="#select-plans" title="Permalink to this heading"></a></h3>
+<p>Choose which plans should be executed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>plan<span class="w"> </span>--name<span class="w"> </span>basic
+/var/tmp/tmt/run-083
+
+/plans/basic
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>fmf
+<span class="w">        </span>url:<span class="w"> </span>https://github.com/teemtee/tmt
+<span class="w">        </span>ref:<span class="w"> </span>devel
+<span class="w">        </span>filter:<span class="w"> </span>tier:<span class="w"> </span><span class="m">0</span>,1
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>selected
+<span class="w">    </span>provision
+<span class="w">    </span>prepare
+<span class="w">    </span>execute
+<span class="w">        </span>how:<span class="w"> </span>tmt
+<span class="w">        </span>result:<span class="w"> </span><span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>tests<span class="w"> </span>failed
+<span class="w">    </span>report
+<span class="w">    </span>finish
+</pre></div>
+</div>
+</section>
+<section id="select-tests">
+<h3>Select Tests<a class="headerlink" href="#select-tests" title="Permalink to this heading"></a></h3>
+<p>Run only a subset of available tests across all plans:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--filter<span class="w"> </span>tier:1
+/plans/basic
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>fmf
+<span class="w">        </span>url:<span class="w"> </span>https://github.com/teemtee/tmt
+<span class="w">        </span>ref:<span class="w"> </span>devel
+<span class="w">        </span>filter:<span class="w"> </span>tier:<span class="w"> </span><span class="m">0</span>,1
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>selected
+<span class="w">    </span>...
+
+/plans/helps
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>shell
+<span class="w">        </span>directory:<span class="w"> </span>/home/psss/git/tmt
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">0</span><span class="w"> </span>tests<span class="w"> </span>selected
+<span class="w">    </span>...
+
+/plans/smoke
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>shell
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">0</span><span class="w"> </span>tests<span class="w"> </span>selected
+<span class="w">    </span>...
+</pre></div>
+</div>
+<p>To run only tests defined in the current working directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--name<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="select-steps">
+<h3>Select Steps<a class="headerlink" href="#select-steps" title="Permalink to this heading"></a></h3>
+<p>The test execution is divided into the following six steps:
+<code class="docutils literal notranslate"><span class="pre">discover</span></code>, <code class="docutils literal notranslate"><span class="pre">provision</span></code>, <code class="docutils literal notranslate"><span class="pre">prepare</span></code>, <code class="docutils literal notranslate"><span class="pre">execute</span></code>, <code class="docutils literal notranslate"><span class="pre">report</span></code>
+and <code class="docutils literal notranslate"><span class="pre">finish</span></code>. See the <a class="reference internal" href="spec.html#specification"><span class="std std-ref">Metadata Specification</span></a> for more details
+about individual steps.</p>
+<p>It is possible to execute only selected steps. For example in
+order to see which tests would be executed without actually
+running them choose the <code class="docutils literal notranslate"><span class="pre">discover</span></code> step:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>discover
+/var/tmp/tmt/run-085
+
+/plans/basic
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>fmf
+<span class="w">        </span>url:<span class="w"> </span>https://github.com/teemtee/tmt
+<span class="w">        </span>ref:<span class="w"> </span>devel
+<span class="w">        </span>filter:<span class="w"> </span>tier:<span class="w"> </span><span class="m">0</span>,1
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>selected
+
+/plans/helps
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>shell
+<span class="w">        </span>directory:<span class="w"> </span>/home/psss/git/tmt
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">4</span><span class="w"> </span>tests<span class="w"> </span>selected
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">--debug</span></code> to enable more detailed output
+such as list of individual tests or showing the progress of the
+test environment provisioning:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>discover<span class="w"> </span>--verbose
+/var/tmp/tmt/run-767
+
+/plans/basic
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>fmf
+<span class="w">        </span>url:<span class="w"> </span>https://github.com/teemtee/tmt
+<span class="w">        </span>ref:<span class="w"> </span>devel
+<span class="w">        </span>filter:<span class="w"> </span>tier:<span class="w"> </span><span class="m">0</span>,1
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>selected
+<span class="w">            </span>/one/tests/docs
+<span class="w">            </span>/one/tests/ls
+
+/plans/helps
+<span class="w">    </span>discover
+<span class="w">        </span>how:<span class="w"> </span>shell
+<span class="w">        </span>directory:<span class="w"> </span>/home/psss/git/tmt
+<span class="w">        </span>tests:<span class="w"> </span><span class="m">4</span><span class="w"> </span>tests<span class="w"> </span>selected
+<span class="w">            </span>/help/main
+<span class="w">            </span>/help/test
+<span class="w">            </span>/help/plan
+<span class="w">            </span>/help/smoke
+</pre></div>
+</div>
+<p>You can also choose multiple steps to be executed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>discover<span class="w"> </span>provision<span class="w"> </span>prepare
+</pre></div>
+</div>
+<p>Arguments for particular step can be specified after the step
+name, options for all steps should go to the <code class="docutils literal notranslate"><span class="pre">run</span></code> command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># debug output for provision only</span>
+tmt<span class="w"> </span>run<span class="w"> </span>discover<span class="w"> </span>provision<span class="w"> </span>--debug
+
+<span class="c1"># debug output for all steps</span>
+tmt<span class="w"> </span>run<span class="w"> </span>--debug<span class="w"> </span>discover<span class="w"> </span>provision
+</pre></div>
+</div>
+<p>In order to execute all test steps while providing arguments to
+some of them it is possible to use the <code class="docutils literal notranslate"><span class="pre">--all</span></code> option:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span><span class="nb">local</span>
+</pre></div>
+</div>
+</section>
+<section id="execute-progress">
+<h3>Execute Progress<a class="headerlink" href="#execute-progress" title="Permalink to this heading"></a></h3>
+<p>When run in terminal <code class="docutils literal notranslate"><span class="pre">execute</span></code> step prints name of the executed test
+unless <code class="docutils literal notranslate"><span class="pre">--debug</span></code> or <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> options are used:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run
+
+<span class="w">    </span>execute
+<span class="w">        </span>how:<span class="w"> </span>tmt
+<span class="w">        </span>progress:<span class="w"> </span>/tests/core/enabled<span class="w"> </span><span class="o">[</span><span class="m">5</span>/16<span class="o">]</span>
+</pre></div>
+</div>
+<p>In the verbose mode the duration and result after the test is executed
+are printed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>execute<span class="w"> </span>-v
+
+<span class="w">    </span>execute
+<span class="w">        </span>how:<span class="w"> </span>tmt
+<span class="w">            </span><span class="m">00</span>:00:03<span class="w"> </span>pass<span class="w"> </span>/tests/core/adjust<span class="w"> </span><span class="o">[</span><span class="m">1</span>/16<span class="o">]</span>
+</pre></div>
+</div>
+<p>More verbose mode prints summary of the test being executed first:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>execute<span class="w"> </span>-vv
+
+<span class="w">    </span>execute
+<span class="w">        </span>how:<span class="w"> </span>tmt
+<span class="w">        </span>exit-first:<span class="w"> </span>False
+<span class="w">            </span>test:<span class="w"> </span>Verify<span class="w"> </span>test/plan<span class="w"> </span>adjustments<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>context
+<span class="w">                </span><span class="m">00</span>:00:04<span class="w"> </span>pass<span class="w"> </span>/tests/core/adjust<span class="w"> </span><span class="o">[</span><span class="m">1</span>/16<span class="o">]</span>
+</pre></div>
+</div>
+<p>The most verbose mode prints also the test output:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>execute<span class="w"> </span>-vvv
+
+<span class="w">    </span>execute
+<span class="w">        </span>how:<span class="w"> </span>tmt
+<span class="w">        </span>order:<span class="w"> </span><span class="m">50</span>
+<span class="w">        </span>exit-first:<span class="w"> </span>False
+<span class="w">            </span>test:<span class="w"> </span>Verify<span class="w"> </span>test/plan<span class="w"> </span>adjustments<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>context
+<span class="w">                </span>out:
+<span class="w">                </span>out:<span class="w"> </span>::::::::::::::::::::::::::::::::::::::::::::
+<span class="w">                </span>out:<span class="w"> </span>::<span class="w">   </span>Setup
+<span class="w">                </span>out:<span class="w"> </span>::::::::::::::::::::::::::::::::::::::::::::
+<span class="w">                </span>out:
+<span class="w">                </span>out:<span class="w"> </span>::<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="m">17</span>:03:06<span class="w"> </span><span class="o">]</span><span class="w"> </span>::<span class="w"> </span><span class="o">[</span><span class="w">  </span>BEGIN<span class="w">   </span><span class="o">]</span><span class="w"> </span>::<span class="w"> </span>Create...
+<span class="w">                    </span>....
+<span class="w">                </span><span class="m">00</span>:00:04<span class="w"> </span>pass<span class="w"> </span>/tests/core/adjust<span class="w"> </span><span class="o">[</span><span class="m">1</span>/16<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="check-report">
+<h3>Check Report<a class="headerlink" href="#check-report" title="Permalink to this heading"></a></h3>
+<p>When a particular step is <code class="docutils literal notranslate"><span class="pre">done</span></code>, it won’t be executed
+repeatedly unless <code class="docutils literal notranslate"><span class="pre">--force</span></code> is used:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>-l<span class="w"> </span>report<span class="w"> </span>--verbose
+/plans/features/core
+<span class="w">    </span>report
+<span class="w">        </span>status:<span class="w"> </span><span class="k">done</span>
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">10</span><span class="w"> </span>tests<span class="w"> </span>passed
+</pre></div>
+</div>
+<p>If you need additional information about your already <code class="docutils literal notranslate"><span class="pre">done</span></code>
+run use <code class="docutils literal notranslate"><span class="pre">--force</span></code> together with the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>-l<span class="w"> </span>report<span class="w"> </span>-v<span class="w"> </span>--force
+/plans/features/core
+<span class="w">    </span>report
+<span class="w">        </span>how:<span class="w"> </span>display
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/adjust
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/docs
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/dry
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/env
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/error
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/force
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/ls
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/path
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/smoke
+<span class="w">            </span>pass<span class="w"> </span>/tests/unit
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">10</span><span class="w"> </span>tests<span class="w"> </span>passed
+</pre></div>
+</div>
+<p>In order to investigate test logs raise verbosity even more:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>-l<span class="w"> </span>report<span class="w"> </span>-vv<span class="w"> </span>--force
+/plans/features/core
+<span class="w">    </span>report
+<span class="w">        </span>how:<span class="w"> </span>display
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/adjust
+<span class="w">                </span>output.txt:<span class="w"> </span>/var/tmp/tmt/run-759/plans/features/core/execute/data/tests/core/adjust/output.txt
+<span class="w">                </span>journal.txt:<span class="w"> </span>/var/tmp/tmt/run-759/plans/features/core/execute/data/tests/core/adjust/journal.txt
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/docs
+<span class="w">                </span>output.txt:<span class="w"> </span>/var/tmp/tmt/run-759/plans/features/core/execute/data/tests/core/docs/output.txt
+<span class="w">                </span>journal.txt:<span class="w"> </span>/var/tmp/tmt/run-759/plans/features/core/execute/data/tests/core/docs/journal.txt
+<span class="w">            </span>pass<span class="w"> </span>/tests/core/dry
+<span class="w">                </span>output.txt:<span class="w"> </span>/var/tmp/tmt/run-759/plans/features/core/execute/data/tests/core/dry/output.txt
+<span class="w">                </span>journal.txt:<span class="w"> </span>/var/tmp/tmt/run-759/plans/features/core/execute/data/tests/core/dry/journal.txt
+<span class="w">            </span>...
+<span class="w">        </span>summary:<span class="w"> </span><span class="m">10</span><span class="w"> </span>tests<span class="w"> </span>passed
+</pre></div>
+</div>
+<p>Use level 3 verbosity <code class="docutils literal notranslate"><span class="pre">-vvv</span></code> to show the complete test output.
+For more comfortable review, generate an <code class="docutils literal notranslate"><span class="pre">html</span></code> report and open
+it in your favorite web browser:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>--last<span class="w"> </span>report<span class="w"> </span>--how<span class="w"> </span>html<span class="w"> </span>--open<span class="w"> </span>--force
+$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>-l<span class="w"> </span>report<span class="w"> </span>-h<span class="w"> </span>html<span class="w"> </span>-of
+</pre></div>
+</div>
+</section>
+<section id="provision-options">
+<h3>Provision Options<a class="headerlink" href="#provision-options" title="Permalink to this heading"></a></h3>
+<p>By default, tests are executed under a virtual machine so that
+your laptop is not affected by unexpected changes. The following
+commands are equivalent:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run
+tmt<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>provision<span class="w"> </span>-h<span class="w"> </span>virtual
+tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span>virtual
+</pre></div>
+</div>
+<p>You can also use an alternative virtual machine implementation
+using the <code class="docutils literal notranslate"><span class="pre">testcloud</span></code> provisioner:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span>virtual.testcloud
+</pre></div>
+</div>
+<p>If you already have a box ready for testing with <code class="docutils literal notranslate"><span class="pre">ssh</span></code> enabled,
+use the <code class="docutils literal notranslate"><span class="pre">connect</span></code> method:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span>connect<span class="w"> </span>--guest<span class="o">=</span>name-or-ip<span class="w"> </span>--user<span class="o">=</span>login<span class="w"> </span>--password<span class="o">=</span>secret
+tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span>connect<span class="w"> </span>--guest<span class="o">=</span>name-or-ip<span class="w"> </span>--key<span class="o">=</span>private-key-path
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">container</span></code> method allows to execute tests in a container
+using <code class="docutils literal notranslate"><span class="pre">podman</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span>container<span class="w"> </span>--image<span class="o">=</span>fedora:latest
+</pre></div>
+</div>
+<p>If you are confident that tests are safe you can execute them
+directly on your <code class="docutils literal notranslate"><span class="pre">local</span></code> host:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="o">=</span><span class="nb">local</span>
+</pre></div>
+</div>
+<p>In order to reboot a provisioned guest use the <code class="docutils literal notranslate"><span class="pre">reboot</span></code> command.
+By default a soft reboot is performed which should prevent data
+loss, use <code class="docutils literal notranslate"><span class="pre">--hard</span></code> to force a hard reboot:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--last<span class="w"> </span>reboot
+tmt<span class="w"> </span>run<span class="w"> </span>--last<span class="w"> </span>reboot<span class="w"> </span>--hard
+</pre></div>
+</div>
+</section>
+<section id="debug-tests">
+<h3>Debug Tests<a class="headerlink" href="#debug-tests" title="Permalink to this heading"></a></h3>
+<p>Sometimes the environment preparation can take a long time. Thus,
+especially for debugging tests, it usually makes sense to run the
+<code class="docutils literal notranslate"><span class="pre">provision</span></code> and <code class="docutils literal notranslate"><span class="pre">prepare</span></code> step only once, then <code class="docutils literal notranslate"><span class="pre">execute</span></code>
+tests as many times as necessary to debug the test code and
+finally clean up when debugging is done:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--id<span class="w"> </span>&lt;ID&gt;<span class="w"> </span>--until<span class="w"> </span>execute<span class="w">    </span><span class="c1"># prepare, run test once</span>
+
+tmt<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>&lt;ID&gt;<span class="w"> </span>execute<span class="w"> </span>-f<span class="w">           </span><span class="c1"># run test again</span>
+tmt<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>&lt;ID&gt;<span class="w"> </span>execute<span class="w"> </span>-f<span class="w">           </span><span class="c1"># run it again</span>
+tmt<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>&lt;ID&gt;<span class="w"> </span>execute<span class="w"> </span>-f<span class="w">           </span><span class="c1"># and again</span>
+
+tmt<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>&lt;ID&gt;<span class="w"> </span>report<span class="w"> </span>finish
+</pre></div>
+</div>
+<p>Instead of always specifying the whole run id you can also use
+<code class="docutils literal notranslate"><span class="pre">--last</span></code> or <code class="docutils literal notranslate"><span class="pre">-l</span></code> as an abbreviation for the last run id:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--last<span class="w"> </span>execute<span class="w"> </span>--force
+tmt<span class="w"> </span>run<span class="w"> </span>-l<span class="w"> </span>execute<span class="w"> </span>-f
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--force</span></code> option instructs <code class="docutils literal notranslate"><span class="pre">tmt</span></code> to run given step even if
+it has been already completed before. Use <code class="docutils literal notranslate"><span class="pre">discover</span> <span class="pre">--force</span></code> to
+synchronize test code changes to the run workdir:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>-l<span class="w"> </span>discover<span class="w"> </span>-f<span class="w"> </span>execute<span class="w"> </span>-f
+</pre></div>
+</div>
+<p>In order to interactively debug tests use the <code class="docutils literal notranslate"><span class="pre">--interactive</span></code>
+option which disables output capturing so that you can see what
+exactly is happening during test execution. This also allows to
+inspect particular place of the code by inserting a <code class="docutils literal notranslate"><span class="pre">bash</span></code> in
+the shell code or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pdb;</span> <span class="pre">pdb.set_trace()</span></code> for python:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>execute<span class="w"> </span>--how<span class="w"> </span>tmt<span class="w"> </span>--interactive
+</pre></div>
+</div>
+</section>
+<section id="aliases">
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this heading"></a></h3>
+<p>It might be useful to set up a set of shell aliases for the tmt
+command lines which you often use. For a quick reservation of
+a machine or a container for quick experimenting:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">reserve</span><span class="o">=</span><span class="s1">&#39;tmt run login --step execute execute finish provision --how container --image fedora&#39;</span>
+</pre></div>
+</div>
+<p>Reserving a testing box then can be as short as this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>reserve
+reserve<span class="w"> </span>-h<span class="w"> </span>virtual
+reserve<span class="w"> </span>-i<span class="w"> </span>fedora:32
+reserve<span class="w"> </span>--how<span class="w"> </span>virtual
+reserve<span class="w"> </span>--image<span class="w"> </span>fedora:32
+</pre></div>
+</div>
+<p>For interactive debugging of tests the following three aliases can
+come in handy:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">start</span><span class="o">=</span><span class="s1">&#39;tmt run --verbose --until report execute --how tmt --interactive test --name . provision --how virtual --image fedora&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">retest</span><span class="o">=</span><span class="s1">&#39;tmt run --last test --name . discover -f execute -f --how tmt --interactive&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">stop</span><span class="o">=</span><span class="s1">&#39;tmt run --last report --verbose finish&#39;</span>
+</pre></div>
+</div>
+<p>The test debugging session then can look like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>start
+retest
+retest
+retest<span class="w"> </span>login
+...
+stop
+</pre></div>
+</div>
+<p>First you <code class="docutils literal notranslate"><span class="pre">start</span></code> the session in order to provision a testing
+environment, then you <code class="docutils literal notranslate"><span class="pre">retest</span></code> your test code changes as many
+times as you need to finalize the test implementation, and finally
+<code class="docutils literal notranslate"><span class="pre">stop</span></code> is used to clean up the testing environment.</p>
+</section>
+<section id="guest-login">
+<h3>Guest Login<a class="headerlink" href="#guest-login" title="Permalink to this heading"></a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">login</span></code> command to get an interactive shell on the
+provisined guest. This can be useful for example for additional
+manual preparation of the guest before testing or checking test
+logs to investigate a test failure:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--step<span class="w"> </span>prepare
+tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--step<span class="w"> </span>execute
+</pre></div>
+</div>
+<p>It’s possible to log in at the start or end of a step or select
+the desired step phase using order:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--step<span class="w"> </span>prepare:start
+tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--step<span class="w"> </span>prepare:50
+tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--step<span class="w"> </span>prepare:end
+</pre></div>
+</div>
+<p>Interactive shell session can be also enabled conditionally when
+specific test result occurs:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--when<span class="w"> </span>fail
+tmt<span class="w"> </span>run<span class="w"> </span>login<span class="w"> </span>--when<span class="w"> </span>fail<span class="w"> </span>--when<span class="w"> </span>error
+</pre></div>
+</div>
+<p>You can also enable only the <code class="docutils literal notranslate"><span class="pre">provision</span></code> step to easily get a
+clean and safe environment for experimenting. Use the <code class="docutils literal notranslate"><span class="pre">finish</span></code>
+step to remove provisioned guest:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>login
+tmt<span class="w"> </span>run<span class="w"> </span>--last<span class="w"> </span>finish
+</pre></div>
+</div>
+<p>Clean up the box right after your are done with experimenting by
+combining the above-mentioned commands on a single line:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>login<span class="w"> </span>finish
+</pre></div>
+</div>
+<p>Login can be used to run an arbitrary script on a provisioned
+guest. This can be handy if you want to run arbitrary scripts between
+steps for example. This is currently used in the Testing Farm’s
+<a class="reference external" href="https://docs.testing-farm.io/general/0.1/test-results.html#_tmt_reproducer">tmt reproducer</a>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--last<span class="w"> </span>login<span class="w"> </span>&lt;<span class="w"> </span>script.sh
+</pre></div>
+</div>
+<p>Have you heard already that using command abbreviation is possible
+as well? It might save you some typing:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>pro<span class="w"> </span>log<span class="w"> </span>fin
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="stories/cli.html#stories-cli-run-login"><span class="std std-ref">login</span></a> user stories for more
+details and examples.</p>
+</section>
+</section>
+<section id="status">
+<h2>Status<a class="headerlink" href="#status" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">status</span></code> command is used to inspect the progress of runs,
+plans and steps that have previously been started:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status
+status<span class="w">     </span>id
+prepare<span class="w">    </span>/var/tmp/tmt/run-002
+<span class="k">done</span><span class="w">       </span>/var/tmp/tmt/run-001
+</pre></div>
+</div>
+<section id="verbosity-levels">
+<h3>Verbosity Levels<a class="headerlink" href="#verbosity-levels" title="Permalink to this heading"></a></h3>
+<p>With no verbosity (the default), the status of whole runs is
+displayed as shown above. The last done step is shown as the run
+status (or ‘done’ if all enabled steps are completed). With more
+verbosity (-v), the status of plans in runs is shown:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>-v
+status<span class="w">     </span>id
+prepare<span class="w">    </span>/var/tmp/tmt/run-002<span class="w">  </span>/base
+<span class="k">done</span><span class="w">       </span>/var/tmp/tmt/run-001<span class="w">  </span>/advanced
+<span class="k">done</span><span class="w">       </span>/var/tmp/tmt/run-001<span class="w">  </span>/base
+</pre></div>
+</div>
+<p>With the highest verbosity (-vv), the status of individual steps
+for each plan is displayed:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>-vv
+disc<span class="w"> </span>prov<span class="w"> </span>prep<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>repo<span class="w"> </span>fini<span class="w">  </span>id
+<span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span>todo<span class="w"> </span>todo<span class="w"> </span>todo<span class="w">  </span>/var/tmp/tmt/run-002<span class="w">  </span>/base
+<span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span>todo<span class="w"> </span><span class="k">done</span><span class="w">  </span>/var/tmp/tmt/run-001<span class="w">  </span>/advanced
+<span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span>todo<span class="w"> </span><span class="k">done</span><span class="w">  </span>/var/tmp/tmt/run-001<span class="w">  </span>/base
+</pre></div>
+</div>
+</section>
+<section id="status-filtering">
+<h3>Status Filtering<a class="headerlink" href="#status-filtering" title="Permalink to this heading"></a></h3>
+<p>The runs shown in the status are by default taken from
+<code class="docutils literal notranslate"><span class="pre">/var/tmp/tmt</span></code>. The directory containing runs can be specified
+using an argument to <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">status</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>/tmp/run
+status<span class="w">     </span>id
+<span class="k">done</span><span class="w">       </span>/tmp/run/001
+</pre></div>
+</div>
+<p>Status of one specific run can also be shown using the <code class="docutils literal notranslate"><span class="pre">--id</span></code>
+option:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>-vv<span class="w"> </span>--id<span class="w"> </span>run-002
+disc<span class="w"> </span>prov<span class="w"> </span>prep<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>repo<span class="w"> </span>fini<span class="w">  </span>id
+<span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">done</span><span class="w"> </span>todo<span class="w"> </span>todo<span class="w"> </span>todo<span class="w">  </span>/var/tmp/tmt/run-002<span class="w">  </span>/base
+</pre></div>
+</div>
+<p>Runs and plans can also be filtered based on their status. Option
+<code class="docutils literal notranslate"><span class="pre">--abandoned</span></code> can be used to list runs/plans which have
+provision step completed but finish step not yet done. This is
+useful for finding active containers or virtual machines:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>--abandoned
+status<span class="w">     </span>id
+prepare<span class="w">    </span>/var/tmp/tmt/run-002
+</pre></div>
+</div>
+<p>To show only completed runs/plans, <code class="docutils literal notranslate"><span class="pre">--finished</span></code> can be used:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>--finished
+status<span class="w">     </span>id
+<span class="k">done</span><span class="w">       </span>/var/tmp/tmt/run-001
+</pre></div>
+</div>
+<p>Finally, <code class="docutils literal notranslate"><span class="pre">--active</span></code> displays runs/plans in progress (at least
+one enabled step has not been finished):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>status<span class="w"> </span>--active
+status<span class="w">     </span>id
+prepare<span class="w">    </span>/var/tmp/tmt/run-002
+</pre></div>
+</div>
+</section>
+</section>
+<section id="clean">
+<h2>Clean<a class="headerlink" href="#clean" title="Permalink to this heading"></a></h2>
+<p>When running tests, a lot of metadata can gather over time taking
+a lot of space. It may be useful to clean it every now and then
+using the <code class="docutils literal notranslate"><span class="pre">clean</span></code> command. Its goal is to stop the running
+guests, remove working directories or remove images. Without any
+subcommand, all of these actions are done:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean
+clean
+<span class="w">    </span>guests
+<span class="w">    </span>runs
+<span class="w">    </span>images
+<span class="w">        </span>testcloud
+</pre></div>
+</div>
+<p>It may be useful to see exactly which runs are affected using
+the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>-v
+clean
+<span class="w">    </span>guests
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/base&#39;</span>.
+<span class="w">    </span>runs
+<span class="w">        </span>Removing<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-003&#39;</span>.
+<span class="w">        </span>Removing<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-002&#39;</span>.
+<span class="w">        </span>Removing<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span>.
+<span class="w">    </span>images
+<span class="w">        </span>testcloud
+<span class="w">            </span>warn:<span class="w"> </span>Directory<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/testcloud/images&#39;</span><span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist.
+</pre></div>
+</div>
+<p>However, before cleaning up all available metadata, you may want
+to see what would actually happen using <code class="docutils literal notranslate"><span class="pre">--dry</span></code> mode:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>-v<span class="w"> </span>--dry
+clean
+<span class="w">    </span>guests
+<span class="w">        </span>Would<span class="w"> </span>stop<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/advanced&#39;</span>.
+<span class="w">        </span>Would<span class="w"> </span>stop<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/base&#39;</span>.
+<span class="w">    </span>runs
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-002&#39;</span>.
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span>.
+<span class="w">    </span>images
+<span class="w">        </span>testcloud
+<span class="w">            </span>warn:<span class="w"> </span>Directory<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/testcloud/images&#39;</span><span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist.
+</pre></div>
+</div>
+<p>In some cases, you may want to have a bit more control over the
+behaviour which can be achieved using subcommands and their
+options. All of the options described above can be used with
+individual subcommands too.</p>
+<section id="clean-guests">
+<h3>Clean guests<a class="headerlink" href="#clean-guests" title="Permalink to this heading"></a></h3>
+<p>The subcommand <code class="docutils literal notranslate"><span class="pre">clean</span> <span class="pre">guests</span></code> aims to stop all running guests.
+By default, runs are taken from <code class="docutils literal notranslate"><span class="pre">/var/tmp/tmt</span></code>, this can be
+changed using an argument to the subcommand:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>guests<span class="w"> </span>-v<span class="w"> </span>/tmp/run
+clean
+<span class="w">    </span>guests
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/tmp/run/002&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/advanced&#39;</span>.
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/tmp/run/002&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/base&#39;</span>.
+</pre></div>
+</div>
+<p>You may also want to clean the guests in only one run using
+<code class="docutils literal notranslate"><span class="pre">--id</span></code> or <code class="docutils literal notranslate"><span class="pre">--last</span></code> options. This serves as an alternative
+to <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">run</span> <span class="pre">--last</span> <span class="pre">finish</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>guests<span class="w"> </span>-v<span class="w"> </span>--last
+clean
+<span class="w">    </span>guests
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-003&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/advanced&#39;</span>.
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-003&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/base&#39;</span>.
+</pre></div>
+</div>
+<p>The type of provision to be cleaned can be changed using
+<code class="docutils literal notranslate"><span class="pre">--how</span></code> option:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>-h<span class="w"> </span>container
+/var/tmp/tmt/run-001
+...
+
+$<span class="w"> </span>tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>-h<span class="w"> </span>virtual
+/var/tmp/tmt/run-002
+...
+
+$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>guests<span class="w"> </span>--how<span class="w"> </span>container
+clean
+<span class="w">    </span>guests
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/advanced&#39;</span>.
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/base&#39;</span>.
+
+$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>guests<span class="w"> </span>--how<span class="w"> </span>virtual
+clean
+<span class="w">    </span>guests
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-002&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/advanced&#39;</span>.
+<span class="w">        </span>Stopping<span class="w"> </span>guests<span class="w"> </span><span class="k">in</span><span class="w"> </span>run<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-002&#39;</span><span class="w"> </span>plan<span class="w"> </span><span class="s1">&#39;/base&#39;</span>.
+</pre></div>
+</div>
+</section>
+<section id="clean-workdirs">
+<h3>Clean workdirs<a class="headerlink" href="#clean-workdirs" title="Permalink to this heading"></a></h3>
+<p>The goal of <code class="docutils literal notranslate"><span class="pre">clean</span> <span class="pre">runs</span></code> is to remove workdirs of past runs.
+Similarly to above, <code class="docutils literal notranslate"><span class="pre">/var/tmp/tmt</span></code> is used by default as run
+location and this can be changed using an argument:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>runs<span class="w"> </span>/tmp/run
+clean
+<span class="w">    </span>runs
+<span class="w">        </span>Removing<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/tmp/run/001&#39;</span>.
+</pre></div>
+</div>
+<p>Only one specific run can also be removed using <code class="docutils literal notranslate"><span class="pre">--id</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--last</span></code> options, similarly to <code class="docutils literal notranslate"><span class="pre">clean</span> <span class="pre">guests</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>runs<span class="w"> </span>-v<span class="w"> </span>-i<span class="w"> </span>/var/tmp/tmt/run-001
+clean
+<span class="w">    </span>runs
+<span class="w">        </span>Removing<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span>.
+</pre></div>
+</div>
+<p>You may also want to remove only old runs. This can be achieved
+using <code class="docutils literal notranslate"><span class="pre">--keep</span></code> option which allows you to specify the number
+of latest runs to keep:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">10</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>tmt<span class="w"> </span>run<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+...
+
+$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>runs<span class="w"> </span>--dry<span class="w"> </span>-v<span class="w"> </span>--keep<span class="w"> </span><span class="m">5</span>
+clean
+<span class="w">    </span>runs
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-005&#39;</span>.
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-004&#39;</span>.
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-003&#39;</span>.
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-002&#39;</span>.
+<span class="w">        </span>Would<span class="w"> </span>remove<span class="w"> </span>workdir<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/run-001&#39;</span>.
+</pre></div>
+</div>
+</section>
+<section id="clean-images">
+<h3>Clean images<a class="headerlink" href="#clean-images" title="Permalink to this heading"></a></h3>
+<p>The subcommand <code class="docutils literal notranslate"><span class="pre">clean</span> <span class="pre">images</span></code> removes images of all provision
+methods that support it. Currently, only testcloud provision
+supports this option, the images are removed from
+<code class="docutils literal notranslate"><span class="pre">/var/tmp/tmt/testcloud/images</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>clean<span class="w"> </span>images
+clean
+<span class="w">    </span>images
+<span class="w">        </span>testcloud
+<span class="w">            </span>Removing<span class="w"> </span><span class="s1">&#39;/var/tmp/tmt/testcloud/images/Fedora-Cloud-Base-34_Beta-1.3.x86_64.qcow2&#39;</span>.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="coding">
+<h2>Coding<a class="headerlink" href="#coding" title="Permalink to this heading"></a></h2>
+<p>If you want to perform more advanced processing of the metadata
+which is not supported by the command line use Python. To get
+quickly started just import the <code class="docutils literal notranslate"><span class="pre">tmt</span></code> module and grow a new
+<code class="docutils literal notranslate"><span class="pre">tmt.Tree</span></code> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmt</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">tmt</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">grow</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">tests</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">tmt.utils.Path</span></code> class when specifying paths:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tmt.utils</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">tmt</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">grow</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/the/tree&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spec/lint.html" class="btn btn-neutral float-left" title="Lint Checks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stories.html" class="btn btn-neutral float-right" title="Stories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

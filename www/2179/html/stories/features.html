@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Questions" href="../questions.html" />
+    <link rel="prev" title="Command Line" href="cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stories.html">Stories</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">Command Line</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#abort-test-execution">Abort test execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-coverage">Test Coverage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#filter">filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relevancy">relevancy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reboot-during-test">Reboot during test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-a-log-file">Save a log file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#report-test-result">Report test result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-preparation">Package Preparation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#all">all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minimal">minimal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repository">repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#required">required</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selected">selected</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../stories.html">Stories</a></li>
+      <li class="breadcrumb-item active">Features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/stories/features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="features">
+<span id="stories-features"></span><h1>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h1>
+<section id="abort-test-execution">
+<span id="stories-features-abort"></span><h2>Abort test execution<a class="headerlink" href="#abort-test-execution" title="Permalink to this heading"></a></h2>
+<p><em>As a tester I want to abort current, and all subsequent, test executions using a shell command during test execution.</em></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tmt-abort</span></code> command can be used to abort the current
+test execution. This command together with the
+<code class="docutils literal notranslate"><span class="pre">rstrnt-abort</span></code> and <code class="docutils literal notranslate"><span class="pre">rhts-abort</span></code> aliases provides a
+backward-compatible way to execute tests written for the
+<a class="reference external" href="https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-abort">restraint</a> framework. These scripts are installed on the
+guest and overwrite any existing scripts with the same name.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt-abort</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="test-coverage">
+<span id="stories-features-coverage"></span><h2>Test Coverage<a class="headerlink" href="#test-coverage" title="Permalink to this heading"></a></h2>
+<p><em>As a tester I want to document the test coverage, so that it can be easily tracked which user stories are covered by which test case and vice-versa.</em></p>
+<section id="filter">
+<span id="stories-features-coverage-filter"></span><h3>filter<a class="headerlink" href="#filter" title="Permalink to this heading"></a></h3>
+<section id="repo">
+<span id="stories-features-coverage-filter-repo"></span><h4>repo<a class="headerlink" href="#repo" title="Permalink to this heading"></a></h4>
+<p>Filtering based on fmf identifiers</p>
+<p><em>As a tester I want to filter based on reference identifiers, so that I can learn where the tests are implemented/maintained.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>There should be an easy way to filter based on fmf identifiers.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --filter &quot;url:https://gitlab/project&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt story ls --filter &quot;url:https://gitlab/project &amp; ref:main name:/tests/smoke&quot;</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="tags">
+<span id="stories-features-coverage-filter-tags"></span><h4>tags<a class="headerlink" href="#tags" title="Permalink to this heading"></a></h4>
+<p>Filtering based on test tags</p>
+<p><em>As a tester I want to filter user stories based on the referenced tests tags, so that I can see what coverage the stories have.</em></p>
+<p>There should be an easy way to filter based on tests tags.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt story ls --filter &quot;tag:fast&quot;</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+<section id="reference">
+<span id="stories-features-coverage-reference"></span><h3>reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h3>
+<p>Referencing remote repositories</p>
+<p><em>As a tester I want to reference not only local objects, so that user stories can be covered by test cases from a different repository.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>It is possible to use a full fmf identifier in the <a class="reference internal" href="../spec/core.html#spec-core-link"><span class="std std-ref">link</span></a> attribute.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">verified-by</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/fmf</span>
+<span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/basic/repo</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="relevancy">
+<span id="stories-features-coverage-relevancy"></span><h3>relevancy<a class="headerlink" href="#relevancy" title="Permalink to this heading"></a></h3>
+<p>Story relevancy</p>
+<p><em>As a product owner I want to connect user stories with products or versions, so that I can filter out items relevant (or not relevant) for a particular product.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>Relevancy is an easy way to bind stories to particular product(s). The same relevancy rules as for tests should be also used for stories.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">story</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">As an admin I want product A doing B, so that I can</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">use it for C.</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro &lt; fedora-28</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+<section id="reboot-during-test">
+<span id="stories-features-reboot"></span><h2>Reboot during test<a class="headerlink" href="#reboot-during-test" title="Permalink to this heading"></a></h2>
+<p><em>As a tester I need to reboot the guest during a test and then resume the test execution.</em></p>
+<p>Some tests may require a reboot as a part of them, e.g.
+upgrading the system, rebooting and then running some checks.
+The <code class="docutils literal notranslate"><span class="pre">tmt-reboot</span></code> command can be used to request the guest
+reboot from the test and the <code class="docutils literal notranslate"><span class="pre">TMT_REBOOT_COUNT</span></code> environment
+variable provides number of successfully completed reboots.</p>
+<p>Note that this only works with guests provisioned by tmt, e.g.
+<code class="docutils literal notranslate"><span class="pre">container</span></code> or <code class="docutils literal notranslate"><span class="pre">virtual</span></code>, and doesn’t work with the
+<code class="docutils literal notranslate"><span class="pre">local</span></code> provision method. Support of the <code class="docutils literal notranslate"><span class="pre">connect</span></code>
+provision is on a best effort basis and will not work on
+machines where <code class="docutils literal notranslate"><span class="pre">reboot</span></code> command is not available.</p>
+<p>When a custom command for rebooting is required, the <code class="docutils literal notranslate"><span class="pre">-c</span></code>
+option of the reboot script can be used, e.g. <code class="docutils literal notranslate"><span class="pre">tmt-reboot</span> <span class="pre">-c</span>
+<span class="pre">&quot;dnf</span> <span class="pre">system-upgrade</span> <span class="pre">reboot&quot;</span></code>.</p>
+<p>In some scenarios, rebooting may take longer than usual. The
+default timeout used in tmt can be overriden using the <code class="docutils literal notranslate"><span class="pre">-t</span></code>
+option of the reboot script, e.g. <code class="docutils literal notranslate"><span class="pre">tmt-reboot</span> <span class="pre">-t</span> <span class="pre">3600</span></code> to
+wait for up to an hour for the guest to come back up.</p>
+<p>On machines booted in UEFI mode, by default, the <em>BootNext</em>
+property shall be set to the value of <em>BootCurrent</em>. The
+<code class="docutils literal notranslate"><span class="pre">-e</span></code> option of the reboot script can be used to prevent
+this from being set, e.g. <code class="docutils literal notranslate"><span class="pre">tmt-reboot</span> <span class="pre">-e</span></code>.</p>
+<p>For backward-compatibility with the <a class="reference external" href="https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-reboot">restraint</a> framework
+the <code class="docutils literal notranslate"><span class="pre">rstrnt-reboot</span></code> and <code class="docutils literal notranslate"><span class="pre">rhts-reboot</span></code> commands are provided
+as well together with the <code class="docutils literal notranslate"><span class="pre">RSTRNT_REBOOTCOUNT</span></code> and <code class="docutils literal notranslate"><span class="pre">REBOOTCOUNT</span></code>
+environment variables. Calling the script kills the parent process
+(the running test). Please note that the content of these
+scripts is not preserved, <code class="docutils literal notranslate"><span class="pre">tmt</span></code> overwrites them.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMT_REBOOT_COUNT</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>rlRun<span class="w"> </span><span class="s2">&quot;echo &#39;Before the reboot&#39;&quot;</span>
+<span class="w">    </span>rlRun<span class="w"> </span><span class="s2">&quot;tmt-reboot&quot;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="s2">&quot;Reboot the machine&quot;</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMT_REBOOT_COUNT</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>rlRun<span class="w"> </span><span class="s2">&quot;echo &#39;After the reboot&#39;&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="save-a-log-file">
+<span id="stories-features-report-log"></span><h2>Save a log file<a class="headerlink" href="#save-a-log-file" title="Permalink to this heading"></a></h2>
+<p><em>As a tester I want to save a log from a test using the restraint command during test execution.</em></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tmt-file-submit</span></code> command can be used to save a log
+file specified during test execution. This command together
+with <code class="docutils literal notranslate"><span class="pre">rstrnt-report-log</span></code>, <code class="docutils literal notranslate"><span class="pre">rhts-submit-log</span></code> and
+<code class="docutils literal notranslate"><span class="pre">rhts_submit_log</span></code> provides a backward-compatible way to
+execute tests written for the <a class="reference external" href="https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-report-log">restraint</a> framework.
+These scripts are installed on the guest and overwrite
+any existing scripts with the same name.</p>
+<p>The command can be called multiple times for a single test,
+if a log of that name already exists then it will be
+overwritten.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt-file-submit -l /path/to/log/log.txt</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="report-test-result">
+<span id="stories-features-report-result"></span><h2>Report test result<a class="headerlink" href="#report-test-result" title="Permalink to this heading"></a></h2>
+<p><em>As a tester I want to report test results using the restraint command during test execution.</em></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tmt-report-result</span></code> command can be used to report result
+of the test during its execution. This command together with
+<code class="docutils literal notranslate"><span class="pre">rstrnt-report-result</span></code> and <code class="docutils literal notranslate"><span class="pre">rhts-report-result</span></code> provides a
+backward-compatible way to execute tests written for the
+<a class="reference external" href="https://restraint.readthedocs.io/en/latest/commands.html#rstrnt-report-result">restraint</a> framework. These scripts are installed on the
+guest and overwrite any existing scripts with the same name.</p>
+<p>The command can be called multiple times for a single test,
+the final result will be the most severe rating. Available
+values ordered by severity are SKIP, PASS, WARN and FAIL.
+Note, that the only value currently processed by <code class="docutils literal notranslate"><span class="pre">tmt</span></code> is
+the test result, other options are silently ignored.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt-report-result<span class="w"> </span>/test/name<span class="w"> </span>PASS
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="package-preparation">
+<span id="stories-features-prepare"></span><h2>Package Preparation<a class="headerlink" href="#package-preparation" title="Permalink to this heading"></a></h2>
+<p>Preparing packages for testing</p>
+<p><em>As a user, I want a flexible and comfortable way to prepare packages on the guest for testing.</em></p>
+<section id="all">
+<span id="stories-features-prepare-all"></span><h3>all<a class="headerlink" href="#all" title="Permalink to this heading"></a></h3>
+<p>Install all packages from a given source</p>
+<p><em>As a developer I would like to install all packages from a given source.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>In case of execution from CI, I want all packages from a given
+Koji build to be installed, even if they have same or lower
+NVR. In case of COPR repository, I want all packages from a
+given repository to be installed, in the latest version
+available in the given repository. In case of already existing
+repository, I want to install all packages from the given
+repository.</p>
+<p>I don’t have conflicting subpackages in my repository, or I’m
+excluding packages explicitly to solve those conflicts. All
+installation conflicts abort the installation and fail the
+run. If no packages are found the install fails as well. In
+case of CI, I want to be able override default behaviour, and
+install all packages instead.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/plan/install-all-copr</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install-all</span>
+<span class="w">      </span><span class="nt">copr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">psss/tmt</span>
+
+<span class="nt">/plan/install-all-repository</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install-all</span>
+<span class="w">      </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-enabled-repo</span>
+
+<span class="nt">/plan/install-all-ci</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install-all</span>
+
+<span class="l l-Scalar l-Scalar-Plain">tmt run -a prepare -h install-all -D my_packages/</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="minimal">
+<span id="stories-features-prepare-minimal"></span><h3>minimal<a class="headerlink" href="#minimal" title="Permalink to this heading"></a></h3>
+<p>Install a minimal set of freshly built required packages</p>
+<p><em>As a developer who has just built fresh rpms in given local directory I want to prepare on the guest only the minimal set of required packages.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>After building new rpm packages locally there should be an easy way to install on the guest only those packages which are actually required by tests or are explicitly requested in the prepare step.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">make rpm</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt run test --name smoke \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">prepare --how install --directory fresh/rpms</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="repository">
+<span id="stories-features-prepare-repository"></span><h3>repository<a class="headerlink" href="#repository" title="Permalink to this heading"></a></h3>
+<p>Add artifact repository for installation</p>
+<p><em>As a CI system I want to be able to add a repository with high priority from which all subsequent packages will be installed, updated, downgraded or reinstalled.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>In case of Fedora CI we want the packages to be from the artifact repository which the CI system provides. Due to support of dist-git pull requests we need to support cases when the artifact repository contains packages with lower or the same version, which is quite common in case of scratch builds.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run -a prepare --how repository --order 1 \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">--base-url file:///repository --priority 999 \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">plan --name some-plan</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+<section id="required">
+<span id="stories-features-prepare-required"></span><h3>required<a class="headerlink" href="#required" title="Permalink to this heading"></a></h3>
+<p>Install a minimal set of required packages</p>
+<p><em>As a tester who uses VM or container with relevant repositories enabled and whose packages are not part of the default installation I want to prepare the guest with the minimal set of required packages.</em></p>
+<p>Only packages which are actually required by tests or are explicitly requested in the prepare step are installed. This allows to test the installation itself and also verify functionality without hidden requires.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">tmt run plan --name install/dependencies</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="selected">
+<span id="stories-features-prepare-selected"></span><h3>selected<a class="headerlink" href="#selected" title="Permalink to this heading"></a></h3>
+<p>Install specific packages</p>
+<p><em>As a developer I would like to install certain packages required for testing.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a draft, the story is not implemented yet.</p>
+</div>
+<p>In case of execution from CI I want these packages to be installed from a given Koji build, even if they have same or lower NVR. I have conflicting subpackages in my package. The specification for local execution and CI should be the same.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/plan/curl</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">      </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl</span>
+
+<span class="nt">/plan/curl-minimal</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">      </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl-minimal</span>
+</pre></div>
+</div>
+<p>Status: idea</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli.html" class="btn btn-neutral float-left" title="Command Line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../questions.html" class="btn btn-neutral float-right" title="Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tests" href="tests.html" />
+    <link rel="prev" title="Metadata Specification" href="../spec.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../spec.html">Specification</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adjust">adjust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabled">enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spec-core-id">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#link">link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#order">order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tag">tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tier">tier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plans.html">Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lint.html">Lint Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../spec.html">Metadata Specification</a></li>
+      <li class="breadcrumb-item active">Core</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/spec/core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="core">
+<span id="spec-core"></span><h1>Core<a class="headerlink" href="#core" title="Permalink to this heading"></a></h1>
+<p><em>I want to have common core attributes used consistently across all metadata levels.</em></p>
+<section id="adjust">
+<span id="spec-core-adjust"></span><h2>adjust<a class="headerlink" href="#adjust" title="Permalink to this heading"></a></h2>
+<p>Adjust metadata based on the given context</p>
+<p><em>As a user I want to adjust test, plan or story metadata based on the given context such as product, distribution, architecture or trigger.</em></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">adjust</span></code> attribute allows to modify arbitrary object
+metadata based on the context in which they are to be used.
+For example, tests may be relevant only for given environment,
+the set of required packages may differ across distributions
+or there might be a different set of plans executed for pull
+requests versus for the full compose integration testing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The context currently has to be specified explicitly, see
+the <a class="reference internal" href="context.html#spec-context"><span class="std std-ref">Context</span></a> documentation for details. In the
+future, <strong>tmt</strong> will detect (at least some of) the needed
+information from the environment.</p>
+</div>
+<p>The value can be a dictionary or a list of dictionaries which
+represent individual rules to be applied. Each rule contains
+metadata to be merged into the original object. The following
+three keys are reserved for rule evaluation:</p>
+<dl class="simple">
+<dt>when</dt><dd><p>The condition to be evaluated in order to decide if the
+metadata should be merged. In the expression, you can use
+any defined context <a class="reference internal" href="context.html#spec-context-dimension"><span class="std std-ref">dimension</span></a>. See
+the full <a class="reference external" href="https://fmf.readthedocs.io/en/latest/context.html#syntax">condition syntax</a> for details about supported
+operators. This is a <strong>required</strong> key.</p>
+</dd>
+<dt>continue</dt><dd><p>By default, all provided rules are evaluated. When set to
+<code class="docutils literal notranslate"><span class="pre">false</span></code>, the first successful rule finishes the
+evaluation and the rest is ignored. Must be a <code class="docutils literal notranslate"><span class="pre">boolean</span></code>.</p>
+</dd>
+<dt>because</dt><dd><p>An optional comment with justification of the adjustment.
+Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This covers and extends the original concept of <a class="reference external" href="https://docs.fedoraproject.org/en-US/ci/test-case-relevancy">Test Case
+Relevancy</a> which is now obsoleted.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable a test for older distros</span>
+<span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro &lt; fedora-33</span>
+<span class="w">    </span><span class="nt">because</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">the feature was added in Fedora 33</span>
+
+<span class="c1"># Adjust the required package name</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">procps-ng</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">procps</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro == centos-6</span>
+
+<span class="c1"># Extend the environment variables, use multiple rules</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">environment+</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">SH</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component == bash</span>
+<span class="w">    </span><span class="nt">continue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro &lt; centos-6</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># Install the fresh pytest from pip on older distros</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prepare+</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">       </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fresh-pytest</span>
+<span class="w">       </span><span class="nt">order</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
+<span class="w">       </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;python3</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">pytest&#39;</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro &lt; rhel-8</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="description">
+<span id="spec-core-description"></span><h2>description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>Detailed description of the object</p>
+<p>Multiline <code class="docutils literal notranslate"><span class="pre">string</span></code> describing all important aspects of the object. Usually spans across several paragraphs. For detailed examples using a dedicated attributes ‘examples’ should be considered.</p>
+<p>Status: implemented</p>
+</section>
+<section id="enabled">
+<span id="spec-core-enabled"></span><h2>enabled<a class="headerlink" href="#enabled" title="Permalink to this heading"></a></h2>
+<p>Allow disabling individual tests, plans or stories</p>
+<p><em>As a developer or tester I want selected tests or plans to be skipped during test execution.</em></p>
+<p>When a test or a plan is broken or it is not relevant for
+given <a class="reference internal" href="context.html#spec-context"><span class="std std-ref">Context</span></a> it can be disabled so that it’s
+skipped during the execution. For stories, this attribute
+might be used to mark stories which should be skipped when
+generating the documentation.</p>
+<p>Must be a <code class="docutils literal notranslate"><span class="pre">boolean</span></code>. The default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mark as disabled</span>
+<span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># Disable for older distros</span>
+<span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">adjust</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">distro &lt; fedora-33</span>
+<span class="w">    </span><span class="nt">because</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">the feature was added in Fedora 33</span>
+
+<span class="c1"># List only enabled tests</span>
+<span class="l l-Scalar l-Scalar-Plain">tmt tests ls --filter enabled:true</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="spec-core-id">
+<span id="id"></span><h2>id<a class="headerlink" href="#spec-core-id" title="Permalink to this heading"></a></h2>
+<p>Persistent unique identifier of the object</p>
+<p><em>As a user I want to be able to track execution history of a test even if it is renamed or moved to another repository.</em></p>
+<p>Sometimes tests, plans or stories are renamed or moved across
+the directory structure, into a different git branch or even
+to another repository. Any of these changes results into an
+update of the <a class="reference external" href="https://fmf.readthedocs.io/en/latest/concept.html#identifiers">fmf identifier</a>.</p>
+<p>In order to identify objects even after they are renamed or
+moved the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute can be used to store a unique
+identifier which does not change and can be used for example
+to track the complete test execution history even if the test
+changed the location or name.</p>
+<p>Must be a uniqe <code class="docutils literal notranslate"><span class="pre">string</span></code>, using a <a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">uuid</a> is recommended.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">af994876-1c68-49a7-90e8-c8d2b189189d</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="link">
+<span id="spec-core-link"></span><h2>link<a class="headerlink" href="#link" title="Permalink to this heading"></a></h2>
+<p>Link related objects</p>
+<p><em>As a user I want to link related tests, stories or external issues so that I can easily find out what the test, plan or story is addressing.</em></p>
+<p>The core attribute <code class="docutils literal notranslate"><span class="pre">link</span></code> is used to track relevant objects
+such as user stories or external issues verified by the given
+test, source code implementing particular story, blocking
+issues or parent-child relations.</p>
+<p>The value can be a single link or a list of links. There are
+two options how to specify the <code class="docutils literal notranslate"><span class="pre">target</span></code> of the reference:</p>
+<dl class="simple">
+<dt>string</dt><dd><p>This can be either a <code class="docutils literal notranslate"><span class="pre">name</span></code> of the fmf node within the
+same metadata tree, a file <code class="docutils literal notranslate"><span class="pre">path</span></code> from the tree root to
+the application or documentation source code or a <code class="docutils literal notranslate"><span class="pre">URL</span></code>
+to an external issue tracker.</p>
+</dd>
+<dt>dict</dt><dd><p>In order to reference remote fmf objects use a dictionary
+with the full <a class="reference external" href="https://fmf.readthedocs.io/en/latest/concept.html#identifiers">fmf identifier</a>.</p>
+</dd>
+</dl>
+<p>By default, the link between the two objects is interpreted in
+a generic way as <code class="docutils literal notranslate"><span class="pre">relates</span></code>. To explicitly define a different
+connection to the target reference, use a dictionary and set
+the key to one of the supported relations:</p>
+<dl class="simple">
+<dt>verifies</dt><dd><p>This object (a test or a plan) verifies functionality
+defined in the target (a story, an issue, a bug).</p>
+</dd>
+<dt>verified-by</dt><dd><p>The functionality (described in a story, an issue or a
+bug) is verified by the target (a test or a plan).</p>
+</dd>
+<dt>implements</dt><dd><p>This object (source code) implements functionality defined
+in the target (a story describing the feature).</p>
+</dd>
+<dt>implemented-by</dt><dd><p>The functionality (described in a story) is implemented by
+the target (source code).</p>
+</dd>
+<dt>documents</dt><dd><p>This object (a guide or examples) documents the target (a
+story).</p>
+</dd>
+<dt>documented-by</dt><dd><p>The functionality (described in a story) is documented by
+the target (a guide or examples).</p>
+</dd>
+<dt>blocks</dt><dd><p>This object is blocking the target.</p>
+</dd>
+<dt>blocked-by</dt><dd><p>This object is blocked by the target.</p>
+</dd>
+<dt>duplicates</dt><dd><p>This object is a duplicate of the target.</p>
+</dd>
+<dt>duplicated-by</dt><dd><p>This object is duplicated by the target.</p>
+</dd>
+<dt>parent</dt><dd><p>This object is a child of the target parent.</p>
+</dd>
+<dt>child</dt><dd><p>This object is a parent of the target child.</p>
+</dd>
+<dt>relates</dt><dd><p>This object relates to the provided target.
+This is the <strong>default</strong> relation.</p>
+</dd>
+<dt>test-script</dt><dd><p>Web link to the location of the testing script, intended
+for cases where the tests are stored in a different
+directory or repository than the metadata files.</p>
+</dd>
+</dl>
+<p>An optional key <code class="docutils literal notranslate"><span class="pre">note</span></code> can be used to add an arbitrary
+comment describing the relation.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># A related issue</span>
+<span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt/issues/461</span>
+
+<span class="c1"># A test verifying a story</span>
+<span class="nt">link</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">verifies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/stories/cli/init/base</span>
+
+<span class="c1"># A test verifying a story and a bug</span>
+<span class="nt">link</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">verifies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/stories/cli/init/base</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">verifies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://bugzilla.redhat.com/show_bug.cgi?id=1234</span>
+
+<span class="c1"># An implemented story covered by both tests and docs</span>
+<span class="nt">link</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">implemented-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmt/cli.py</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">verified-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/init/base</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">documented-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/docs/guide.rst</span>
+
+<span class="c1"># A story blocked by a remote story with optional note</span>
+<span class="nt">link</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">blocked-by</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/fmf</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/stories/select/filter/regexp</span>
+<span class="w">    </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Need to get the regexp filter working first.</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+<section id="order">
+<span id="spec-core-order"></span><h2>order<a class="headerlink" href="#order" title="Permalink to this heading"></a></h2>
+<p>Order in which the object should be handled</p>
+<p>Sometimes it is important in which order objects are processed. For example when running tests we need to execute some tests first or when exporting stories we need to arrange content in the right sequence to create a meaningful documentation. Must be an <code class="docutils literal notranslate"><span class="pre">integer</span></code>, negative values are allowed as well. The default value is <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">order</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="summary">
+<span id="spec-core-summary"></span><h2>summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h2>
+<p>Concise summary describing purpose of the object</p>
+<p>Must be a one-line <code class="docutils literal notranslate"><span class="pre">string</span></code>, should be up to 50 characters long. It is challenging to be both concise and descriptive, but that is what a well-written summary should do.</p>
+<p>Status: implemented</p>
+</section>
+<section id="tag">
+<span id="spec-core-tag"></span><h2>tag<a class="headerlink" href="#tag" title="Permalink to this heading"></a></h2>
+<p>Free form tags for easy filtering</p>
+<p><em>As a user I want to run only a subset of available tests, plans or stories.</em></p>
+<p>Throughout the years, free-form tags proved to be useful for many, many scenarios. Primarily to provide an easy way how to select a subset of objects. Tags are case-sensitive. Using lowercase is recommended. Must be a <code class="docutils literal notranslate"><span class="pre">string</span></code> or a <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code>. Tag name must not contain spaces or commas.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single tag</span>
+<span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple tags</span>
+<span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">security</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">fast</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple tags on separate lines</span>
+<span class="nt">tag</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fast</span>
+</pre></div>
+</div>
+<p>Status: implemented and verified</p>
+</section>
+<section id="tier">
+<span id="spec-core-tier"></span><h2>tier<a class="headerlink" href="#tier" title="Permalink to this heading"></a></h2>
+<p>Name of the tier set this the object belongs to</p>
+<p><em>As a tester testing a security advisory I want to run the stable set of important tests which cover the most essential functionality and can provide test results in a short time.</em></p>
+<p>It’s quite common to organize tests or plans into “tiers” based on their importance, stability, duration and other aspects. For this tags have been used quite often in the past, now there is a dedicated field for this use case. Should be a <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic tier one definition.</span>
+<span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integer values are converted to strings.</span>
+<span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Any custom string can be used as well.</span>
+<span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
+</pre></div>
+</div>
+<p>Status: implemented</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../spec.html" class="btn btn-neutral float-left" title="Metadata Specification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tests.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

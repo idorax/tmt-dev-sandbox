@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide &mdash; tmt  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Metadata Specification" href="spec.html" />
+    <link rel="prev" title="tmt" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tmt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-first-steps">The First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#under-the-hood">Under The Hood</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trees">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plans">Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tests">Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stories">Stories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#core">Core</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#organize-data">Organize Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create">Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lint">Lint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inheritance">Inheritance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#virtual-tests">Virtual Tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inherit-plans">Inherit Plans</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#elasticity">Elasticity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multihost-testing">Multihost Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synchronization-libraries">Synchronization Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-limits">Current Limits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tmt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guide">
+<span id="id1"></span><h1>Guide<a class="headerlink" href="#guide" title="Permalink to this heading"></a></h1>
+<p>This guide will show you the way through the dense forest of
+available <code class="docutils literal notranslate"><span class="pre">tmt</span></code> features, commands and options. But don’t be
+afraid, we will start slowly, with the simple examples first. And
+then, when your eyes get accustomed to the shadow of omni-present
+metadata <a class="reference external" href="https://fmf.readthedocs.io/en/stable/concept.html#trees">trees</a>, we will slowly dive deeper and deeper so that
+you don’t miss any essential functionality which could make your
+life smarter, brighter and more joyful. Let’s go, follow me…</p>
+<section id="the-first-steps">
+<h2>The First Steps<a class="headerlink" href="#the-first-steps" title="Permalink to this heading"></a></h2>
+<p>Installing the main package with the core functionality is quite
+straightforward. No worry, there are just a few dependencies:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>tmt
+</pre></div>
+</div>
+<p>Enabling a simple smoke test in the continuous integration should
+be a joy. Just a couple of concise commands, assuming you are in
+your project git repository:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>init<span class="w"> </span>--template<span class="w"> </span>mini
+vim<span class="w"> </span>plans/example.fmf
+</pre></div>
+</div>
+<p>Open the example plan in your favorite editor and adjust the smoke
+test script as needed. Your very first plan can look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic smoke test</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+</pre></div>
+</div>
+<p>Now you’re ready to create a new pull request to check out how
+it’s working. During push, remote usually shows a direct link to
+the page with a <em>Create</em> button, so now it’s only two clicks
+away:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>smoke-test
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Enable a simple smoke test&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>-u<span class="w"> </span>smoke-test
+</pre></div>
+</div>
+<p>But perhaps, you are a little bit impatient and would like to see
+the results faster. Sure, let’s try the smoke test here and now,
+directly on your localhost:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>run<span class="w"> </span>--all<span class="w"> </span>provision<span class="w"> </span>--how<span class="w"> </span><span class="nb">local</span>
+</pre></div>
+</div>
+<p>If you’re a bit afraid that the test could break your machine or
+just want to keep your environment clean, run it in a container
+instead:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>tmt-provision-container
+tmt<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>provision<span class="w"> </span>-h<span class="w"> </span>container
+</pre></div>
+</div>
+<p>Or even in a full virtual machine if the container environment is
+not enough. We’ll use the <a class="reference internal" href="questions.html#libvirt"><span class="std std-ref">libvirt</span></a> to start a new
+virtual machine on your localhost. Be ready for a bit more
+dependencies here:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>tmt-provision-virtual
+tmt<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>provision<span class="w"> </span>-h<span class="w"> </span>virtual
+</pre></div>
+</div>
+<p>Don’t care about the disk space? Simply install <code class="docutils literal notranslate"><span class="pre">tmt-all</span></code> and
+you’ll get all available functionality at hand. Check the help to
+list all supported provision methods:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>tmt-all
+tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>Now when you’ve met your <code class="docutils literal notranslate"><span class="pre">--help</span></code> friend you know everything you
+need to get around without getting lost in the forest of available
+options:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>--help
+tmt<span class="w"> </span>run<span class="w"> </span>--help
+tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>--help
+tmt<span class="w"> </span>run<span class="w"> </span>provision<span class="w"> </span>--how<span class="w"> </span>container<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>Go on and explore. Don’t be shy and ask, <code class="docutils literal notranslate"><span class="pre">--help</span></code> is eager to
+answer all your questions ;-)</p>
+</section>
+<section id="under-the-hood">
+<h2>Under The Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this heading"></a></h2>
+<p>Now let’s have a brief look under the hood. For storing all config
+data we’re using the <a class="reference external" href="https://fmf.readthedocs.io">Flexible Metadata Format</a>. In short, it is
+a <code class="docutils literal notranslate"><span class="pre">yaml</span></code> format extended with a couple of nice features like
+<a class="reference external" href="https://fmf.readthedocs.io/en/stable/features.html#inheritance">inheritance</a> or virtual <a class="reference external" href="https://fmf.readthedocs.io/en/stable/features.html#hierarchy">hierarchy</a> which help to maintain
+even large data efficiently without unnecessary duplication.</p>
+<section id="trees">
+<span id="tree"></span><h3>Trees<a class="headerlink" href="#trees" title="Permalink to this heading"></a></h3>
+<p>The data are organized into <a class="reference external" href="https://fmf.readthedocs.io/en/stable/concept.html#trees">trees</a>. Similarly as with <code class="docutils literal notranslate"><span class="pre">git</span></code>,
+there is a special <code class="docutils literal notranslate"><span class="pre">.fmf</span></code> directory which marks the root of the
+fmf metadata tree. Use the <code class="docutils literal notranslate"><span class="pre">init</span></code> command to initialize it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>init
+</pre></div>
+</div>
+<p>Do not forget to include this special <code class="docutils literal notranslate"><span class="pre">.fmf</span></code> directory in your
+commits, it is essential for building the fmf tree structure which
+is created from all <code class="docutils literal notranslate"><span class="pre">*.fmf</span></code> files discovered under the fmf root.</p>
+</section>
+<section id="plans">
+<h3>Plans<a class="headerlink" href="#plans" title="Permalink to this heading"></a></h3>
+<p>As we’ve seen above, in order to enable testing the following plan
+is just enough:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo --version</span>
+</pre></div>
+</div>
+<p>Store these two lines in a <code class="docutils literal notranslate"><span class="pre">*.fmf</span></code> file and that’s it. Name and
+location of the file is completely up to you, plans are recognized
+by the <code class="docutils literal notranslate"><span class="pre">execute</span></code> key which is required. Once the newly created
+plan is submitted to the CI system test script will be executed.</p>
+<p>By the way, there are several basic templates available which can
+be applied already during the <code class="docutils literal notranslate"><span class="pre">init</span></code> by using the <code class="docutils literal notranslate"><span class="pre">--template</span></code>
+option or the short version <code class="docutils literal notranslate"><span class="pre">-t</span></code>. The minimal template, which
+includes just a simple plan skeleton, is the fastest way to get
+started:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>init<span class="w"> </span>-t<span class="w"> </span>mini
+</pre></div>
+</div>
+<p><a class="reference internal" href="spec/plans.html#spec-plans"><span class="std std-ref">Plans</span></a> are used to enable testing and group relevant
+tests together. They describe how to <a class="reference internal" href="spec/plans.html#spec-plans-discover"><span class="std std-ref">discover</span></a>
+tests for execution, how to <a class="reference internal" href="spec/plans.html#spec-plans-provision"><span class="std std-ref">provision</span></a> the
+environment, how to <a class="reference internal" href="spec/plans.html#spec-plans-prepare"><span class="std std-ref">prepare</span></a> it for testing, how
+to <a class="reference internal" href="spec/plans.html#spec-plans-execute"><span class="std std-ref">execute</span></a> tests, <a class="reference internal" href="spec/plans.html#spec-plans-report"><span class="std std-ref">report</span></a>
+results and finally how to <a class="reference internal" href="spec/plans.html#spec-plans-finish"><span class="std std-ref">finish</span></a> the test job.</p>
+<p>Here’s an example of a slightly more complex plan which changes
+the default provision method to container to speed up the testing
+process and ensures that an additional package is installed before
+the testing starts:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora:33</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wget</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wget http://example.org/</span>
+</pre></div>
+</div>
+<p>Note that each of the steps above uses the <code class="docutils literal notranslate"><span class="pre">how</span></code> keyword to
+choose the desired method which should be applied. Steps can
+provide multiple implementations which enables you to choose the
+best one for your use case. For example to prepare the guest it’s
+possible to use the <a class="reference internal" href="spec/plans.html#spec-plans-prepare-install"><span class="std std-ref">install</span></a> method for
+simple package installations, <a class="reference internal" href="spec/plans.html#spec-plans-prepare-ansible"><span class="std std-ref">ansible</span></a>
+for more complex system setup or <a class="reference internal" href="spec/plans.html#spec-plans-prepare-shell"><span class="std std-ref">shell</span></a>
+for arbitrary shell commands.</p>
+</section>
+<section id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h3>
+<p>Very often testing is much more complex than running just a
+single shell script. There might be many scenarios covered by
+individual scripts. For these cases the <code class="docutils literal notranslate"><span class="pre">discover</span></code> step can
+be instructed to explore available tests from fmf metadata as
+well. The plan will look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="spec/tests.html#spec-tests"><span class="std std-ref">Tests</span></a>, identified by the required key <code class="docutils literal notranslate"><span class="pre">test</span></code>,
+define attributes which are closely related to individual test
+cases such as the <a class="reference internal" href="spec/tests.html#spec-tests-test"><span class="std std-ref">test</span></a> script,
+<a class="reference internal" href="spec/tests.html#spec-tests-framework"><span class="std std-ref">framework</span></a>, directory <a class="reference internal" href="spec/tests.html#spec-tests-path"><span class="std std-ref">path</span></a>
+where the test should be executed, maximum test
+<a class="reference internal" href="spec/tests.html#spec-tests-duration"><span class="std std-ref">duration</span></a> or packages
+<a class="reference internal" href="spec/tests.html#spec-tests-require"><span class="std std-ref">required</span></a> to run the test. Here’s an
+example of test metadata:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fetch an example web page</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wget http://example.org/</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wget</span>
+<span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
+</pre></div>
+</div>
+<p>Instead of writing the plan and test metadata manualy, you might
+want to simply apply the <code class="docutils literal notranslate"><span class="pre">base</span></code> template which contains the plan
+mentioned above together with a test example including both test
+metadata and test script skeleton for inspiration:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>init<span class="w"> </span>--template<span class="w"> </span>base
+</pre></div>
+</div>
+<p>Similar to plans, it is possible to choose an arbitrary name for
+the test. Just make sure the <code class="docutils literal notranslate"><span class="pre">test</span></code> key is defined. However, to
+organize the metadata efficiently it is recommended to keep tests
+and plans under separate folders, e.g. <code class="docutils literal notranslate"><span class="pre">tests</span></code> and <code class="docutils literal notranslate"><span class="pre">plans</span></code>.
+This will also allow you to use <a class="reference external" href="https://fmf.readthedocs.io/en/latest/features.html#inheritance">inheritance</a> to prevent
+unnecessary data duplication.</p>
+</section>
+<section id="stories">
+<h3>Stories<a class="headerlink" href="#stories" title="Permalink to this heading"></a></h3>
+<p>It’s always good to start with a “why”. Or, even better, with a
+story which can describe more context behind the motivation.
+<a class="reference internal" href="spec/stories.html#spec-stories"><span class="std std-ref">Stories</span></a> can be used to track implementation, test and
+documentation coverage for individual features or requirements.
+Thanks to this you can track everything in one place, including
+the project implementation progress. Stories are identified by the
+<code class="docutils literal notranslate"><span class="pre">story</span></code> attribute which every story has to define or inherit.</p>
+<p>An example story can look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">story</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">As a user I want to see more detailed information for</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">particular command.</span>
+<span class="nt">example</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt test show -v</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt test show -vvv</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt test show --verbose</span>
+</pre></div>
+</div>
+<p>In order to start experimenting with the complete set of examples
+covering all metadata levels, use the <code class="docutils literal notranslate"><span class="pre">full</span></code> template which
+creates a test, a plan and a story:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>init<span class="w"> </span>-t<span class="w"> </span>full
+</pre></div>
+</div>
+</section>
+<section id="core">
+<h3>Core<a class="headerlink" href="#core" title="Permalink to this heading"></a></h3>
+<p>Finally, there are certain metadata keys which can be used across
+all levels. <a class="reference internal" href="spec/core.html#spec-core"><span class="std std-ref">Core</span></a> attributes cover general metadata
+such as <a class="reference internal" href="spec/core.html#spec-core-summary"><span class="std std-ref">summary</span></a> or <a class="reference internal" href="spec/core.html#spec-core-description"><span class="std std-ref">description</span></a>
+for describing the content, the <a class="reference internal" href="spec/core.html#spec-core-enabled"><span class="std std-ref">enabled</span></a>
+attribute for disabling and enabling tests, plans and stories and
+the <a class="reference internal" href="spec/core.html#spec-core-link"><span class="std std-ref">link</span></a> key which can be used for tracking
+relations between objects.</p>
+<p>Here’s how the story above could be extended with the core
+attributes <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">link</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Different verbose levels can be enabled by using the</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">option several times.</span>
+<span class="nt">link</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">implemented-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmt/cli.py</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">documented-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmt/cli.py</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">verified-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/core/dry</span>
+</pre></div>
+</div>
+<p>Last but not least, the core attribute <a class="reference internal" href="spec/core.html#spec-core-adjust"><span class="std std-ref">adjust</span></a>
+provides a flexible way to adjust metadata based on the
+<a class="reference internal" href="spec/context.html#spec-context"><span class="std std-ref">Context</span></a>. But this is rather a large topic, so let’s
+keep it for another time.</p>
+</section>
+</section>
+<section id="organize-data">
+<h2>Organize Data<a class="headerlink" href="#organize-data" title="Permalink to this heading"></a></h2>
+<p>In the previous chapter we’ve learned what <a class="reference internal" href="spec/tests.html#spec-tests"><span class="std std-ref">Tests</span></a>,
+<a class="reference internal" href="spec/plans.html#spec-plans"><span class="std std-ref">Plans</span></a> and <a class="reference internal" href="spec/stories.html#spec-stories"><span class="std std-ref">Stories</span></a> are used for. Now the
+time has come to learn how to efficiently organize them in your
+repository. First we’ll describe how to easily <a class="reference internal" href="#create"><span class="std std-ref">Create</span></a> new
+tests, plans and stories, how to use <a class="reference internal" href="#lint"><span class="std std-ref">Lint</span></a> to verify that
+all metadata have correct syntax. Finally, we’ll dive into
+<a class="reference internal" href="#inheritance"><span class="std std-ref">Inheritance</span></a> and <a class="reference internal" href="#elasticity"><span class="std std-ref">Elasticity</span></a> which can substantially
+help you to minimize data duplication.</p>
+<section id="create">
+<span id="id8"></span><h3>Create<a class="headerlink" href="#create" title="Permalink to this heading"></a></h3>
+<p>When working on the test coverage, one of the most common actions
+is creating new tests. Use <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">test</span> <span class="pre">create</span></code> to simply create a
+new test based on a template:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>create<span class="w"> </span>/tests/smoke
+Template<span class="w"> </span><span class="o">(</span>shell<span class="w"> </span>or<span class="w"> </span>beakerlib<span class="o">)</span>:<span class="w"> </span>shell
+Directory<span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/tests/smoke&#39;</span><span class="w"> </span>created.
+Test<span class="w"> </span>metadata<span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/tests/smoke/main.fmf&#39;</span><span class="w"> </span>created.
+Test<span class="w"> </span>script<span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/tests/smoke/test.sh&#39;</span><span class="w"> </span>created.
+</pre></div>
+</div>
+<p>As for now there are two templates available, <code class="docutils literal notranslate"><span class="pre">shell</span></code> for simple
+scripts written in shell and <code class="docutils literal notranslate"><span class="pre">beakerlib</span></code> with a basic skeleton
+demonstrating essential functions of this shell-level testing
+framework. If you want to be faster, specify the desired template
+directly on the command line using <code class="docutils literal notranslate"><span class="pre">-t</span></code> or <code class="docutils literal notranslate"><span class="pre">--template</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>create<span class="w"> </span>--template<span class="w"> </span>shell<span class="w"> </span>/tests/smoke
+$<span class="w"> </span>tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>create<span class="w"> </span>--t<span class="w"> </span>beakerlib<span class="w"> </span>/tests/smoke
+</pre></div>
+</div>
+<p>In a similar way, the <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">plan</span> <span class="pre">create</span></code> command can be used to
+create a new plan with templates:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>plans<span class="w"> </span>create<span class="w"> </span>--template<span class="w"> </span>mini<span class="w"> </span>/plans/smoke
+tmt<span class="w"> </span>plans<span class="w"> </span>create<span class="w"> </span>--t<span class="w"> </span>full<span class="w"> </span>/plans/features
+</pre></div>
+</div>
+<p>When creating many plans, for example when migrating the whole
+test coverage from a different tooling, it might be handy to
+override default template content directly from the command line.
+For this use individual step options such as <code class="docutils literal notranslate"><span class="pre">--discover</span></code> and
+provide desired data in the <code class="docutils literal notranslate"><span class="pre">yaml</span></code> format:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>plan<span class="w"> </span>create<span class="w"> </span>/plans/custom<span class="w"> </span>--template<span class="w"> </span>mini<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--discover<span class="w"> </span><span class="s1">&#39;{how: &quot;fmf&quot;, name: &quot;internal&quot;, url: &quot;https://internal/repo&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--discover<span class="w"> </span><span class="s1">&#39;{how: &quot;fmf&quot;, name: &quot;external&quot;, url: &quot;https://external/repo&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>Now it will be no surprise for you that for creating a new story
+the <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">story</span> <span class="pre">create</span></code> command can be used with the very same
+possibility to choose the right template:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tmt<span class="w"> </span>story<span class="w"> </span>create<span class="w"> </span>--template<span class="w"> </span>full<span class="w"> </span>/stories/usability
+</pre></div>
+</div>
+<p>Sometimes you forget something, or just things may go wrong and
+you need another try. In such case add <code class="docutils literal notranslate"><span class="pre">-f</span></code> or <code class="docutils literal notranslate"><span class="pre">--force</span></code> to
+quickly overwrite existing files with the right content.</p>
+</section>
+<section id="lint">
+<span id="id9"></span><h3>Lint<a class="headerlink" href="#lint" title="Permalink to this heading"></a></h3>
+<p>It is easy to introduce a syntax error to one of the fmf files and
+make the whole tree broken. The <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">lint</span></code> command performs a
+set of <a class="reference internal" href="spec/lint.html#lint-checks"><span class="std std-ref">Lint Checks</span></a> which compare the stored metadata
+against the specification and reports anything suspicious:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tmt<span class="w"> </span>lint<span class="w"> </span>/tests/execute/basic
+/tests/execute/basic
+pass<span class="w"> </span>C000<span class="w"> </span>fmf<span class="w"> </span>node<span class="w"> </span>passes<span class="w"> </span>schema<span class="w"> </span>validation
+warn<span class="w"> </span>C001<span class="w"> </span>summary<span class="w"> </span>should<span class="w"> </span>not<span class="w"> </span>exceed<span class="w"> </span><span class="m">50</span><span class="w"> </span>characters
+pass<span class="w"> </span>T001<span class="w"> </span>correct<span class="w"> </span>keys<span class="w"> </span>are<span class="w"> </span>used
+pass<span class="w"> </span>T002<span class="w"> </span><span class="nb">test</span><span class="w"> </span>script<span class="w"> </span>is<span class="w"> </span>defined
+pass<span class="w"> </span>T003<span class="w"> </span>directory<span class="w"> </span>path<span class="w"> </span>is<span class="w"> </span>absolute
+pass<span class="w"> </span>T004<span class="w"> </span><span class="nb">test</span><span class="w"> </span>path<span class="w"> </span><span class="s1">&#39;/home/psss/git/tmt/tests/execute/basic&#39;</span><span class="w"> </span>does<span class="w"> </span>exist
+skip<span class="w"> </span>T005<span class="w"> </span>legacy<span class="w"> </span>relevancy<span class="w"> </span>not<span class="w"> </span>detected
+skip<span class="w"> </span>T006<span class="w"> </span>legacy<span class="w"> </span><span class="s1">&#39;coverage&#39;</span><span class="w"> </span>field<span class="w"> </span>not<span class="w"> </span>detected
+skip<span class="w"> </span>T007<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>manual<span class="w"> </span><span class="nb">test</span>
+skip<span class="w"> </span>T008<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>manual<span class="w"> </span><span class="nb">test</span>
+pass<span class="w"> </span>T009<span class="w"> </span>all<span class="w"> </span>requirements<span class="w"> </span>have<span class="w"> </span><span class="nb">type</span><span class="w"> </span>field
+</pre></div>
+</div>
+<p>There is a broad variety of options to control what checks are
+applied on tests, plans and stories:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lint everything, everywhere</span>
+tmt<span class="w"> </span>lint
+
+<span class="c1"># Lint just selected plans</span>
+tmt<span class="w"> </span>lint<span class="w"> </span>/plans/features
+tmt<span class="w"> </span>plans<span class="w"> </span>lint<span class="w"> </span>/plans/features
+
+<span class="c1"># Change the set of checks applied - enable some, disable others</span>
+tmt<span class="w"> </span>lint<span class="w"> </span>--enable-check<span class="w"> </span>T001<span class="w"> </span>--disable-check<span class="w"> </span>C002
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="spec/lint.html#lint-checks"><span class="std std-ref">Lint Checks</span></a> page for the list of available checks
+or use the <code class="docutils literal notranslate"><span class="pre">--list-checks</span></code> option. For the full list of options,
+see <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">lint</span> <span class="pre">--help</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># All checks tmt has for tests, plans and stories</span>
+tmt<span class="w"> </span>lint<span class="w"> </span>--list-checks
+
+<span class="c1"># All checks tmt has for tests</span>
+tmt<span class="w"> </span><span class="nb">test</span><span class="w"> </span>lint<span class="w"> </span>--list-checks
+</pre></div>
+</div>
+<p>You should run <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">lint</span></code> before pushing changes, ideally even
+before you commit your changes. You can set up <a class="reference external" href="https://pre-commit.com/#install">pre-commit</a> to
+do it for you. Add to your repository’s <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">repos</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt.git</span>
+<span class="w">  </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.23.0</span>
+<span class="w">  </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt-lint</span>
+</pre></div>
+</div>
+<p>This will run <code class="docutils literal notranslate"><span class="pre">tmt</span> <span class="pre">lint</span> <span class="pre">--source</span></code> for all modified fmf files.
+There are hooks to just check tests <code class="docutils literal notranslate"><span class="pre">tmt-tests-lint</span></code>, plans
+<code class="docutils literal notranslate"><span class="pre">tmt-plans-lint</span></code> or stories <code class="docutils literal notranslate"><span class="pre">tmt-stories-lint</span></code> explicitly.
+From time to time you might want to run <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">autoupdate</span></code>
+to refresh config to the latest version.</p>
+</section>
+<section id="inheritance">
+<span id="id11"></span><h3>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">fmf</span></code> format provides a nice flexibility regarding the file
+location. Tests, plans and stories can be placed arbitrarily in
+the repo. You can pick the location which best fits your project.
+However, it makes sense to group similar or closely related
+objects together. A thoughtful structure will not only make it
+easier to find things and more quickly understand the content, it
+also allows to prevent duplication of common metadata which would
+be otherwise repeated many times.</p>
+<p>Let’s have a look at some tangible example. We create separate
+directories for tests and plans. Under each of them there is an
+additional level to group related tests or plans together:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── plans
+│   ├── features
+│   ├── install
+│   ├── integration
+│   ├── provision
+│   ├── remote
+│   └── sanity
+└── tests
+   ├── core
+   ├── full
+   ├── init
+   ├── lint
+   ├── login
+   ├── run
+   ├── steps
+   └── unit
+</pre></div>
+</div>
+<p>Vast majority of the tests is executed using a <code class="docutils literal notranslate"><span class="pre">./test.sh</span></code>
+script which is written in <code class="docutils literal notranslate"><span class="pre">beakerlib</span></code> framework and almost all
+tests require <code class="docutils literal notranslate"><span class="pre">tmt</span></code> package to be installed on the system. So
+the following test metadata are common:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./test.sh</span>
+<span class="nt">framework</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beakerlib</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">tmt</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>Instead of repating this information again and again for each test
+we place a <code class="docutils literal notranslate"><span class="pre">main.fmf</span></code> file at the top of the <code class="docutils literal notranslate"><span class="pre">tests</span></code> tree:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tests
+├── main.fmf
+├── core
+├── full
+├── init
+...
+</pre></div>
+</div>
+<section id="virtual-tests">
+<span id="id12"></span><h4>Virtual Tests<a class="headerlink" href="#virtual-tests" title="Permalink to this heading"></a></h4>
+<p>Sometimes it might be useful to reuse test code by providing
+different parameter or an environment variable to the same test
+script. In such cases inheritance allows to easily share the
+common setup:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./test.sh</span>
+<span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl</span>
+
+<span class="nt">/fast</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Quick smoke test</span>
+<span class="w">    </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">MODE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fast</span>
+
+<span class="nt">/full</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Full test set</span>
+<span class="w">    </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">    </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10m</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">MODE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full</span>
+</pre></div>
+</div>
+<p>In the example above, two tests are defined, both executing the
+same <code class="docutils literal notranslate"><span class="pre">test.sh</span></code> script but providing a different environment
+variable which instructs the test to perform a different set of
+actions.</p>
+</section>
+<section id="inherit-plans">
+<span id="id13"></span><h4>Inherit Plans<a class="headerlink" href="#inherit-plans" title="Permalink to this heading"></a></h4>
+<p>If several plans share similar content it is possible to use
+inheritance to prevent unnecessary duplication of the data:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/teemtee/tmt</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible</span>
+<span class="w">    </span><span class="nt">playbook</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible/packages.yml</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="nt">/basic</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Quick set of basic functionality tests</span>
+<span class="w">    </span><span class="nt">discover+</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:1</span>
+
+<span class="nt">/features</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Detailed tests for individual features</span>
+<span class="w">    </span><span class="nt">discover+</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tier:2</span>
+</pre></div>
+</div>
+<p>Note that a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign should be used if you want to extend the
+parent data instead of replacing them. See the <a class="reference external" href="https://fmf.readthedocs.io/en/latest/features.html">fmf features</a>
+documentation for a detailed description of the hierarchy,
+inheritance and merging attributes.</p>
+</section>
+</section>
+<section id="elasticity">
+<span id="id14"></span><h3>Elasticity<a class="headerlink" href="#elasticity" title="Permalink to this heading"></a></h3>
+<p>Depending on the size of your project you can choose to store all
+configuration in just a single file or rather use multiple files
+to store each test, plan or story separately. For example, you can
+combine both the plan and tests like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Verify that plugins are working</span>
+<span class="w">    </span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">provision</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="w">    </span><span class="nt">prepare</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">        </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did</span>
+<span class="w">    </span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="nt">/tests</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">/bugzilla</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --bugzilla</span>
+<span class="w">    </span><span class="nt">/github</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --github</span>
+<span class="w">    </span><span class="nt">/koji</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+</pre></div>
+</div>
+<p>Or you can put the plan in one file and tests into another one:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># plan.fmf</span>
+<span class="nt">summary</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Verify that plugins are working</span>
+<span class="nt">discover</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="nt">provision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">container</span>
+<span class="nt">prepare</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmt</span>
+
+<span class="c1"># tests.fmf</span>
+<span class="nt">/bugzilla</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --bugzilla</span>
+<span class="nt">/github</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --github</span>
+<span class="nt">/koji</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+</pre></div>
+</div>
+<p>Or even each test can be defined in a separate file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests/bugzilla.fmf</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --bugzilla</span>
+
+<span class="c1"># tests/github.fmf</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --github</span>
+
+<span class="c1"># tests/koji.fmf</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+</pre></div>
+</div>
+<p>You can start with a single file when the project is still small.
+When some branch of the config grows too much, you can easily
+extract the large content into a new separate file.</p>
+<p>The <a class="reference internal" href="#tree"><span class="std std-ref">Trees</span></a> built from the scattered files stay identical if
+the same name is used for the file or directory containing the
+data. For example, the <code class="docutils literal notranslate"><span class="pre">/tests/koji</span></code> test from the top
+<code class="docutils literal notranslate"><span class="pre">main.fmf</span></code> config could be moved to any of the following
+locations without any change to the resulting <cite>fmf</cite> tree:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests.fmf</span>
+<span class="nt">/koji</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+
+<span class="c1"># tests/main.fmf</span>
+<span class="nt">/koji</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+
+<span class="c1"># tests/koji.fmf</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+
+<span class="c1"># tests/koji/main.fmf</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">did --koji</span>
+</pre></div>
+</div>
+<p>This gives you a nice flexibility to extend the metadata when and
+where needed as your project organically grows.</p>
+</section>
+</section>
+<section id="multihost-testing">
+<h2>Multihost Testing<a class="headerlink" href="#multihost-testing" title="Permalink to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.24.</span></p>
+</div>
+<p>Support for basic server/client scenarios is now available.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">prepare</span></code>, <code class="docutils literal notranslate"><span class="pre">execute</span></code>, and <code class="docutils literal notranslate"><span class="pre">finish</span></code> steps are able to run a
+given task (test, preparation script, ansible playbook, etc.) on
+several guests at once. Tasks are assigned to provisioned guests by
+matching the <code class="docutils literal notranslate"><span class="pre">where</span></code> key from
+<a class="reference internal" href="spec/plans.html#spec-plans-discover-where"><span class="std std-ref">discover</span></a>,
+<a class="reference internal" href="spec/plans.html#spec-plans-prepare-where"><span class="std std-ref">prepare</span></a> and <code class="docutils literal notranslate"><span class="pre">finish</span></code> phases
+with corresponding guests by their
+<a class="reference internal" href="spec/plans.html#spec-plans-provision-multihost"><span class="std std-ref">key and role keys</span></a>.
+Essentially, plan author tells tmt on which guest(s) a test or
+script should run by listing guest name(s) or guest role(s).</p>
+<p>The granularity of the multihost scenario is on the step phase
+level. The user may define multiple <code class="docutils literal notranslate"><span class="pre">discover</span></code>, <code class="docutils literal notranslate"><span class="pre">prepare</span></code> and
+<code class="docutils literal notranslate"><span class="pre">finish</span></code> phases, and everything in them will start on given guests
+at the same time when the previous phase completes. The practical
+effect is, tmt does not manage synchronization on the test level:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">discover</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server-setup</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/A</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tests</span>
+<span class="w">    </span><span class="nt">how</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fmf</span>
+<span class="w">    </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/B</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tests/C</span>
+<span class="w">    </span><span class="nt">where</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+</pre></div>
+</div>
+<p>In this example, first, everything from the <code class="docutils literal notranslate"><span class="pre">server-setup</span></code> phase
+would run on guests called <code class="docutils literal notranslate"><span class="pre">server</span></code>, while guests with the name or
+role <code class="docutils literal notranslate"><span class="pre">client</span></code> would remain idle. When this phase completes, tmt
+would move to the next one, and run everything in <code class="docutils literal notranslate"><span class="pre">tests</span></code> on
+<code class="docutils literal notranslate"><span class="pre">server</span></code> and <code class="docutils literal notranslate"><span class="pre">client</span></code> guests. The phase would be started at the
+same time, more or less, but tmt will not even try to synchronize
+the execution of each test from this phase. <code class="docutils literal notranslate"><span class="pre">/tests/B</span></code> may still
+be running on <code class="docutils literal notranslate"><span class="pre">server</span></code> when <code class="docutils literal notranslate"><span class="pre">/tests/C</span></code> is already completed on
+<code class="docutils literal notranslate"><span class="pre">client</span></code>.</p>
+<p>tmt exposes information about guests and roles to all three steps in
+the form of files tests and scripts can parse or import.
+See the <a class="reference internal" href="spec/plans.html#spec-plans-guest-topology"><span class="std std-ref">Guest Topology Format</span></a> for details. Information
+from these files can be then used to contact other guests, connect
+to their services, synchronization, etc.</p>
+<p>tmt fully supports one test being executed multiple times. This is
+especially visible in the format of results, see
+<a class="reference internal" href="spec/plans.html#spec-plans-results"><span class="std std-ref">Results Format</span></a>. Every test is assigned a “serial
+number”, if the same test appears in multiple discover phases, each
+instance would be given a different serial number. The serial number
+and the guest from which a result comes from are then saved for each
+test result.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a well-mannered project, tmt of course has a battery of tests
+to make sure the multihost support does not break down. The
+<a class="reference external" href="https://github.com/teemtee/tmt/tree/main/tests/multihost/complete/data">/tests/multihost/complete</a> test may serve as an inspiration
+for your experiments.</p>
+</div>
+<section id="synchronization-libraries">
+<h3>Synchronization Libraries<a class="headerlink" href="#synchronization-libraries" title="Permalink to this heading"></a></h3>
+<p>The test-level synchronization, as described above, is not
+implemented, and this is probably not going to change any time
+soon. For the test-level synchronization, please use dedicated
+libraries, e.g. one of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/beaker-project/rhts">RHTS support</a> in Beaker <code class="docutils literal notranslate"><span class="pre">rhts-sync-block</span></code> and
+<code class="docutils literal notranslate"><span class="pre">rhts-sync-set</span></code>,</p></li>
+<li><p><a class="reference external" href="https://github.com/beakerlib/sync/tree/master/sync">a beakerlib library</a> by Ondrej Moris, utilizes a shared
+storage, two-hosts only,</p></li>
+<li><p><a class="reference external" href="https://github.com/RedHat-SP-Security/keylime-tests/tree/main/Library/sync">a rhts-like distributed version</a> by Karel Srot,</p></li>
+<li><p><a class="reference external" href="https://github.com/beakerlib/ControlFlow/tree/master/sync">a native beakerlib library</a> by Dalibor Pospisil, a
+distributed version of Ondrej Moris’s library, supporting any
+number of hosts.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="current-limits">
+<h3>Current Limits<a class="headerlink" href="#current-limits" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the most up-to-date list of issues related to multihost,
+our Github can display all isues with the <a class="reference external" href="https://github.com/teemtee/tmt/labels/multihost">multihost</a> label.</p>
+</div>
+<ul class="simple">
+<li><p>requirements of all tests (<a class="reference internal" href="spec/tests.html#spec-tests-require"><span class="std std-ref">require</span></a>,
+<a class="reference internal" href="spec/tests.html#spec-tests-recommend"><span class="std std-ref">recommend</span></a>) are installed on all guests. See
+<a class="reference external" href="https://github.com/teemtee/tmt/issues/2010">this issue</a> for more details.</p></li>
+<li><p>interaction between guests provisioned by different plugins. Think
+“a server from <code class="docutils literal notranslate"><span class="pre">podman</span></code> plugin vs client from <code class="docutils literal notranslate"><span class="pre">virtual</span></code>”.
+This is not yet supported, see these issues: <a class="reference external" href="https://github.com/teemtee/tmt/issues/2047">here</a>
+and <a class="reference external" href="https://github.com/teemtee/tmt/issues/2046">here</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">provision</span></code> step is still running in sequence, guests are
+provisioned one by one. This is not technically necessary, and
+with tools we now have for handling parallelization of other
+steps, provisioning deserves the same treatment, resulting in,
+hopefully, a noticeable speed up (especially with plugins like
+<code class="docutils literal notranslate"><span class="pre">beaker</span></code> or <code class="docutils literal notranslate"><span class="pre">artemis</span></code>).</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="tmt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spec.html" class="btn btn-neutral float-right" title="Metadata Specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Red Hat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

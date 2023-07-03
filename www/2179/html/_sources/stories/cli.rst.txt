@@ -1,0 +1,2281 @@
+.. _/stories/cli:
+
+Command Line
+============
+*As a user I want to have an intuitive command line interface.*
+
+.. _/stories/cli/common:
+
+common
+^^^^^^
+
+
+*I want to have common command line options consistenly used across all supported commands and subcommands.*
+
+.. _/stories/cli/common/debug:
+
+debug
+:::::
+
+Print additional information for debugging
+
+*As a tmt developer I want to see as much details about what's happening during execution so that I can easily reveal bugs in the code.*
+
+
+Debug level can be used to show detailed implementation steps, revealing what's happening under the hood, so that tool developers are able to more easily find bugs in the code. Use the option multiple times to increase verbosity.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -d
+
+
+
+.. code-block:: yaml
+
+   tmt run -ddd
+
+
+
+.. code-block:: yaml
+
+   tmt run --debug
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/common/dry:
+
+dry
+:::
+
+Run in dry mode, just let me know what would be done
+
+*As a user I want to run commands in dry mode so that I can see what would happen if I run the command but no actions are performed or changes saved to disk.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -n
+
+
+
+.. code-block:: yaml
+
+   tmt run --dry
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/common/force:
+
+force
+:::::
+
+Force dangerous operations like overwriting files
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test create -f
+
+
+
+.. code-block:: yaml
+
+   tmt test create --force
+
+
+Status: implemented and documented
+
+.. _/stories/cli/common/format:
+
+format
+::::::
+
+Provide machine readable output in given format
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test ls --format json
+
+
+
+.. code-block:: yaml
+
+   tmt plan show --format yaml
+
+
+
+.. code-block:: yaml
+
+   tmt story export --format rst
+
+
+Status: implemented and documented
+
+.. _/stories/cli/common/quiet:
+
+quiet
+:::::
+
+Enable quiet mode of the command
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test show -q
+
+
+
+.. code-block:: yaml
+
+   tmt test show --quiet
+
+
+Status: implemented and documented
+
+.. _/stories/cli/common/verbose:
+
+verbose
+:::::::
+
+Enable verbose output of the command
+
+*As a user I want to see more detailed information for particular command.*
+
+
+Different verbose levels can be enabled by using the
+option several times. For example, discover step shows
+only number of tests by default, list of tests in verbose
+level one and could show some further test details in
+higher verbose levels.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test show -v
+
+
+
+.. code-block:: yaml
+
+   tmt test show -vvv
+
+
+
+.. code-block:: yaml
+
+   tmt test show --verbose
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/config:
+
+config
+^^^^^^
+
+
+*As a user I want to store configuration so that I don't have to always provide my preferred default options on the command line.*
+
+
+Configuration should be stored as an ``fmf`` metadata tree according to ``L2 Metadata`` specification. Default values from it would be used if value is not specified in the plan.
+
+.. _/stories/cli/config/levels:
+
+levels
+::::::
+
+Configuration levels
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+There are several levels of test execution data
+configuration.
+
+default
+    global default settings (common for most instances)
+detect
+    detect from previous steps output (e.g. distro from
+    build)
+define
+    allow to override value by explicit user configuration
+
+Let's demonstrate these on a simple example with a
+distribution compose (C) and the amount of memory (M).
+
+* CI system is configured by ``default`` to use compose
+  ``C1`` installed on machines with ``M1`` GB of memory.
+* When inspecting an artifact CI can ``detect`` that for
+  this particular build target, compose ``C2`` is a much
+  better choice, and memory is fine as it is.
+* User can still explicitly ``define`` in the
+  configuration that at least ``M2`` GB of memory is
+  needed for successful test execution which overrides
+  both default and detected values.
+
+
+
+Status: idea
+
+.. _/stories/cli/config/system:
+
+system
+::::::
+
+System wide configuration
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Global default values common for all users on the system should be stored under the ``/etc/tmt`` folder. It is overriden by user configuration if present.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       how: container
+
+
+Status: idea
+
+.. _/stories/cli/config/user:
+
+user
+::::
+
+User configuration
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Configuration for individual users should be stored under the ``~/.config/tmt`` folder. Overrides global system configuration.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   provision:
+       image: fedora:33
+   report:
+       how: irc
+       channel: #tmt
+
+
+Status: idea
+
+.. _/stories/cli/init:
+
+init
+^^^^
+
+Initialize a new metadata tree
+
+*As a user I want to start using tmt in my git repository.*
+
+.. _/stories/cli/init/base:
+
+base
+::::
+
+Create a tree with some examples
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt init --template base
+
+
+Status: implemented and verified
+
+.. _/stories/cli/init/empty:
+
+empty
+:::::
+
+Create an empty metadata tree
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt init
+
+
+Status: implemented and verified
+
+.. _/stories/cli/init/full:
+
+full
+::::
+
+Create a tree with full examples
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt init --template full
+
+
+Status: implemented and verified
+
+.. _/stories/cli/init/mini:
+
+mini
+::::
+
+Create a tree with simple examples
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt init --template mini
+
+
+Status: implemented and verified
+
+.. _/stories/cli/plan:
+
+plan
+^^^^
+
+
+*As a user I want to comfortably work with plans*
+
+.. _/stories/cli/plan/create:
+
+create
+::::::
+
+
+*As a developer I want to easily enable CI*
+
+
+Provide a super-easy and user-friendly way how to enable tests in the CI. Several templates should be supported to cover common use cases.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt plan create /plans/smoke --template=mini
+
+
+
+.. code-block:: yaml
+
+   tmt plan create /plans/features --template=full
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/plan/filter:
+
+filter
+::::::
+
+
+*Filter available plans*
+
+
+Search plans using a regular expression or a filter. Use ``.`` to select plans under the current directory.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt plan ls .
+
+
+
+.. code-block:: yaml
+
+   tmt plan ls REGEXP
+
+
+
+.. code-block:: yaml
+
+   tmt plan show --filter artifact:build
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/plan/lint:
+
+lint
+::::
+
+
+*Check plan against the L2 metadata specification*
+
+
+Verify that plan metadata are aligned with the specification, e.g. that all required attributes are present and that all attributes have correct type.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt plan lint
+
+
+Status: implemented and verified
+
+.. _/stories/cli/plan/ls:
+
+ls
+::
+
+
+*List available plans*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt plan ls
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/plan/show:
+
+show
+::::
+
+
+*Show plan configuration*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt plan show
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run:
+
+run
+^^^
+
+
+*As a user I want to execute tests easily*
+
+.. _/stories/cli/run/debug:
+
+debug
+:::::
+
+Handsfree debugging
+
+*As a test developer I want to automatically execute tests upon saving the updated test code to disk.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+A very common loop of modifying the source code and
+re-executing the test should be accessible without
+subsequent user interaction with the tool.
+
+* run the tool once, keep it running
+* observe the execution results
+* open an editor in a separate window
+* modify the file, save the changes
+* observe the updated execution results
+* ...
+
+Prioritize latency and reuse as much as possible from the
+previous execution. Ideally, start the re-execution from
+the modified line.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run debug
+
+
+Status: idea
+
+.. _/stories/cli/run/default:
+
+default
+:::::::
+
+.. _/stories/cli/run/default/plan:
+
+plan
+----
+
+Plan should not be required for test execution
+
+*As a tester I want to execute tests in the default environment without having to define a plan.*
+
+
+Even if there are no :ref:`/spec/plans` defined it is
+still possible to execute tests and custom scripts. In
+that case the default :ref:`/spec/plans` configuration
+is applied and tests are executed using the ``shell``
+method.
+
+In order to discover available tests, the ``fmf``
+method is used if metadata tree is detected otherwise
+test discovery defaults to the ``shell`` method as well.
+
+Individual steps of the default plan can be adjusted
+as needed in the same way as if it was a real plans.
+For example use ``execute -h beakerlib`` to execute
+tests using the beakerlib method.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   /plans/default:
+       summary:
+           Default plan when fmf metadata found
+       discover:
+           how: fmf
+       execute:
+           how: shell
+
+   /plans/default:
+       summary:
+           Default plan when no fmf metadata around
+       discover:
+           how: shell
+       execute:
+           how: shell
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/default/run:
+
+run
+---
+
+Default should cover the most common use case
+
+*As a user I want to easily and safely execute all available tests in the default environment.*
+
+
+Run all relevant tests in a local virtual machine so that the test environment can be safely prepared and adjusted as needed without affecting or possibly breaking user environment such as laptop.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run
+
+
+Status: implemented and documented
+
+.. _/stories/cli/run/filter:
+
+filter
+::::::
+
+.. _/stories/cli/run/filter/plan:
+
+plan
+----
+
+
+*Select plans for execution*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run plan --name=NAME
+
+
+
+.. code-block:: yaml
+
+   tmt run plan --filter=FILTER
+
+
+
+.. code-block:: yaml
+
+   tmt run plan --condition=CONDITION
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/filter/test:
+
+test
+----
+
+
+*Select tests for execution*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run test --name=NAME
+
+
+
+.. code-block:: yaml
+
+   tmt run test --filter=FILTER
+
+
+
+.. code-block:: yaml
+
+   tmt run test --condition=CONDITION
+
+
+
+.. code-block:: yaml
+
+   tmt run plan --name=NAME2 test --name=NAME1
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/interactive:
+
+interactive
+:::::::::::
+
+
+*Provide way similar to git rebase --interactive*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Provide users with list of steps and let them edit them. Allow adding commands between, or at least interactive "pause". When user would be finished with single step, just continue recipe. Do not force users to remember all steps when working with them. Make it possible to repeat single step or abort current run. Allow repeating some steps just by repeating lines with task.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --all --interactive
+
+
+
+.. code-block:: yaml
+
+   tmt run --continue
+
+
+
+.. code-block:: yaml
+
+   tmt run --abort
+
+
+Status: idea
+
+.. _/stories/cli/run/keep:
+
+keep
+::::
+
+
+*Store test step status, keep machines running*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --id ID provision prepare
+
+
+
+.. code-block:: yaml
+
+   tmt run --id ID discover execute
+
+
+
+.. code-block:: yaml
+
+   tmt run --id ID execute
+
+
+
+.. code-block:: yaml
+
+   tmt run --id ID execute
+
+
+Status: implemented and documented
+
+.. _/stories/cli/run/last:
+
+last
+::::
+
+
+*As a user I want to rerun tests easily*
+
+
+Execute previous run without the need to specify the
+previous run id. The command is a shortcut for:
+
+.. code-block:: shell
+
+    tmt run --id PREVIOUS_RUN
+
+Note that ``tmt`` saves last run id on each new execution.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -l
+
+
+
+.. code-block:: yaml
+
+   tmt run --last
+
+
+Status: implemented and documented
+
+.. _/stories/cli/run/login:
+
+login
+:::::
+
+Easily login into a provisioned guest
+
+*As a user I want to log into the provisioned guest so that I can adjust the environment before the test is run or investigate what happened after the test is finished.*
+
+.. _/stories/cli/run/login/experiment:
+
+experiment
+----------
+
+Provision an environment for experimenting
+
+*As a user I want to easily provision a clean and safe environment for experimenting and remove it when done.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision login
+   tmt run --last finish
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/login/last:
+
+last
+----
+
+Log in at the end of the last enabled step
+
+*As a user I want to log into the provisioned guest to investigate once the test execution has finished.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --until execute login
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/login/order:
+
+order
+-----
+
+Log in at the selected phase of a step
+
+*As a user I want to select the exact phase during the step execution to log into the guest.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run login --step prepare:75
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/login/select:
+
+select
+------
+
+Log in at the end of the selected step
+
+*As a user I want to finish the guest preparation manually at the end of the prepare step.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run login --step prepare
+   tmt run login --step prepare:end
+   tmt run login --step prepare:90
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/login/start:
+
+start
+-----
+
+Log in at the start of the selected step
+
+*As a user I want to manually enable extra package repositories before the prepare step is run.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run login --step prepare:start
+   tmt run login --step prepare:10
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/login/status:
+
+status
+------
+
+Log in when a test finished with given status
+
+*As a user I want to quickly investigate what exactly happened on the guest if any test failed.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run login --step execute --when fail
+   tmt run login --step execute --when error
+   tmt run login --step execute --when fail --when error
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/restraint:
+
+restraint
+:::::::::
+
+
+*As a tester I want the option to execute tests using the Restraint harness.*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+Restraint is the default harness in beaker for RHEL8 and beyond. In order to provide compatibility with beaker style tests, I would like a way to invoke ``tmt`` using the Restaint harness. This would enable Restraint tests to be invoked by ``tmt`` without modification. Some common commands include ``rstrnt-reboot``, ``rstrnt-abort``, and ``rstrnt-report-result``.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --all execute --how restraint
+
+
+Status: idea
+
+.. _/stories/cli/run/select:
+
+select
+::::::
+
+
+*Select multiple steps to be executed*
+
+.. _/stories/cli/run/select/all:
+
+all
+---
+
+
+*Run all test steps, customize some*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --all provision --how=container
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/select/pick:
+
+pick
+----
+
+
+*Choose steps to be executed*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision prepare
+
+
+
+.. code-block:: yaml
+
+   tmt run discover provision prepare
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/select/since:
+
+since
+-----
+
+
+*Run given step and all following steps.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --since prepare
+
+
+
+.. code-block:: yaml
+
+   tmt run --since execute
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/select/skip:
+
+skip
+----
+
+
+*Skip given step during execution*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --skip prepare
+
+
+
+.. code-block:: yaml
+
+   tmt run --skip finish
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/select/until:
+
+until
+-----
+
+
+*Run given step and all preceding steps.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --until prepare
+
+
+
+.. code-block:: yaml
+
+   tmt run --until execute
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/run/shortcuts:
+
+shortcuts
+:::::::::
+
+
+*Provide shortcuts for common scenarios*
+
+.. _/stories/cli/run/shortcuts/container:
+
+container
+---------
+
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --container=fedora:rawhide
+
+
+
+.. code-block:: yaml
+
+   tmt run --container=fedora:rawhide --cap-add=SYS_ADMIN
+
+
+Status: idea
+
+.. _/stories/cli/run/shortcuts/mock:
+
+mock
+----
+
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt --mock fedora-31-x86_64
+
+
+
+.. code-block:: yaml
+
+   tmt --mock fedora-31-x86_64 --no-clean --enable-network
+
+
+
+.. code-block:: yaml
+
+   tmt --mock fedora-31-x86_64 --enablerepo=updates-testing
+
+
+Status: idea
+
+.. _/stories/cli/run/smoke:
+
+smoke
+:::::
+
+
+*As a developer I want to do a quick smoke test of my freshly built rpm package.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --all \
+   prepare -h install -p tmt-0.4-1.fc29.noarch.rpm \
+   execute -h tmt --script 'tmt --help'
+
+
+Status: implemented
+
+.. _/stories/cli/steps:
+
+steps
+^^^^^
+
+.. _/stories/cli/steps/discover:
+
+discover
+::::::::
+
+
+*Select or adjust the discover step*
+
+
+Defines which tests should be executed.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run discover
+
+
+
+.. code-block:: yaml
+
+   tmt run discover --how=fmf
+
+
+
+.. code-block:: yaml
+
+   tmt run discover --how=fmf --url=url
+
+
+
+.. code-block:: yaml
+
+   tmt run discover --how=shell
+
+
+Status: implemented
+
+.. _/stories/cli/steps/execute:
+
+execute
+:::::::
+
+
+*Select or adjust the execute step*
+
+
+Specification of the executor which should run tests.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run execute
+
+
+
+.. code-block:: yaml
+
+   tmt run execute --how=tmt
+
+
+
+.. code-block:: yaml
+
+   tmt run execute --how=restraint
+
+.. _/stories/cli/steps/execute/exit-first:
+
+exit-first
+----------
+
+Stop execution after a test fails
+
+*As a user I want to avoid waiting for all discovered tests to finish if one of them fails.*
+
+
+To interrupt test execution after a test fails use the ``--exit-first`` (or ``-x``) option. This option is accepted by both the execute step and the plugins implementing the execute step.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -a execute --exit-first
+
+
+
+.. code-block:: yaml
+
+   tmt run -a execute -h tmt -x
+
+
+Status: implemented and verified
+
+.. _/stories/cli/steps/execute/interactive:
+
+interactive
+-----------
+
+Interactive test debugging
+
+*As a user I want to interactively debug tests in the middle of their execution.*
+
+
+To debug a test use the ``--interactive`` option which disables output capturing and allows to interact directly with the test from the terminal. For example, for tests written in shell you can insert a ``bash`` command in the middle of the script and investigate. Supported by the :ref:`/spec/plans/execute/tmt` executor only.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run --all execute --how tmt --interactive
+
+
+Status: implemented and documented
+
+.. _/stories/cli/steps/execute/progress:
+
+progress
+--------
+
+Watch test execution progress
+
+*As a user I want to watch live test execution including the complete test output.*
+
+
+In order to see progress of the testing use the ``--verbose`` or ``-v`` switch. Applying the option multiple times increases verbosity. This is supported by the :ref:`/spec/plans/execute/tmt` executor only.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run -v
+
+
+
+.. code-block:: yaml
+
+   tmt run -vv
+
+
+
+.. code-block:: yaml
+
+   tmt run -vvv
+
+
+
+.. code-block:: yaml
+
+   tmt run --all execute -vvv
+
+
+Status: implemented
+
+.. _/stories/cli/steps/finish:
+
+finish
+::::::
+
+
+*Select or adjust the finish step*
+
+
+Additional actions to be performed after the test execution has been completed. Counterpart of the prepare step useful for various cleanup actions.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run finish
+
+
+Status: implemented
+
+.. _/stories/cli/steps/prepare:
+
+prepare
+:::::::
+
+
+*Select or adjust the prepare step*
+
+
+Additional configuration of the provisioned environment needed for testing.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run prepare
+
+
+
+.. code-block:: yaml
+
+   tmt run prepare --how=install
+
+
+
+.. code-block:: yaml
+
+   tmt run prepare --how=install --package=fresh.rpm
+
+
+
+.. code-block:: yaml
+
+   tmt run prepare --how=ansible
+
+
+
+.. code-block:: yaml
+
+   tmt run prepare --how=ansible --playbook=server.yaml
+
+
+Status: implemented
+
+.. _/stories/cli/steps/provision:
+
+provision
+:::::::::
+
+
+*Select or adjust the provision step*
+
+
+Describes what environment is needed for testing and how it should provisioned.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision
+
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=virtual
+
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=testing-farm --memory=2048MB
+
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=container
+
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=container --image=fedora:rawhide
+
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=local
+
+.. _/stories/cli/steps/provision/connect:
+
+connect
+-------
+
+
+*Connect to a provisioned box*
+
+
+Do not provision a new system. Instead, use provided authentication data to connect to a running machine.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=connect --guest=name-or-ip --user=login --password=secret
+
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=connect --guest=name-or-ip --key=private-key-path
+
+
+Status: implemented and documented
+
+.. _/stories/cli/steps/provision/container:
+
+container
+---------
+
+
+*Provision a container*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=container --image=fedora:latest
+
+
+Status: implemented and documented
+
+.. _/stories/cli/steps/provision/default:
+
+default
+-------
+
+
+*Use default config or provision a virtual machine*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision
+
+
+Status: implemented and documented
+
+.. _/stories/cli/steps/provision/local:
+
+local
+-----
+
+
+*Use localhost for testing*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=local
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/steps/provision/virtual:
+
+virtual
+-------
+
+
+*Provision a virtual machine*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run provision --how=virtual --image=fedora/31-cloud-base
+
+
+Status: implemented and documented
+
+.. _/stories/cli/steps/report:
+
+report
+::::::
+
+
+*Select or adjust the report step*
+
+
+Adjusting notifications about the test progress and results.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt run report
+
+
+
+.. code-block:: yaml
+
+   tmt run report --how=html
+
+
+
+.. code-block:: yaml
+
+   tmt run report --how=html --open
+
+
+Status: implemented
+
+.. _/stories/cli/story:
+
+story
+^^^^^
+
+
+*As a developer I want to comfortably work with stories*
+
+.. _/stories/cli/story/coverage:
+
+coverage
+::::::::
+
+Show story coverage
+
+*As a developer I want to easily view which stories have been implemented, are covered by tests and documented and which still need work to be done.*
+
+.. _/stories/cli/story/coverage/code:
+
+code
+----
+
+View code implementation status
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story coverage -c
+
+
+
+.. code-block:: yaml
+
+   tmt story coverage --code
+
+
+Status: implemented and documented
+
+.. _/stories/cli/story/coverage/docs:
+
+docs
+----
+
+View documentation status
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story coverage -d
+
+
+
+.. code-block:: yaml
+
+   tmt story coverage --docs
+
+
+Status: implemented and documented
+
+.. _/stories/cli/story/coverage/overview:
+
+overview
+--------
+
+General coverage overview
+
+
+
+Complete overview of the story coverage including implementation, testing and documentation status.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story coverage
+
+
+Status: implemented and documented
+
+.. _/stories/cli/story/coverage/test:
+
+test
+----
+
+View test coverage status
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story coverage -t
+
+
+
+.. code-block:: yaml
+
+   tmt story coverage --test
+
+
+Status: implemented and documented
+
+.. _/stories/cli/story/create:
+
+create
+::::::
+
+
+*As a developer I want to easily create new story.*
+
+
+Provide an easy way how to create a new story. Several templates should be provided to choose from.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story create /stories/area/story
+
+
+
+.. code-block:: yaml
+
+   tmt story create /stories/area/story --template mini
+
+
+
+.. code-block:: yaml
+
+   tmt story create /stories/area/story --template mini --force
+
+
+Status: implemented and documented
+
+.. _/stories/cli/story/export:
+
+export
+::::::
+
+
+*I need to convert stories into a beautiful format*
+
+.. _/stories/cli/story/export/html:
+
+html
+----
+
+
+*Export stories into html*
+
+.. note:: This is a draft, the story is not implemented yet.
+
+So that they can be quickly reviewed in a web browser. Optionally a simple python httpd server could be started to serve the page or pages.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story export --html --server
+
+
+Status: idea
+
+.. _/stories/cli/story/export/rst:
+
+rst
+---
+
+
+*Export stories into reStructuredText*
+
+
+So that they can be included in tmt documentation.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story export --rst
+
+
+Status: implemented
+
+.. _/stories/cli/story/filter:
+
+filter
+::::::
+
+
+*Search available stories*
+
+
+Search stories using a regular expression, a filter or coverage status. Use ``.`` to select stories under the current directory.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story ls .
+
+
+
+.. code-block:: yaml
+
+   tmt story ls REGEXP
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --implemented
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --unimplemented
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --verified
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --unverified
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --documented
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --undocumented
+
+
+Status: implemented and documented
+
+.. _/stories/cli/story/ls:
+
+ls
+::
+
+
+*List available stories*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story ls
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/story/show:
+
+show
+::::
+
+
+*Show story details*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story show
+
+
+Status: implemented and documented
+
+.. _/stories/cli/test:
+
+test
+^^^^
+
+
+*As a user I want to comfortably work with tests*
+
+.. _/stories/cli/test/create:
+
+create
+::::::
+
+
+*Create a new test skeleton*
+
+
+Provide an easy way how to create a new test. Ideally with support for multiple test skeletons. Similarly as beaker-wizard (which should be obsoleted by this) the tool should prompt for required values if not provided on the command line.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test create
+
+
+
+.. code-block:: yaml
+
+   tmt test create /tests/area/feature
+
+
+
+.. code-block:: yaml
+
+   tmt test create /tests/area/feature --skeleton beakerlib
+
+
+
+.. code-block:: yaml
+
+   tmt test create /tests/area/feature --duration=1h
+
+
+Status: implemented and documented
+
+.. _/stories/cli/test/export:
+
+export
+::::::
+
+
+*As a tester I want to export test metadata.*
+
+.. _/stories/cli/test/export/format:
+
+format
+------
+
+
+*I want to export test metadata into given format.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test export --format yaml
+
+
+Status: implemented
+
+.. _/stories/cli/test/export/nitrate:
+
+nitrate
+-------
+
+
+*I want to export test metadata into nitrate.*
+
+
+In order to keep metadata in sync with the old test
+case management system we need to export selected set
+of attributes back to nitrate. The full fmf object
+identifier should be added to the structured field
+under the key ``fmf``. A warning should be added to
+the structured field informing users that the test
+metadata are now maintained in git.
+
+Below is the list of supported ``fmf`` attributes and
+corresponding nitrate fields:
+
+* component — components tab
+* contact — default tester
+* description — purpose-file in the structured field
+* duration — estimated time
+* enabled — status
+* environment — arguments
+* path — not synced
+* result — not synced
+* summary — description in the structured field
+* tag — tags tab
+* test — not synced
+* tier — tags (e.g. ``1`` synced to the ``Tier1`` tag)
+
+The following attributes, if present, should be
+exported as well:
+
+* extra-summary — test case summary
+* extra-hardware — hardware in the structured field
+* extra-pepa — pepa in the structured field
+
+They have the ``extra`` prefix as they are not part of
+the L1 Metadata Specification and are supposed to be
+synced temporarily to keep backward compatibility.
+
+After a successful export, special tag ``fmf-export``
+should be added to the nitrate test case in order to
+allow easy search for migrated test cases directly
+from the web interface.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test export --nitrate
+
+
+Status: implemented and documented
+
+.. _/stories/cli/test/filter:
+
+filter
+::::::
+
+
+*Filter available tests*
+
+
+Search tests using a regular expression or a filter. Use ``.`` to select tests under the current directory.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test ls .
+
+
+
+.. code-block:: yaml
+
+   tmt test ls REGEXP
+
+
+
+.. code-block:: yaml
+
+   tmt test show --filter tier:1
+
+
+
+.. code-block:: yaml
+
+   tmt test show --condition 'int(tier) < 2'
+
+
+
+.. code-block:: yaml
+
+   tmt test show --condition '"gcc" in require'
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/test/import:
+
+import
+::::::
+
+
+*As a tester I want to import test metadata.*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test import
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/test/lint:
+
+lint
+::::
+
+
+*Check test against the L1 metadata specification*
+
+
+Verify that test metadata are aligned with the specification, e.g. that all required attributes are present and that all attributes have correct type.
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test lint
+
+
+Status: implemented and documented
+
+.. _/stories/cli/test/ls:
+
+ls
+::
+
+
+*List available tests*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test ls
+
+
+Status: implemented, verified and documented
+
+.. _/stories/cli/test/show:
+
+show
+::::
+
+
+*Show test metadata*
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt test show
+
+
+Status: implemented and documented
+
+.. _/stories/cli/usability:
+
+usability
+^^^^^^^^^
+
+
+*As a user I want to type as little as possible.*
+
+.. _/stories/cli/usability/abbreviation:
+
+abbreviation
+::::::::::::
+
+.. _/stories/cli/usability/abbreviation/commands:
+
+commands
+--------
+
+Allow command abbreviation
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story show
+
+
+
+.. code-block:: yaml
+
+   tmt st sh
+
+
+
+.. code-block:: yaml
+
+   tmt s s
+
+
+Status: implemented
+
+.. _/stories/cli/usability/abbreviation/options:
+
+options
+-------
+
+Allow option abbreviation
+
+
+.. note:: This is a draft, the story is not implemented yet.
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt story ls --implemented
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --impl
+
+
+
+.. code-block:: yaml
+
+   tmt story ls --i
+
+
+Status: idea
+
+.. _/stories/cli/usability/completion:
+
+completion
+::::::::::
+
+Support bash completion
+
+
+
+
+**Examples:**
+
+
+.. code-block:: yaml
+
+   tmt st<tabl> sh<tab>
+
+
+Status: implemented
+
