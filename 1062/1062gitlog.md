@@ -1,6 +1,40 @@
 # The git log of TMT issue [1062][01]
 
+* The 1st PR of [1062][01]: [2198](https://github.com/teemtee/tmt/pull/2198)
+
 [01]: https://github.com/teemtee/tmt/issues/1062
+
+## Git log during the China Mid-Autumn Festival and National Day `September 29 – October 6, 2023`
+
+```
+commit af374b8d5adfdd984f2fee3dbd0d772f827d7867
+Author: Vector Li <huanli@redhat.com>
+Date:   Thu Oct 5 19:26:17 2023 +0800
+
+    Add tests for FIPS
+
+    Signed-off-by: Vector Li <huanli@redhat.com>
+
+commit a182a755091bf29f8b31fd655263a2f96fd3532c
+Author: Vector Li <huanli@redhat.com>
+Date:   Tue Oct 3 15:15:37 2023 +0800
+
+    Add tests and update feature.py accordingly
+
+    Signed-off-by: Vector Li <huanli@redhat.com>
+
+commit 53956d9dd1b478160881a033e7bf25e918b8101a
+Author: Vector Li <huanli@redhat.com>
+Date:   Mon Oct 2 20:24:26 2023 +0800
+
+    Use multiline script to enable/disable EPEL/CRB (2)
+
+    * For CentOS Stream 8, 9 and CentOS 7
+
+    Signed-off-by: Vector Li <huanli@redhat.com>
+```
+
+## Full log
 
 ```
 commit 7371a90ca9a1782b81eac4cf1ca1765db85838e9
